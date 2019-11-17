@@ -3,7 +3,9 @@ A collection of useful configuration and aliases for deps.edn based projects.  T
 
 
 # Aliases
-Here is a summary of the aliases included so far
+Here is a summary of the aliases included so far.
+
+Please read the [deps.edn](deps.edn) file to see the specific configuration for each alias.
 
 ## repl experience
 * `rebel` - run a repl with syntax highlighting, built in docs and a proper quit mechanism 
@@ -21,4 +23,3 @@ Here is a summary of the aliases included so far
 
 > There are several other approaches to include...
 
-Please read the [deps.edn](deps.edn) file to see the specific configuration for each alias.
