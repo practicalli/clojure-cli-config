@@ -176,11 +176,19 @@
   ;; Performance testing
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-  ;; - see https://github.com/hugoduncan/criterium/
-  ;; - (require '[criterium.core :refer [bench]])
-  ;; - (bench (your-expression))
+  ;; https://github.com/hugoduncan/criterium/
+  ;; clojure -A:rebel:bench
+  ;; (require '[criterium.core :refer [bench quick-bench]]) ; require criterium
+  ;; (bench (adhoc-expression)) ; timing of a self contained expression
+  ;;
+  ;; (require '[practicalli/namespace-name]) ; require project code
+  ;; (in-ns 'practicalli/namespace-name)
+  ;; (quick-bench (project-function args)) 
+  ;;
+  ;; $HOME/.clojure/deps.edn
   :bench
   {:extra-deps {criterium {:mvn/version "RELEASE"}}}
+
 
   ;; - see https://github.com/clojure-goes-fast/clj-memory-meter
   ;; - (require '[clj-memory-meter.core :as mm])
