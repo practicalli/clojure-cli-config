@@ -50,7 +50,7 @@
   ;;   - cd my-cool-lib
   ;;   - clj -A:test:runner # run the tests!
   :new
-  {:extra-deps {seancorfield/clj-new {:mvn/version "RELEASE"}}
+  {:extra-deps {seancorfield/clj-new {:mvn/version "0.8.4"}}
    :main-opts  ["-m" "clj-new.create"]}
 
 
