@@ -64,7 +64,7 @@
   ;;    (add-lib lib {:git/url git :sha (gitlibs/resolve git "master")})))
   ;; - e.g., using the GitHub path (not the usual Maven group/artifact):
   ;; (load-master 'clojure/tools.trace)
-  :deps
+  :deps-alpha
   {:extra-deps {org.clojure/tools.deps.alpha
                 {:git/url "https://github.com/clojure/tools.deps.alpha"
                  :sha     "80c1b56e5cbd083193b868cbdc8f87413688c9e9"}}}
