@@ -33,31 +33,14 @@ Run unit tests for your project from the command line
 * `:kaocha` - comprehensive test runner (not quite as fast as eftest)
 
 
-  ;; Testing frameworks
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+## Testing frameworks
+Unti tests, contracts and generative testing
 
-  ;; Clojure.test
-  ;; Nothing required - available via Clojure
+* :spec
+* :spec2 - under active development
+* [:expectations](https://github.com/clojure-expectations/expectations) - test framework
 
-  ;; Clojure spec
-  :spec
-  {:extra-deps org.clojure/spec.alpha {:mvn/version "0.2.176"}}
-
-
-  ;; Clojure spec 2 - under active development
-  :spec2
-  {:extra-deps {org.clojure/spec-alpha2
-                {:git/url "https://github.com/clojure/spec-alpha2"
-                 :sha     "495e5ac3238be002b4de72d1c48479f6bec06bb3"}}}
-
-
-  ;; Expectations test framework
-  ;; - see https://github.com/clojure-expectations/expectations
-  ;; - and https://github.com/clojure-expectations/clojure-test
-  ;; clj -A:test:expect:test-runner (cognitect test runner)
-  :expect
-  {:extra-deps {expectations              {:mvn/version "RELEASE"}
-                expectations/clojure-test {:mvn/version "RELEASE"}}}
+Run with cognitect test runner: clojure -A:expectations:test-runner
 
 
 ## Test runners

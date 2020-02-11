@@ -92,13 +92,13 @@
   ;; - see https://github.com/clojure-expectations/expectations
   ;; - and https://github.com/clojure-expectations/clojure-test
   ;; clj -A:test:expect:test-runner (cognitect test runner)
-  :expect
+  :expectations
   {:extra-deps {expectations              {:mvn/version "RELEASE"}
                 expectations/clojure-test {:mvn/version "RELEASE"}}}
 
 
   ;; Test runners
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
   ;; Cognitect test-runner
   ;; https://github.com/cognitect-labs/test-runner
