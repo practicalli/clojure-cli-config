@@ -93,25 +93,27 @@
 
   ;; midje-runner
   ;; https://github.com/miorimmax/midje-runner
-  :midje-runner {:extra-paths ["test"]
-                 :extra-deps  {midje-runner
-                               {:git/url "https://github.com/miorimmax/midje-runner.git"
-                                :sha     "ee9c2813e150ae6b3ea41b446b09ba40fc89bdc1"}}
-                 :main-opts   ["-m" "midje-runner.runner"]}
+  :midje-test-runner
+  {:extra-paths ["test"]
+   :extra-deps  {midje-runner
+                 {:git/url "https://github.com/miorimmax/midje-runner.git"
+                  :sha     "ee9c2813e150ae6b3ea41b446b09ba40fc89bdc1"}}
+   :main-opts   ["-m" "midje-runner.runner"]}
 
 
   ;; eftest - fast and pretty test runner
   ;; There may be a nicer way to do the main-opts - see the Eastwood and kibit issue discussion
   ;; https://github.com/jonase/eastwood/commit/4d1d05cc6de6ce565207d9a3c86864364f53f006
-  :eftest
+  :eftest-runner
   {:extra-paths ["test"]
    :extra-deps  {eftest {:mvn/version "0.5.9"}}
    :main-opts   ["-e"  "(require,'[eftest.runner,:refer,[find-tests,run-tests]]),(run-tests,(find-tests,\"test\"))"]}
 
 
   ;; kaocha - comprehensive test runner for Clojure/Script
+  ;; tests.edn should be created for each project
   ;; https://github.com/lambdaisland/kaocha
-  :kaocha
+  :kaocha-test-runner
   {:extra-paths ["test"]
    :extra-deps  {lambdaisland/kaocha {:mvn/version "0.0-590"}}
    :main-opts   ["-m" "kaocha.runner"]}
@@ -122,7 +124,7 @@
 
   ;; clj-kondo - comprehensive and fast linter
   ;; https://github.com/borkdude/clj-kondo/
-  :clj-kondo
+  :linter
   {:extra-deps {clj-kondo {:mvn/version "RELEASE"}}
    :main-opts  ["-m" "clj-kondo.main"]}
 
