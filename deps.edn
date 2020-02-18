@@ -51,18 +51,18 @@
    :main-opts  ["-m" "rebel-readline.main"]}
 
 
-  ;; Testing frameworks
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;   ;; Testing frameworks
+  ;;   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-  ;; Clojure.test
-  ;; Nothing required - available via Clojure
+  ;;   ;; Clojure.test
+  ;;   ;; Nothing required - available via Clojure
 
-  ;; Clojure spec
+  ;;   ;; Clojure spec
   :spec
   {:extra-deps {org.clojure/spec.alpha {:mvn/version "0.2.176"}}}
 
 
-  ;; Clojure spec 2 - under active development
+  ;;   ;; Clojure spec 2 - under active development
   :spec2
   {:extra-deps {org.clojure/spec-alpha2
                 {:git/url "https://github.com/clojure/spec-alpha2"
@@ -163,7 +163,7 @@
 
 
   ;; Hot loading dependencies
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
   ;; Add new deps to a running REPL:
   ;; (require '[clojure.tools.deps.alpha.repl :refer [add-lib]])
@@ -182,7 +182,7 @@
 
 
   ;; Performance testing
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
   ;; https://github.com/hugoduncan/criterium/
   ;; clojure -A:rebel:bench
@@ -207,7 +207,7 @@
 
 
   ;; Deployment
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
   ;; depstar - build jars, uberjars
   ;; https://github.com/seancorfield/depstar
