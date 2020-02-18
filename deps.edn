@@ -59,7 +59,7 @@
 
   ;; Clojure spec
   :spec
-  {:extra-deps org.clojure/spec.alpha {:mvn/version "0.2.176"}}
+  {:extra-deps {org.clojure/spec.alpha {:mvn/version "0.2.176"}}}
 
 
   ;; Clojure spec 2 - under active development
