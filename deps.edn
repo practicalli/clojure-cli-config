@@ -78,6 +78,22 @@
                 expectations/clojure-test {:mvn/version "RELEASE"}}}
 
 
+  ;; Java source
+  ;; Look up Java Class and method definitions,
+  ;; eg. `cider-find-var` in Emacs
+  ;; Requires: Java sources installed locally
+  ;; (examples form Ubuntu package install locations)
+
+  :java-8-source
+  {:extra-deps
+   {java-sources {:local/root "/usr/lib/jvm/openjdk-8/lib/src.zip"}}}
+
+  :java-11-source
+  {:extra-deps
+   {java-sources {:local/root "/usr/lib/jvm/openjdk-11/lib/src.zip"}}}
+
+
+
   ;; Test runners
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
