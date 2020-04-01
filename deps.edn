@@ -216,7 +216,7 @@
   ;; https://github.com/tonsky/uberdeps
   ;; "--target" "target/cdeps-0.1.0.jar" in `:main-opts` to specify output file
   :uberdeps
-  {:extra-deps {uberdeps {:mvn/version "0.1.8"}}
+  {:extra-deps {uberdeps {:mvn/version "0.1.10"}}
    :main-opts  ["-m" "uberdeps.uberjar"]}
 
 
