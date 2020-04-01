@@ -132,7 +132,7 @@
   ;; https://github.com/lambdaisland/kaocha
   :kaocha-test-runner
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha {:mvn/version "0.0-590"}}
+   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0-612"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
 
