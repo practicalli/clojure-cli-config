@@ -1,11 +1,15 @@
-# deps-edn-examples
-A collection of useful configuration and aliases for deps.edn based projects.  Take a look at [seancorfield/dot-clojure](https://github.com/seancorfield/dot-clojure) for more examples
+# Practicalli deps.edn configuration
+A feature rich `deps.edn` file with a collection of aliases for Clojure projects.  Inspiration taken from [seancorfield/dot-clojure](https://github.com/seancorfield/dot-clojure).
+
+Copy the `deps.edn` file to `~/.clojure/deps.edn` and the configuration and aliases will be included in any `deps.edn` project.  Any directory can be a viable `deps.edn` project by including a `deps.edn` file containing an empty map, `{}` or a map with any additional configuration.
+
 
 
 # Aliases
 Here is a summary of the aliases included so far.
 
 Please read the [deps.edn](deps.edn) file to see the specific configuration for each alias.
+
 
 ## Creating projects from templates
 Create and update projects from deps, leiningen and boot templates with [clj-new](https://github.com/seancorfield/clj-new)
@@ -25,40 +29,39 @@ Run tests (deps projects): `clojure -A:test:runner`
 `clojure -A:rebel` to start and `:repl/help` for details.
 
 
-## Test runners
-Run unit tests for your project from the command line
+## Java source
+Look up Java Class and method definitions, eg. `cider-find-var` in Emacs
+Requires: Java sources installed locally, examples from Ubuntu package install locations
 
-* `:test-runner` (part of clj-new app template)
-* `:eftest-runner` - nice and fast test runner for Clojure, with nice output
-* `:kaocha` - comprehensive test runner (not quite as fast as eftest)
+* `:java-8-source`
+* `:java-11-source`
 
 
 ## Testing frameworks
 Unti tests, contracts and generative testing
 
-* :spec
-* :spec2 - under active development
-* [:expectations](https://github.com/clojure-expectations/expectations) - test framework
+* `:spec`
+* `:spec2` - under active development
+* [`:expectations`](https://github.com/clojure-expectations/expectations) - test framework
 
 Run with cognitect test runner: clojure -A:expectations:test-runner
 
 
 ## Test runners
-Tools to run unit tests in projects defined under `test` path.
+Tools to run unit tests in a project which are defined under `test` path.
 
 Run clojure with the specific test runner alias: `clojure -A:test-runner-alias`
 
-* [:test-runner](https://github.com/cognitect-labs/test-runner) - Cognitect test-runner
-* [:midje-runner](https://github.com/miorimmax/midje-runner)
-* [:eftest](https://github.com/weavejester/eftest) - fast and pretty test runner
-* [:kaocha](https://github.com/lambdaisland/kaocha) - comprehensive test runner for Clojure/Script
-
+* [`:test-runner`](https://github.com/cognitect-labs/test-runner) - Cognitect test-runner
+* [	`:midje-runner`	](https://github.com/miorimmax/midje-runner)
+* [`:eftest-runner`](https://github.com/weavejester/eftest) - fast and pretty test runner
+* [`:kaocha`](https://github.com/lambdaisland/kaocha) - comprehensive test runner for Clojure/Script
 
 ## Linting/ static analysis
 
 * [:clj-kondo](https://github.com/borkdude/clj-kondo/) - comprehensive and fast linter
-* :eastwood
-* :kibit
+* [`:eastwood`](https://github.com/jonase/eastwood) - classic linter for Clojure
+* [`:kibit`](https://github.com/jonase/kibit) - checking for idiomatic Clojure code
 
 
 ## Dependency version management
@@ -67,16 +70,6 @@ Manage versions for maven and git dependencies
 * [:outdated](https://github.com/Olical/depot) - report newer dependencies
 * [:outdated-update](https://github.com/Olical/depot) - update all dependencies
 * [ancient](https://github.com/slipset/deps-ancient) - check for newer dependencies
-
-## Deployment
-
-* [:depstar](https://github.com/seancorfield/depstar) - build jars, uberjars
-```
-clojure -A:depstar -m hf.depstar.jar MyLib.jar
-clojure -A:depstar -m hf.depstar.uberjar MyProject.jar
-```
-
-* [:uberdeps](https://github.com/tonsky/uberdeps) - uberjar builder
 
 
 ## Hot loading dependencies (alpha)
@@ -97,6 +90,17 @@ To include dependencies from Git
     (add-lib lib {:git/url git :sha (gitlibs/resolve git "master")})))
 (load-master 'clojure/tools.trace)
 ```
+
+
+## Deployment
+
+* [:depstar](https://github.com/seancorfield/depstar) - build jars, uberjars
+```
+clojure -A:depstar -m hf.depstar.jar MyLib.jar
+clojure -A:depstar -m hf.depstar.uberjar MyProject.jar
+```
+
+* [:uberdeps](https://github.com/tonsky/uberdeps) - uberjar builder
 
 
 ## Performance testing

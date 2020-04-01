@@ -30,6 +30,8 @@
  :aliases
  {
 
+
+
   ;; Creating projects from templates
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; https://github.com/seancorfield/clj-new
@@ -51,11 +53,26 @@
    :main-opts  ["-m" "rebel-readline.main"]}
 
 
-  ;;   ;; Testing frameworks
-  ;;   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Java Sources
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Look up Java Class and method definitions, eg. `cider-find-var` in Emacs
+  ;; Requires: Java sources installed locally
+  ;; Examples are from Ubuntu package install locations
 
-  ;;   ;; Clojure.test
-  ;;   ;; Nothing required - available via Clojure
+  :java-8-source
+  {:extra-deps
+   {java-sources {:local/root "/usr/lib/jvm/openjdk-8/lib/src.zip"}}}
+
+  :java-11-source
+  {:extra-deps
+   {java-sources {:local/root "/usr/lib/jvm/openjdk-11/lib/src.zip"}}}
+
+
+  ;; Testing frameworks
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+  ;; Clojure.test
+  ;; Nothing required - available via Clojure
 
   ;;   ;; Clojure spec
   :spec
@@ -76,22 +93,6 @@
   :expectations
   {:extra-deps {expectations              {:mvn/version "RELEASE"}
                 expectations/clojure-test {:mvn/version "RELEASE"}}}
-
-
-  ;; Java source
-  ;; Look up Java Class and method definitions,
-  ;; eg. `cider-find-var` in Emacs
-  ;; Requires: Java sources installed locally
-  ;; (examples form Ubuntu package install locations)
-
-  :java-8-source
-  {:extra-deps
-   {java-sources {:local/root "/usr/lib/jvm/openjdk-8/lib/src.zip"}}}
-
-  :java-11-source
-  {:extra-deps
-   {java-sources {:local/root "/usr/lib/jvm/openjdk-11/lib/src.zip"}}}
-
 
 
   ;; Test runners
@@ -199,6 +200,27 @@
                  :sha     "80c1b56e5cbd083193b868cbdc8f87413688c9e9"}}}
 
 
+  ;; Deployment
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+  ;; depstar - build jars, uberjars
+  ;; https://github.com/seancorfield/depstar
+  ;; clojure -A:depstar -m hf.depstar.jar MyLib.jar
+  ;; clojure -A:depstar -m hf.depstar.uberjar MyProject.jar
+  :depstar
+  {:extra-deps
+   {seancorfield/depstar {:mvn/version "0.5.2"}}}
+
+
+  ;; uberdeps - uberjar builder
+  ;; https://github.com/tonsky/uberdeps
+  ;; "--target" "target/cdeps-0.1.0.jar" in `:main-opts` to specify output file
+  :uberdeps
+  {:extra-deps {uberdeps {:mvn/version "0.1.8"}}
+   :main-opts  ["-m" "uberdeps.uberjar"]}
+
+
+
   ;; Performance testing
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -221,27 +243,6 @@
   ;; - (mm/measure (your-expression))
   :measure
   {:extra-deps {com.clojure-goes-fast/clj-memory-meter {:mvn/version "0.1.2"}}}
-
-
-
-  ;; Deployment
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-  ;; depstar - build jars, uberjars
-  ;; https://github.com/seancorfield/depstar
-  ;; clojure -A:depstar -m hf.depstar.jar MyLib.jar
-  ;; clojure -A:depstar -m hf.depstar.uberjar MyProject.jar
-  :depstar
-  {:extra-deps
-   {seancorfield/depstar {:mvn/version "0.5.2"}}}
-
-
-  ;; uberdeps - uberjar builder
-  ;; https://github.com/tonsky/uberdeps
-  ;; "--target" "target/cdeps-0.1.0.jar" in `:main-opts` to specify output file
-  :uberdeps
-  {:extra-deps {uberdeps {:mvn/version "0.1.8"}}
-   :main-opts  ["-m" "uberdeps.uberjar"]}
 
 
   } ;; End of alias definitions
