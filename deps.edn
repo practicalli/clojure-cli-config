@@ -253,5 +253,6 @@
  :mvn/repos {
              "central" {:url "https://repo1.maven.org/maven2/"}
              "clojars" {:url "https://repo.clojars.org/"}
+             "jcenter" {:url "https://jcenter.bintray.com"}
              }
  }
