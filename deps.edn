@@ -210,7 +210,7 @@
   ;; clojure -A:depstar -m hf.depstar.uberjar MyProject.jar
   :depstar
   {:extra-deps
-   {seancorfield/depstar {:mvn/version "0.5.2"}}}
+   {seancorfield/depstar {:mvn/version "1.0.94"}}}
 
 
   ;; uberdeps - uberjar builder
