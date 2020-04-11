@@ -201,6 +201,31 @@
                  :sha     "80c1b56e5cbd083193b868cbdc8f87413688c9e9"}}}
 
 
+  ;; Visualizing dependencies
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+  ;; Generate a dot file for graphviz
+  ;; clojure -A:morpheus -d graphs -f png src test
+  :morpheus {:extra-deps {thomasa/morpheus {:git/url "https://github.com/benedekfazekas/morpheus.git"
+                                            :sha     "d3decebc1cb9ef697cd34781f9cf83d44a071e85"}}
+             :main-opts  ["-m" "thomasa.morpheus.main"]}
+
+
+
+  ;; NOTE: not showing connections between application namespaces
+  ;; https://github.com/SevereOverfl0w/vizns
+  ;; clj -A:vizns navigate      # navigable folder of SVGs
+  ;; clj -A:vizns   # deps-graph.dot file
+  ;; deps-graph png or svg image
+  ;; clj -A:vizns single -o deps-graph.png -f png
+  ;; clj -A:vizns single -o deps-graph.svg -f svg
+  ;; clj -A:user/vizns single --show  # View graph without saving
+  :vizns
+  {:deps      {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
+                                 :sha     "fb2391a4af24246ac4e46f3a573970ba5b7c92de"}}
+   :main-opts ["-m" "io.dominic.vizns.core"]}
+
+
   ;; Deployment
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
