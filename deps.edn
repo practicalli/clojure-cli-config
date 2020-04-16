@@ -290,19 +290,18 @@
    :main-opts  ["-m" "uberdeps.uberjar"]}
 
 
-
   ;; Performance testing
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+  ;; Benchmarking library for Clojure
   ;; https://github.com/hugoduncan/criterium/
-  ;; clojure -A:rebel:bench
   ;; (require '[criterium.core :refer [bench quick-bench]]) ; require criterium
   ;; (bench (adhoc-expression)) ; timing of a self contained expression
   ;;
   ;; (require '[practicalli/namespace-name]) ; require project source code
   ;; (in-ns 'practicalli/namespace-name)
   ;; (quick-bench (project-function args))
-  :bench
+  :benchmark
   {:extra-deps {criterium {:mvn/version "0.4.5"}}}
 
 

@@ -131,7 +131,7 @@ clojure -A:depstar -m hf.depstar.uberjar MyProject.jar
 
 ## Performance testing
 
-* [:bench](https://github.com/hugoduncan/criterium/)
+* [:benchmark](https://github.com/hugoduncan/criterium/)
 Adhoc performance testing the the REPL
 
 ```
