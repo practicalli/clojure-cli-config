@@ -150,21 +150,21 @@
 
   ;; clj-kondo - comprehensive and fast linter
   ;; https://github.com/borkdude/clj-kondo/
-  :linter
+  :lint
   {:extra-deps {clj-kondo {:mvn/version "RELEASE"}}
    :main-opts  ["-m" "clj-kondo.main"]}
 
 
   ;; Eastwood - classic lint tool
   ;; https://github.com/jonase/eastwood#running-eastwood-in-a-repl
-  :eastwood
+  :lint-eastwood
   {:main-opts  ["-m" "eastwood.lint" {:source-paths ["src"]}]
    :extra-deps {jonase/eastwood {:mvn/version "RELEASE"}}}
 
 
   ;; kibit - suggest idiomatic use of Clojure
   ;; https://github.com/jonase/kibit/issues/221
-  :kibit
+  :idiom-check
   {:extra-deps {tvaughan/kibit-runner {:mvn/version "0.2.3"}}
    :main-opts  ["-m" "kibit-runner.cmdline"]}
 

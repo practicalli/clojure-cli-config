@@ -61,9 +61,9 @@ Run clojure with the specific test runner alias: `clojure -A:test-runner-alias`
 
 ## Linting/ static analysis
 
-* [:clj-kondo](https://github.com/borkdude/clj-kondo/) - comprehensive and fast linter
-* [`:eastwood`](https://github.com/jonase/eastwood) - classic linter for Clojure
-* [`:kibit`](https://github.com/jonase/kibit) - checking for idiomatic Clojure code
+* [`:lint`](https://github.com/borkdude/clj-kondo/) - comprehensive and fast lint tool
+* [`:lint-eastwood`](https://github.com/jonase/eastwood) - classic lint tool for Clojure
+* [`:idiom-check`](https://github.com/jonase/kibit) - checking for idiomatic Clojure code with Kibit
 
 
 ## Dependency version management
