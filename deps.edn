@@ -187,7 +187,7 @@
 
 
   ;; The classic project for checking maven based dependencies
-  :ancient
+  :outdated-ancient
   {:main-opts  ["-m" "deps-ancient.deps-ancient"]
    :extra-deps {deps-ancient {:mvn/version "RELEASE"}}}
 

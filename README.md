@@ -69,9 +69,9 @@ Run clojure with the specific test runner alias: `clojure -A:test-runner-alias`
 ## Dependency version management
 Manage versions for maven and git dependencies
 
-* [:outdated](https://github.com/Olical/depot) - report newer dependencies
-* [:outdated-update](https://github.com/Olical/depot) - update all dependencies
-* [ancient](https://github.com/slipset/deps-ancient) - check for newer dependencies
+* [:outdated](https://github.com/Olical/depot) - report newer dependencies (git and maven)
+* [:outdated-update](https://github.com/Olical/depot) - update all dependencies (git and maven)
+* [:outdated-ancient](https://github.com/slipset/deps-ancient) - check for newer dependencies (maven)
 
 
 ## Hot loading dependencies (alpha)
