@@ -47,10 +47,19 @@
   ;; REPL experience
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-  ;; REPL with syntax highlighting, built in docs and a quit command `:repl/quit`
+  ;; Clojure REPL with syntax highlighting, built in docs and a quit command `:repl/quit`
   :rebel
   {:extra-deps {com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
    :main-opts  ["-m" "rebel-readline.main"]}
+
+
+  ;; ClojureScript REPL rebel readline service
+  ;; https://github.com/bhauman/rebel-readline/tree/master/rebel-readline-cljs
+  ;; Starts the default CLJS repl, eg. nashorn
+  :rebel-cljs
+  {:extra-deps {com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}}
+   :main-opts  ["-m" "rebel-readline-cljs.main"]}
+
 
 
   ;; Java Sources

@@ -24,9 +24,12 @@ Run tests (deps projects): `clojure -A:test:runner`
 
 
 ## repl experience
-* `rebel` - run a repl with syntax highlighting, built in docs and a proper quit mechanism
+[Rebel readline](https://github.com/bhauman/rebel-readline) provides a feature rich REPL experience, far beyond the basic `clojure` and `clj` commands.
 
-`clojure -A:rebel` to start and `:repl/help` for details.
+* `rebel` - run a Clojure REPL
+* `rebel-cljs` - run the default ClojureScript REPL, eg. Nashorn
+
+`:repl/help` in the REPL for help and available commands.  `:repl/quit` to close the REPL.
 
 
 ## Java source
