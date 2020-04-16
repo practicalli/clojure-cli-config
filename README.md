@@ -120,13 +120,13 @@ Other options:
 
 ## Deployment
 
-* [:depstar](https://github.com/seancorfield/depstar) - build jars, uberjars
+* [:build-depstar](https://github.com/seancorfield/depstar) - build jars, uberjars for deps.edn projects
 ```
 clojure -A:depstar -m hf.depstar.jar MyLib.jar
 clojure -A:depstar -m hf.depstar.uberjar MyProject.jar
 ```
 
-* [:uberdeps](https://github.com/tonsky/uberdeps) - uberjar builder
+* [:build-uberdeps](https://github.com/tonsky/uberdeps) - uberjar builder
 
 
 ## Performance testing

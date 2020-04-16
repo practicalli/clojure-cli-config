@@ -277,7 +277,7 @@
   ;; https://github.com/seancorfield/depstar
   ;; clojure -A:depstar -m hf.depstar.jar MyLib.jar
   ;; clojure -A:depstar -m hf.depstar.uberjar MyProject.jar
-  :depstar
+  :build-depstar
   {:extra-deps
    {seancorfield/depstar {:mvn/version "1.0.94"}}}
 
@@ -285,7 +285,7 @@
   ;; uberdeps - uberjar builder
   ;; https://github.com/tonsky/uberdeps
   ;; "--target" "target/cdeps-0.1.0.jar" in `:main-opts` to specify output file
-  :uberdeps
+  :build-uberdeps
   {:extra-deps {uberdeps {:mvn/version "0.1.10"}}
    :main-opts  ["-m" "uberdeps.uberjar"]}
 
