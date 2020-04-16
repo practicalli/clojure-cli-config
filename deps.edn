@@ -10,25 +10,26 @@
 
 {
  ;; Paths
+ ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
  ;;   Directories in the current project to include in the classpath
  ;; :paths ["src"]
 
+
  ;; External dependencies
+ ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
  :deps
  {org.clojure/clojure {:mvn/version "1.10.1"}}
 
- ;; Aliases
- ;;   resolve-deps aliases (-R) affect dependency resolution, options:
- ;;     :extra-deps - specifies extra deps to add to :deps
- ;;     :override-deps - specifies a coordinate to use instead of that in :deps
- ;;     :default-deps - specifies a coordinate to use for a lib if one isn't found
- ;;   make-classpath aliases (-C) affect the classpath generation, options:
- ;;     :extra-paths - vector of additional paths to add to the classpath
- ;;     :classpath-overrides - map of lib to path that overrides the result of resolving deps
-
  :aliases
  {
-
+  ;; Aliases
+  ;;   resolve-deps aliases (-R) affect dependency resolution, options:
+  ;;     :extra-deps - specifies extra deps to add to :deps
+  ;;     :override-deps - specifies a coordinate to use instead of that in :deps
+  ;;     :default-deps - specifies a coordinate to use for a lib if one isn't found
+  ;;   make-classpath aliases (-C) affect the classpath generation, options:
+  ;;     :extra-paths - vector of additional paths to add to the classpath
+  ;;     :classpath-overrides - map of lib to path that overrides the result of resolving deps
 
 
   ;; Creating projects from templates
@@ -40,9 +41,7 @@
   ;; clj -A:test:runner
   :new
   {:extra-deps {seancorfield/clj-new {:mvn/version "1.0.199"}}
-
-
-   :main-opts ["-m" "clj-new.create"]}
+   :main-opts  ["-m" "clj-new.create"]}
 
 
   ;; REPL experience
@@ -147,6 +146,7 @@
    :main-opts  ["-m" "clj-kondo.main"]}
 
   ;; Eastwood
+
   ;; https://github.com/jonase/eastwood#running-eastwood-in-a-repl
   :eastwood
   {:main-opts  ["-m" "eastwood.lint" {:source-paths ["src"]}]
@@ -176,6 +176,7 @@
   {:extra-deps {olical/depot {:mvn/version "1.8.4"}}
    :main-opts  ["-m" "depot.outdated.main"
                 "--update"]}
+
 
   :ancient
   {:main-opts  ["-m" "deps-ancient.deps-ancient"]
