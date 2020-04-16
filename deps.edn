@@ -100,7 +100,7 @@
 
   ;; Cognitect test-runner
   ;; https://github.com/cognitect-labs/test-runner
-  :test-runner
+  :cognitect-test-runner
   {:extra-paths ["test"]
    :extra-deps  {com.cognitect/test-runner
                  {:git/url "https://github.com/cognitect-labs/test-runner.git"
@@ -145,15 +145,15 @@
   {:extra-deps {clj-kondo {:mvn/version "RELEASE"}}
    :main-opts  ["-m" "clj-kondo.main"]}
 
-  ;; Eastwood
 
+  ;; Eastwood - classic lint tool
   ;; https://github.com/jonase/eastwood#running-eastwood-in-a-repl
   :eastwood
   {:main-opts  ["-m" "eastwood.lint" {:source-paths ["src"]}]
    :extra-deps {jonase/eastwood {:mvn/version "RELEASE"}}}
 
 
-  ;; kibit
+  ;; kibit - suggest idiomatic use of Clojure
   ;; https://github.com/jonase/kibit/issues/221
   :kibit
   {:extra-deps {tvaughan/kibit-runner {:mvn/version "0.2.3"}}
@@ -165,12 +165,11 @@
 
   ;; Manage versions for maven and git dependencies
   ;; https://github.com/Olical/depot
+  ;; Report dependencies that have newer versions available
   :outdated
   {:extra-deps {olical/depot {:mvn/version "1.8.4"}}
    :main-opts  ["-m" "depot.outdated.main"]}
 
-  ;; clj -A:outdated --update
-  ;; or
   ;; clj -A:outdated-update
   :outdated-update
   {:extra-deps {olical/depot {:mvn/version "1.8.4"}}
@@ -178,6 +177,7 @@
                 "--update"]}
 
 
+  ;; The classic project for checking maven based dependencies
   :ancient
   {:main-opts  ["-m" "deps-ancient.deps-ancient"]
    :extra-deps {deps-ancient {:mvn/version "RELEASE"}}}
@@ -256,18 +256,16 @@
   ;; (require '[criterium.core :refer [bench quick-bench]]) ; require criterium
   ;; (bench (adhoc-expression)) ; timing of a self contained expression
   ;;
-  ;; (require '[practicalli/namespace-name]) ; require project code
+  ;; (require '[practicalli/namespace-name]) ; require project source code
   ;; (in-ns 'practicalli/namespace-name)
   ;; (quick-bench (project-function args))
-  ;;
-  ;; $HOME/.clojure/deps.edn
   :bench
   {:extra-deps {criterium {:mvn/version "0.4.5"}}}
 
 
   ;; - see https://github.com/clojure-goes-fast/clj-memory-meter
-  ;; - (require '[clj-memory-meter.core :as mm])
-  ;; - (mm/measure (your-expression))
+  ;; - (require '[clj-memory-meter.core :as memory-meter])
+  ;; - (memory-meter/measure (your-expression))
   :measure
   {:extra-deps {com.clojure-goes-fast/clj-memory-meter {:mvn/version "0.1.2"}}}
 
@@ -276,7 +274,8 @@
 
 
  ;; Provider attributes
-
+ ;; Maven Central and Clojars are the canonical repositories for library dependencies
+ ;; JCenter is large and fast mirror
  :mvn/repos {
              "central" {:url "https://repo1.maven.org/maven2/"}
              "clojars" {:url "https://repo.clojars.org/"}
