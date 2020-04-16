@@ -76,20 +76,20 @@ Manage versions for maven and git dependencies
 
 ## Hot loading dependencies (alpha)
 
-* :deps-alpha
-Add jar dependencies into a running REPL.  In the REPL, required the add-lib function
+* [`:hot-load-deps`](https://github.com/clojure/tools.deps.alpha) - Add jar dependencies into a running REPL.
 
+Require the `add-lib` function to include a maven style dependency
 ```
 (require '[clojure.tools.deps.alpha.repl :refer [add-lib]])
   (add-lib 'domain/library {:mvn/version "RELEASE"})
 ```
 
-To include dependencies from Git
+Require `clojure.tools.gitlibs` namesapace to hot load dependencies from a Git repository
 ```
 (require '[clojure.tools.gitlibs :as gitlibs])
-(defn load-master [lib]
-  (let [git (str "https://github.com/" lib ".git")]
-    (add-lib lib {:git/url git :sha (gitlibs/resolve git "master")})))
+(defn load-master [library]
+  (let [git (str "https://github.com/" library ".git")]
+    (add-lib library {:git/url git :sha (gitlibs/resolve git "master")})))
 (load-master 'clojure/tools.trace)
 ```
 
