@@ -33,7 +33,7 @@ Run tests (deps projects): `clojure -A:test:runner`
 
 
 ## Java source
-Look up Java Class and method definitions, eg. `cider-find-var` in Emacs
+[Look up Java Class and method definitions, eg. `cider-find-var` in Emacs](https://practicalli.github.io/spacemacs/navigating-code/java-definitions.html)
 Requires: Java sources installed locally, examples from Ubuntu package install locations
 
 * `:java-8-source`
