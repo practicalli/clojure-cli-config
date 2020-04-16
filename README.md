@@ -93,6 +93,30 @@ Require `clojure.tools.gitlibs` namesapace to hot load dependencies from a Git r
 (load-master 'clojure/tools.trace)
 ```
 
+## Visualizing project vars and library dependencies
+Create [Graphviz](https://www.graphviz.org/) graphs of project and library dependencies
+
+Morpheus creates grahps of project vars and their relationships
+
+* [`:graph-vars`](https://github.com/benedekfazekas/morpheus) - generate graph of vars in a project as a .dot file
+* [`:graph-vars-png`](https://github.com/benedekfazekas/morpheus) - generate graph of vars in a project as a .png file using `src` and `test` paths
+* [`:graph-vars-svg`](https://github.com/benedekfazekas/morpheus) - generate graph of vars in a project as a .svg file using `src` and `test` paths
+
+> Install [Graphviz](https://www.graphviz.org/) to generate PNG and SVG images.  Or use the [Edotor website](https://edotor.net/) to convert .dot files to PNG or SVG images and select different graph layout engines.
+
+
+[Vizns](https://github.com/SevereOverfl0w/vizns) creates graphs of relationships between library dependencies and project namespaces
+
+* `:graph-deps`
+* `:graph-deps-png` - generate a single deps-graph png image
+
+Other options:
+* `clj -A:graph-deps navigate`  # navigable folder of SVGs
+* `clj -A:graph-deps single`    # deps-graph.dot file
+* `clj -A:graph-deps single -o deps-graph.png -f png`
+* `clj -A:graph-deps single -o deps-graph.svg -f svg`
+* `clj -A:graph-deps single --show `  # View graph without saving
+
 
 ## Deployment
 
