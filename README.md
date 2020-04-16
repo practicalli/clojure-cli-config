@@ -154,6 +154,6 @@ clojure -A:rebel:bench
 *  [:measure](https://github.com/clojure-goes-fast/clj-memory-meter) - memory usage
 In the REPL:
 ```
-  (require '[clj-memory-meter.core :as mm])
-   (mm/measure (your-expression))
+  (require '[clj-memory-meter.core :as memory-meter])
+   (memory-meter/measure (your-expression))
 ```
