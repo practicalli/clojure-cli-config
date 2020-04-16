@@ -81,7 +81,7 @@
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
   ;; Clojure.test
-  ;; Nothing required - available via Clojure
+  ;; Nothing required as it is part of the Clojure library.
 
   ;;   ;; Clojure spec
   :spec
@@ -109,7 +109,7 @@
 
   ;; Cognitect test-runner
   ;; https://github.com/cognitect-labs/test-runner
-  :cognitect-test-runner
+  :test-runner-cognitect
   {:extra-paths ["test"]
    :extra-deps  {com.cognitect/test-runner
                  {:git/url "https://github.com/cognitect-labs/test-runner.git"
@@ -119,7 +119,7 @@
 
   ;; midje-runner
   ;; https://github.com/miorimmax/midje-runner
-  :midje-test-runner
+  :test-runner-midje
   {:extra-paths ["test"]
    :extra-deps  {midje-runner
                  {:git/url "https://github.com/miorimmax/midje-runner.git"
@@ -130,7 +130,7 @@
   ;; eftest - fast and pretty test runner
   ;; There may be a nicer way to do the main-opts - see the Eastwood and kibit issue discussion
   ;; https://github.com/jonase/eastwood/commit/4d1d05cc6de6ce565207d9a3c86864364f53f006
-  :eftest-runner
+  :test-runner-eftest
   {:extra-paths ["test"]
    :extra-deps  {eftest {:mvn/version "0.5.9"}}
    :main-opts   ["-e"  "(require,'[eftest.runner,:refer,[find-tests,run-tests]]),(run-tests,(find-tests,\"test\"))"]}
@@ -139,7 +139,7 @@
   ;; kaocha - comprehensive test runner for Clojure/Script
   ;; tests.edn should be created for each project
   ;; https://github.com/lambdaisland/kaocha
-  :kaocha-test-runner
+  :test-runner-kaocha
   {:extra-paths ["test"]
    :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0-612"}}
    :main-opts   ["-m" "kaocha.runner"]}

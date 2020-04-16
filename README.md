@@ -20,8 +20,6 @@ Create a new project: `clojure -A:new template-name domain/namespace`
 
 Run project: `clojure -m myname.myapp`
 
-Run tests (deps projects): `clojure -A:test:runner`
-
 
 ## repl experience
 [Rebel readline](https://github.com/bhauman/rebel-readline) provides a feature rich REPL experience, far beyond the basic `clojure` and `clj` commands.
@@ -41,13 +39,14 @@ Requires: Java sources installed locally, examples from Ubuntu package install l
 
 
 ## Testing frameworks
-Unti tests, contracts and generative testing
+Unti test libraries, contracts and generative testing
 
-* `:spec`
+* `clojure-test` requires no alias as it is a part of the Clojure jar file.
+* `:spec` - define contracts for function definitions and data structures
 * `:spec2` - under active development
 * [`:expectations`](https://github.com/clojure-expectations/expectations) - test framework
 
-Run with cognitect test runner: clojure -A:expectations:test-runner
+Run expectations with cognitect test runner: `clojure -A:expectations:test-runner-cognitect`
 
 
 ## Test runners
@@ -55,10 +54,10 @@ Tools to run unit tests in a project which are defined under `test` path.
 
 Run clojure with the specific test runner alias: `clojure -A:test-runner-alias`
 
-* [`:test-runner`](https://github.com/cognitect-labs/test-runner) - Cognitect test-runner
-* [	`:midje-runner`	](https://github.com/miorimmax/midje-runner)
-* [`:eftest-runner`](https://github.com/weavejester/eftest) - fast and pretty test runner
-* [`:kaocha`](https://github.com/lambdaisland/kaocha) - comprehensive test runner for Clojure/Script
+* [`:test-runner-cognitect`](https://github.com/cognitect-labs/test-runner) - Cognitect test-runner
+* [`:test-runner-midje`	](https://github.com/miorimmax/midje-runner)
+* [`:test-runner-eftest`](https://github.com/weavejester/eftest) - fast and pretty test runner
+* [`:test-runner-kaocha`](https://github.com/lambdaisland/kaocha) - comprehensive test runner for Clojure/Script
 
 ## Linting/ static analysis
 
