@@ -1,6 +1,7 @@
 # Practicalli deps.edn configuration
 A feature rich `deps.edn` file with a collection of aliases for Clojure projects.  Include aliases with common options for convienience and to minimise the amount of cognitive load required to remember how to use aliases.  Inspiration taken from [seancorfield/dot-clojure](https://github.com/seancorfield/dot-clojure).
 
+![Practicalli Clojure deps - logos](practicalli-clojure-deps.png)
 
 ## Using this repository
 [Fork this repository](https://github.com/practicalli/clojure-deps-edn/fork) and clone your fork to the `~/.clojure` directory in the root of your home directory for the operating system in use.
