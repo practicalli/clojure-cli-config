@@ -1,7 +1,17 @@
 # Practicalli deps.edn configuration
-A feature rich `deps.edn` file with a collection of aliases for Clojure projects.  Inspiration taken from [seancorfield/dot-clojure](https://github.com/seancorfield/dot-clojure).
+A feature rich `deps.edn` file with a collection of aliases for Clojure projects.  Include aliases with common options for convienience and to minimise the amount of cognitive load required to remember how to use aliases.  Inspiration taken from [seancorfield/dot-clojure](https://github.com/seancorfield/dot-clojure).
 
-Copy the `deps.edn` file to `~/.clojure/deps.edn` and the configuration and aliases will be included in any `deps.edn` project.  Any directory can be a viable `deps.edn` project by including a `deps.edn` file containing an empty map, `{}` or a map with any additional configuration.
+
+## Using this repository
+[Fork this repository](https://github.com/practicalli/clojure-deps-edn/fork) and clone your fork to the `~/.clojure` directory in the root of your home directory for the operating system in use.
+
+```shell
+git clone your-fork-url ~/.clojure
+```
+
+Alternately, manually copy the `deps.edn` file or specific sections of that file to `~/.clojure/deps.edn`, creating that file if it does not exist.
+
+The configuration and aliases will be included in any `deps.edn` project.  Any directory containing a `deps.edn` project is considered a Clojure project.  Project specific `deps.edn` files containing an empty map, `{}` or a map with any additional configuration.  Either way, all the configuration from `~/.clojure/deps.edn` will be available (unless over-ridden by project specific settings).
 
 ## Updating
 The collection of aliases is regularly reviewed and expanded upon and suggestions are most welcome.
