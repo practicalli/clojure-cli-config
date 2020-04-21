@@ -3,6 +3,18 @@ A feature rich `deps.edn` file with a collection of aliases for Clojure projects
 
 Copy the `deps.edn` file to `~/.clojure/deps.edn` and the configuration and aliases will be included in any `deps.edn` project.  Any directory can be a viable `deps.edn` project by including a `deps.edn` file containing an empty map, `{}` or a map with any additional configuration.
 
+## Updating
+The collection of aliases is regularly reviewed and expanded upon and suggestions are most welcome.
+
+The versions of libraries are manually updated at least once per month using the `:outdated` alias and a new version of the `deps.edn` file pushed to this repository.
+```shell
+clojure -A:outdated
+```
+
+To automatically update library versions for aliases, then use the `:outdated-update` alias.  It is prudent to review what has been updated before using the results.
+```shell
+clojure -A:outdated-update
+```
 
 
 # Aliases
