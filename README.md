@@ -82,6 +82,15 @@ Run clojure with the specific test runner alias: `clojure -A:test-runner-alias`
 * [`:test-runner-eftest`](https://github.com/weavejester/eftest) - fast and pretty test runner
 * [`:test-runner-kaocha`](https://github.com/lambdaisland/kaocha) - comprehensive test runner for Clojure/Script
 
+
+## Test Coverage tools
+[Cloverage](https://github.com/cloverage/cloverage) - simple clojure coverage tool for `clojure.test` defined unit tests.
+
+Run clojure with the test coverage alias: `clojure -A:test-coverage`
+
+* [:test-coverage](https://github.com/cloverage/cloverage)
+
+
 ## Linting/ static analysis
 
 * [`:lint`](https://github.com/borkdude/clj-kondo/) - comprehensive and fast lint tool

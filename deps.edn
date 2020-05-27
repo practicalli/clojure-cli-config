@@ -145,6 +145,19 @@
    :main-opts   ["-m" "kaocha.runner"]}
 
 
+  ;; Test Coverage tools
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+  ;; Cloverage - Simple clojure coverage tool
+  ;; https://github.com/cloverage/cloverage
+  ;; In the root of your Clojure project, run the command:
+  ;; clojure -A:test-coverage
+  :test-coverage
+  {:extra-paths ["test"]
+   :extra-deps  {cloverage {:mvn/version "RELEASE"}}
+   :main-opts   ["-m" "cloverage.coverage"]}
+
+
   ;; Linting/ static analysis
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
