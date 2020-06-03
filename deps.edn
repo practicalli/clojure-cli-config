@@ -8,8 +8,7 @@
 ;; For all attributes other than :paths, these config files are merged left to right.
 ;; Only the last :paths is kept and others are dropped.
 
-{
- ;; Paths
+{;; Paths
  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
  ;;   Directories in the current project to include in the classpath
  ;; :paths ["src"]
@@ -21,8 +20,7 @@
  {org.clojure/clojure {:mvn/version "1.10.1"}}
 
  :aliases
- {
-  ;; Aliases
+ {;; Aliases
   ;;   resolve-deps aliases (-R) affect dependency resolution, options:
   ;;     :extra-deps - specifies extra deps to add to :deps
   ;;     :override-deps - specifies a coordinate to use instead of that in :deps
@@ -48,6 +46,7 @@
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
   ;; Clojure REPL with syntax highlighting, built in docs and a quit command `:repl/quit`
+
   :rebel
   {:extra-deps {com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
    :main-opts  ["-m" "rebel-readline.main"]}
@@ -56,6 +55,7 @@
   ;; ClojureScript REPL rebel readline service
   ;; https://github.com/bhauman/rebel-readline/tree/master/rebel-readline-cljs
   ;; Starts the default CLJS repl, eg. nashorn
+
   :rebel-cljs
   {:extra-deps {com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}}
    :main-opts  ["-m" "rebel-readline-cljs.main"]}
@@ -67,6 +67,7 @@
   ;; Look up Java Class and method definitions, eg. `cider-find-var` in Emacs
   ;; Requires: Java sources installed locally
   ;; Examples are from Ubuntu package install locations
+
 
   :java-8-source
   {:extra-deps
@@ -84,11 +85,15 @@
   ;; Nothing required as it is part of the Clojure library.
 
   ;;   ;; Clojure spec
+
+
   :spec
   {:extra-deps {org.clojure/spec.alpha {:mvn/version "0.2.176"}}}
 
 
   ;;   ;; Clojure spec 2 - under active development
+
+
   :spec2
   {:extra-deps {org.clojure/spec-alpha2
                 {:git/url "https://github.com/clojure/spec-alpha2"
@@ -99,6 +104,8 @@
   ;; - see https://github.com/clojure-expectations/expectations
   ;; - and https://github.com/clojure-expectations/clojure-test
   ;; clj -A:test:expect:test-runner (cognitect test runner)
+
+
   :expectations
   {:extra-deps {expectations              {:mvn/version "RELEASE"}
                 expectations/clojure-test {:mvn/version "RELEASE"}}}
@@ -109,6 +116,8 @@
 
   ;; Cognitect test-runner
   ;; https://github.com/cognitect-labs/test-runner
+
+
   :test-runner-cognitect
   {:extra-paths ["test"]
    :extra-deps  {com.cognitect/test-runner
@@ -119,6 +128,8 @@
 
   ;; midje-runner
   ;; https://github.com/miorimmax/midje-runner
+
+
   :test-runner-midje
   {:extra-paths ["test"]
    :extra-deps  {midje-runner
@@ -130,6 +141,8 @@
   ;; eftest - fast and pretty test runner
   ;; There may be a nicer way to do the main-opts - see the Eastwood and kibit issue discussion
   ;; https://github.com/jonase/eastwood/commit/4d1d05cc6de6ce565207d9a3c86864364f53f006
+
+
   :test-runner-eftest
   {:extra-paths ["test"]
    :extra-deps  {eftest {:mvn/version "0.5.9"}}
@@ -139,6 +152,8 @@
   ;; kaocha - comprehensive test runner for Clojure/Script
   ;; tests.edn should be created for each project
   ;; https://github.com/lambdaisland/kaocha
+
+
   :test-runner-kaocha
   {:extra-paths ["test"]
    :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0-612"}}
@@ -158,11 +173,14 @@
    :main-opts   ["-m" "cloverage.coverage"]}
 
 
+
   ;; Linting/ static analysis
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
   ;; clj-kondo - comprehensive and fast linter
   ;; https://github.com/borkdude/clj-kondo/
+
+
   :lint
   {:extra-deps {clj-kondo {:mvn/version "RELEASE"}}
    :main-opts  ["-m" "clj-kondo.main"]}
@@ -170,6 +188,8 @@
 
   ;; Eastwood - classic lint tool
   ;; https://github.com/jonase/eastwood#running-eastwood-in-a-repl
+
+
   :lint-eastwood
   {:main-opts  ["-m" "eastwood.lint" {:source-paths ["src"]}]
    :extra-deps {jonase/eastwood {:mvn/version "RELEASE"}}}
@@ -177,6 +197,8 @@
 
   ;; kibit - suggest idiomatic use of Clojure
   ;; https://github.com/jonase/kibit/issues/221
+
+
   :idiom-check
   {:extra-deps {tvaughan/kibit-runner {:mvn/version "0.2.3"}}
    :main-opts  ["-m" "kibit-runner.cmdline"]}
@@ -188,6 +210,8 @@
   ;; Manage versions for maven and git dependencies
   ;; https://github.com/Olical/depot
   ;; Report dependencies that have newer versions available
+
+
   :outdated
   {:extra-deps {olical/depot {:mvn/version "1.8.4"}}
    :main-opts  ["-m" "depot.outdated.main"]}
@@ -200,6 +224,8 @@
 
 
   ;; The classic project for checking maven based dependencies
+
+
   :outdated-ancient
   {:main-opts  ["-m" "deps-ancient.deps-ancient"]
    :extra-deps {deps-ancient {:mvn/version "RELEASE"}}}
@@ -218,6 +244,8 @@
   ;;    (add-lib lib {:git/url git :sha (gitlibs/resolve git "master")})))
   ;; - e.g., using the GitHub path (not the usual Maven group/artifact):
   ;; (load-master 'clojure/tools.trace)
+
+
   :hot-load-deps
   {:extra-deps {org.clojure/tools.deps.alpha
                 {:git/url "https://github.com/clojure/tools.deps.alpha"
@@ -235,6 +263,8 @@
   ;; Options are followed by list of paths to analyze.
 
   ;; clojure -A:graph-vars -d graphs -f png src test
+
+
   :graph-vars
   {:extra-deps {thomasa/morpheus
                 {:git/url "https://github.com/benedekfazekas/morpheus.git"
@@ -253,6 +283,8 @@
 
   ;; Generate SVG image of dependency graph in directory called `graphs`
   ;; clojure -A:graph-vars-svg
+
+
   :graph-vars-svg
   {:extra-deps {thomasa/morpheus
                 {:git/url "https://github.com/benedekfazekas/morpheus.git"
@@ -270,6 +302,8 @@
   ;; clj -A:graph-deps single -o deps-graph.png -f png # png file
   ;; clj -A:graph-deps single -o deps-graph.svg -f svg # svg file
   ;; clj -A:graph-deps single --show  # View graph without saving
+
+
   :graph-deps
   {:deps      {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
                                  :sha     "fb2391a4af24246ac4e46f3a573970ba5b7c92de"}}
@@ -290,6 +324,8 @@
   ;; https://github.com/seancorfield/depstar
   ;; clojure -A:depstar -m hf.depstar.jar MyLib.jar
   ;; clojure -A:depstar -m hf.depstar.uberjar MyProject.jar
+
+
   :build-depstar
   {:extra-deps
    {seancorfield/depstar {:mvn/version "1.0.94"}}}
@@ -298,6 +334,8 @@
   ;; uberdeps - uberjar builder
   ;; https://github.com/tonsky/uberdeps
   ;; "--target" "target/cdeps-0.1.0.jar" in `:main-opts` to specify output file
+
+
   :build-uberdeps
   {:extra-deps {uberdeps {:mvn/version "0.1.10"}}
    :main-opts  ["-m" "uberdeps.uberjar"]}
@@ -314,6 +352,8 @@
   ;; (require '[practicalli/namespace-name]) ; require project source code
   ;; (in-ns 'practicalli/namespace-name)
   ;; (quick-bench (project-function args))
+
+
   :benchmark
   {:extra-deps {criterium {:mvn/version "0.4.5"}}}
 
