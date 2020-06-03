@@ -53,6 +53,12 @@ Run project: `clojure -m myname.myapp`
 `:repl/help` in the REPL for help and available commands.  `:repl/quit` to close the REPL.
 
 
+## Data browsing - Cognitect REBL
+Browse data structures as they are generated in the Clojure REPL.
+
+* `cognitect-rebl-java8` - REBL, a visual data explorer (Java 8)
+* `cognitect-rebl-java11` - REBL, a visual data explorer (Java 11)
+
 ## Java source
 [Look up Java Class and method definitions, eg. `cider-find-var` in Emacs](https://practicalli.github.io/spacemacs/navigating-code/java-definitions.html)
 Requires: Java sources installed locally, examples from Ubuntu package install locations

@@ -61,6 +61,37 @@
    :main-opts  ["-m" "rebel-readline-cljs.main"]}
 
 
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; REBL Data browser
+  ;; https://github.com/cognitect-labs/REBL-distro
+  ;; Download the REBL JAR and update the local/root below
+  ;; Requires Clojure 1.10 and either:
+  ;; - Oracle JDK 8 -- use :cognitect-rebl-java8
+  ;; - OpenJDK 8 or 11 -- use :cognitect-rebl-java11
+
+  :cognitect-rebl-java8
+  {:extra-deps {org.clojure/core.async {:mvn/version "0.4.490"}
+                ;; deps for file datafication (0.9.149 or later)
+                org.clojure/data.csv   {:mvn/version "0.1.4"}
+                org.clojure/data.json  {:mvn/version "0.2.3"}
+                org.yaml/snakeyaml     {:mvn/version "1.23"}
+                ;; adjust to match your install location com.cognitect/rebl
+                com.cognitect/rebl     {:local/root "/home/practicalli/.local/apps/rebel/REBL-0.9.220/REBL-0.9.220.jar"}}
+   :main-opts  ["-m" "cognitect.rebl"]}
+
+
+  :cognitect-rebl-java11
+  {:extra-deps {org.clojure/clojure         {:mvn/version "1.10.0"}
+                org.clojure/core.async      {:mvn/version "0.4.490"}
+                com.cognitect/rebl          {:local/root "/home/practicalli/.local/apps/rebel/REBL-0.9.220/REBL-0.9.220.jar"}
+                org.openjfx/javafx-fxml     {:mvn/version "11.0.1"}
+                org.openjfx/javafx-controls {:mvn/version "11.0.1"}
+                org.openjfx/javafx-swing    {:mvn/version "11.0.1"}
+                org.openjfx/javafx-base     {:mvn/version "11.0.1"}
+                org.openjfx/javafx-web      {:mvn/version "11.0.1"}}
+   :main-opts  ["-m" "cognitect.rebl"]}
+
+
 
   ;; Java Sources
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
