@@ -92,6 +92,39 @@
    :main-opts  ["-m" "cognitect.rebl"]}
 
 
+  ;; nrebl.middleware
+  ;; spies on nREPL connection and captures result of evlatuations in REBL
+  ;; https://github.com/RickMoynihan/nrebl.middleware
+  ;; Command Line (java11):
+  ;; clj -R:nrepl:cider-nrepl:cognitect-rebl-java11 -A:nrebl
+  ;; Emacs cider (java11): add following to `dir-locals.el` to root directory of project and run `cider-connect`
+  ;; ((clojure-mode . ((cider-clojure-cli-global-options . "-R:nrepl:cider-nrepl:rebl-java11 -A:nrebl.middleware"))))
+
+  :nrebl.middleware
+  {:extra-deps {nrepl                         {:mvn/version "0.7.0"}
+                cider/cider-nrepl             {:mvn/version "0.25.0"}
+                refactor-nrepl                {:mvn/version "2.5.0"}
+                rickmoynihan/nrebl.middleware {:mvn/version "0.3.1"}}
+   :main-opts  ["-e" "((requiring-resolve,'cognitect.rebl/ui))"
+                "-m" "nrepl.cmdline"
+                "-i"
+                "--middleware" "[nrebl.middleware/wrap-nrebl,cider.nrepl/cider-middleware]"]}
+
+  ;; Supporting aliases for nrebl.middleware
+
+  :nrepl
+  {:extra-deps {nrepl/nrepl {:mvn/version "0.7.0"}}}
+
+  :cider-nrepl
+  {:extra-deps {cider/cider-nrepl {:mvn/version   "0.25.0"
+                                   refactor-nrepl {:mvn/version "2.5.0"}}}}
+
+
+
+  ;; End of REBL data browser
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
 
   ;; Java Sources
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
