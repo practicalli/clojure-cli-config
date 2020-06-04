@@ -433,9 +433,13 @@
  ;; Provider attributes
  ;; Maven Central and Clojars are the canonical repositories for library dependencies
  ;; JCenter is large and fast mirror
- :mvn/repos {
-             "central" {:url "https://repo1.maven.org/maven2/"}
+
+ :mvn/repos {"central" {:url "https://repo1.maven.org/maven2/"}
              "clojars" {:url "https://repo.clojars.org/"}
+
+             ;; clojars.org mirror - publicly accessible
              "jcenter" {:url "https://jcenter.bintray.com"}
-             }
- }
+
+             ;; Example of local Artifactory repository configuration
+             ;; {"business-area" {:url "https://artifacts.internal-server.com:443/artifactory/business-area-maven-local"}
+             }}
