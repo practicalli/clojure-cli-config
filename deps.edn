@@ -277,6 +277,8 @@
   ;; Manage versions for maven and git dependencies
   ;; https://github.com/Olical/depot
   ;; Report dependencies that have newer versions available
+  ;; Update library versions in this deps.edn file:
+  ;; cd ~/.clojure && clojure -A:outdated
 
   :outdated
   {:extra-deps {olical/depot {:mvn/version "1.8.4"}}
