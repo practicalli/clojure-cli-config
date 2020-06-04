@@ -80,10 +80,11 @@ Requires: Java sources installed locally, examples from Ubuntu package install l
 
 
 ## Testing frameworks
-Unti test libraries, contracts and generative testing
+Unit test libraries, specifications and generative testing
 
-* `clojure-test` requires no alias as it is a part of the Clojure jar file.
-* `:spec` - define contracts for function definitions and data structures
+`clojure-test` requires no alias as it is a part of the Clojure jar file.  If not using a test running the `:test-path` alias may be required to add the test directory to the class path in order to see test code.
+
+* `:spec` - define specifications for functions and data structures
 * `:spec2` - under active development
 
 * [`:expectations`](https://github.com/clojure-expectations/clojure-test) - `clojure.test` with expectations
