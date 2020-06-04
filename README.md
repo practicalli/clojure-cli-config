@@ -85,9 +85,12 @@ Unti test libraries, contracts and generative testing
 * `clojure-test` requires no alias as it is a part of the Clojure jar file.
 * `:spec` - define contracts for function definitions and data structures
 * `:spec2` - under active development
-* [`:expectations`](https://github.com/clojure-expectations/expectations) - test framework
 
-Run expectations with cognitect test runner: `clojure -A:expectations:test-runner-cognitect`
+* [`:expectations`](https://github.com/clojure-expectations/clojure-test) - `clojure.test` with expectations
+* [`:expectations-classic`](https://github.com/clojure-expectations/expectations) - expectations framework
+
+Use expectations in a project `clojure -A:test:expectations` or from the command line with cognitect test runner `clojure -A:expectations:test-runner-cognitect`
+
 
 
 ## Test runners
