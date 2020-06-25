@@ -21,7 +21,7 @@
  {org.clojure/clojure {:mvn/version "1.10.1"}}
 
  :aliases
- {;; Aliases
+ {
   ;;   resolve-deps aliases (-R) affect dependency resolution, options:
   ;;     :extra-deps - specifies extra deps to add to :deps
   ;;     :override-deps - specifies a coordinate to use instead of that in :deps
@@ -207,6 +207,16 @@
    :main-opts   ["-m" "cljs-test-runner.main"]}
 
 
+  ;; kaocha - comprehensive test runner for Clojure/Script
+  ;; tests.edn should be created for each project
+  ;; https://github.com/lambdaisland/kaocha
+
+  :test-runner-kaocha
+  {:extra-paths ["test"]
+   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0-612"}}
+   :main-opts   ["-m" "kaocha.runner"]}
+
+
   ;; midje-runner
   ;; https://github.com/miorimmax/midje-runner
 
@@ -226,16 +236,6 @@
   {:extra-paths ["test"]
    :extra-deps  {eftest {:mvn/version "0.5.9"}}
    :main-opts   ["-e"  "(require,'[eftest.runner,:refer,[find-tests,run-tests]]),(run-tests,(find-tests,\"test\"))"]}
-
-
-  ;; kaocha - comprehensive test runner for Clojure/Script
-  ;; tests.edn should be created for each project
-  ;; https://github.com/lambdaisland/kaocha
-
-  :test-runner-kaocha
-  {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0-612"}}
-   :main-opts   ["-m" "kaocha.runner"]}
 
 
   ;; Test Coverage tools
