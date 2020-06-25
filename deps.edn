@@ -198,6 +198,14 @@
                   :sha     "f7ef16dc3b8332b0d77bc0274578ad5270fbfedd"}}
    :main-opts   ["-m" "cognitect.test-runner"]}
 
+  ;; ClojureScript test runner
+  ;; https://github.com/Olical/cljs-test-runner
+
+  :test-runner-cljs
+  {:extra-paths ["test"]
+   :extra-deps  {olical/cljs-test-runner {:mvn/version "3.7.0"}}
+   :main-opts   ["-m" "cljs-test-runner.main"]}
+
 
   ;; midje-runner
   ;; https://github.com/miorimmax/midje-runner

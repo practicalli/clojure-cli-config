@@ -104,6 +104,7 @@ Run clojure with the specific test runner alias: `clojure -A:test-runner-alias`
 * [`:test-runner-cognitect`](https://github.com/cognitect-labs/test-runner) - Cognitect test-runner
 * [`:test-runner-midje`	](https://github.com/miorimmax/midje-runner)
 * [`:test-runner-eftest`](https://github.com/weavejester/eftest) - fast and pretty test runner
+* [`:test-runner-cljs`](https://github.com/Olical/cljs-test-runner) - test runner for Clojure/Script
 * [`:test-runner-kaocha`](https://github.com/lambdaisland/kaocha) - comprehensive test runner for Clojure/Script
 
 
