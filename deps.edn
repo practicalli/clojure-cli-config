@@ -321,9 +321,7 @@
   ;; (load-master 'clojure/tools.trace)
 
   :hot-load-deps
-  {:extra-deps {org.clojure/tools.deps.alpha
-                {:git/url "https://github.com/clojure/tools.deps.alpha"
-                 :sha     "80c1b56e5cbd083193b868cbdc8f87413688c9e9"}}}
+  {:extra-deps {org.clojure/tools.deps.alpha {:mvn/version "0.8.695"}}}
 
 
   ;; Visualizing dependencies
