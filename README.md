@@ -130,7 +130,8 @@ Manage versions for maven and git dependencies
 * [:outdated-ancient](https://github.com/slipset/deps-ancient) - check for newer dependencies (maven)
 
 
-## Hot loading dependencies (alpha)
+## Hot loading dependencies (unofficial - changes planned already)
+> This is a very unofficial approach to hot loading and the design may change quite soon, so this alias is likely to break without notice.  Do not rely on this alias working and use with caution.
 
 * [`:hot-load-deps`](https://github.com/clojure/tools.deps.alpha) - Add jar dependencies into a running REPL.
 

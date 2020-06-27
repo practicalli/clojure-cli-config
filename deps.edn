@@ -306,8 +306,10 @@
    :extra-deps {deps-ancient {:mvn/version "RELEASE"}}}
 
 
-  ;; Hot loading dependencies
+  ;; Hot loading dependencies - EXPERIMENTAL / APLPHA
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Hot loading is not officially part of tools.deps and
+  ;; this alias could change significantly in future
 
   ;; Add new deps to a running REPL:
   ;; (require '[clojure.tools.deps.alpha.repl :refer [add-lib]])
@@ -319,9 +321,14 @@
   ;;    (add-lib lib {:git/url git :sha (gitlibs/resolve git "master")})))
   ;; - e.g., using the GitHub path (not the usual Maven group/artifact):
   ;; (load-master 'clojure/tools.trace)
-
   :hot-load-deps
-  {:extra-deps {org.clojure/tools.deps.alpha {:mvn/version "0.8.695"}}}
+  {:extra-deps {org.clojure/tools.deps.alpha
+                {:git/url "https://github.com/clojure/tools.deps.alpha"
+                 :sha     "19d197ab221d37db750423eb970880cb87a91100"}}
+   ;; DynamicClassLoader required for add-lib to work
+   ;; if starting other processes via aliases such as a socket REPL or Cognitect's REBL
+   :main-opts  ["-e" "(->>(Thread/currentThread)(.getContextClassLoader)(clojure.lang.DynamicClassLoader.)(.setContextClassLoader,(Thread/currentThread)))"]}
+
 
 
   ;; Visualizing dependencies
