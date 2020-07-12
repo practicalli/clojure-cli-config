@@ -61,6 +61,15 @@
   {:extra-deps {com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}}
    :main-opts  ["-m" "rebel-readline-cljs.main"]}
 
+  ;; rebel readline with nrepl for editor connection to REPL
+  :repl {:extra-deps {nrepl                      {:mvn/version "0.8.0-alpha5"}
+                      cider/cider-nrepl          {:mvn/version "0.25.2"}
+                      com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
+         :main-opts  ["-m" "nrepl.cmdline"
+                      "--middleware" "[cider.nrepl/cider-middleware]"
+                      "-i"
+                      "-f" "rebel-readline.main/-main"]}
+
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; REBL Data browser
