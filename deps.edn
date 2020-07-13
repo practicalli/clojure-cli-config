@@ -128,8 +128,8 @@
   {:extra-deps {nrepl/nrepl {:mvn/version "0.7.0"}}}
 
   :cider-nrepl
-  {:extra-deps {cider/cider-nrepl {:mvn/version   "0.25.0"
-                                   refactor-nrepl {:mvn/version "2.5.0"}}}}
+  {:extra-deps {cider/cider-nrepl {:mvn/version "0.25.0"}
+                refactor-nrepl    {:mvn/version "2.5.0"}}}
 
 
 
