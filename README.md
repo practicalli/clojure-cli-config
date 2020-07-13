@@ -51,6 +51,7 @@ Run project: `clojure -m myname.myapp`
 
 * `rebel` - run a Clojure REPL
 * `rebel-cljs` - run the default ClojureScript REPL, eg. Nashorn
+* `rebel-nrepl` - run rebel REPL with nrepl connection for editor connections (eg. CIDER, Calva)
 
 `:repl/help` in the REPL for help and available commands.  `:repl/quit` to close the REPL.
 
