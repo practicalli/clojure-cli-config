@@ -108,11 +108,11 @@
   ;; spies on nREPL connection and captures result of evlatuations in REBL
   ;; https://github.com/RickMoynihan/nrebl.middleware
   ;; Command Line (java11):
-  ;; clj -R:nrepl:cider-nrepl:cognitect-rebl-java11 -A:nrebl
+  ;; clojure -R:nrepl:cider-nrepl:cognitect-rebl-java11 -A:nrebl
   ;; Emacs cider (java11): add following to `dir-locals.el` to root directory of project and run `cider-connect`
   ;; ((clojure-mode . ((cider-clojure-cli-global-options . "-R:nrepl:cider-nrepl:rebl-java11 -A:nrebl.middleware"))))
 
-  :nrebl.middleware
+  :nrebl
   {:extra-deps {nrepl                         {:mvn/version "0.7.0"}
                 cider/cider-nrepl             {:mvn/version "0.25.0"}
                 refactor-nrepl                {:mvn/version "2.5.0"}

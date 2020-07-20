@@ -62,7 +62,7 @@ Browse data structures as they are generated in the Clojure REPL.
 * `cognitect-rebl-java8` - REBL, a visual data explorer (Java 8)
 * `cognitect-rebl-java11` - REBL, a visual data explorer (Java 11)
 
-* :`nrebl.middleware` - REBL data browser on nREPL connection (uses )
+* `:nrebl` - REBL data browser on nREPL connection
 
 Run REBL listening to nREPL using the command
 ```shell
