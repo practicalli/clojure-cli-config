@@ -224,8 +224,12 @@
 
   :test-runner-kaocha
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0-612"}}
+   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.641"}}
    :main-opts   ["-m" "kaocha.runner"]}
+
+  :test-runner-kaocha-cli
+  {:extra-paths ["test"]
+   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.641"}}}
 
 
   ;; midje-runner
