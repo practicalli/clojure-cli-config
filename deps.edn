@@ -63,8 +63,10 @@
 
 
   ;; rebel readline with nrepl for editor connection to REPL
+  ;; CIDER: run `cider-connect-clj` and expressions evaluated in rebel
+  ;; are also available from CIDER/Emacs/Spacemacs
   :rebel-nrepl
-  {:extra-deps {nrepl                      {:mvn/version "0.8.0-alpha5"}
+  {:extra-deps {nrepl/nrepl                {:mvn/version "0.8.0-alpha5"}
                 cider/cider-nrepl          {:mvn/version "0.25.2"}
                 com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
    :main-opts  ["-m" "nrepl.cmdline"
@@ -127,9 +129,9 @@
   ;; ((clojure-mode . ((cider-clojure-cli-global-options . "-R:nrepl:cider-nrepl:rebl-java11 -A:nrebl.middleware"))))
 
   :nrebl
-  {:extra-deps {nrepl                         {:mvn/version "0.7.0"}
+  {:extra-deps {nrepl/nrepl                   {:mvn/version "0.7.0"}
                 cider/cider-nrepl             {:mvn/version "0.25.0"}
-                refactor-nrepl                {:mvn/version "2.5.0"}
+                refactor-nrepl/refactor-nrepl {:mvn/version "2.5.0"}
                 rickmoynihan/nrebl.middleware {:mvn/version "0.3.1"}}
    :main-opts  ["-e" "((requiring-resolve,'cognitect.rebl/ui))"
                 "-m" "nrepl.cmdline"
@@ -142,8 +144,8 @@
   {:extra-deps {nrepl/nrepl {:mvn/version "0.7.0"}}}
 
   :cider-nrepl
-  {:extra-deps {cider/cider-nrepl {:mvn/version "0.25.0"}
-                refactor-nrepl    {:mvn/version "2.5.0"}}}
+  {:extra-deps {cider/cider-nrepl             {:mvn/version "0.25.0"}
+                refactor-nrepl/refactor-nrepl {:mvn/version "2.5.0"}}}
 
 
 
@@ -241,14 +243,11 @@
    :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.641"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
-  :test-runner-kaocha-cli
-  {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.641"}}}
-
 
   ;; midje-runner
   ;; https://github.com/miorimmax/midje-runner
-
+  ;; WARNING: unqualified library name: midje-runner
+  ;; Unqualified names may break soon
   :test-runner-midje
   {:extra-paths ["test"]
    :extra-deps  {midje-runner
@@ -263,7 +262,7 @@
 
   :test-runner-eftest
   {:extra-paths ["test"]
-   :extra-deps  {eftest {:mvn/version "0.5.9"}}
+   :extra-deps  {eftest/eftest {:mvn/version "0.5.9"}}
    :main-opts   ["-e"  "(require,'[eftest.runner,:refer,[find-tests,run-tests]]),(run-tests,(find-tests,\"test\"))"]}
 
 
@@ -276,7 +275,7 @@
   ;; clojure -A:test-coverage
   :test-coverage
   {:extra-paths ["test"]
-   :extra-deps  {cloverage {:mvn/version "RELEASE"}}
+   :extra-deps  {cloverage/cloverage {:mvn/version "RELEASE"}}
    :main-opts   ["-m" "cloverage.coverage"]}
 
 
@@ -288,7 +287,7 @@
   ;; https://github.com/borkdude/clj-kondo/
 
   :lint
-  {:extra-deps {clj-kondo {:mvn/version "RELEASE"}}
+  {:extra-deps {clj-kondo/clj-kondo {:mvn/version "RELEASE"}}
    :main-opts  ["-m" "clj-kondo.main"]}
 
 
@@ -343,10 +342,13 @@
   ;; The classic project for checking maven based dependencies
 
   :outdated-ancient
-  {:main-opts  ["-m" "deps-ancient.deps-ancient"]
-   :extra-deps {deps-ancient {:mvn/version "RELEASE"}}}
+  {:extra-deps {deps-ancient/deps-ancient {:mvn/version "RELEASE"}}
+   :main-opts  ["-m" "deps-ancient.deps-ancient"]}
 
 
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; EXPERIMENTAL - use at your own risk, you have been warned
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Hot loading dependencies - EXPERIMENTAL / APLPHA
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Hot loading is not officially part of tools.deps and
@@ -452,7 +454,7 @@
   ;; "--target" "target/cdeps-0.1.0.jar" in `:main-opts` to specify output file
 
   :build-uberdeps
-  {:extra-deps {uberdeps {:mvn/version "0.1.10"}}
+  {:extra-deps {uberdeps/uberdeps {:mvn/version "0.1.10"}}
    :main-opts  ["-m" "uberdeps.uberjar"]}
 
 
@@ -469,7 +471,7 @@
   ;; (quick-bench (project-function args))
 
   :benchmark
-  {:extra-deps {criterium {:mvn/version "0.4.5"}}}
+  {:extra-deps {criterium/criterium {:mvn/version "0.4.5"}}}
 
 
   ;; - see https://github.com/clojure-goes-fast/clj-memory-meter
