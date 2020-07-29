@@ -1,8 +1,8 @@
 ![Practicalli Clojure deps.edn user wide configuration for Clojure projects](https://raw.githubusercontent.com/practicalli/graphic-design/master/practicalli-clojure-deps.png)
 
-[practicalli/clojure-deps-edn](https://github.com/practicalli/clojure-deps-edn) provides a user wide configuration, `~/.clojure/` of over 30 aliases to support Clojure development.  These aliases use meaningful and complete names to avoid clashes with project specific aliases, ensuring that the user wide aliases remain available in all projects.
+[practicalli/clojure-deps-edn](https://github.com/practicalli/clojure-deps-edn) provides a user wide configuration, `~/.clojure/deps.edn`, for over 30 aliases to support Clojure CLI and tools.deps project development.  These aliases use meaningful and descriptive names to avoid clashes with project specific aliases, ensuring that the user wide aliases remain available in all projects.
 
-Aliases with common options are provided for convenience and to minimize the amount of cognitive load required to remember how to use aliases.  Inspiration taken from [seancorfield/dot-clojure](https://github.com/seancorfield/dot-clojure).
+Aliases with common options are provided for convenience and to minimize the amount of cognitive load required to remember how to use aliases. Inspiration taken from [seancorfield/dot-clojure](https://github.com/seancorfield/dot-clojure).
 
 
 ## Installing Clojure deps.edn
