@@ -131,6 +131,7 @@ Run clojure with the test coverage alias: `clojure -A:test-coverage`
 * [`:lint-eastwood`](https://github.com/jonase/eastwood) - classic lint tool for Clojure
 * [`:idiom-check`](https://github.com/jonase/kibit) - checking for idiomatic Clojure code with Kibit
 
+* [:carve](https://github.com/borkdude/carve) - EXPERIMENTAL, use with caution - carve out unwanted vars in code
 
 ## Dependency version management
 Manage versions for maven and git dependencies

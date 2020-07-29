@@ -308,6 +308,18 @@
    :main-opts  ["-m" "kibit-runner.cmdline"]}
 
 
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; EXPERIMENTAL - use at your own risk, you have been warned
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Carve - search through code for unused vars and remove them
+  :carve
+  {:extra-deps {borkdude/carve
+                {:git/url "https://github.com/borkdude/carve"
+                 :sha     "542078b21d72a96848bc342e57aa560339b79698"}}
+   :main-opts  ["-m" "carve.main"]}
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
   ;; Dependency version management
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
