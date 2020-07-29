@@ -55,6 +55,8 @@ Run project: `clojure -m myname.myapp`
 
 `:repl/help` in the REPL for help and available commands.  `:repl/quit` to close the REPL.
 
+* `:dev` include `dev/` in classpath to [configure REPL startup actions using `dev/user.clj`](http://practicalli.github.io/clojure/repl-driven-development/configure-repl-startup.html)
+
 
 ## Data browsing - Cognitect REBL
 Browse data structures as they are generated in the Clojure REPL.

@@ -73,7 +73,21 @@
                 "-f" "rebel-readline.main/-main"]}
 
 
+  ;; Include a `dev` path when running the repl
+  ;; enabling the use of a `dev/user.clj` file
+  ;; to configure actions as soon as the REPL starts
+  ;; http://practicalli.github.io/clojure/repl-driven-development/configure-repl-startup.html
+
+  :dev
+  {:extra-paths ["dev"]}
+
+
+  ;; End of REPL experience
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; REBL Data browser
   ;; https://github.com/cognitect-labs/REBL-distro
   ;; Download the REBL JAR and update the local/root below
