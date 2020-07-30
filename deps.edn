@@ -425,15 +425,15 @@
   ;; clj -A:graph-deps single --show  # View graph without saving
 
   :graph-deps
-  {:deps      {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
-                                 :sha     "fb2391a4af24246ac4e46f3a573970ba5b7c92de"}}
-   :main-opts ["-m" "io.dominic.vizns.core"]}
+  {:extra-deps {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
+                                  :sha     "fb2391a4af24246ac4e46f3a573970ba5b7c92de"}}
+   :main-opts  ["-m" "io.dominic.vizns.core"]}
 
   ;; Generate single PNG image of library dependencies
   :graph-deps-png
-  {:deps      {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
-                                 :sha     "fb2391a4af24246ac4e46f3a573970ba5b7c92de"}}
-   :main-opts ["-m" "io.dominic.vizns.core" "single" "-o" "deps-graph.png" "-f" "png"]}
+  {:extra-deps {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
+                                  :sha     "fb2391a4af24246ac4e46f3a573970ba5b7c92de"}}
+   :main-opts  ["-m" "io.dominic.vizns.core" "single" "-o" "deps-graph.png" "-f" "png"]}
 
 
 
