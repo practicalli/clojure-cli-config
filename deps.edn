@@ -458,6 +458,52 @@
    :main-opts  ["-m" "uberdeps.uberjar"]}
 
 
+  ;; Deploy library jar installation and deployment
+  ;; https://github.com/slipset/deps-deploy
+  ;; Deploy Locally (in `~/.m2/`)
+  ;; `clojure -A:deploy-locally project.jar`
+  ;; Deploy to Clojars
+  ;; `clojure -A:deploy-clojars project.jar`
+  ;; Deploy to Clojars signed
+  ;; `clojure -A:deploy-clojars-signed project.jar`
+  ;;
+  ;; Set Clojars username/token in `CLOJARS_USERNAME` and `CLOJARS_PASSWORD`
+  ;; environment variables.
+  ;; Set fully qualified artifact-name and version in project `pom.xml` file
+
+  :deploy-locally
+  {:extra-deps {deps-deploy/deps-deploy {:mvn/version "RELEASE"}}
+   :main-opts  ["-m" "deps-deploy.deps-deploy"
+                "install"]}
+
+  :deploy-clojars
+  {:extra-deps {deps-deploy/deps-deploy {:mvn/version "RELEASE"}}
+   :main-opts  ["-m" "deps-deploy.deps-deploy"
+                "deploy"]}
+
+  :deploy-clojars-signed
+  {:extra-deps {deps-deploy/deps-deploy {:mvn/version "RELEASE"}}
+   :main-opts  ["-m" "deps-deploy.deps-deploy"
+                "deploy"
+                :true]}
+
+
+
+  ;; Add the path to the jar for deployment to simplify command
+
+  ;; :deploy-locally
+  ;; {:extra-deps {deps-deploy/deps-deploy {:mvn/version "RELEASE"}}
+  ;;  :main-opts  ["-m" "deps-deploy.deps-deploy"
+  ;;               "install"
+  ;;               "path/to/my.jar"]}
+
+  ;; {:deploy-clojars
+  ;;  {:extra-deps {deps-deploy/deps-deploy {:mvn/version "RELEASE"}}
+  ;;   :main-opts  ["-m" "deps-deploy.deps-deploy"
+  ;;                "deploy"
+  ;;               "path/to/my.jar"]}}
+
+
   ;; Performance testing
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

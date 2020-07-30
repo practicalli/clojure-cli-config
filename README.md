@@ -188,6 +188,8 @@ Other options:
 
 ## Deployment
 
+Build a project archive file for deployment
+
 * [:build-depstar](https://github.com/seancorfield/depstar) - build jars, uberjars for deps.edn projects
 ```
 clojure -A:depstar -m hf.depstar.jar MyLib.jar
@@ -195,6 +197,25 @@ clojure -A:depstar -m hf.depstar.uberjar MyProject.jar
 ```
 
 * [:build-uberdeps](https://github.com/tonsky/uberdeps) - uberjar builder
+
+
+Deploy a project archive file locally or to Clojars.org
+
+* [:deploy-locally](https://github.com/slipset/deps-deploy) - copy jar to `~/.m2/` directory
+* [:deploy-clojars](https://github.com/slipset/deps-deploy) - deploy jar to [clojars.org](https://clojars.org/)
+* [:deploy-clojars-signed](https://github.com/slipset/deps-deploy) - sign and deploy jar to [clojars.org](https://clojars.org/)
+
+Deploy Locally:
+`clojure -A:deploy-locally project.jar`
+Deploy to Clojars:
+`clojure -A:deploy-clojars project.jar`
+Deploy to Clojars signed:
+`clojure -A:deploy-clojars-signed project.jar`
+
+Path to project.jar can also be set in alias to simplify the Clojure command.
+
+Set Clojars username/token in `CLOJARS_USERNAME` and `CLOJARS_PASSWORD` environment variables.
+Set fully qualified artifact-name and version in project `pom.xml` file
 
 
 ## Performance testing
