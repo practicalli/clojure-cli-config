@@ -246,3 +246,15 @@ In the REPL:
   (require '[clj-memory-meter.core :as memory-meter])
    (memory-meter/measure (your-expression))
 ```
+
+## Library repositories
+Repositories that host libraries for Clojure. The order in which repositories are consulted is not guaranteed, so only add essential repositories
+
+Recommended repositories:
+* `central` - Maven Central, the canonical repository for JVM libraries, including Clojure releases
+* `clojars` - clojars.org, the canonical repositories for Clojure community libraries
+
+Optional repositories:
+* `sonatype` - snapshots of Clojure development releases, useful for testing against before new stable releases.
+* `jcenter` - the largest mirror of all open source libraries (useful as a backup or accessing through corporate firewalls)
+* `business-area` - example of adding a local Artifactory server for your team or business area.

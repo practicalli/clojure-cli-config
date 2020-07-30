@@ -532,15 +532,19 @@
   } ;; End of alias definitions
 
 
- ;; Provider attributes
+ ;; Library Repositories
+ ;; Order in which repositories are consulted is not guaranteed, so only add essential repositories
  ;; Maven Central and Clojars are the canonical repositories for library dependencies
- ;; JCenter is large and fast mirror
+ ;; JCenter is large and fast mirror often accessible behind corporate firewalls
 
  :mvn/repos {"central" {:url "https://repo1.maven.org/maven2/"}
              "clojars" {:url "https://repo.clojars.org/"}
 
+             ;; Clojure snapshots
+             ;; "sonatype" {:url "https://oss.sonatype.org/content/repositories/snapshots/"}
+
              ;; clojars.org mirror - publicly accessible
-             "jcenter" {:url "https://jcenter.bintray.com"}
+             ;; "jcenter" {:url "https://jcenter.bintray.com"}
 
              ;; Example of local Artifactory repository configuration
              ;; {"business-area" {:url "https://artifacts.internal-server.com:443/artifactory/business-area-maven-local"}
