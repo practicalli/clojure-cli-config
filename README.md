@@ -248,11 +248,15 @@ In the REPL:
 ```
 
 ## Library repositories
-Repositories that host libraries for Clojure. The order in which repositories are consulted is not guaranteed, so only add essential repositories
+Repositories that host libraries for Clojure.
+
+If using a mirror for a repository the original repository should not be included as well.  The order in which repositories are consulted is not guaranteed, so may cause unpredictable side effects in the project build especially if `RELEASE` or `LATEST` tags are used rather than a numeric library version.
+
+Maven supports [explicit mirror definition](http://maven.apache.org/guides/mini/guide-mirror-settings.html) in `~/.m2/settings.xml` and Clojure CLI tools(tools.deps) supports this configuration.  Adding Maven Central or a mirror to  `~/.m2/settings.xml` negates the need for its entry in deps.edn configuration.
 
 Recommended repositories:
 * `central` - Maven Central, the canonical repository for JVM libraries, including Clojure releases
-* `clojars` - clojars.org, the canonical repositories for Clojure community libraries
+* `clojars` - clojars.org, the canonical repositories for Clojure community libraries fronted by a contend delivery network service, https://repo.clojars.org/
 
 Optional repositories:
 * `sonatype` - snapshots of Clojure development releases, useful for testing against before new stable releases.
