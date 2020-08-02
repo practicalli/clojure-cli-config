@@ -83,6 +83,24 @@
   :dev
   {:extra-paths ["dev"]}
 
+  ;; Reveal - read evaluate visualize loop
+  ;; A REPL environment with data visualization and exploration
+  ;; clj -A:repl-reveal
+  ;; Use with rebel repl by adding and using tap>
+  ;; clojure -R:repel-reveal -A: rebel
+  ;; http://practicalli.github.io/clojure/clojure-tools/data-browsers/reveal.html
+  :repl-reveal
+  {:extra-deps {vlaaad/reveal {:mvn/version "0.1.0-ea25"}}
+   :main-opts  ["-m" "vlaaad.reveal" "repl"]}
+
+  ;; Reveal REPL with nrepl server, connect to from a Clojure aware editor
+  ;; clj -A:repl-reveal-nrepl
+  :repl-reveal-nrepl
+  {:extra-deps {vlaaad/reveal {:mvn/version "0.1.0-ea26"}
+                nrepl/nrepl   {:mvn/version "0.7.0"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[vlaaad.reveal.nrepl/middleware]"]}
+
 
   ;; End of REPL experience
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

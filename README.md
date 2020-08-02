@@ -65,6 +65,17 @@ Run project: `clojure -m myname.myapp`
 * `:dev` include `dev/` in classpath to [configure REPL startup actions using `dev/user.clj`](http://practicalli.github.io/clojure/repl-driven-development/configure-repl-startup.html)
 
 
+[Reveal](https://github.com/vlaaad/reveal) is a repl and data visualization tool
+
+* `repl-reveal` - repl and data visualization tool
+* `repl-reveal-nrepl` - repl and data visualization tool with nrepl server, for connection from [Clojure aware editors](https://practicalli.github.io/clojure/clojure-editors/)
+
+`clj -A:repl-reveal` to start a command line repl with a separate data visualization window.
+
+`clj -R:repl-reveal -A:rebel` to start a repl with REBEL, evaluating `(add-tap ((requiring-resolve 'vlaaad.reveal/ui)))` to add Reveal as a source for `tap>` commands.
+
+[Practicalli Clojure - data browsers section](http://practicalli.github.io/clojure/clojure-tools/data-browsers/reveal.html) has more details on using reveal.
+
 ## Data browsing - Cognitect REBL
 Browse data structures as they are generated in the Clojure REPL.
 
