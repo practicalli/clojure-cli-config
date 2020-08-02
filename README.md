@@ -265,11 +265,50 @@ If using a mirror for a repository the original repository should not be include
 
 Maven supports [explicit mirror definition](http://maven.apache.org/guides/mini/guide-mirror-settings.html) in `~/.m2/settings.xml` and Clojure CLI tools(tools.deps) supports this configuration.  Adding Maven Central or a mirror to  `~/.m2/settings.xml` negates the need for its entry in deps.edn configuration.
 
-Recommended repositories:
+**Recommended repositories**
 * `central` - Maven Central, the canonical repository for JVM libraries, including Clojure releases
 * `clojars` - clojars.org, the canonical repositories for Clojure community libraries fronted by a contend delivery network service, https://repo.clojars.org/
 
-Optional repositories:
+**Optional repositories**
 * `sonatype` - snapshots of Clojure development releases, useful for testing against before new stable releases.
 * `jcenter` - the largest mirror of all open source libraries (useful as a backup or accessing through corporate firewalls)
-* `business-area` - example of adding a local Artifactory server for your team or business area.
+* `business-area** - example of adding a local Artifactory server for your team or business area.
+* `google-maven-central` - [Maven Central mirror hosted on Google Cloud Storage](https://storage-download.googleapis.com/maven-central/index.html) - Americas, Asia, Europe
+
+**Americas mirrors**
+```clojure
+ :mvn/repos
+ {"google-maven-central" {:url "https://maven-central.storage-download.googleapis.com/maven2/"}}
+```
+
+**Europe mirrors**
+Use only one mirror entry for a specific repository, to ensure a repeatable build.
+```
+ :mvn/repos
+ {"google-maven-central" {:url "https://maven-central-eu.storage-download.googleapis.com/maven2/"}
+
+ ;; UK specific mirror
+ "uk"      {:url "http://uk.maven.org/maven2/"}
+
+  ;; CDN access to clojars
+  "clojars" {:url "https://repo.clojars.org/"}}
+```
+
+**Asian Region Mirrors**
+```
+ :mvn/repos
+ {"google-maven-central" {:url "https://maven-central-asia.storage-download.googleapis.com/maven2/"}
+
+  ;; Community mirror
+  "clojars-china-mirror" {:url "https://mirrors.tuna.tsinghua.edu.cn/clojars/"}
+
+  ;; CDN access to clojars
+  "clojars" {:url "https://repo.clojars.org/"}}
+```
+
+**Maven local repository**
+```
+ :mvn/local-repo "m2"
+```
+
+> NOTE: using `clj -Sforce` forces a classpath recompute, deleting the contents of .cpcache

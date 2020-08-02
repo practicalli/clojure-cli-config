@@ -565,6 +565,16 @@
              ;; clojars.org mirror - publicly accessible
              ;; "jcenter" {:url "https://jcenter.bintray.com"}
 
+             ;; Maven Central Google Cloud Storage mirrors
+             ;; Americas
+             ;; "google-maven-central" {:url "https://maven-central.storage-download.googleapis.com/maven2/"}
+             ;; Asia
+             ;; "google-maven-central" {:url "https://maven-central-asia.storage-download.googleapis.com/maven2/"}
+             ;; Europe
+             ;; "google-maven-central" {:url "https://maven-central-eu.storage-download.googleapis.com/maven2/"}
+
+             ;; "clojars-china-mirror" {:url "https://mirrors.tuna.tsinghua.edu.cn/clojars/"}
+
              ;; Example of local Artifactory repository configuration
              ;; {"business-area" {:url "https://artifacts.internal-server.com:443/artifactory/business-area-maven-local"}
              }}
