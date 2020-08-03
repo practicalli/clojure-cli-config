@@ -77,8 +77,10 @@ Run project: `clojure -m myname.myapp`
 [Practicalli Clojure - data browsers section](http://practicalli.github.io/clojure/clojure-tools/data-browsers/reveal.html) has more details on using reveal.
 
 ## Data browsing
-Portal (new project)
+[Portal](https://github.com/djblue/portal) (new project)
 Navigate data in the form of edn, json and transit
+[Practicalli Clojure -data browsers section - portal](https://practicalli.github.io/clojure/clojure-tools/data-browsers/reveal.html)
+
 * `inspector-portal` - releases
 * `inspector-portal-dev` - from Git commits
 
