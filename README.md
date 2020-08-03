@@ -72,7 +72,7 @@ Run project: `clojure -m myname.myapp`
 
 `clj -A:repl-reveal` to start a command line repl with a separate data visualization window.
 
-`clj -R:repl-reveal -A:rebel` to start a repl with REBEL, evaluating `(add-tap ((requiring-resolve 'vlaaad.reveal/ui)))` to add Reveal as a source for `tap>` commands.
+`clojure -R:repl-reveal -A:rebel` to start a repl with REBEL, evaluating `(add-tap ((requiring-resolve 'vlaaad.reveal/ui)))` to add Reveal as a source for `tap>` commands.
 
 [Practicalli Clojure - data browsers section](http://practicalli.github.io/clojure/clojure-tools/data-browsers/reveal.html) has more details on using reveal.
 
