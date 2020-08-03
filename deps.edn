@@ -107,7 +107,28 @@
 
 
 
-   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Data inspectors / browsers
+
+  ;; Portal
+  ;; Navigate data - edn, json, transit
+  ;; https://github.com/djblue/portal
+
+  :inspector-portal
+  {:extra-deps {djblue/portal             {:mvn/version "0.2.1"}
+                org.clojure/clojurescript {:mvn/version "1.10.758"}}
+   :main-opts  ["-m" "cljs.main" "-re" "node"]}
+
+  ;; Track the latest dev changes (check GitHub for latest SHA)
+  :inspector-portal-dev
+  {:extra-deps {djblue/portal
+                {:git/url "https://github.com/djblue/portal.git"
+                 :sha     "f59b6948608bdd2b721348a2ee283adaf5c9cfee"}
+                org.clojure/clojurescript {:mvn/version "1.10.758"}}
+   :main-opts  ["-m" "cljs.main" "-re" "node"]}
+
+
   ;; REBL Data browser
   ;; https://github.com/cognitect-labs/REBL-distro
   ;; Download the REBL JAR and update the local/root below

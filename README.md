@@ -76,7 +76,13 @@ Run project: `clojure -m myname.myapp`
 
 [Practicalli Clojure - data browsers section](http://practicalli.github.io/clojure/clojure-tools/data-browsers/reveal.html) has more details on using reveal.
 
-## Data browsing - Cognitect REBL
+## Data browsing
+Portal (new project)
+Navigate data in the form of edn, json and transit
+* `inspector-portal` - releases
+* `inspector-portal-dev` - from Git commits
+
+Cognitect REBL
 Browse data structures as they are generated in the Clojure REPL.
 
 * `cognitect-rebl-java8` - REBL, a visual data explorer (Java 8)
