@@ -81,8 +81,22 @@ Run project: `clojure -m myname.myapp`
 Navigate data in the form of edn, json and transit
 [Practicalli Clojure -data browsers section - portal](https://practicalli.github.io/clojure/clojure-tools/data-browsers/reveal.html)
 
-* `inspector-portal` - releases
-* `inspector-portal-dev` - from Git commits
+* `inspector-portal-cli` - Clojure CLI (simplest approach)
+* `inspector-portal-web` - Web ClojureScript REPL
+* `inspector-portal-node` - node ClojureScript REPL
+
+`(require '[portal.api :as portal])` once the REPL starts.  For `inspector-portal-web` use `(require '[portal.web :as portal])` instead
+
+`(portal/open)` to open the web based inspector window in a browser.
+
+`(portal/tap) `to add portal as a tap target (add-tap)
+
+`(tap> {:accounts [{:name "jen" :email "jen@jen.com"} {:name "sara" :email "sara@sara.com"}]})` to send data to the portal inspector window (or any other data you wish to send)
+
+`(portal/clear)` to clear all values from the portal inspector window.
+
+`(portal/close)` to close the inspector window.
+
 
 Cognitect REBL
 Browse data structures as they are generated in the Clojure REPL.
