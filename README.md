@@ -79,7 +79,7 @@ Run project: `clojure -m myname.myapp`
 ## Data browsing
 [Portal](https://github.com/djblue/portal) (new project)
 Navigate data in the form of edn, json and transit
-[Practicalli Clojure -data browsers section - portal](https://practicalli.github.io/clojure/clojure-tools/data-browsers/reveal.html)
+[Practicalli Clojure -data browsers section - portal](https://practicalli.github.io/clojure/clojure-tools/data-browsers/portal.html)
 
 * `inspector-portal-cli` - Clojure CLI (simplest approach)
 * `inspector-portal-web` - Web ClojureScript REPL
