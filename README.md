@@ -68,11 +68,15 @@ Run project: `clojure -m myname.myapp`
 [Reveal](https://github.com/vlaaad/reveal) is a repl and data visualization tool
 
 * `repl-reveal` - repl and data visualization tool
+* `clojure -A:repl-reveal-themed` - repl and data visualization tool with light theme
 * `repl-reveal-nrepl` - repl and data visualization tool with nrepl server, for connection from [Clojure aware editors](https://practicalli.github.io/clojure/clojure-editors/)
 
-`clj -A:repl-reveal` to start a command line repl with a separate data visualization window.
+`clj -A:repl-reveal` to start a Reveal repl with data visualization window that shows all values.
 
-`clojure -R:repl-reveal -A:rebel` to start a repl with REBEL, evaluating `(add-tap ((requiring-resolve 'vlaaad.reveal/ui)))` to add Reveal as a source for `tap>` commands.
+  ;; clojure -R:repel-reveal -A: rebel
+`clojure -R:repl-reveal -A:rebel` to start a REPL with Rebel Readline with Reveal dependency. Evaluate `(add-tap ((requiring-resolve 'vlaaad.reveal/ui)))` to add Reveal as a tap source, showing `tap>` expressions in the reveal window.
+
+`clojure -R:repl-reveal -A:rebel -J-Dvlaaad.reveal.prefs='{:theme :light :font-family "Ubuntu Mono" :font-size 32}'` to run Rebel Readline with Reveal using a light theme.  Change the values in the map for a different theme.
 
 [Practicalli Clojure - data browsers section](http://practicalli.github.io/clojure/clojure-tools/data-browsers/reveal.html) has more details on using reveal.
 
