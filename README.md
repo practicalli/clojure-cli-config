@@ -120,8 +120,13 @@ clojure -R:nrepl:cider-nrepl:cognitect-rebl -A:nrebl
 ((clojure-mode . ((cider-clojure-cli-global-options . "-R:nrepl:cider-nrepl:cognitect-rebl -A:nrebl.middleware"))))
 ```
 
-## Java source
-[Look up Java Class and method definitions, eg. `cider-find-var` in Emacs](https://practicalli.github.io/spacemacs/navigating-code/java-definitions.html)
+## CIDER: Clojure Interactive Development Environment that Rocks
+Run a REPL on the command line for access by `cider-connect-` commands, providing the require cider middleware libraries that are auto-injected in `ccider-jack-in-` commands.
+
+* `:cider-clj`
+* `:cider-cljs`
+
+Include Java source on the  classpath to [look up Java Class and method definitions, eg. `cider-find-var` in Emacs](https://practicalli.github.io/spacemacs/navigating-code/java-definitions.html)
 Requires: Java sources installed locally, examples from Ubuntu package install locations
 
 * `:java-8-source`
