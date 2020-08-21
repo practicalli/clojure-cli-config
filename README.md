@@ -105,19 +105,19 @@ Navigate data in the form of edn, json and transit
 Cognitect REBL
 Browse data structures as they are generated in the Clojure REPL.
 
+* `cognitect-rebl` - REBL, a visual data explorer (Java 11)
 * `cognitect-rebl-java8` - REBL, a visual data explorer (Java 8)
-* `cognitect-rebl-java11` - REBL, a visual data explorer (Java 11)
 
 * `:nrebl` - REBL data browser on nREPL connection
 
 Run REBL listening to nREPL using the command
 ```shell
-clojure -R:nrepl:cider-nrepl:cognitect-rebl-java11 -A:nrebl
+clojure -R:nrepl:cider-nrepl:cognitect-rebl -A:nrebl
 ```
 
 `cider-connect` in Emacs CIDER successfully connects to the nREPL port and evaluated code is sent to REBL.  Create a `dir-locals.el` file with the following aliases:
 ```
-((clojure-mode . ((cider-clojure-cli-global-options . "-R:nrepl:cider-nrepl:rebl-java11 -A:nrebl.middleware"))))
+((clojure-mode . ((cider-clojure-cli-global-options . "-R:nrepl:cider-nrepl:cognitect-rebl -A:nrebl.middleware"))))
 ```
 
 ## Java source

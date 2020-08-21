@@ -147,41 +147,31 @@
 
   ;; REBL Data browser
   ;; https://github.com/cognitect-labs/REBL-distro
-  ;; Download the REBL JAR and update the local/root below
-  ;; Requires Clojure 1.10 and either:
+  ;; Requires Clojure 1.10 or greater
   ;; - Oracle JDK 8 -- use :cognitect-rebl-java8
-  ;; - OpenJDK 8 or 11 -- use :cognitect-rebl-java11
+  ;; - OpenJDK 8 or 11 -- use :cognitect-rebl
 
-  :cognitect-rebl-java8
-  {:extra-deps {org.clojure/core.async {:mvn/version "0.4.490"}
-                ;; deps for file datafication (0.9.149 or later)
-                org.clojure/data.csv   {:mvn/version "0.1.4"}
-                org.clojure/data.json  {:mvn/version "0.2.3"}
-                org.yaml/snakeyaml     {:mvn/version "1.23"}
-                ;; adjust to match your install location com.cognitect/rebl
-                com.cognitect/rebl     {:local/root "/home/practicalli/.local/apps/rebel/REBL-0.9.220/REBL-0.9.220.jar"}}
-   :main-opts  ["-m" "cognitect.rebl"]}
-
-
-  :cognitect-rebl-java11
-  {:extra-deps {org.clojure/clojure         {:mvn/version "1.10.0"}
-                org.clojure/core.async      {:mvn/version "0.4.490"}
-                com.cognitect/rebl          {:local/root "/home/practicalli/.local/apps/rebel/REBL-0.9.220/REBL-0.9.220.jar"}
+  :cognitect-rebl
+  {:extra-deps {com.cognitect/rebl          {:mvn/version "0.9.240"}
                 org.openjfx/javafx-fxml     {:mvn/version "11.0.1"}
                 org.openjfx/javafx-controls {:mvn/version "11.0.1"}
                 org.openjfx/javafx-swing    {:mvn/version "11.0.1"}
                 org.openjfx/javafx-base     {:mvn/version "11.0.1"}
-                org.openjfx/javafx-web      {:mvn/version "11.0.1"}}
+                org.openjfx/javafx-web      {:mvn/version "11.0.1"}
    :main-opts  ["-m" "cognitect.rebl"]}
+
+   :cognitect-rebl-java8
+   {:extra-deps {com.cognitect/rebl {:mvn/version "0.9.240"}}
+    :main-opts  ["-m" "cognitect.rebl"]}
 
 
   ;; nrebl.middleware
   ;; spies on nREPL connection and captures result of evlatuations in REBL
   ;; https://github.com/RickMoynihan/nrebl.middleware
   ;; Command Line (java11):
-  ;; clojure -R:nrepl:cider-nrepl:cognitect-rebl-java11 -A:nrebl
+  ;; clojure -R:nrepl:cider-nrepl:cognitect-rebl -A:nrebl
   ;; Emacs cider (java11): add following to `dir-locals.el` to root directory of project and run `cider-connect`
-  ;; ((clojure-mode . ((cider-clojure-cli-global-options . "-R:nrepl:cider-nrepl:rebl-java11 -A:nrebl.middleware"))))
+  ;; ((clojure-mode . ((cider-clojure-cli-global-options . "-R:nrepl:cider-nrepl:cognitect-rebl -A:nrebl.middleware"))))
 
   :nrebl
   {:extra-deps {nrepl/nrepl                   {:mvn/version "0.7.0"}
