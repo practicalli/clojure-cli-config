@@ -332,6 +332,15 @@
    :main-opts   ["-m" "kaocha.runner"]}
 
 
+  ;; https://github.com/lambdaisland/kaocha-cloverage
+  :test-runner-kaocha-cloverage
+  {:extra-paths ["test"]
+   :extra-deps  {lambdaisland/kaocha           {:mvn/version "1.0.669"}
+                 lambdaisland/kaocha-cloverage {:mvn/version "1.0.63"}
+   :main-opts   ["-m" "kaocha.runner"]}
+
+
+
   ;; midje-runner
   ;; https://github.com/miorimmax/midje-runner
   ;; WARNING: unqualified library name: midje-runner
