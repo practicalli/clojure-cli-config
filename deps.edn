@@ -39,7 +39,7 @@
   ;; clj -m myname.myapp
   ;; clj -A:test:runner
   :new
-  {:extra-deps {seancorfield/clj-new {:mvn/version "1.0.199"}}
+  {:extra-deps {seancorfield/clj-new {:mvn/version "1.0.211"}}
    :main-opts  ["-m" "clj-new.create"]}
 
 
