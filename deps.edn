@@ -202,17 +202,17 @@
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Run a REPL on the command line for access by cider-connect
 
-   :cider-clj
-   {:extra-deps {cider/cider-nrepl {:mvn/version "0.22.4"}}
-    :main-opts  ["-m" "nrepl.cmdline"
-                 "--middleware" "[cider.nrepl/cider-middleware]"]}
+  :cider-clj
+  {:extra-deps {cider/cider-nrepl {:mvn/version "0.22.4"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[cider.nrepl/cider-middleware]"]}
 
-   :cider-cljs
-   {:extra-deps {org.clojure/clojurescript {:mvn/version "1.10.339"}
-                 cider/cider-nrepl         {:mvn/version "0.22.4"}
-                 cider/piggieback          {:mvn/version "0.5.1"}}
-    :main-opts  ["-m" "nrepl.cmdline"
-                 "--middleware" "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}
+  :cider-cljs
+  {:extra-deps {org.clojure/clojurescript {:mvn/version "1.10.339"}
+                cider/cider-nrepl         {:mvn/version "0.22.4"}
+                cider/piggieback          {:mvn/version "0.5.1"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}
 
 
   ;; Java Sources
