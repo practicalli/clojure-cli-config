@@ -624,6 +624,29 @@
                  :tag     "v0.5.0" :sha "6a7c0aa293616e2d28f7f735e915a301e44d2121"}}
    :main-opts  ["-m" "closh.zero.frontend.rebel"]}
 
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Alternative REPLs - not tested
+
+  ;; Socket REPL on port 55555:
+  ;; :socket
+  ;; {:jvm-opts ["-Dclojure.server.repl={:port,55555,:accept,clojure.core.server/repl}"]}
+
+  ;; - start a Socket REPL on an available port, and display that port:
+  ;; - specify -r as well if you want a repl
+
+  ;; :socket-zero
+  ;; {:jvm-opts  ["-Dclojure.server.repl={:port,0,:accept,clojure.core.server/repl}"]
+  ;;  :main-opts ["-e" "(.getLocalPort,(get-in,@#'clojure.core.server/servers,[\"repl\",:socket]))"]}
+
+  ;; - start a Socket pREPL on port 40404:
+  ;; :prepl
+  ;; {:jvm-opts ["-Dclojure.server.repl={:port,40404,:accept,clojure.core.server/io-prepl}"]}
+
+  ;; End of Alternative REPL's
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
   } ;; End of alias definitions
 
 
