@@ -596,6 +596,34 @@
   {:extra-deps {com.clojure-goes-fast/clj-memory-meter {:mvn/version "0.1.2"}}}
 
 
+
+  ;; Aliases to evaluate
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+  ;; Reflector - datafy and nav
+  ;; https://github.com/stuarthalloway/reflector
+
+  :reflect
+  {:extra-deps {com.stuarthalloway/reflector
+                {:git/url "https://github.com/stuarthalloway/reflector"
+                 :sha     "93a0c19b4526c1180959e940202928d35e5c3cef"}}}
+
+
+  ;; - see https://github.com/athos/clj-check
+  :check
+  {:extra-deps {athos/clj-check
+                {:git/url "https://github.com/athos/clj-check"
+                 :sha     "46214bb33fccf30df797fc15ad818f7151f3f44c"}}
+   :main-opts  ["-m" "clj-check.check"]}
+
+
+  ;; closh - bash shell with Clojure
+  :closh
+  {:extra-deps {closh/closh
+                {:git/url "https://github.com/dundalek/closh.git"
+                 :tag     "v0.5.0" :sha "6a7c0aa293616e2d28f7f735e915a301e44d2121"}}
+   :main-opts  ["-m" "closh.zero.frontend.rebel"]}
+
   } ;; End of alias definitions
 
 
