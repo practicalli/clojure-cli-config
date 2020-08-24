@@ -317,6 +317,13 @@
                  lambdaisland/kaocha-cljs {:mvn/version "1.0.71"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
+  ;; https://github.com/lambdaisland/kaocha-cucumber
+  :test-runner-kaocha-cucumber
+  {:extra-paths ["test"]
+   :extra-deps  {lambdaisland/kaocha          {:mvn/version "1.0.669"}
+                 lambdaisland/kaocha-cucumber {:mvn/version "1.0.53"}}
+   :main-opts   ["-m" "kaocha.runner"]}
+
 
   ;; midje-runner
   ;; https://github.com/miorimmax/midje-runner
