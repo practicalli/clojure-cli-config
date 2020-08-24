@@ -310,6 +310,11 @@
    :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.669"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
+
+  :test-runner-kaocha-cljs
+  {:extra-paths ["test"]
+   :extra-deps  {lambdaisland/kaocha      {:mvn/version "1.0.669"}
+                 lambdaisland/kaocha-cljs {:mvn/version "1.0.71"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
 
