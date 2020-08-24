@@ -325,7 +325,7 @@
    :main-opts   ["-m" "kaocha.runner"]}
 
   ;; https://github.com/lambdaisland/kaocha-junit-xml
-  :test-runner-kaocha
+  :test-runner-kaocha-junit-xml
   {:extra-paths ["test"]
    :extra-deps  {lambdaisland/kaocha           {:mvn/version "1.0.669"}
                  lambdaisland/kaocha-junit-xml {:mvn/version "0.0.76"}}
