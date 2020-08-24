@@ -157,12 +157,12 @@
                 org.openjfx/javafx-controls {:mvn/version "11.0.1"}
                 org.openjfx/javafx-swing    {:mvn/version "11.0.1"}
                 org.openjfx/javafx-base     {:mvn/version "11.0.1"}
-                org.openjfx/javafx-web      {:mvn/version "11.0.1"}
+                org.openjfx/javafx-web      {:mvn/version "11.0.1"}}
    :main-opts  ["-m" "cognitect.rebl"]}
 
-   :cognitect-rebl-java8
-   {:extra-deps {com.cognitect/rebl {:mvn/version "0.9.240"}}
-    :main-opts  ["-m" "cognitect.rebl"]}
+  :cognitect-rebl-java8
+  {:extra-deps {com.cognitect/rebl {:mvn/version "0.9.240"}}
+   :main-opts  ["-m" "cognitect.rebl"]}
 
 
   ;; nrebl.middleware
