@@ -307,7 +307,9 @@
 
   :test-runner-kaocha
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.641"}}
+   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.669"}}
+   :main-opts   ["-m" "kaocha.runner"]}
+
    :main-opts   ["-m" "kaocha.runner"]}
 
 
