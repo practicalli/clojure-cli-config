@@ -21,19 +21,13 @@ Any directory containing a `deps.edn` file is considered a Clojure project. A `d
 See the rest of this readme for examples of how to use each alias this configuration contains.
 
 
-## Updating
+## Updating dependency versions
 The collection of aliases is regularly reviewed and expanded upon and suggestions are most welcome.
 
 The versions of libraries are manually updated at least once per month using the `:outdated` alias and a new version of the `deps.edn` file pushed to this repository.
 ```shell
 cd ~/.clojure/
 clojure -A:outdated
-```
-
-To automatically update library versions for aliases, then use the `:outdated-update` alias.  It is prudent to review what has been updated before using the results.
-```shell
-cd ~/.clojure/
-clojure -A:outdated-update
 ```
 
 

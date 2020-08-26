@@ -420,20 +420,27 @@
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
   ;; Manage versions for maven and git dependencies
-  ;; https://github.com/Olical/depot
   ;; Report dependencies that have newer versions available
   ;; Update library versions in this deps.edn file:
   ;; cd ~/.clojure && clojure -A:outdated
 
+  ;; https://github.com/liquidz/antq
   :outdated
-  {:extra-deps {olical/depot {:mvn/version "1.8.4"}}
-   :main-opts  ["-m" "depot.outdated.main"]}
+  {:extra-deps {antq/antq {:mvn/version "RELEASE"}}
+   :main-opts  ["-m" "antq.core"]}
 
-  ;; clj -A:outdated-update
-  :outdated-update
-  {:extra-deps {olical/depot {:mvn/version "1.8.4"}}
-   :main-opts  ["-m" "depot.outdated.main"
-                "--update"]}
+
+  ;; https://github.com/Olical/depot
+  ;; depot project is not actively developed at present
+  ;; :outdated
+  ;; {:extra-deps {olical/depot {:mvn/version "1.8.4"}}
+  ;;  :main-opts  ["-m" "depot.outdated.main"]}
+
+  ;; ;; clj -A:outdated-update
+  ;; :outdated-update
+  ;; {:extra-deps {olical/depot {:mvn/version "1.8.4"}}
+  ;;  :main-opts  ["-m" "depot.outdated.main"
+  ;;               "--update"]}
 
 
   ;; The classic project for checking maven based dependencies
