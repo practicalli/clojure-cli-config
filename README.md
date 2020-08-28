@@ -117,7 +117,7 @@ clojure -R:nrepl:cider-nrepl:cognitect-rebl -A:nrebl
 
 `cider-connect-clj` in Spacemacs / Emacs and CIDER successfully connects to the nREPL port and evaluated code is sent to REBL.
 
-To use `cider-jack-in-clj`, create a `dir-locals.el` file in the root of the project with the following aliases:
+To use `cider-jack-in-clj`, create a `.dir-locals.el` file in the root of the project with the following aliases:
 ```
 ((clojure-mode . ((cider-clojure-cli-global-options . "-R:nrepl:cider-nrepl:cognitect-rebl -A:nrebl"))))
 ```
