@@ -172,7 +172,7 @@
   ;; Command Line (java11):
   ;; clojure -R:nrepl:cider-nrepl:cognitect-rebl -A:nrebl
   ;; Emacs cider (java11): add following to `dir-locals.el` to root directory of project and run `cider-connect`
-  ;; ((clojure-mode . ((cider-clojure-cli-global-options . "-R:nrepl:cider-nrepl:cognitect-rebl -A:nrebl.middleware"))))
+  ;; ((clojure-mode . ((cider-clojure-cli-global-options . "-R:nrepl:cider-nrepl:cognitect-rebl -A:nrebl"))))
 
   :nrebl
   {:extra-deps {nrepl/nrepl                   {:mvn/version "0.7.0"}
