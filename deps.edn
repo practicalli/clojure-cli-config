@@ -154,6 +154,7 @@
 
   :cognitect-rebl
   {:extra-deps {com.cognitect/rebl          {:mvn/version "0.9.241"}
+                org.clojure/core.async      {:mvn/version "1.3.610"}
                 org.openjfx/javafx-fxml     {:mvn/version "11.0.1"}
                 org.openjfx/javafx-controls {:mvn/version "11.0.1"}
                 org.openjfx/javafx-swing    {:mvn/version "11.0.1"}
