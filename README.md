@@ -102,9 +102,14 @@ Browse data structures as they are generated in the Clojure REPL.
 * `cognitect-rebl` - REBL, a visual data explorer (Java 11)
 * `cognitect-rebl-java8` - REBL, a visual data explorer (Java 8)
 
-* `:nrebl` - REBL data browser on nREPL connection
 
 ### Cognitect REBL with CIDER
+Run the REBL REPL with nREPL server so CIDER can connect.
+
+* `:nrebl` - REBL data browser on nREPL connection
+* `:nrepl` - include nrepl library dependency (supports :nrebl alias)
+* `:cider-nrepl` - includes cider-nrepl and refactor-nrepl library dependencies (supports :nrebl alias)
+
 In a terminal, run REBL listening to nREPL using the command
 ```shell
 clojure -R:nrepl:cider-nrepl:cognitect-rebl -A:nrebl
@@ -112,7 +117,7 @@ clojure -R:nrepl:cider-nrepl:cognitect-rebl -A:nrebl
 
 `cider-connect-clj` in Spacemacs / Emacs and CIDER successfully connects to the nREPL port and evaluated code is sent to REBL.
 
-Create a `dir-locals.el` file in the root of the project with the following aliases for `cider-jack-in-clj` to work:
+To use `cider-jack-in-clj`, create a `dir-locals.el` file in the root of the project with the following aliases:
 ```
 ((clojure-mode . ((cider-clojure-cli-global-options . "-R:nrepl:cider-nrepl:cognitect-rebl -A:nrebl"))))
 ```
