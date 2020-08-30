@@ -176,7 +176,7 @@
   ;; ((clojure-mode . ((cider-clojure-cli-global-options . "-R:nrepl:cider-nrepl:cognitect-rebl -A:nrebl"))))
 
   :nrebl
-  {:extra-deps {nrepl/nrepl                   {:mvn/version "0.7.0"}
+  {:extra-deps {nrepl/nrepl                   {:mvn/version "0.8.0"}
                 cider/cider-nrepl             {:mvn/version "0.25.0"}
                 refactor-nrepl/refactor-nrepl {:mvn/version "2.5.0"}
                 rickmoynihan/nrebl.middleware {:mvn/version "0.3.1"}}
@@ -188,7 +188,7 @@
   ;; Supporting aliases for nrebl.middleware
 
   :nrepl
-  {:extra-deps {nrepl/nrepl {:mvn/version "0.7.0"}}}
+  {:extra-deps {nrepl/nrepl {:mvn/version "0.8.0"}}}
 
   :cider-nrepl
   {:extra-deps {cider/cider-nrepl             {:mvn/version "0.25.0"}
