@@ -122,6 +122,15 @@
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Databases and drivers uses only during development
+
+  ;; H2 embedded database
+  :database-h2
+  {:extra-deps {com.h2database/h2 {:mvn/version "1.4.200"}}}
+
+  ;; End of Databases and drivers uses only during development
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
