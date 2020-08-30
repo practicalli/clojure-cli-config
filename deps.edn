@@ -551,7 +551,7 @@
 
   :build-depstar
   {:extra-deps
-   {seancorfield/depstar {:mvn/version "1.0.94"}}}
+   {seancorfield/depstar {:mvn/version "1.1.104"}}}
 
 
   ;; uberdeps - uberjar builder
