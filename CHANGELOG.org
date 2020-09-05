@@ -1,0 +1,30 @@
+#+TITLE: Changelog of :outdated updates
+The following updates were made manually after running the =:outdated= in the root of the =~/.clojure/= directory
+
+#+BEGIN_SRC shell
+clojure -A:outdated > version-changes-to-review.org
+#+END_SRC
+
+JavaFX libraries are only used from the current stable version of Java, not short term releases.
+
+
+* 2020-09-05
+
+| :name                                  |                                 :version | :latest-version                          |
+|----------------------------------------+------------------------------------------+------------------------------------------|
+| athos/clj-check                        | 46214bb33fccf30df797fc15ad818f7151f3f44c | 0f734f560dd989b2ec0f9078cc646476bfdab4e1 |
+| cider/cider-nrepl                      |                                   0.22.4 | 0.25.3                                   |
+| com.clojure-goes-fast/clj-memory-meter |                                    0.1.2 | 0.1.3                                    |
+| com.cognitect/test-runner              | f7ef16dc3b8332b0d77bc0274578ad5270fbfedd | 6ec7f8eef509cd14d831e8cc16e856b31327a862 |
+| criterium/criterium                    |                                    0.4.5 | 0.4.6                                    |
+| djblue/portal                          |                                    0.3.0 | 0.4.1                                    |
+| lambdaisland/kaocha                    |                                  1.0.669 | 1.0.672                                  |
+| nrepl/nrepl                            |                                    0.8.0 | 0.8.1                                    |
+| org.clojure/clojurescript              |                                 1.10.758 | 1.10.773                                 |
+| org.clojure/spec-alpha2                | 495e5ac3238be002b4de72d1c48479f6bec06bb3 | d514b06b25c41a676b95afcc9bfac8ca34c5741e |
+| org.clojure/spec.alpha                 |                                  0.2.176 | 0.2.187                                  |
+| org.clojure/tools.deps.alpha           | 19d197ab221d37db750423eb970880cb87a91100 | 2ff45e287273f86eaf9765a5f2d0042464748c0e |
+| thomasa/morpheus                       | d3decebc1cb9ef697cd34781f9cf83d44a071e85 | 7f4876ea631a6f5ccee2094d255efd2d1a98ffb6 |
+| tvaughan/kibit-runner                  |                                    0.2.3 | 1.0.1                                    |
+| uberdeps/uberdeps                      |                                   0.1.10 | 1.0.0                                    |
+| vlaaad/reveal                          |                               0.1.0-ea26 | 0.1.0-ea30                               |
