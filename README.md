@@ -20,7 +20,7 @@ Linux Script:
 ```shell
 curl -O https://download.clojure.org/install/linux-install-1.10.1.681
 chmod +x linux-install-1.10.1.681.sh
-sudo ./linux-install-1.10.1.561.sh
+sudo ./linux-install-1.10.1.681.sh
 ```
 
 Homebrew - MacOSX or Linux:
@@ -69,8 +69,9 @@ Aliases provide additional configuration when running a REPL, an application or 
 | `-M`            | Run Clojure project with clojure.main                    | deps, path, `:main-opts` & command line args         |
 | `-P`            | Prepare / dry run (CI servers, Containers)               | deps, path                                           |
 | `-P -M:aliases` | Prepare / dry run including alias deps and paths         | deps, path                                           |
+| `-P -X:aliases` | Prepare / dry run including alias deps and paths         | deps, path                                           |
 | `-X`            | Execute a qualified function, optional default arguments | deps, path, `:exec-fn`, `:exec-args` & :key val args |
-| `-J`            | Java Virtual Machine specific options (memory size, etc) | also specified using `:jvm-opts` in an alias         |
+| `-J`            | Java Virtual Machine specific options (menory size, etc) |                                                      |
 
 * deps = `:deps`, `:extra-deps`, `replace-paths`
 * path = `:path`, `:extra-paths`, `replace-deps`
@@ -130,8 +131,8 @@ Create a new project (Edn command line arguments)
 
 Run project with or without an alias:
 ```shell
-`clojure -M:alias -m domain.app-name`
-`clojure -M -m domain.app-name`
+clojure -M:alias -m domain.app-name
+clojure -M -m domain.app-name
 ```
 
 > The `-M` flag is required even if an alias is not included in the running of the application.  A warning will be displayed if the `-M` option is missing.
@@ -141,8 +142,7 @@ Run project with or without an alias:
 
 * [`:project/check`](https://github.com/athos/clj-check.git) - detailed report of compilation errors for a project
 * [`:project/outdated`](https://github.com/liquidz/antq) - report newer versions for maven and git dependencies
-* [:project/outdated-mvn](https://github.com/slipset/deps-ancient) - check for newer dependencies (maven only)
-
+* [`:project/outdated-mvn`](https://github.com/slipset/deps-ancient) - check for newer dependencies (maven only)
 
 | Command                           | Description                                          |
 |-----------------------------------|------------------------------------------------------|
@@ -167,7 +167,7 @@ Use the aliases with either `-M` or `-X` flags on the Clojure command line.
 
 `clojure -M:database/h2` - run a REPL with an embedded H2 database and next.jdbc libraries
 
-https://cljdoc.org/d/seancorfield/next.jdbc/1.1.588/doc/getting-started#create--populate-a-database
+https://cljdoc.org/d/seancorfield/next.jdbc/CURRENT/doc/getting-started#create--populate-a-database
 
 Use the aliases with either `-M` or `-X` flags on the Clojure command line.
 
@@ -183,13 +183,13 @@ Navigate data in the form of edn, json and transit
 * `inspect/portal-web` - Web ClojureScript REPL
 * `inspect/portal-node` - node ClojureScript REPL
 
-| Command                         | Description                                            |
-|---------------------------------|--------------------------------------------------------|
-| `clojure -M:inspect/portal-cli` | Clojure REPL with Portal dependency                    |
-| `clojure -M:inspect/portal-web` | ClojureScript web browswer REPL with Portal dependency |
-| `clojure -M:inspect/portal-cli` | ClojureScript node.js REPL with Portal dependency      |
+| Command                          | Description                                            |
+|----------------------------------|--------------------------------------------------------|
+| `clojure -M:inspect/portal-cli`  | Clojure REPL with Portal dependency                    |
+| `clojure -M:inspect/portal-web`  | ClojureScript web browswer REPL with Portal dependency |
+| `clojure -M:inspect/portal-node** | ClojureScript node.js REPL with Portal dependency      |
 
-
+**Using Portal once running**
 `(require '[portal.api :as portal])` once the REPL starts.  For `inspect/portal-web` use `(require '[portal.web :as portal])` instead
 
 `(portal/open)` to open the web based inspector window in a browser.
@@ -209,24 +209,24 @@ Reveal - read evaluate visualize loop.  A REPL with data visualisation.  Also us
 * `inspector/reveal` - repl and data visualization tool
 * `inspector/reveal-nrepl` - repl and data visualization tool with nrepl server, for connection from [Clojure aware editors](https://practicalli.github.io/clojure/clojure-editors/)
 
+| Command                                       | Description                                                                        |
+|-----------------------------------------------|------------------------------------------------------------------------------------|
+| `clojure -M:inspect/reveal`                   | start a Reveal repl with data visualization window                                 |
+| `clojure -M:inspect/reveal-light`             | as above with light theme and large font                                           |
+| `clojure -M:inspect/reveal:repl/rebel`        | Start a Rebel REPL with Reveal dependency. Add reveal as tap> source               |
+| `clojure -M:inspect/reveal-light:repl/rebel** | Start a Rebel REPL with Reveal dependency & light theme. Add reveal as tap> source |
 
-| Command                                      | Description                                                                        |
-|----------------------------------------------|------------------------------------------------------------------------------------|
-| `clojure -M:inspect/reveal`                  | start a Reveal repl with data visualization window                                 |
-| `clojure -M:inspect/reveal-light`            | as above with light theme and large font                                           |
-| `clojure -M:inspect/reveal:repl/rebel`       | Start a Rebel REPL with Reveal dependency. Add reveal as tap> source               |
-| `clojure -M:inspect/reveal-light:repl/rebel` | Start a Rebel REPL with Reveal dependency & light theme. Add reveal as tap> source |
+**Configure theme & font**
 
-
-To add a custom theme and font, pass arguments via the `-J` option or create an alias using `:insepct/reveal-light` as an example.
+Add a custom theme and font via the `-J` command line option or create an alias using `:insepct/reveal-light` as an example.
 
 ```shell
-clojure -M:inspect/reveal:rebel -J-Dvlaaad.reveal.prefs='{:theme :light :font-family "Ubuntu Mono" :font-size 32}'
+clojure -M:inspect/reveal -J-Dvlaaad.reveal.prefs='{:theme :light :font-family "Ubuntu Mono" :font-size 32}'
 ```
 
-**Add Reveal as tap> source**
+**Rebel Readline & Reveal: Add Reveal as tap> source**
 
-Evaluate `(add-tap ((requiring-resolve 'vlaaad.reveal/ui)))` to add Reveal as a tap source, showing `(tap> ,,,)` expressions in the reveal window, eg. `(tap> (map inc [1 2 3 4 5]))`.
+Evaluate `(add-tap ((requiring-resolve 'vlaaad.reveal/ui)))` when using Rebel Readline to add Reveal as a tap source, showing `(tap> ,,,)` expressions in the reveal window, eg. `(tap> (map inc [1 2 3 4 5]))`.
 
 [Practicalli Clojure - data browsers section](http://practicalli.github.io/clojure/clojure-tools/data-browsers/reveal.html) has more details on using reveal.
 
@@ -382,7 +382,7 @@ Build a project archive file for deployment
 
 Deploy a project archive file locally or to Clojars.org
 
-* DEPRICATED: use `clojure -X:deps mvn-install` - [:deploy-locally](https://github.com/slipset/deps-deploy) - copy jar to `~/.m2/` directory
+* [`-X:deps mvn-install`](https://insideclojure.org/2020/09/04/clj-exec/) - built-in Clojure CLI alias to deploy a Jar locally in the `~/.m2/repository` directory
 * [:deploy/clojars](https://github.com/slipset/deps-deploy) - deploy jar to [clojars.org](https://clojars.org/)
 * [:deploy/clojars-signed](https://github.com/slipset/deps-deploy) - sign and deploy jar to [clojars.org](https://clojars.org/)
 
@@ -390,7 +390,7 @@ Deploy a project archive file locally or to Clojars.org
 |------------------------------------------------|--------------------------------------------------------------------|
 | `clojure -X:deps mvn-install project.jar`      | deploy jar file to local maven repository, i.e. `~/.m2/repository` |
 | `clojure -M:deploy/clojars project.jar`        | deploy jar file to Clojars                                         |
-| `clojure -M:deploy/clojars-signed project.jar` | deploy signed jar file to Clojars                                 |
+| `clojure -M:deploy/clojars-signed project.jar` | deploy signed jar file to Clojars                                  |
 
 Set Clojars username/token in `CLOJARS_USERNAME` and `CLOJARS_PASSWORD` environment variables.
 
@@ -466,7 +466,13 @@ Require `clojure.tools.gitlibs` namesapace to hot load dependencies from a Git r
 # Library repositories
 Repositories that host libraries for Clojure.
 
-If using a mirror for a repository the original repository should not be included as well.  The order in which repositories are consulted is not guaranteed, so may cause unpredictable side effects in the project build especially if `RELEASE` or `LATEST` tags are used rather than a numeric library version.
+`central` and `clojars` are the man repositories for Clojure development are consulted in order.
+
+`central` and `clojars` repos can be removed from consideration by setting their configuration hash-map to `nil` in `~/.clojure/deps.edn`.  For example, `{:mvn/repos {"central" nil}}`.
+
+The order of additional repositories consulted is not guaranteed, so may cause unpredictable side effects in the project build especially if `RELEASE` or `LATEST` tags are used rather than a numeric library version.
+
+
 
 Maven supports [explicit mirror definition](http://maven.apache.org/guides/mini/guide-mirror-settings.html) in `~/.m2/settings.xml` and Clojure CLI tools(tools.deps) supports this configuration.  Adding Maven Central or a mirror to  `~/.m2/settings.xml` negates the need for its entry in deps.edn configuration.
 
@@ -477,7 +483,7 @@ Maven supports [explicit mirror definition](http://maven.apache.org/guides/mini/
 **Optional repositories**
 * `sonatype` - snapshots of Clojure development releases, useful for testing against before new stable releases.
 * `jcenter` - the largest mirror of all open source libraries (useful as a backup or accessing through corporate firewalls)
-* `business-area** - example of adding a local Artifactory server for your team or business area.
+* `business-area` - example of adding a local Artifactory server for your team or business area.
 * `google-maven-central` - [Maven Central mirror hosted on Google Cloud Storage](https://storage-download.googleapis.com/maven-central/index.html) - Americas, Asia, Europe
 
 **Americas mirrors**

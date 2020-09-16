@@ -445,7 +445,7 @@
   ;; Unqualified names may break soon
   :test/midje
   {:extra-paths ["test"]
-   :extra-deps  {midge/midje-runner
+   :extra-deps  {midge-runner/midje-runner
                  {:git/url "https://github.com/miorimmax/midje-runner.git"
                   :sha     "ee9c2813e150ae6b3ea41b446b09ba40fc89bdc1"}}
    :main-opts   ["-m" "midje-runner.runner"]}
@@ -574,7 +574,7 @@
 
   :build/jar
   {:extra-deps {seancorfield/depstar {:mvn/version "1.1.117"}}
-   :exec-fn    hf.depstar.jar/run
+   :exec-fn    hf.depstar/jar
    :exec-args  {:jar        "project.jar"
                 :aot        true
                 :main-class project.core}}
@@ -584,7 +584,7 @@
 
   :build/uberjar
   {:extra-deps {seancorfield/depstar {:mvn/version "1.1.117"}}
-   :exec-fn    hf.depstar.uberjar/run
+   :exec-fn    hf.depstar/uberjar
    :exec-args  {:jar        "project.jar"
                 :aot        true
                 :main-class project.core}}
