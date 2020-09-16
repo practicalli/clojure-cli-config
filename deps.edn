@@ -243,11 +243,11 @@
   ;; http://practicalli.github.io/clojure/clojure-tools/data-browsers/reveal.html
 
   :inspect/reveal
-  {:extra-deps {vlaaad/reveal {:mvn/version "0.1.0-ea30"}}
+  {:extra-deps {vlaaad/reveal {:mvn/version "1.0.128"}}
    :main-opts  ["-m" "vlaaad.reveal" "repl"]}
 
   :inspect/reveal-light
-  {:extra-deps {vlaaad/reveal {:mvn/version "0.1.0-ea30"}}
+  {:extra-deps {vlaaad/reveal {:mvn/version "1.0.128"}}
    :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
    :main-opts  ["-m" "vlaaad.reveal" "repl"]}
 
@@ -259,7 +259,7 @@
   ;; Reveal REPL with nrepl server, connect to from a Clojure aware editor
   ;; clj -M:inspect/reveal-nrepl
   :inspect/reveal-nrepl
-  {:extra-deps {vlaaad/reveal {:mvn/version "0.1.0-ea30"}
+  {:extra-deps {vlaaad/reveal {:mvn/version "1.0.128"}
                 nrepl/nrepl   {:mvn/version "0.8.1"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[vlaaad.reveal.nrepl/middleware]"]}
