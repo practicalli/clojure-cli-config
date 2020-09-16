@@ -73,8 +73,8 @@ Aliases provide additional configuration when running a REPL, an application or 
 | `-X`            | Execute a qualified function, optional default arguments | deps, path, `:exec-fn`, `:exec-args` & :key val args |
 | `-J`            | Java Virtual Machine specific options (menory size, etc) |                                                      |
 
-* deps = `:deps`, `:extra-deps`, `replace-paths`
-* path = `:path`, `:extra-paths`, `replace-deps`
+* deps = `:deps`, `:extra-deps`, `replace-deps`
+* path = `:path`, `:extra-paths`, `replace-paths`
 
 
 ## REPL experience
