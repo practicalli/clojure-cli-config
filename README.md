@@ -32,7 +32,24 @@ clojure -A:outdated
 
 
 # Aliases
-Here is a summary of the aliases included so far.
+Aliases provide additional configuration when running a REPL, an application or to use a community tool.
+
+* add or remove dependencies
+* add or remove directories on the class path
+* define a function or main namespace to run, along with arguments
+
+## Clojure CLI main flag options
+| Flag            | Purpose                                                  | Config used                                          |
+|-----------------|----------------------------------------------------------|------------------------------------------------------|
+| `-M`            | Run Clojure project with clojure.main                    | deps, path, `:main-opts` & command line args         |
+| `-P`            | Prepare / dry run (CI servers, Containers)               | deps, path                                           |
+| `-P -M:aliases` | Prepare / dry run including alias deps and paths         | deps, path                                           |
+| `-X`            | Execute a qualified function, optional default arguments | deps, path, `:exec-fn`, `:exec-args` & :key val args |
+| `-J`            | Java Virtual Machine specific options (memory size, etc) | also specified using `:jvm-opts` in an alias         |
+
+* deps = `:deps`, `:extra-deps`, `replace-paths`
+* path = `:path`, `:extra-paths`, `replace-deps`
+
 
 Please read the [deps.edn](deps.edn) file to see the specific configuration for each alias.
 
