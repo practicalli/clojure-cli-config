@@ -2,8 +2,33 @@
 
 [practicalli/clojure-deps-edn](https://github.com/practicalli/clojure-deps-edn) provides a user wide configuration, `~/.clojure/deps.edn`, for over 30 aliases to support Clojure CLI and tools.deps project development.  These aliases use meaningful and descriptive names to avoid clashes with project specific aliases, ensuring that the user wide aliases remain available in all projects.
 
-Aliases with common options are provided for convenience and to minimize the amount of cognitive load required to remember how to use aliases. Inspiration taken from [seancorfield/dot-clojure](https://github.com/seancorfield/dot-clojure).
+Aliases with common options are provided for convenience and to minimize the amount of cognitive load required to remember how to use aliases. Initial inspiration taken from [seancorfield/dot-clojure](https://github.com/seancorfield/dot-clojure).
 
+* [Updating practicalli/clojure-deps-edn](updating-practicalli/clojure-deps-edn)
+* [Aliases](#aliases)
+* [Library repositories](#library-repositories)
+* [Experimental](#experimental)
+
+# For use with Clojure CLI tools version 1.10.1.681 or above
+Check the version of Clojure CLI tools currently installed
+```shell
+clojure -Sdescribe
+```
+
+## Install Clojure CLI tools
+Linux Script:
+```shell
+curl -O https://download.clojure.org/install/linux-install-1.10.1.681
+chmod +x linux-install-1.10.1.681.sh
+sudo ./linux-install-1.10.1.561.sh
+```
+
+Homebrew - MacOSX or Linux:
+```shell
+brew install clojure/tools/clojure
+```
+
+Windows version not currently released.
 
 ## Installing Clojure deps.edn
 [Fork the practicalli/clojure-deps-edn repository](https://github.com/practicalli/clojure-deps-edn/) and clone your fork to an existing `~/.clojure/` directory (eg. $HOME/.clojure or %HOME%\.clojure).
