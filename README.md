@@ -225,7 +225,8 @@ clojure -M:inspect/reveal:rebel -J-Dvlaaad.reveal.prefs='{:theme :light :font-fa
 ```
 
 **Add Reveal as tap> source**
-Evaluate `(add-tap ((requiring-resolve 'vlaaad.reveal/ui)))` to add Reveal as a tap source, showing `tap>` expressions in the reveal window.
+
+Evaluate `(add-tap ((requiring-resolve 'vlaaad.reveal/ui)))` to add Reveal as a tap source, showing `(tap> ,,,)` expressions in the reveal window, eg. `(tap> (map inc [1 2 3 4 5]))`.
 
 [Practicalli Clojure - data browsers section](http://practicalli.github.io/clojure/clojure-tools/data-browsers/reveal.html) has more details on using reveal.
 
