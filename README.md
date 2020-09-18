@@ -144,11 +144,13 @@ clojure -M -m domain.app-name
 * [`:project/outdated`](https://github.com/liquidz/antq) - report newer versions for maven and git dependencies
 * [`:project/outdated-mvn`](https://github.com/slipset/deps-ancient) - check for newer dependencies (maven only)
 
-| Command                           | Description                                          |
-|-----------------------------------|------------------------------------------------------|
-| `clojure -M:project/check`        | detailed report of compilation errors for a project  |
-| `clojure -M:project/outdated`     | report newer versions for maven and git dependencies |
-| `clojure -M:project/outdated-mvn` | check for newer dependencies (maven only)            |
+| Command                                              | Description                                               |
+|------------------------------------------------------|-----------------------------------------------------------|
+| `clojure -M:project/check`                           | detailed report of compilation errors for a project       |
+| `clojure -M:project/find-deps library-name`          | fuzzy search Maven & Clojars                              |
+| `clojure -M:project/find-deps -F:merge library-name` | fuzzy search Maven & Clojars and save to project deps.edn |
+| `clojure -M:project/outdated`                        | report newer versions for maven and git dependencies      |
+| `clojure -M:project/outdated-mvn`                    | check for newer dependencies (maven only)                 |
 
 
 ## Java Sources

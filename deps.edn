@@ -130,6 +130,19 @@
    :main-opts  ["-m" "clj-check.check"]}
 
 
+  ;; find-deps - fuzzy search Maven & Clojars and add deps to deps.edn
+  ;; https://github.com/hagmonk/find-deps
+  ;; clojure -M:project/find-deps http-kit  # fuzzy search for dependency
+  ;; clojure -M:project/find-deps http-kit ring compojure # multiple deps
+  ;; clojure -M:project/find-deps -F:merge http-kit # merge dep into deps.edn file
+  :project/find-deps
+  {:extra-deps
+   {find-deps/find-deps
+    {:git/url "https://github.com/hagmonk/find-deps"
+     :sha     "6fc73813aafdd2288260abb2160ce0d4cdbac8be"}}
+   :main-opts ["-m" "find-deps.core"]}
+
+
   ;; Dependency version management
   ;; Manage versions for maven and git dependencies
   ;; Report dependencies that have newer versions available
