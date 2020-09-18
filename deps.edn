@@ -78,7 +78,10 @@
   ;; http://practicalli.github.io/clojure/clojure-tools/configure-repl-startup.html
 
   :env/dev
-  {:extra-paths ["dev"]}
+  {:extra-paths ["dev"]
+   :extra-deps  {find-deps/find-deps
+                 {:git/url "https://github.com/hagmonk/find-deps"
+                  :sha     "6fc73813aafdd2288260abb2160ce0d4cdbac8be"}}}
 
 
   ;; End of REPL experience
