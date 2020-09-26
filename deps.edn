@@ -63,8 +63,8 @@
 
   ;; clojure -M:repl/rebel-nrepl
   :repl/rebel-nrepl
-  {:extra-deps {nrepl/nrepl                {:mvn/version "0.8.1"}
-                cider/cider-nrepl          {:mvn/version "0.25.2"}
+  {:extra-deps {nrepl/nrepl                {:mvn/version "0.8.2"}
+                cider/cider-nrepl          {:mvn/version "0.25.3"}
                 com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware]"
@@ -76,7 +76,6 @@
   ;; Include `dev` directory on the class path
   ;; Supports the use of `dev/user.clj` to configure REPL startup
   ;; http://practicalli.github.io/clojure/clojure-tools/configure-repl-startup.html
-  ;; Includes find-deps to search for Clojure libraries in Maven Central and Clojars
 
   ;; clojure -M:env/dev
   :env/dev
@@ -101,14 +100,14 @@
   ;; clojure -X:project/new :template luminus :name practicalli/full-stack-app +http-kit +h2 +reagent +auth
 
   :project/new
-  {:extra-deps {seancorfield/clj-new {:mvn/version "1.1.215"}}
+  {:extra-deps {seancorfield/clj-new {:mvn/version "1.1.217"}}
    :exec-fn    clj-new/create
    :exec-args  {:template lib :name practicalli/playground}
    :main-opts  ["-m" "clj-new.create"]}
 
   ;; ALPHA status: Add 'something' to existing project (subject to change)
   :project/add
-  {:extra-deps {seancorfield/clj-new {:mvn/version "1.1.215"}}
+  {:extra-deps {seancorfield/clj-new {:mvn/version "1.1.217"}}
    :exec-fn    clj-new/generate
    :main-opts  ["-m" "clj-new.generate"]}
 
@@ -126,7 +125,7 @@
   :project/check
   {:extra-deps {athos/clj-check
                 {:git/url "https://github.com/athos/clj-check.git"
-                 :sha     "da6363a38b06d9b84976ed330a9544b69d3c4dee"}}
+                 :sha     "0f734f560dd989b2ec0f9078cc646476bfdab4e1"}}
    :main-opts  ["-m" "clj-check.check"]}
 
 
@@ -139,7 +138,7 @@
   {:extra-deps
    {find-deps/find-deps
     {:git/url "https://github.com/hagmonk/find-deps"
-     :sha     "6fc73813aafdd2288260abb2160ce0d4cdbac8be"}}
+     :sha     "9bf23a52cb0a8190c9c2c7ad1d796da802f8ce7a"}}
    :main-opts ["-m" "find-deps.core"]}
 
 
@@ -235,9 +234,9 @@
                 org.openjfx/javafx-base     {:mvn/version "11.0.1"}
                 org.openjfx/javafx-web      {:mvn/version "11.0.1"}
                 ;; deps for file datafication (REBL 0.9.149 or later)
-                org.clojure/data.csv        {:mvn/version "0.1.4"}
-                org.clojure/data.json       {:mvn/version "0.2.7"}
-                org.yaml/snakeyaml          {:mvn/version "1.25"}}
+                org.clojure/data.csv        {:mvn/version "1.0.0"}
+                org.clojure/data.json       {:mvn/version "1.0.0"}
+                org.yaml/snakeyaml          {:mvn/version "1.27"}}
    :main-opts  ["-m" "cognitect.rebl"]}
 
   :inspect/rebl-java8
@@ -256,7 +255,7 @@
   ;; clojure -M:inspect/reveal:rebel -J-Dvlaaad.reveal.prefs='{:theme :light :font-family "Ubuntu Mono" :font-size 32}'
 
   :inspect/reveal
-  {:extra-deps {vlaaad/reveal {:mvn/version "1.0.128"}}
+  {:extra-deps {vlaaad/reveal {:mvn/version "1.0.130"}}
    :main-opts  ["-m" "vlaaad.reveal" "repl"]}
 
   ;; Once reveal supports the -X flag (not official: subject to change)
@@ -269,7 +268,7 @@
   ;;  :main-opts  ["-m" "vlaaad.reveal" "repl"]}
 
   :inspect/reveal-light
-  {:extra-deps {vlaaad/reveal {:mvn/version "1.0.128"}}
+  {:extra-deps {vlaaad/reveal {:mvn/version "1.0.130"}}
    :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
    :main-opts  ["-m" "vlaaad.reveal" "repl"]}
 
@@ -281,8 +280,8 @@
   ;; Reveal REPL with nrepl server, connect to from a Clojure aware editor
   ;; clj -M:inspect/reveal-nrepl
   :inspect/reveal-nrepl
-  {:extra-deps {vlaaad/reveal {:mvn/version "1.0.128"}
-                nrepl/nrepl   {:mvn/version "0.8.1"}}
+  {:extra-deps {vlaaad/reveal {:mvn/version "1.0.130"}
+                nrepl/nrepl   {:mvn/version "0.8.2"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[vlaaad.reveal.nrepl/middleware]"]}
 
@@ -295,7 +294,7 @@
 
   ;; - start a REPL with an nREPL server
   ;; clojure -M:middleware/nrepl
-  :middleware/nrepl {:extra-deps {nrepl/nrepl {:mvn/version "RELEASE"}}
+  :middleware/nrepl {:extra-deps {nrepl/nrepl {:mvn/version "0.8.2"}}
                      :main-opts  ["-m" "nrepl.cmdline"]}
 
   ;; Run a REPL using nREPL server for access by cider-connect-clj
@@ -332,8 +331,8 @@
   ;; Supporting aliases for nrebl.middleware
 
   :lib/cider-nrepl
-  {:extra-deps {nrepl/nrepl                   {:mvn/version "0.8.1"}
-                cider/cider-nrepl             {:mvn/version "0.25.0"}
+  {:extra-deps {nrepl/nrepl                   {:mvn/version "0.8.2"}
+                cider/cider-nrepl             {:mvn/version "0.25.3"}
                 refactor-nrepl/refactor-nrepl {:mvn/version "2.5.0"}}}
 
 
@@ -423,13 +422,13 @@
   ;; clojure -M:test/runner
   :test/runner
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.672"}}
+   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.700"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
   ;; clojure -M:test/kaocha
   :test/kaocha
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.672"}}
+   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.700"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
 
@@ -586,13 +585,13 @@
 
   :graph/deps
   {:extra-deps {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
-                                  :sha     "fb2391a4af24246ac4e46f3a573970ba5b7c92de"}}
+                                  :sha     "69774e8c29e1c1c691f9922d5c5a6d764374ada3"}}
    :main-opts  ["-m" "io.dominic.vizns.core"]}
 
   ;; Generate single PNG image of library dependencies
   :graph/deps-png
   {:extra-deps {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
-                                  :sha     "fb2391a4af24246ac4e46f3a573970ba5b7c92de"}}
+                                  :sha     "69774e8c29e1c1c691f9922d5c5a6d764374ada3"}}
    :main-opts  ["-m" "io.dominic.vizns.core" "single" "-o" "deps-graph.png" "-f" "png"]}
 
   ;; Visualizing dependencies
@@ -632,7 +631,7 @@
   ;; "--target" "target/cdeps-0.1.0.jar" in `:main-opts` to specify output file
 
   :build/uberdeps
-  {:extra-deps {uberdeps/uberdeps {:mvn/version "1.0.0"}}
+  {:extra-deps {uberdeps/uberdeps {:mvn/version "1.0.2"}}
    :main-opts  ["-m" "uberdeps.uberjar"]}
 
   ;; Packaging libraries and applications
@@ -782,7 +781,7 @@
   {:extra-deps {closh/closh
                 {:git/url "https://github.com/dundalek/closh.git"
                  :tag     "v0.5.0"
-                 :sha     "6a7c0aa293616e2d28f7f735e915a301e44d2121"}}
+                 :sha     "dec68b43a66ff8547e4742fa433c4d486f550e60"}}
    :main-opts  ["-m" "closh.zero.frontend.rebel"]}
 
 
