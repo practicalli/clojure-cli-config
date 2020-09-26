@@ -148,9 +148,9 @@
   ;; Manage versions for maven and git dependencies
 
   ;; - report project dependencies that have newer versions available:
-  ;; cd project-directory && clojure -M:outdated
+  ;; cd project-directory && clojure -M:project/outdated
   ;; - update library versions in this deps.edn file:
-  ;; cd ~/.clojure && clojure -M:outdated
+  ;; cd ~/.clojure && clojure -M:project/outdated
   :project/outdated
   {:extra-deps {antq/antq {:mvn/version "RELEASE"}}
    :main-opts  ["-m" "antq.core"]}
