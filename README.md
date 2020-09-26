@@ -211,12 +211,12 @@ Reveal - read evaluate visualize loop.  A REPL with data visualisation.  Also us
 * `inspector/reveal` - repl and data visualization tool
 * `inspector/reveal-nrepl` - repl and data visualization tool with nrepl server, for connection from [Clojure aware editors](https://practicalli.github.io/clojure/clojure-editors/)
 
-| Command                                       | Description                                                                        |
-|-----------------------------------------------|------------------------------------------------------------------------------------|
-| `clojure -M:inspect/reveal`                   | start a Reveal repl with data visualization window                                 |
-| `clojure -M:inspect/reveal-light`             | as above with light theme and large font                                           |
-| `clojure -M:inspect/reveal:repl/rebel`        | Start a Rebel REPL with Reveal dependency. Add reveal as tap> source               |
-| `clojure -M:inspect/reveal-light:repl/rebel** | Start a Rebel REPL with Reveal dependency & light theme. Add reveal as tap> source |
+| Command                                      | Description                                                                        |
+|----------------------------------------------|------------------------------------------------------------------------------------|
+| `clojure -M:inspect/reveal`                  | start a Reveal repl with data visualization window                                 |
+| `clojure -M:inspect/reveal-light`            | as above with light theme and large font                                           |
+| `clojure -M:inspect/reveal:repl/rebel`       | Start a Rebel REPL with Reveal dependency. Add reveal as tap> source               |
+| `clojure -M:inspect/reveal-light:repl/rebel` | Start a Rebel REPL with Reveal dependency & light theme. Add reveal as tap> source |
 
 **Configure theme & font**
 
@@ -369,36 +369,45 @@ Other options:
 * `clojure -M:graph/deps single --show `  # View graph without saving
 
 
-## Packaging and deployment
+## Packaging projects
 Build a project archive file for deployment
 
 * [:build/jar](https://github.com/seancorfield/depstar) - build jar for deps.edn project
 * [:build/uberjar](https://github.com/seancorfield/depstar) - build uberjars for deps.edn project
 * [:build/uberdeps](https://github.com/tonsky/uberdeps) - uberjar builder
 
-| Command                    | Description                        |
-|----------------------------|------------------------------------|
-| `clojure -X:build/jar`     | build jar for deps.edn project     |
-| `clojure -X:build/uberjar` | build uberjar for deps.edn project |
+| Command                                                | Description                                                |
+|--------------------------------------------------------|------------------------------------------------------------|
+| `clojure -X:build/jar :main-class domain.app-name`     | build `project.jar` for deps.edn project (publish library) |
+| `clojure -X:build/uberjar :main-class domain.app-name` | build `uber.jar` for deps.edn project (deploy application) |
+
+Additionally specify `:jar` name and if ahead of time compilation should be used (default true)
+
+```clojure
+clojure -X:build/jar :jar '"practicalli.app.jar"' :aot false :main-class domain.app-name
+```
 
 
+## Deployment - local and remote
 Deploy a project archive file locally or to Clojars.org
 
 * [`-X:deps mvn-install`](https://insideclojure.org/2020/09/04/clj-exec/) - built-in Clojure CLI alias to deploy a Jar locally in the `~/.m2/repository` directory
 * [:deploy/clojars](https://github.com/slipset/deps-deploy) - deploy jar to [clojars.org](https://clojars.org/)
 * [:deploy/clojars-signed](https://github.com/slipset/deps-deploy) - sign and deploy jar to [clojars.org](https://clojars.org/)
 
-| Command                                        | Description                                                        |
-|------------------------------------------------|--------------------------------------------------------------------|
-| `clojure -X:deps mvn-install project.jar`      | deploy jar file to local maven repository, i.e. `~/.m2/repository` |
-| `clojure -M:deploy/clojars project.jar`        | deploy jar file to Clojars                                         |
-| `clojure -M:deploy/clojars-signed project.jar` | deploy signed jar file to Clojars                                  |
+| Command                                        | Description                                                              |
+|------------------------------------------------|--------------------------------------------------------------------------|
+| `clojure -X:deps mvn-install project.jar`      | [NEW] deploy jar file to local maven repository, i.e. `~/.m2/repository` |
+| `clojure -M:deploy/clojars project.jar`        | deploy jar file to Clojars                                               |
+| `clojure -M:deploy/clojars-signed project.jar` | deploy signed jar file to Clojars                                        |
 
 Set Clojars username/token in `CLOJARS_USERNAME` and `CLOJARS_PASSWORD` environment variables.
 
 Set fully qualified artifact-name and version in project `pom.xml` file
 
-> Path to project.jar can also be set in alias to simplify the Clojure command.
+Path to project.jar can also be set in alias to simplify the Clojure command.
+
+> `clojure -X:deps mvn-install project.jar` for local deployment of jars is part of the 1.10.1.697 release of the [Clojure CLI tools](https://clojure.org/guides/getting_started) in September 2020.
 
 
 ## Performance testing

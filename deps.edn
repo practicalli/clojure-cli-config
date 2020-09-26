@@ -13,8 +13,9 @@
 
  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
  ;; Default Paths
- ;; Directories to include in the classpath for the current project
- ;; - typically defined in the project deps.edn file
+ ;; Directories to include in the classpath to run the application
+ ;; Development only paths should be defined in aliases, eg. :env/dev
+ ;; Project deps.edn file superceeds this setting
  :paths ["src"]
 
  ;; End of: Default Paths
@@ -42,7 +43,6 @@
   ;; https://github.com/bhauman/rebel-readline
 
   ;; clojure -M:repl/rebel
-
   :repl/rebel
   {:extra-deps {com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
    :main-opts  ["-m" "rebel-readline.main"]}
@@ -52,7 +52,6 @@
   ;; https://github.com/bhauman/rebel-readline/tree/master/rebel-readline-cljs
 
   ;; clojure -M:repl/rebel-cljs
-
   :repl/rebel-cljs
   {:extra-deps {com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}}
    :main-opts  ["-m" "rebel-readline-cljs.main"]}
@@ -61,6 +60,7 @@
   ;; rebel readline with nrepl for editor connection to REPL
   ;; CIDER: run `cider-connect-clj` and expressions evaluated in rebel
   ;; are also available from CIDER/Emacs/Spacemacs
+
   ;; clojure -M:repl/rebel-nrepl
   :repl/rebel-nrepl
   {:extra-deps {nrepl/nrepl                {:mvn/version "0.8.1"}
@@ -76,13 +76,11 @@
   ;; Include `dev` directory on the class path
   ;; Supports the use of `dev/user.clj` to configure REPL startup
   ;; http://practicalli.github.io/clojure/clojure-tools/configure-repl-startup.html
+  ;; Includes find-deps to search for Clojure libraries in Maven Central and Clojars
 
+  ;; clojure -M:env/dev
   :env/dev
-  {:extra-paths ["dev"]
-   :extra-deps  {find-deps/find-deps
-                 {:git/url "https://github.com/hagmonk/find-deps"
-                  :sha     "6fc73813aafdd2288260abb2160ce0d4cdbac8be"}}}
-
+  {:extra-paths ["dev"]}
 
   ;; End of REPL experience
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -91,8 +89,7 @@
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Creating projects from templates
 
-  ;; clj-new
-  ;; https://github.com/seancorfield/clj-new
+  ;; clj-new - https://github.com/seancorfield/clj-new
 
   ;; Classic command line
   ;; clojure -M:project/new luminus practicalli/full-stack-app +http-kit +h2 +reagent +auth
@@ -109,7 +106,7 @@
    :exec-args  {:template lib :name practicalli/playground}
    :main-opts  ["-m" "clj-new.create"]}
 
-  ;; Add 'something' to existing project - alpha, may change
+  ;; ALPHA status: Add 'something' to existing project (subject to change)
   :project/add
   {:extra-deps {seancorfield/clj-new {:mvn/version "1.1.215"}}
    :exec-fn    clj-new/generate
@@ -122,7 +119,7 @@
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Project compilation and dependencies
 
-  ;;clj-check - report detailed compilation errors for a project
+  ;; clj-check - report detailed compilation errors for a project
   ;; https://github.com/athos/clj-check
   ;; clojure -M:project/check
 
@@ -147,24 +144,23 @@
 
 
   ;; Dependency version management
-  ;; Manage versions for maven and git dependencies
-  ;; Report dependencies that have newer versions available
-  ;; Update library versions in this deps.edn file:
-  ;; cd ~/.clojure && clojure -M:outdated
-
   ;; https://github.com/liquidz/antq
+  ;; Manage versions for maven and git dependencies
 
+  ;; - report project dependencies that have newer versions available:
+  ;; cd project-directory && clojure -M:outdated
+  ;; - update library versions in this deps.edn file:
+  ;; cd ~/.clojure && clojure -M:outdated
   :project/outdated
   {:extra-deps {antq/antq {:mvn/version "RELEASE"}}
    :main-opts  ["-m" "antq.core"]}
 
 
   ;; The classic project for checking maven based dependencies
-
+  ;; clojure -M:project/outdated-mvn
   :project/outdated-mvn
   {:extra-deps {deps-ancient/deps-ancient {:mvn/version "RELEASE"}}
    :main-opts  ["-m" "deps-ancient.deps-ancient"]}
-
 
   ;; End of: Projects and dependencies
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -177,6 +173,7 @@
   ;; Requires: Java sources installed locally
   ;; Examples are from Ubuntu package install locations
 
+  ;; clojure -M:lib/java11-source
   :lib/java8-source
   {:extra-deps
    {openjdk/java-sources {:local/root "/usr/lib/jvm/openjdk-8/lib/src.zip"}}}
@@ -250,17 +247,26 @@
 
   ;; Reveal - read evaluate visualize loop
   ;; A REPL environment with data visualization and exploration
+  ;; http://practicalli.github.io/clojure/clojure-tools/data-browsers/reveal.html
   ;; clojure -M:inspect/reveal
-  ;; Run with theme / font changes
+  ;; Run with theme / font changes:
   ;; clojure -M:inspect/reveal-light
   ;; Use with rebel repl by adding and using tap>
   ;; clojure -M:inspect/reveal:repl/rebel
   ;; clojure -M:inspect/reveal:rebel -J-Dvlaaad.reveal.prefs='{:theme :light :font-family "Ubuntu Mono" :font-size 32}'
-  ;; http://practicalli.github.io/clojure/clojure-tools/data-browsers/reveal.html
 
   :inspect/reveal
   {:extra-deps {vlaaad/reveal {:mvn/version "1.0.128"}}
    :main-opts  ["-m" "vlaaad.reveal" "repl"]}
+
+  ;; Once reveal supports the -X flag (not official: subject to change)
+  ;; clojure -X:inspect/reveal :command prepl
+  ;; clojure -X:inspect/reveal :command socket
+  ;; :inspect/reveal
+  ;; {:extra-deps {vlaaad/reveal {:mvn/version "1.0.130"}}
+  ;;  :exec-fn    vlaaad.reveal
+  ;;  :exec-args  {:command repl}
+  ;;  :main-opts  ["-m" "vlaaad.reveal" "repl"]}
 
   :inspect/reveal-light
   {:extra-deps {vlaaad/reveal {:mvn/version "1.0.128"}}
@@ -280,7 +286,6 @@
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[vlaaad.reveal.nrepl/middleware]"]}
 
-
   ;; End of data browsers
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -289,19 +294,19 @@
   ;; Middleware
 
   ;; - start a REPL with an nREPL server
-
+  ;; clojure -M:middleware/nrepl
   :middleware/nrepl {:extra-deps {nrepl/nrepl {:mvn/version "RELEASE"}}
                      :main-opts  ["-m" "nrepl.cmdline"]}
 
   ;; Run a REPL using nREPL server for access by cider-connect-clj
-
+  ;; clojure -M:middleware/cider-clj
   :middleware/cider-clj
   {:extra-deps {cider/cider-nrepl {:mvn/version "0.25.3"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware]"]}
 
   ;; Run a REPL using nREPL server for access by cider-connect-cljs
-
+  ;; clojure -M:middleware/cider-cljs
   :middleware/cider-cljs
   {:extra-deps {org.clojure/clojurescript {:mvn/version "1.10.773"}
                 cider/cider-nrepl         {:mvn/version "0.25.3"}
@@ -313,10 +318,10 @@
   ;; nrebl.middleware - REBL with nREPL server
   ;; visualize evaluations over nREPL in REBL data browser (CIDER, Calva)
   ;; https://github.com/RickMoynihan/nrebl.middleware
-  ;; clojure -M:lib/cider-nrepl:inspect/rebl:middleware/nrebl
   ;; Emacs cider `dir-locals.el` configuration
   ;; ((clojure-mode . ((cider-clojure-cli-global-options . "-M:lib/cider-nrepl:inspect/rebl:middleware/nrebl"))))
 
+  ;; clojure -M:lib/cider-nrepl:inspect/rebl:middleware/nrebl
   :middleware/nrebl
   {:extra-deps {rickmoynihan/nrebl.middleware {:mvn/version "0.3.1"}}
    :main-opts  ["-e" "((requiring-resolve,'cognitect.rebl/ui))"
@@ -365,7 +370,6 @@
   ;; Testing frameworks
 
   ;; Include the test directory as a path used by Clojure CLI tools
-
   :env/test
   {:extra-paths ["test"]}
 
@@ -387,6 +391,7 @@
 
   ;; End of: Testing frameworks
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Test runners
@@ -414,18 +419,21 @@
   ;; tests.edn should be created for each project
   ;; https://github.com/lambdaisland/kaocha
 
-
+  ;; Default test runner using kaocha (change to your own preference)
+  ;; clojure -M:test/runner
   :test/runner
   {:extra-paths ["test"]
    :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.672"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
+  ;; clojure -M:test/kaocha
   :test/kaocha
   {:extra-paths ["test"]
    :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.672"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
 
+  ;; clojure -M:test/kaocha-cljs
   :test/kaocha-cljs
   {:extra-paths ["test"]
    :extra-deps  {lambdaisland/kaocha      {:mvn/version "1.0.672"}
@@ -433,6 +441,7 @@
    :main-opts   ["-m" "kaocha.runner"]}
 
   ;; https://github.com/lambdaisland/kaocha-cucumber
+  ;; clojure -M:test/kaocha-cucumber
   :test/kaocha-cucumber
   {:extra-paths ["test"]
    :extra-deps  {lambdaisland/kaocha          {:mvn/version "1.0.672"}
@@ -440,6 +449,7 @@
    :main-opts   ["-m" "kaocha.runner"]}
 
   ;; https://github.com/lambdaisland/kaocha-junit-xml
+  ;; clojure -M:test/kaocha-junit-xml
   :test/kaocha-junit-xml
   {:extra-paths ["test"]
    :extra-deps  {lambdaisland/kaocha           {:mvn/version "1.0.672"}
@@ -448,6 +458,7 @@
 
 
   ;; https://github.com/lambdaisland/kaocha-cloverage
+  ;; clojure -M:test/kaocha-cloverage
   :test/kaocha-cloverage
   {:extra-paths ["test"]
    :extra-deps  {lambdaisland/kaocha           {:mvn/version "1.0.672"}
@@ -471,14 +482,18 @@
   ;; There may be a nicer way to do the main-opts - see the Eastwood and kibit issue discussion
   ;; https://github.com/jonase/eastwood/commit/4d1d05cc6de6ce565207d9a3c86864364f53f006
 
+  ;; clojure -M:test/eftest
   :test/eftest
   {:extra-paths ["test"]
    :extra-deps  {eftest/eftest {:mvn/version "0.5.9"}}
    :main-opts   ["-e"  "(require,'[eftest.runner,:refer,[find-tests,run-tests]]),(run-tests,(find-tests,\"test\"))"]}
 
-
-  ;; Test Coverage tools
+  ;; End of Test runners
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Test Coverage tools
 
   ;; Cloverage - Simple clojure coverage tool
   ;; https://github.com/cloverage/cloverage
@@ -489,9 +504,12 @@
    :extra-deps  {cloverage/cloverage {:mvn/version "RELEASE"}}
    :main-opts   ["-m" "cloverage.coverage"]}
 
-
-  ;; Linting/ static analysis
+  ;; End of Test Coverage tools
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Linting/ static analysis
 
   ;; clj-kondo - comprehensive and fast linter
   ;; https://github.com/borkdude/clj-kondo/
@@ -517,15 +535,16 @@
   {:extra-deps {tvaughan/kibit-runner {:mvn/version "1.0.1"}}
    :main-opts  ["-m" "kibit-runner.cmdline"]}
 
-
-
-  ;; Visualizing dependencies
+  ;; End of Linting/ static analysis
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Visualizing dependencies
 
   ;; TODO: review and evaluate
   ;; :graph {:deps      {org.clojure/tools.deps.graph {:mvn/version "0.2.24"}}
   ;;         :main-opts ["-m" "clojure.tools.deps.graph"]}
-
 
   ;; Morpheus - visualize project var relationships
   ;; https://github.com/benedekfazekas/morpheus
@@ -554,7 +573,6 @@
 
   ;; Generate SVG image of dependency graph in directory called `graphs`
   ;; clojure -A:graph-vars-svg
-
   :graph/vars-svg
   {:extra-deps {thomasa/morpheus
                 {:git/url "https://github.com/benedekfazekas/morpheus.git"
@@ -577,17 +595,20 @@
                                   :sha     "fb2391a4af24246ac4e46f3a573970ba5b7c92de"}}
    :main-opts  ["-m" "io.dominic.vizns.core" "single" "-o" "deps-graph.png" "-f" "png"]}
 
+  ;; Visualizing dependencies
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;; Packaging and Deployment
+  ;; Packaging libraries and applications
 
   ;; depstar - build jars, uberjars
   ;; https://github.com/seancorfield/depstar
+  ;; over-ride the :main-class as the name is unlikely to match your project
 
   ;; Jar archive of the project
+  ;; clojure -X:build/jar :main-class domain.application
   ;; clojure -X:build/jar :jar '"project-name.jar"' :main-class domain.application
-
   :build/jar
   {:extra-deps {seancorfield/depstar {:mvn/version "1.1.117"}}
    :exec-fn    hf.depstar/jar
@@ -596,12 +617,12 @@
                 :main-class project.core}}
 
   ;; Uberjar archive of the project, including Clojure runtime
+  ;; clojure -X:build/uberjar :main-class domain.application
   ;; clojure -X:build/uberjar :jar '"project-name.jar"' :main-class domain.application
-
   :build/uberjar
   {:extra-deps {seancorfield/depstar {:mvn/version "1.1.117"}}
    :exec-fn    hf.depstar/uberjar
-   :exec-args  {:jar        "project.jar"
+   :exec-args  {:jar        "uber.jar"
                 :aot        true
                 :main-class project.core}}
 
@@ -614,11 +635,19 @@
   {:extra-deps {uberdeps/uberdeps {:mvn/version "1.0.0"}}
    :main-opts  ["-m" "uberdeps.uberjar"]}
 
+  ;; Packaging libraries and applications
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-  ;; Deploy library jar installation and deployment
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Deployment - locally and remote
+
+  ;; Clojure CLI tools - built in alias to deploy locally (in `~/.m2/`)
+  ;; clojure -X:deps mvn-install
+
+
+  ;; deps-deploy - Deploy libraries to Clojars
   ;; https://github.com/slipset/deps-deploy
-  ;; Deploy Locally (in `~/.m2/`)
-  ;; `clojure -A:deploy-locally project.jar`
   ;; Deploy to Clojars
   ;; `clojure -A:deploy-clojars project.jar`
   ;; Deploy to Clojars signed
@@ -654,9 +683,12 @@
   ;;                "deploy"
   ;;               "path/to/my.jar"]}}
 
-
-  ;; Performance testing
+  ;; End of Packaging and Deployment
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Performance testing
 
   ;; Benchmarking library for Clojure
   ;; https://github.com/hugoduncan/criterium/
@@ -679,6 +711,9 @@
   :performance/memory-meter
   {:extra-deps {com.clojure-goes-fast/clj-memory-meter {:mvn/version "0.1.3"}}
    :jvm-opts   ["-Djdk.attach.allowAttachSelf"]}
+
+  ;; End of Performance testing
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -717,15 +752,13 @@
    ;; DynamicClassLoader required for add-lib to work
    ;; if starting other processes via aliases such as a socket REPL or Cognitect's REBL
    :main-opts  ["-e" "(->>(Thread/currentThread)(.getContextClassLoader)(clojure.lang.DynamicClassLoader.)(.setContextClassLoader,(Thread/currentThread)))"]}
-  ;;
+
+  ;;  End of EXPERIMENTAL
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-
-
-
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Aliases to evaluate
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
   ;; Reflector - datafy and nav
   ;; https://github.com/stuarthalloway/reflector
@@ -748,7 +781,8 @@
   :alpha/closh
   {:extra-deps {closh/closh
                 {:git/url "https://github.com/dundalek/closh.git"
-                 :tag     "v0.5.0" :sha "6a7c0aa293616e2d28f7f735e915a301e44d2121"}}
+                 :tag     "v0.5.0"
+                 :sha     "6a7c0aa293616e2d28f7f735e915a301e44d2121"}}
    :main-opts  ["-m" "closh.zero.frontend.rebel"]}
 
 
