@@ -310,12 +310,12 @@ Tools to run unit tests in a project which are defined under `test` path.
 
 Run clojure with the specific test runner alias: `clojure -A:test-runner-alias`
 
-* [`:test-runner/cognitect`](https://github.com/cognitect-labs/test-runner) - Cognitect test-runner
-* [`:test-runner/cljs`](https://github.com/Olical/cljs-test-runner) - test runner for Clojure/Script
-* [`:test-runner/kaocha`](https://github.com/lambdaisland/kaocha) - comprehensive test runner for Clojure
-* [`:test-runner/kaocha-cljs`](https://github.com/lambdaisland/kaocha) - comprehensive test runner for ClojureScript
-* [`:test-runner/kaocha-cucumber`](https://github.com/lambdaisland/kaocha-cucumber) - comprehensive test runner with BDD Cucumber tests
-* [`:test-runner/kaocha-junit-xml`](https://github.com/lambdaisland/kaocha) - comprehensive test runner with Junit XML reporting for CI dashboards and wallboards
+* [`:test/cognitect`](https://github.com/cognitect-labs/test-runner) - Cognitect test-runner
+* [`:test/cljs`](https://github.com/Olical/cljs-test-runner) - test runner for Clojure/Script
+* [`:test/kaocha`](https://github.com/lambdaisland/kaocha) - comprehensive test runner for Clojure
+* [`:test/kaocha-cljs`](https://github.com/lambdaisland/kaocha) - comprehensive test runner for ClojureScript
+* [`:test/kaocha-cucumber`](https://github.com/lambdaisland/kaocha-cucumber) - comprehensive test runner with BDD Cucumber tests
+* [`:test/kaocha-junit-xml`](https://github.com/lambdaisland/kaocha) - comprehensive test runner with Junit XML reporting for CI dashboards and wallboards
 * [`:test-runner/kaocha-cljs`](https://github.com/lambdaisland/kaocha) - comprehensive test runner with test coverage
 * [`:test-runner/midje`	](https://github.com/miorimmax/midje-runner) - runner for midje and clojure.test tests
 * [`:test-runner/eftest`](https://github.com/weavejester/eftest) - fast and pretty test runner
@@ -325,12 +325,12 @@ Run clojure with the specific test runner alias: `clojure -A:test-runner-alias`
 |------------------------------------|-----------------------------------------------------------------------------------|
 | `clojure -M:test/cognitect`        | Cognitect Clojure test runner                                                     |
 | `clojure -M:test/cljs`             | ClojureScript test runner (Olical)                                                |
-| `clojure -M:test/runner`           | Comprehensive test runner for Clojure (same as :test/kaocha)                      |
-| `clojure -M:test/kaocha`           | Comprehensive test runner for Clojure                                             |
-| `clojure -M:test/kaocha-cljs`      | Comprehensive test runner for ClojureScript                                       |
-| `clojure -M:test/kaocha-cucumber`  | Comprehensive test runner with BDD Cucumber tests                                 |
-| `clojure -M:test/kaocha-junit-xml` | Comprehensive test runner with Junit XML reporting for CI dashboards & wallboards |
-| `clojure -M:test/kaocha-cloverage` | Comprehensive test runner with test coverage reporting                            |
+| `clojure -M:test/runner`           | Kaocha - comprehensive test runner for Clojure (same as :test/kaocha)             |
+| `clojure -M:test/kaocha`           | Kaocha - comprehensive test runner for Clojure                                    |
+| `clojure -M:test/kaocha-cljs`      | Kaocha - comprehensive test runner for ClojureScript                              |
+| `clojure -M:test/kaocha-cucumber`  | Kaocha - comprehensive test runner with BDD Cucumber tests                        |
+| `clojure -M:test/kaocha-junit-xml` | Kaocha - comprehensive test runner with Junit XML reporting for CI dashboards & wallboards |
+| `clojure -M:test/kaocha-cloverage` | Kaocha - comprehensive test runner with test coverage reporting                   |
 | `clojure -M:test/midje`            | Midje test runner for BDD style tests                                             |
 | `clojure -M:test/eftest`           | Fast Clojure test runner, pretty output, parallel tests                           |
 | `clojure -M:test/coverage`         | Cloverage clojure.test coverage report                                            |
