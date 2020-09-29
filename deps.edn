@@ -648,9 +648,9 @@
   ;; deps-deploy - Deploy libraries to Clojars
   ;; https://github.com/slipset/deps-deploy
   ;; Deploy to Clojars
-  ;; `clojure -A:deploy-clojars project.jar`
+  ;; `clojure -M:deploy/clojars project.jar`
   ;; Deploy to Clojars signed
-  ;; `clojure -A:deploy-clojars-signed project.jar`
+  ;; `clojure -M:deploy/clojars-signed project.jar`
   ;;
   ;; Set Clojars username/token in `CLOJARS_USERNAME` and `CLOJARS_PASSWORD`
   ;; environment variables.
