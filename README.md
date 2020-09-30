@@ -14,7 +14,7 @@ Aliases with common options are provided for convenience and to minimize the amo
 * [Library repositories](#library-repositories)
 * [Experimental](#experimental)
 
-# For use with Clojure CLI tools version 1.10.1.681 or above
+# For use with [Clojure CLI tools version 1.10.1.697](https://clojure.org/guides/getting_started) or above
 Check the version of Clojure CLI tools currently installed
 ```shell
 clojure -Sdescribe
