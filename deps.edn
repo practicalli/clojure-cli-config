@@ -248,6 +248,7 @@
   ;; A REPL environment with data visualization and exploration
   ;; http://practicalli.github.io/clojure/clojure-tools/data-browsers/reveal.html
   ;; clojure -M:inspect/reveal
+  ;; clojure -X:inspect/reveal
   ;; Run with theme / font changes:
   ;; clojure -M:inspect/reveal-light
   ;; Use with rebel repl by adding and using tap>
@@ -256,19 +257,14 @@
 
   :inspect/reveal
   {:extra-deps {vlaaad/reveal {:mvn/version "1.0.130"}}
+   :ns-default vlaaad.reveal
+   :exec-fn    repl
    :main-opts  ["-m" "vlaaad.reveal" "repl"]}
-
-  ;; Once reveal supports the -X flag (not official: subject to change)
-  ;; clojure -X:inspect/reveal :command prepl
-  ;; clojure -X:inspect/reveal :command socket
-  ;; :inspect/reveal
-  ;; {:extra-deps {vlaaad/reveal {:mvn/version "1.0.130"}}
-  ;;  :exec-fn    vlaaad.reveal
-  ;;  :exec-args  {:command repl}
-  ;;  :main-opts  ["-m" "vlaaad.reveal" "repl"]}
 
   :inspect/reveal-light
   {:extra-deps {vlaaad/reveal {:mvn/version "1.0.130"}}
+   :ns-default vlaaad.reveal
+   :exec-fn    repl
    :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
    :main-opts  ["-m" "vlaaad.reveal" "repl"]}
 

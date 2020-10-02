@@ -210,7 +210,7 @@ Navigate data in the form of edn, json and transit
 `(portal/close)` to close the inspector window.
 
 
-### [Reveal](https://github.com/vlaaad/reveal) is a repl and data visualization tool
+### [Reveal](https://vlaaad.github.io/reveal/) is a repl and data visualization tool
 Reveal - read evaluate visualize loop.  A REPL with data visualisation.  Also used as a tap> source
 
 * `inspector/reveal` - repl and data visualization tool
@@ -218,10 +218,19 @@ Reveal - read evaluate visualize loop.  A REPL with data visualisation.  Also us
 
 | Command                                      | Description                                                                        |
 |----------------------------------------------|------------------------------------------------------------------------------------|
-| `clojure -M:inspect/reveal`                  | start a Reveal repl with data visualization window                                 |
+| `clojure -M:inspect/reveal`                  | start a Reveal repl with data visualization window (cloure.main)                   |
 | `clojure -M:inspect/reveal-light`            | as above with light theme and large font                                           |
+| `clojure -X:inspect/reveal`                  | start a Reveal repl with data visualization window (clojure exec)                  |
+| `clojure -X:inspect/reveal-light`            | as above with light theme and large font                                           |
 | `clojure -M:inspect/reveal:repl/rebel`       | Start a Rebel REPL with Reveal dependency. Add reveal as tap> source               |
 | `clojure -M:inspect/reveal-light:repl/rebel` | Start a Rebel REPL with Reveal dependency & light theme. Add reveal as tap> source |
+
+**Running different types of repl**
+
+Using Clojure exec `-X` flag, the default repl function can be over-ridden on the command line, supplying the `io-prepl` or `remote-prepl` functions.
+
+* `clojure -X:inspect/reveal io-prepl :title '"I am a prepl repl"`
+* `clojure -X:inspect/reveal remote-prepl :title '"I am a remote prepl repl"'`
 
 **Configure theme & font**
 
