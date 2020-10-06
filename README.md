@@ -23,9 +23,10 @@ clojure -Sdescribe
 ## Install Clojure CLI tools
 Linux Script:
 ```shell
-curl -O https://download.clojure.org/install/linux-install-1.10.1.681
-chmod +x linux-install-1.10.1.681.sh
-sudo ./linux-install-1.10.1.681.sh
+install_script="linux-install-1.10.1.681.sh"
+curl -O https://download.clojure.org/install/$install_script
+chmod +x $install_script
+sudo ./$install_script
 ```
 
 Homebrew - MacOSX or Linux:
