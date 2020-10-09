@@ -100,14 +100,14 @@
   ;; clojure -X:project/new :template luminus :name practicalli/full-stack-app +http-kit +h2 +reagent +auth
 
   :project/new
-  {:extra-deps {seancorfield/clj-new {:mvn/version "1.1.216"}}
+  {:extra-deps {seancorfield/clj-new {:mvn/version "1.1.226"}}
    :exec-fn    clj-new/create
    :exec-args  {:template lib :name practicalli/playground}
    :main-opts  ["-m" "clj-new.create"]}
 
   ;; ALPHA status: Add 'something' to existing project (subject to change)
   :project/add
-  {:extra-deps {seancorfield/clj-new {:mvn/version "1.1.216"}}
+  {:extra-deps {seancorfield/clj-new {:mvn/version "1.1.226"}}
    :exec-fn    clj-new/generate
    :main-opts  ["-m" "clj-new.generate"]}
 

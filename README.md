@@ -113,12 +113,12 @@ Aliases provide additional configuration when running a REPL, an application or 
 ### Create new projects from templates
 * `:project/new` - create a new project from a template
 
-Create a new project (via clojure.main)
+Create a new project (via clojure.main - classic approach)
 ```shell
 clojure -M:project/new luminus practicalli/full-stack-app +http-kit +h2 +reagent +auth
 ```
 
-Create a new project (Edn command line arguments)
+Create a new project (Edn command line arguments - recommended approach)
 | Command                                                                                   | Description                                          |
 |-------------------------------------------------------------------------------------------|------------------------------------------------------|
 | `clojure -X:project/new`                                                                  | library project called playground                    |
