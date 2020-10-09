@@ -9,7 +9,7 @@
 
 Aliases with common options are provided for convenience and to minimize the amount of cognitive load required to remember how to use aliases. Initial inspiration taken from [seancorfield/dot-clojure](https://github.com/seancorfield/dot-clojure).
 
-* [Updating practicalli/clojure-deps-edn](updating-practicalli/clojure-deps-edn)
+* [Updating practicalli/clojure-deps-edn](#updating-practicalli-clojure-deps-edn)
 * [Aliases](#aliases)
 * [Library repositories](#library-repositories)
 * [Experimental](#experimental)
@@ -51,7 +51,7 @@ Any directory containing a `deps.edn` file is considered a Clojure project. A `d
 See the rest of this readme for examples of how to use each alias this configuration contains.
 
 
-## Updating practicalli/clojure-deps-edn
+## Updating Practicalli clojure-deps-edn
 The collection of aliases is regularly reviewed and expanded upon and suggestions are most welcome.
 
 The versions of libraries are manually updated at least once per month using the `:outdated` alias and a new version of the `deps.edn` file pushed to this repository.
