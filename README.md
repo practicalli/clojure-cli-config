@@ -201,7 +201,8 @@ Requires: Java sources installed locally (e.g. "/usr/lib/jvm/openjdk-11/lib/src.
 Use the aliases with either `-M` or `-X` flags on the Clojure command line.
 
 
-## Databases and drivers - development time
+## Databases and drivers
+Databases and drivers, typically for development time inclusion such as embedded databases
 
 * `:database/h2` - H2 embedded database library and next.jdbc
 
@@ -211,7 +212,7 @@ https://cljdoc.org/d/seancorfield/next.jdbc/CURRENT/doc/getting-started#create--
 
 Use the aliases with either `-M` or `-X` flags on the Clojure command line.
 
-## Data Inspectors / visualizers
+## Data Inspectors
 REPL driven data inspectors and `tap>` sources for visualizing data.
 
 
@@ -388,7 +389,8 @@ Run clojure with the specific test runner alias: `clojure -A:test-runner-alias`
 | `clojure -M:test/coverage`         | Cloverage clojure.test coverage report                                            |
 
 
-## Linting/ static analysis
+## Lint tools
+Static analysis tools to help maintain code quality and suggest Clojure idioms.
 
 * [`:lint/kondo`](https://github.com/borkdude/clj-kondo/) - comprehensive and fast static analysis lint tool
 * [`:lint/eastwood`](https://github.com/jonase/eastwood) - classic lint tool for Clojure
