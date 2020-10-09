@@ -166,6 +166,98 @@
 
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Project Packaging
+
+  ;; depstar - build jars, uberjars
+  ;; https://github.com/seancorfield/depstar
+  ;; over-ride the :main-class as the name is unlikely to match your project
+
+  ;; Jar archive of the project
+  ;; clojure -X:project/jar :main-class domain.application
+  ;; clojure -X:project/jar :jar '"project-name.jar"' :main-class domain.application
+  :project/jar
+  {:extra-deps {seancorfield/depstar {:mvn/version "1.1.117"}}
+   :exec-fn    hf.depstar/jar
+   :exec-args  {:jar        "project.jar"
+                :aot        true
+                :main-class project.core}}
+
+  ;; Uberjar archive of the project, including Clojure runtime
+  ;; clojure -X:project/uberjar :main-class domain.application
+  ;; clojure -X:project/uberjar :jar '"project-name.jar"' :main-class domain.application
+  :project/uberjar
+  {:extra-deps {seancorfield/depstar {:mvn/version "1.1.117"}}
+   :exec-fn    hf.depstar/uberjar
+   :exec-args  {:jar        "uber.jar"
+                :aot        true
+                :main-class project.core}}
+
+
+  ;; uberdeps - uberjar builder
+  ;; https://github.com/tonsky/uberdeps
+  ;; "--target" "target/cdeps-0.1.0.jar" in `:main-opts` to specify output file
+
+  :project/uberdeps
+  {:extra-deps {uberdeps/uberdeps {:mvn/version "1.0.2"}}
+   :main-opts  ["-m" "uberdeps.uberjar"]}
+
+  ;; Packaging libraries and applications
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Project Deployment
+  ;; local and remote deployment of Java archives
+
+  ;; Clojure CLI tools - built in alias to deploy locally (in `~/.m2/`)
+  ;; clojure -X:deps mvn-install
+
+
+  ;; deps-deploy - Deploy libraries to Clojars
+  ;; https://github.com/slipset/deps-deploy
+  ;; Deploy to Clojars
+  ;; `clojure -M:project/clojars project.jar`
+  ;; Deploy to Clojars signed
+  ;; `clojure -M:project/clojars-signed project.jar`
+  ;;
+  ;; Set Clojars username/token in `CLOJARS_USERNAME` and `CLOJARS_PASSWORD`
+  ;; environment variables.
+  ;; Set fully qualified artifact-name and version in project `pom.xml` file
+
+  :project/clojars
+  {:extra-deps {deps-deploy/deps-deploy {:mvn/version "RELEASE"}}
+   :main-opts  ["-m" "deps-deploy.deps-deploy"
+                "deploy"]}
+
+  :project/clojars-signed
+  {:extra-deps {deps-deploy/deps-deploy {:mvn/version "RELEASE"}}
+   :main-opts  ["-m" "deps-deploy.deps-deploy"
+                "deploy"
+                :true]}
+
+  ;; DEPRECATED - use `clojure -X:deps mvn-install`
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Add the path to the jar for deployment to simplify command
+  ;; :deploy-locally
+  ;; {:extra-deps {deps-deploy/deps-deploy {:mvn/version "RELEASE"}}
+  ;;  :main-opts  ["-m" "deps-deploy.deps-deploy"
+  ;;               "install"
+  ;;               "path/to/my.jar"]}
+
+  ;; {:deploy-clojars
+  ;;  {:extra-deps {deps-deploy/deps-deploy {:mvn/version "RELEASE"}}
+  ;;   :main-opts  ["-m" "deps-deploy.deps-deploy"
+  ;;                "deploy"
+  ;;               "path/to/my.jar"]}}
+
+  ;; End of Project Deployment
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Java Sources
 
   ;; Look up Java Class and method definitions, eg. `cider-find-var` in Emacs
@@ -593,93 +685,6 @@
   ;; Visualizing dependencies
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;; Packaging libraries and applications
-
-  ;; depstar - build jars, uberjars
-  ;; https://github.com/seancorfield/depstar
-  ;; over-ride the :main-class as the name is unlikely to match your project
-
-  ;; Jar archive of the project
-  ;; clojure -X:build/jar :main-class domain.application
-  ;; clojure -X:build/jar :jar '"project-name.jar"' :main-class domain.application
-  :build/jar
-  {:extra-deps {seancorfield/depstar {:mvn/version "1.1.117"}}
-   :exec-fn    hf.depstar/jar
-   :exec-args  {:jar        "project.jar"
-                :aot        true
-                :main-class project.core}}
-
-  ;; Uberjar archive of the project, including Clojure runtime
-  ;; clojure -X:build/uberjar :main-class domain.application
-  ;; clojure -X:build/uberjar :jar '"project-name.jar"' :main-class domain.application
-  :build/uberjar
-  {:extra-deps {seancorfield/depstar {:mvn/version "1.1.117"}}
-   :exec-fn    hf.depstar/uberjar
-   :exec-args  {:jar        "uber.jar"
-                :aot        true
-                :main-class project.core}}
-
-
-  ;; uberdeps - uberjar builder
-  ;; https://github.com/tonsky/uberdeps
-  ;; "--target" "target/cdeps-0.1.0.jar" in `:main-opts` to specify output file
-
-  :build/uberdeps
-  {:extra-deps {uberdeps/uberdeps {:mvn/version "1.0.2"}}
-   :main-opts  ["-m" "uberdeps.uberjar"]}
-
-  ;; Packaging libraries and applications
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;; Deployment - locally and remote
-
-  ;; Clojure CLI tools - built in alias to deploy locally (in `~/.m2/`)
-  ;; clojure -X:deps mvn-install
-
-
-  ;; deps-deploy - Deploy libraries to Clojars
-  ;; https://github.com/slipset/deps-deploy
-  ;; Deploy to Clojars
-  ;; `clojure -M:deploy/clojars project.jar`
-  ;; Deploy to Clojars signed
-  ;; `clojure -M:deploy/clojars-signed project.jar`
-  ;;
-  ;; Set Clojars username/token in `CLOJARS_USERNAME` and `CLOJARS_PASSWORD`
-  ;; environment variables.
-  ;; Set fully qualified artifact-name and version in project `pom.xml` file
-
-  :deploy/clojars
-  {:extra-deps {deps-deploy/deps-deploy {:mvn/version "RELEASE"}}
-   :main-opts  ["-m" "deps-deploy.deps-deploy"
-                "deploy"]}
-
-  :deploy/clojars-signed
-  {:extra-deps {deps-deploy/deps-deploy {:mvn/version "RELEASE"}}
-   :main-opts  ["-m" "deps-deploy.deps-deploy"
-                "deploy"
-                :true]}
-
-  ;; DEPRECATED - use `clojure -X:deps mvn-install`
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;; Add the path to the jar for deployment to simplify command
-  ;; :deploy-locally
-  ;; {:extra-deps {deps-deploy/deps-deploy {:mvn/version "RELEASE"}}
-  ;;  :main-opts  ["-m" "deps-deploy.deps-deploy"
-  ;;               "install"
-  ;;               "path/to/my.jar"]}
-
-  ;; {:deploy-clojars
-  ;;  {:extra-deps {deps-deploy/deps-deploy {:mvn/version "RELEASE"}}
-  ;;   :main-opts  ["-m" "deps-deploy.deps-deploy"
-  ;;                "deploy"
-  ;;               "path/to/my.jar"]}}
-
-  ;; End of Packaging and Deployment
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
