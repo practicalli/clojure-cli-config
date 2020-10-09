@@ -101,20 +101,6 @@ Aliases provide additional configuration when running a REPL, an application or 
 `:repl/help` in the REPL for help and available commands.  `:repl/quit` to close the REPL.
 
 
-## Middleware
-Run a REPL on the command line for access by `cider-connect-` commands, providing the require cider middleware libraries that are auto-injected in `ccider-jack-in-` commands.
-
-* `:middleware/nrepl` - Clojure REPL with an nREPL server
-* `:middleware/cider-clj` -Clojure REPL with nREPL server and CIDER connection dependencies
-* `:middleware/cider-cljs` - ClojureScript REPL with nREPL server and CIDER connection dependencies
-
-| Command                             | Description                                                                           |
-|-------------------------------------|---------------------------------------------------------------------------------------|
-| `clojure -M::middleware/nrepl`      | Run a Clojure REPL that includes nREPL server
-| `clojure -M::middleware/cider-clj`  | Run a Clojure REPL that includes nREPL server and CIDER connection dependencies       |
-| `clojure -M::middleware/cider-cljs` | Run a ClojureScript REPL that includes nREPL server and CIDER connection dependencies |
-
-
 ## Creating projects from templates
 Create and update projects from deps, leiningen and boot templates with [clj-new](https://github.com/seancorfield/clj-new)
 
@@ -260,15 +246,25 @@ Visualize the results of each evaluation in the REPL in the REBL UI.  Navigate t
 | `clojure -M:lib/cider-nrepl:inspect/rebl:middleware/nrebl` | REBL REPL and UI with nREPL server (CIDER, Calva) |
 
 
+
 ## Middleware
 Aliases for libraries that combine community tools and REPL protocols (nREPL, SocketREPL).
 
+Run a REPL on the command line for access by `cider-connect-` commands, providing the require cider middleware libraries that are auto-injected in `ccider-jack-in-` commands.
+
 ### nREPL
-* `:middleware/nrepl` - REPL with an nREPL server
-* `:middleware/cider-clj` - REPL with nREPL server and CIDER dependencies for `cider-connect-clj`
-* `:middleware/cider-cljs` - REPL with nREPL server and CIDER dependencies for `cider-connect-cljs`
+* `:middleware/nrepl` - Clojure REPL with an nREPL server
+* `:middleware/cider-clj` - Clojure REPL with nREPL server and CIDER dependencies for `cider-connect-clj`
+* `:middleware/cider-cljs` - ClojureScript REPL with nREPL server and CIDER dependencies for `cider-connect-cljs`
 
 Use the aliases with either `-M` or `-X` flags on the Clojure command line.
+
+| Command                             | Description                                                                           |
+|-------------------------------------|---------------------------------------------------------------------------------------|
+| `clojure -M::middleware/nrepl`      | Run a Clojure REPL that includes nREPL server                                         |
+| `clojure -M::middleware/cider-clj`  | Run a Clojure REPL that includes nREPL server and CIDER connection dependencies       |
+| `clojure -M::middleware/cider-cljs` | Run a ClojureScript REPL that includes nREPL server and CIDER connection dependencies |
+
 
 
 ### Cognitect REBL with CIDER
