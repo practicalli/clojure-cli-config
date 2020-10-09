@@ -176,7 +176,7 @@
   ;; clojure -X:project/jar :main-class domain.application
   ;; clojure -X:project/jar :jar '"project-name.jar"' :main-class domain.application
   :project/jar
-  {:extra-deps {seancorfield/depstar {:mvn/version "1.1.117"}}
+  {:extra-deps {seancorfield/depstar {:mvn/version "1.1.126"}}
    :exec-fn    hf.depstar/jar
    :exec-args  {:jar        "project.jar"
                 :aot        true
@@ -186,7 +186,7 @@
   ;; clojure -X:project/uberjar :main-class domain.application
   ;; clojure -X:project/uberjar :jar '"project-name.jar"' :main-class domain.application
   :project/uberjar
-  {:extra-deps {seancorfield/depstar {:mvn/version "1.1.117"}}
+  {:extra-deps {seancorfield/depstar {:mvn/version "1.1.126"}}
    :exec-fn    hf.depstar/uberjar
    :exec-args  {:jar        "uber.jar"
                 :aot        true
