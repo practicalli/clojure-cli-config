@@ -287,6 +287,8 @@ Evaluate `(add-tap ((requiring-resolve 'vlaaad.reveal/ui)))` when using Rebel Re
 ### Cognitect REBL
 Visualize the results of each evaluation in the REPL in the REBL UI.  Navigate through complex data structures.
 
+> Cognitect REBL aliases requires [several separate install steps](http://practicalli.github.io/clojure/alternative-tools/clojure-tools/cognitect-rebl.html) before they are operational
+
 * `inspect/rebl` - REBL, a visual data explorer (Java 11)
 * `inspect/rebl-java8` - REBL, a visual data explorer (Oracle Java 8)
 
@@ -295,7 +297,6 @@ Visualize the results of each evaluation in the REPL in the REBL UI.  Navigate t
 | `clojure -M:inspect/rebl`                                  | Start REBL REPL and UI (Java 11)                  |
 | `clojure -M:inspect/rebl-java8`                            | REBL REPL and UI  (Java 8)                        |
 | `clojure -M:lib/cider-nrepl:inspect/rebl:middleware/nrebl` | REBL REPL and UI with nREPL server (CIDER, Calva) |
-
 
 
 ## Middleware
