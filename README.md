@@ -23,22 +23,8 @@ Check the version of Clojure CLI tools currently installed
 clojure -Sdescribe
 ```
 
-## Install Clojure CLI tools
-Linux Script:
-```shell
-curl -O https://download.clojure.org/install/linux-install-1.10.1.697.sh
-chmod +x linux-install-1.10.1.697.sh
-sudo ./linux-install-1.10.1.697.sh
-```
 
-Homebrew - MacOSX or Linux:
-```shell
-brew install clojure/tools/clojure
-```
-
-Windows version not currently released.
-
-## Installing Clojure deps.edn
+# Installing Clojure deps.edn
 [Fork the practicalli/clojure-deps-edn repository](https://github.com/practicalli/clojure-deps-edn/) and clone your fork to an existing `~/.clojure/` directory (eg. $HOME/.clojure or %HOME%\.clojure).
 
 ```shell
@@ -54,7 +40,7 @@ Any directory containing a `deps.edn` file is considered a Clojure project. A `d
 See the rest of this readme for examples of how to use each alias this configuration contains.
 
 
-## Updating Practicalli clojure-deps-edn
+# Updating Practicalli clojure-deps-edn
 The collection of aliases is regularly reviewed and expanded upon and suggestions are most welcome.
 
 The versions of libraries are manually updated at least once per month using the `:outdated` alias and a new version of the `deps.edn` file pushed to this repository.
@@ -62,6 +48,26 @@ The versions of libraries are manually updated at least once per month using the
 cd ~/.clojure/
 clojure -M:project/outdated
 ```
+
+# Common development tasks
+How to run common tasks for Clojure development
+
+| Task                              | Command                                                   | Built-in  |
+|-----------------------------------|-----------------------------------------------------------|-----------|
+| Create project (clojure exec)     | `clojure -X:new :template app :name practicalli/my-app`   | Add alias |
+| Create project (clojure main)     | `clojure -M:new app practicalli/my-app`                   | Add alias |
+| Download dependencies             | `clojure -Spath` or `clojure -P`  (plus optional aliases) | Yes       |
+| Run the project                   | `clojure -M -m domain.main-namespace`                     | Yes       |
+| Run the project                   | `clojure -X:project/run -m domain.main-namespace`         | Add alias |
+| Find libraries (mvn & git)        | `clojure -M:project/find-deps library-name`               | Add alias |
+| Check for new dependency versions | `clojure -M:project/outdated`                             | Add alias |
+| Run tests                         | `clojure -M:test/runner`                                  | Add alias |
+| Package library                   | `clojure -X:project/jars`                                 | Add alias |
+| Deploy library locally            | `clojure -X:deps mvn-install`                             | Yes       |
+| Package application               | `clojure -X:project/uberjar`                              | Add alias |
+
+> Most aliases use the `-M` flag.  Only use the `-X` flag when you know it is supported by that task
+
 
 
 # Aliases
@@ -126,6 +132,7 @@ Create a new project (Edn command line arguments - recommended approach)
 | `clojure -X:project/new :template app :name practicalli/my-application`                   | App project with given name                          |
 | `clojure -X:project/new :template luminus :name practicalli/full-stack-app +http-kit +h2` | Luminus project with given name and template options |
 
+### Running projects
 
 Run project with or without an alias:
 ```shell
@@ -135,6 +142,15 @@ clojure -M -m domain.app-name
 
 > The `-M` flag is required even if an alias is not included in the running of the application.  A warning will be displayed if the `-M` option is missing.
 
+In the project deps.edn file it could be useful to define an alias to run the project, specifying the main namespace, the function to run and optionally any default arguments that are passed to that function.
+
+```clojure
+:project/run
+{:ns-default domain.main-namespace
+ :exec-fn -main
+ :exec-args {:port 8888}}
+```
+Then the project can be run using `clojure -X:project/run` and arguments can optionally be included in this command line, to complement or replace any default aruments in `exec-args`.
 
 ## Project dependencies
 
