@@ -25,7 +25,7 @@ clojure -Sdescribe
 
 
 # Installing Clojure deps.edn
-[Fork the practicalli/clojure-deps-edn repository](https://github.com/practicalli/clojure-deps-edn/) and clone your fork to an existing `~/.clojure/` directory (eg. $HOME/.clojure or %HOME%\.clojure).
+Fork the practicalli/clojure-deps-edn repository and clone your fork to an existing `~/.clojure/` directory (eg. `$HOME/.clojure` or `%HOME%\.clojure`).
 
 ```shell
 git clone your-fork-url ~/.clojure/
@@ -52,19 +52,19 @@ clojure -M:project/outdated
 # Common development tasks
 How to run common tasks for Clojure development
 
-| Task                              | Command                                                   | Built-in  |
-|-----------------------------------|-----------------------------------------------------------|-----------|
-| Create project (clojure exec)     | `clojure -X:new :template app :name practicalli/my-app`   | Add alias |
-| Create project (clojure main)     | `clojure -M:new app practicalli/my-app`                   | Add alias |
-| Download dependencies             | `clojure -Spath` or `clojure -P`  (plus optional aliases) | Yes       |
-| Run the project                   | `clojure -M -m domain.main-namespace`                     | Yes       |
-| Run the project                   | `clojure -X:project/run -m domain.main-namespace`         | Add alias |
-| Find libraries (mvn & git)        | `clojure -M:project/find-deps library-name`               | Add alias |
-| Check for new dependency versions | `clojure -M:project/outdated`                             | Add alias |
-| Run tests                         | `clojure -M:test/runner`                                  | Add alias |
-| Package library                   | `clojure -X:project/jars`                                 | Add alias |
-| Deploy library locally            | `clojure -X:deps mvn-install`                             | Yes       |
-| Package application               | `clojure -X:project/uberjar`                              | Add alias |
+| Task                              | Command                                                         | Built-in  |
+|-----------------------------------|-----------------------------------------------------------------|-----------|
+| Create project (clojure exec)     | `clojure -X:project/new :template app :name practicalli/my-app` | Add alias |
+| Create project (clojure main)     | `clojure -M:project/new app practicalli/my-app`                 | Add alias |
+| Download dependencies             | `clojure -Spath` or `clojure -P`  (plus optional aliases)       | Yes       |
+| Run the project                   | `clojure -M -m domain.main-namespace`                           | Yes       |
+| Run the project                   | `clojure -X:project/run -m domain.main-namespace`               | Add alias |
+| Find libraries (mvn & git)        | `clojure -M:project/find-deps library-name`                     | Add alias |
+| Check for new dependency versions | `clojure -M:project/outdated`                                   | Add alias |
+| Run tests                         | `clojure -M:test/runner`                                        | Add alias |
+| Package library                   | `clojure -X:project/jars`                                       | Add alias |
+| Deploy library locally            | `clojure -X:deps mvn-install`                                   | Yes       |
+| Package application               | `clojure -X:project/uberjar`                                    | Add alias |
 
 > Most aliases use the `-M` flag.  Only use the `-X` flag when you know it is supported by that task
 
