@@ -225,12 +225,12 @@
   ;; Set fully qualified artifact-name and version in project `pom.xml` file
 
   :project/clojars
-  {:extra-deps {deps-deploy/deps-deploy {:mvn/version "RELEASE"}}
+  {:extra-deps {slipset/deps-deploy {:mvn/version "RELEASE"}}
    :main-opts  ["-m" "deps-deploy.deps-deploy"
                 "deploy"]}
 
   :project/clojars-signed
-  {:extra-deps {deps-deploy/deps-deploy {:mvn/version "RELEASE"}}
+  {:extra-deps {slipset/deps-deploy {:mvn/version "RELEASE"}}
    :main-opts  ["-m" "deps-deploy.deps-deploy"
                 "deploy"
                 :true]}
