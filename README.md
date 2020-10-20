@@ -329,9 +329,9 @@ Use the aliases with either `-M` or `-X` flags on the Clojure command line.
 
 | Command                             | Description                                                                           |
 |-------------------------------------|---------------------------------------------------------------------------------------|
-| `clojure -M::middleware/nrepl`      | Run a Clojure REPL that includes nREPL server                                         |
-| `clojure -M::middleware/cider-clj`  | Run a Clojure REPL that includes nREPL server and CIDER connection dependencies       |
-| `clojure -M::middleware/cider-cljs` | Run a ClojureScript REPL that includes nREPL server and CIDER connection dependencies |
+| `clojure -M:middleware/nrepl`      | Run a Clojure REPL that includes nREPL server                                         |
+| `clojure -M:middleware/cider-clj`  | Run a Clojure REPL that includes nREPL server and CIDER connection dependencies       |
+| `clojure -M:middleware/cider-cljs` | Run a ClojureScript REPL that includes nREPL server and CIDER connection dependencies |
 
 
 
