@@ -329,9 +329,9 @@ Use the aliases with either `-M` or `-X` flags on the Clojure command line.
 
 | Command                             | Description                                                                           |
 |-------------------------------------|---------------------------------------------------------------------------------------|
-| `clojure -M::middleware/nrepl`      | Run a Clojure REPL that includes nREPL server                                         |
-| `clojure -M::middleware/cider-clj`  | Run a Clojure REPL that includes nREPL server and CIDER connection dependencies       |
-| `clojure -M::middleware/cider-cljs` | Run a ClojureScript REPL that includes nREPL server and CIDER connection dependencies |
+| `clojure -M:middleware/nrepl`      | Run a Clojure REPL that includes nREPL server                                         |
+| `clojure -M:middleware/cider-clj`  | Run a Clojure REPL that includes nREPL server and CIDER connection dependencies       |
+| `clojure -M:middleware/cider-cljs` | Run a ClojureScript REPL that includes nREPL server and CIDER connection dependencies |
 
 
 
@@ -394,19 +394,19 @@ Run clojure with the specific test runner alias: `clojure -A:test-runner-alias`
 * [`:test-runner/eftest`](https://github.com/weavejester/eftest) - fast and pretty test runner
 * [:test-runner/coverage](https://github.com/cloverage/cloverage) - simple clojure coverage tool for `clojure.test` defined unit tests.
 
-| Command                            | Description                                                                       |
-|------------------------------------|-----------------------------------------------------------------------------------|
-| `clojure -M:test/cognitect`        | Cognitect Clojure test runner                                                     |
-| `clojure -M:test/cljs`             | ClojureScript test runner (Olical)                                                |
-| `clojure -M:test/runner`           | Kaocha - comprehensive test runner for Clojure (same as :test/kaocha)             |
-| `clojure -M:test/kaocha`           | Kaocha - comprehensive test runner for Clojure                                    |
-| `clojure -M:test/kaocha-cljs`      | Kaocha - comprehensive test runner for ClojureScript                              |
-| `clojure -M:test/kaocha-cucumber`  | Kaocha - comprehensive test runner with BDD Cucumber tests                        |
-| `clojure -M:test/kaocha-junit-xml` | Kaocha - comprehensive test runner with Junit XML reporting for CI dashboards & wallboards |
-| `clojure -M:test/kaocha-cloverage` | Kaocha - comprehensive test runner with test coverage reporting                   |
-| `clojure -M:test/midje`            | Midje test runner for BDD style tests                                             |
-| `clojure -M:test/eftest`           | Fast Clojure test runner, pretty output, parallel tests                           |
-| `clojure -M:test/coverage`         | Cloverage clojure.test coverage report                                            |
+| Command                                     | Description                                                                                |
+|---------------------------------------------|--------------------------------------------------------------------------------------------|
+| `clojure -M:test/cognitect`                 | Cognitect Clojure test runner                                                              |
+| `clojure -M:test/cljs`                      | ClojureScript test runner (Olical)                                                         |
+| `clojure -M:test/runner`                    | Kaocha - comprehensive test runner for Clojure (same as :test/kaocha)                      |
+| `clojure -M:env/test:test/kaocha`           | Kaocha - comprehensive test runner for Clojure                                             |
+| `clojure -M:env/test:test/kaocha-cljs`      | Kaocha - comprehensive test runner for ClojureScript                                       |
+| `clojure -M:env/test:test/kaocha-cucumber`  | Kaocha - comprehensive test runner with BDD Cucumber tests                                 |
+| `clojure -M:env/test:test/kaocha-junit-xml` | Kaocha - comprehensive test runner with Junit XML reporting for CI dashboards & wallboards |
+| `clojure -M:env/test:test/kaocha-cloverage` | Kaocha - comprehensive test runner with test coverage reporting                            |
+| `clojure -M:test/midje`                     | Midje test runner for BDD style tests                                                      |
+| `clojure -M:test/eftest`                    | Fast Clojure test runner, pretty output, parallel tests                                    |
+| `clojure -M:test/coverage`                  | Cloverage clojure.test coverage report                                                     |
 
 
 ## Lint tools

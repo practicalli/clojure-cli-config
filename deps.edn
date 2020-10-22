@@ -458,7 +458,8 @@
 
   ;; Include the test directory as a path used by Clojure CLI tools
   :env/test
-  {:extra-paths ["test"]}
+  {:extra-paths ["test"]
+   :extra-deps  {org.clojure/test.check {:mvn/version "1.1.0"}}}
 
 
   ;; Expectations test framework
@@ -510,10 +511,10 @@
   ;; clojure -M:test/runner
   :test/runner
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.700"}}
+   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.672"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
-  ;; clojure -M:test/kaocha
+  ;; clojure -M:env/test:test/kaocha
   :test/kaocha
   {:extra-paths ["test"]
    :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.700"}}
