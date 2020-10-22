@@ -266,11 +266,11 @@
 
   ;; clojure -M:lib/java11-source
   :lib/java8-source
-  {:replace-deps
+  {:extra-deps
    {openjdk/java-sources {:local/root "/usr/lib/jvm/openjdk-8/lib/src.zip"}}}
 
   :lib/java11-source
-  {:replace-deps
+  {:extra-deps
    {openjdk/java-sources {:local/root "/usr/lib/jvm/openjdk-11/lib/src.zip"}}}
 
   ;; End of: Java Sources
