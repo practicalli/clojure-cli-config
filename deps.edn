@@ -610,7 +610,7 @@
   ;; https://github.com/jonase/eastwood#running-eastwood-in-a-repl
 
   :lint/eastwood
-  {:replace-deps {jonase/eastwood {:mvn/version "RELEASE"}}
+  {:extra-deps {jonase/eastwood {:mvn/version "RELEASE"}}
    :main-opts  ["-m" "eastwood.lint"
                 "{:source-paths,[\"src\"],:test-paths,[\"test\"]}"]}
 
