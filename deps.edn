@@ -388,9 +388,18 @@
   ;; Run a REPL using nREPL server for access by cider-connect-clj
   ;; clojure -M:middleware/cider-clj
   :middleware/cider-clj
-  {:extra-deps {cider/cider-nrepl {:mvn/version "0.25.3"}}
+  {:extra-deps {nrepl/nrepl       {:mvn/version "0.8.2"}
+                cider/cider-nrepl {:mvn/version "0.25.3"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware]"]}
+
+  :middleware/cider-clj-refactor
+  {:extra-deps {nrepl/nrepl       {:mvn/version "0.8.2"}
+                refactor-nrepl    {:mvn/version "2.5.0"}
+                cider/cider-nrepl {:mvn/version "0.25.3"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"]}
+
 
   ;; Run a REPL using nREPL server for access by cider-connect-cljs
   ;; clojure -M:middleware/cider-cljs
