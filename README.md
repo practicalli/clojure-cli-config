@@ -329,15 +329,17 @@ Run a REPL on the command line for access by `cider-connect-` commands, providin
 ### nREPL
 * `:middleware/nrepl` - Clojure REPL with an nREPL server
 * `:middleware/cider-clj` - Clojure REPL with nREPL server and CIDER dependencies for `cider-connect-clj`
+* `:middleware/cider-clj-refactor` - as :middleware/cider-clj with clj-refactor added
 * `:middleware/cider-cljs` - ClojureScript REPL with nREPL server and CIDER dependencies for `cider-connect-cljs`
 
 Use the aliases with either `-M` or `-X` flags on the Clojure command line.
 
-| Command                             | Description                                                                           |
-|-------------------------------------|---------------------------------------------------------------------------------------|
-| `clojure -M:middleware/nrepl`      | Run a Clojure REPL that includes nREPL server                                         |
-| `clojure -M:middleware/cider-clj`  | Run a Clojure REPL that includes nREPL server and CIDER connection dependencies       |
-| `clojure -M:middleware/cider-cljs` | Run a ClojureScript REPL that includes nREPL server and CIDER connection dependencies |
+| Command                                    | Description                                                                                      |
+|--------------------------------------------|--------------------------------------------------------------------------------------------------|
+| `clojure -M:middleware/nrepl`              | Run a Clojure REPL that includes nREPL server                                                    |
+| `clojure -M:middleware/cider-clj`          | Run a Clojure REPL that includes nREPL server and CIDER connection dependencies                  |
+| `clojure -M:middleware/cider-clj-refactor` | Run a Clojure REPL that includes nREPL server and CIDER connection dependencies and clj-refactor |
+| `clojure -M:middleware/cider-cljs`         | Run a ClojureScript REPL that includes nREPL server and CIDER connection dependencies            |
 
 
 
