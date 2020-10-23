@@ -71,7 +71,7 @@ How to run common tasks for Clojure development.
 | Deploy library locally                                  | `clojure -X:deps mvn-install`                                   | Built-in           |
 | Package application                                     | `clojure -X:project/uberjar`                                    | User/Project alias |
 
-> Add alias `:project/run` to the deps.edn file in the root of a project: `:project/run {:exec-fn domain.namespace/-main-fn-name}` - see this video for an example https://youtu.be/u5VoFpsntXc?t=2166
+> Add alias `:project/run` to the deps.edn file in the root of a project: `:project/run {:ns-default domain.namespace :exec-fn -main}` - see this video for an example https://youtu.be/u5VoFpsntXc?t=2166
 
 > Most aliases use the `-M` flag.  Only use the `-X` flag when you know it is supported by that task
 
