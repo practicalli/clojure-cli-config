@@ -50,24 +50,29 @@ clojure -M:project/outdated
 ```
 
 # Common development tasks
-How to run common tasks for Clojure development
+How to run common tasks for Clojure development.
+* Built-in tasks require no additional configuration.
+* User aliases should be added to `~/.clojure/deps.edn`.
+* Project aliases should be added to the individual project deps.edn file (or may be part of a template).
+* User/Project alias can be defined in both user and project deps.edn files (typically added to project deps.edn for external running such as Continuous Integration)
 
-| Task                              | Command                                                         | Built-in  |
-|-----------------------------------|-----------------------------------------------------------------|-----------|
-| Create project (clojure exec)     | `clojure -X:project/new :template app :name practicalli/my-app` | Add alias |
-| Create project (clojure main)     | `clojure -M:project/new app practicalli/my-app`                 | Add alias |
-| Download dependencies             | `clojure -Spath` or `clojure -P`  (plus optional aliases)       | Yes       |
-| Run the project                   | `clojure -M -m domain.main-namespace`                           | Yes       |
-| Run the project                   | `clojure -X:project/run -m domain.main-namespace`               | Add alias |
-| Find libraries (mvn & git)        | `clojure -M:project/find-deps library-name`                     | Add alias |
-| Check for new dependency versions | `clojure -M:project/outdated`                                   | Add alias |
-| Run tests                         | `clojure -M:test/runner`                                        | Add alias |
-| Package library                   | `clojure -X:project/jars`                                       | Add alias |
-| Deploy library locally            | `clojure -X:deps mvn-install`                                   | Yes       |
-| Package application               | `clojure -X:project/uberjar`                                    | Add alias |
+| Task                                                    | Command                                                         | Configuration      |
+|---------------------------------------------------------|-----------------------------------------------------------------|--------------------|
+| Create project (clojure exec)                           | `clojure -X:project/new :template app :name practicalli/my-app` | User alias         |
+| Create project (clojure main)                           | `clojure -M:project/new app practicalli/my-app`                 | User alias         |
+| Download dependencies                                   | `clojure -Spath` or `clojure -P`  (plus optional aliases)       | Built-in           |
+| Run the project                                         | `clojure -M -m domain.main-namespace`                           | Built-in           |
+| [Run the project](https://youtu.be/u5VoFpsntXc?t=2166)* | `clojure -X:project/run`                                        | Project alias      |
+| Find libraries (mvn & git)                              | `clojure -M:project/find-deps library-name`                     | User alias         |
+| Check for new dependency versions                       | `clojure -M:project/outdated`                                   | User alias         |
+| Run tests                                               | `clojure -M:test/runner`                                        | User/Project alias |
+| Package library                                         | `clojure -X:project/jar`                                        | User/Project alias |
+| Deploy library locally                                  | `clojure -X:deps mvn-install`                                   | Built-in           |
+| Package application                                     | `clojure -X:project/uberjar`                                    | User/Project alias |
+
+> * Add alias :project/run to the deps.edn file in the root of a project: `:project/run {:exec-fn domain.namespace/-main-fn-name}` - see this video for an example https://youtu.be/u5VoFpsntXc?t=2166
 
 > Most aliases use the `-M` flag.  Only use the `-X` flag when you know it is supported by that task
-
 
 
 # Aliases
