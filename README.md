@@ -35,7 +35,7 @@ The configuration from `~/.clojure/deps.edn` is now available for all Clojure CL
 
 Any directory containing a `deps.edn` file is considered a Clojure project. A `deps.edn` file can contain an empty hash-map, `{}` or hash-map with configuration.  The project `deps.edn` file is merged with the user wide configuration, with the project `deps.edn` keys taking precedence if there is duplication.
 
-![Clojure CLI tools deps.edn configuration precedence](https://raw.githubusercontent.com/jr0cket/developer-guides/master/clojure/clojure-cli-tools-deps-edn-configuration-precedence.png)
+![Clojure CLI tools deps.edn configuration precedence](https://raw.githubusercontent.com/practicalli/graphic-design/master/clojure/clojure-cli-tools/clojure-cli-tools-deps-edn-configuration-precedence.png)
 
 See the rest of this readme for examples of how to use each alias this configuration contains.
 
