@@ -61,7 +61,7 @@ How to run common tasks for Clojure development.
 |---------------------------------------------------------|-----------------------------------------------------------------|--------------------|
 | Create project (clojure exec)                           | `clojure -X:project/new :template app :name practicalli/my-app` | User alias         |
 | Run REPL (rebel readline)                               | `clojure -M:repl/rebel`                                         | User alias         |
-| Run REPL (nrepl)                                        | `clojure -X:middleware/nrepl`                                   | User alias         |
+| Run REPL (rebel and nrepl)                              | `clojure -M:repl/rebel-nrepl`                                   | User alias         |
 | Download dependencies                                   | `clojure -Spath` or `clojure -P`  (plus optional aliases)       | Built-in           |
 | Find libraries (mvn & git)                              | `clojure -M:project/find-deps library-name`                     | User alias         |
 | Generate image of project dependency graph              | `clojure -X:project/graph-deps`                                 | User alias         |
