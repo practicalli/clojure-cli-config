@@ -100,16 +100,16 @@
   ;; clojure -X:project/new :template luminus :name practicalli/full-stack-app +http-kit +h2 +reagent +auth
 
   :project/new
-  {:extra-deps {seancorfield/clj-new {:mvn/version "1.1.226"}}
-   :exec-fn    clj-new/create
-   :exec-args  {:template lib :name practicalli/playground}
-   :main-opts  ["-m" "clj-new.create"]}
+  {:replace-deps {seancorfield/clj-new {:mvn/version "1.1.226"}}
+   :exec-fn      clj-new/create
+   :exec-args    {:template lib :name practicalli/playground}
+   :main-opts    ["-m" "clj-new.create"]}
 
   ;; ALPHA status: Add 'something' to existing project (subject to change)
   :project/add
-  {:extra-deps {seancorfield/clj-new {:mvn/version "1.1.226"}}
-   :exec-fn    clj-new/generate
-   :main-opts  ["-m" "clj-new.generate"]}
+  {:replace-deps {seancorfield/clj-new {:mvn/version "1.1.226"}}
+   :exec-fn      clj-new/generate
+   :main-opts    ["-m" "clj-new.generate"]}
 
   ;; End of: Creating projects from templates
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -151,15 +151,15 @@
   ;; - update library versions in this deps.edn file:
   ;; cd ~/.clojure && clojure -M:project/outdated
   :project/outdated
-  {:extra-deps {antq/antq {:mvn/version "RELEASE"}}
-   :main-opts  ["-m" "antq.core"]}
+  {:replace-deps {antq/antq {:mvn/version "RELEASE"}}
+   :main-opts    ["-m" "antq.core"]}
 
 
   ;; The classic project for checking maven based dependencies
   ;; clojure -M:project/outdated-mvn
   :project/outdated-mvn
-  {:extra-deps {deps-ancient/deps-ancient {:mvn/version "RELEASE"}}
-   :main-opts  ["-m" "deps-ancient.deps-ancient"]}
+  {:replace-deps {deps-ancient/deps-ancient {:mvn/version "RELEASE"}}
+   :main-opts    ["-m" "deps-ancient.deps-ancient"]}
 
   ;; End of: Projects and dependencies
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -176,21 +176,21 @@
   ;; clojure -X:project/jar :main-class domain.application
   ;; clojure -X:project/jar :jar '"project-name.jar"' :main-class domain.application
   :project/jar
-  {:extra-deps {seancorfield/depstar {:mvn/version "1.1.126"}}
-   :exec-fn    hf.depstar/jar
-   :exec-args  {:jar        "project.jar"
-                :aot        true
-                :main-class project.core}}
+  {:replace-deps {seancorfield/depstar {:mvn/version "1.1.126"}}
+   :exec-fn      hf.depstar/jar
+   :exec-args    {:jar        "project.jar"
+                  :aot        true
+                  :main-class project.core}}
 
   ;; Uberjar archive of the project, including Clojure runtime
   ;; clojure -X:project/uberjar :main-class domain.application
   ;; clojure -X:project/uberjar :jar '"project-name.jar"' :main-class domain.application
   :project/uberjar
-  {:extra-deps {seancorfield/depstar {:mvn/version "1.1.126"}}
-   :exec-fn    hf.depstar/uberjar
-   :exec-args  {:jar        "uber.jar"
-                :aot        true
-                :main-class project.core}}
+  {:replace-deps {seancorfield/depstar {:mvn/version "1.1.126"}}
+   :exec-fn      hf.depstar/uberjar
+   :exec-args    {:jar        "uber.jar"
+                  :aot        true
+                  :main-class project.core}}
 
 
   ;; uberdeps - uberjar builder
@@ -198,8 +198,8 @@
   ;; "--target" "target/cdeps-0.1.0.jar" in `:main-opts` to specify output file
 
   :project/uberdeps
-  {:extra-deps {uberdeps/uberdeps {:mvn/version "1.0.2"}}
-   :main-opts  ["-m" "uberdeps.uberjar"]}
+  {:replace-deps {uberdeps/uberdeps {:mvn/version "1.0.2"}}
+   :main-opts    ["-m" "uberdeps.uberjar"]}
 
   ;; Packaging libraries and applications
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -225,15 +225,15 @@
   ;; Set fully qualified artifact-name and version in project `pom.xml` file
 
   :project/clojars
-  {:extra-deps {slipset/deps-deploy {:mvn/version "RELEASE"}}
-   :main-opts  ["-m" "deps-deploy.deps-deploy"
-                "deploy"]}
+  {:replace-deps {slipset/deps-deploy {:mvn/version "RELEASE"}}
+   :main-opts    ["-m" "deps-deploy.deps-deploy"
+                  "deploy"]}
 
   :project/clojars-signed
-  {:extra-deps {slipset/deps-deploy {:mvn/version "RELEASE"}}
-   :main-opts  ["-m" "deps-deploy.deps-deploy"
-                "deploy"
-                :true]}
+  {:replace-deps {slipset/deps-deploy {:mvn/version "RELEASE"}}
+   :main-opts    ["-m" "deps-deploy.deps-deploy"
+                  "deploy"
+                  :true]}
 
   ;; DEPRECATED - use `clojure -X:deps mvn-install`
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -629,8 +629,8 @@
   ;; https://github.com/jonase/kibit/issues/221
 
   :lint/idiom
-  {:extra-deps {tvaughan/kibit-runner {:mvn/version "1.0.1"}}
-   :main-opts  ["-m" "kibit-runner.cmdline"]}
+  {:replace-deps {tvaughan/kibit-runner {:mvn/version "1.0.1"}}
+   :main-opts    ["-m" "kibit-runner.cmdline"]}
 
   ;; End of Linting/ static analysis
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
