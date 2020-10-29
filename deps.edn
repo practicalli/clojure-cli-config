@@ -1,4 +1,5 @@
 ;; The deps.edn file describes the information needed to build a classpath.
+;; Source: https://github.com/practicalli/clojure-deps-edn
 ;;
 ;; deps.edn configuration is a combination of
 ;; - install-level (latest Clojure version at install time)
