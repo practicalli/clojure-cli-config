@@ -392,12 +392,10 @@
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Middleware
 
-  ;; - start a REPL with an nREPL server
+  ;; - start an interactive REPL with a headless nREPL server
   ;; clojure -M:middleware/nrepl
   :middleware/nrepl {:extra-deps {nrepl/nrepl {:mvn/version "0.8.2"}}
-                     :main-opts  ["-m" "nrepl.cmdline"]
-                     :ns-default nrepl.cmdline
-                     :exec-fn    -main}
+                     :main-opts  ["-m" "nrepl.cmdline" "-i"]}
 
   ;; Run a REPL using nREPL server for access by cider-connect-clj
   ;; clojure -M:middleware/cider-clj
