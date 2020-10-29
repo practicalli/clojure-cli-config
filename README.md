@@ -60,14 +60,15 @@ How to run common tasks for Clojure development.
 | Task                                                    | Command                                                         | Configuration      |
 |---------------------------------------------------------|-----------------------------------------------------------------|--------------------|
 | Create project (clojure exec)                           | `clojure -X:project/new :template app :name practicalli/my-app` | User alias         |
-| Create project (clojure main)                           | `clojure -M:project/new app practicalli/my-app`                 | User alias         |
+| Run REPL (rebel readline)                               | `clojure -M:repl/rebel`                                         | User alias         |
+| Run REPL (nrepl)                                        | `clojure -X:middleware/nrepl`                                   | User alias         |
 | Download dependencies                                   | `clojure -Spath` or `clojure -P`  (plus optional aliases)       | Built-in           |
-| Run the project                                         | `clojure -M -m domain.main-namespace`                           | Built-in           |
-| [Run the project](https://youtu.be/u5VoFpsntXc?t=2166)* | `clojure -X:project/run`                                        | Project alias      |
 | Find libraries (mvn & git)                              | `clojure -M:project/find-deps library-name`                     | User alias         |
 | Generate image of project dependency graph              | `clojure -X:project/graph-deps`                                 | User alias         |
 | Check for new dependency versions                       | `clojure -M:project/outdated`                                   | User alias         |
 | Run tests                                               | `clojure -M:test/runner`                                        | User/Project alias |
+| Run the project                                         | `clojure -M -m domain.main-namespace`                           | Built-in           |
+| [Run the project](https://youtu.be/u5VoFpsntXc?t=2166)* | `clojure -X:project/run`                                        | Project alias      |
 | Package library                                         | `clojure -X:project/jar`                                        | User/Project alias |
 | Deploy library locally                                  | `clojure -X:deps mvn-install`                                   | Built-in           |
 | Package application                                     | `clojure -X:project/uberjar`                                    | User/Project alias |
@@ -342,7 +343,7 @@ Use the aliases with either `-M` or `-X` flags on the Clojure command line.
 
 | Command                                    | Description                                                                                      |
 |--------------------------------------------|--------------------------------------------------------------------------------------------------|
-| `clojure -M:middleware/nrepl`              | Run a Clojure REPL that includes nREPL server                                                    |
+| `clojure -X:middleware/nrepl`              | Run a Clojure REPL that includes nREPL server                                                    |
 | `clojure -M:middleware/cider-clj`          | Run a Clojure REPL that includes nREPL server and CIDER connection dependencies                  |
 | `clojure -M:middleware/cider-clj-refactor` | Run a Clojure REPL that includes nREPL server and CIDER connection dependencies and clj-refactor |
 | `clojure -M:middleware/cider-cljs`         | Run a ClojureScript REPL that includes nREPL server and CIDER connection dependencies            |
