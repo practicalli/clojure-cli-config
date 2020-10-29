@@ -65,6 +65,7 @@ How to run common tasks for Clojure development.
 | Run the project                                         | `clojure -M -m domain.main-namespace`                           | Built-in           |
 | [Run the project](https://youtu.be/u5VoFpsntXc?t=2166)* | `clojure -X:project/run`                                        | Project alias      |
 | Find libraries (mvn & git)                              | `clojure -M:project/find-deps library-name`                     | User alias         |
+| Generate image of project dependency graph              | `clojure -X:project/graph-deps`                                 | User alias         |
 | Check for new dependency versions                       | `clojure -M:project/outdated`                                   | User alias         |
 | Run tests                                               | `clojure -M:test/runner`                                        | User/Project alias |
 | Package library                                         | `clojure -X:project/jar`                                        | User/Project alias |
@@ -161,16 +162,21 @@ Then the project can be run using `clojure -X:project/run` and arguments can opt
 ## Project dependencies
 
 * [`:project/check`](https://github.com/athos/clj-check.git) - detailed report of compilation errors for a project
+* [`:project/graph-deps`](https://github.com/clojure/tools.deps.graph) - graph of project dependencies (png image)
+* [`:project/find-deps`](https://github.com/hagmonk/find-deps) - fuzzy search for libraries to add as dependencies
 * [`:project/outdated`](https://github.com/liquidz/antq) - report newer versions for maven and git dependencies
 * [`:project/outdated-mvn`](https://github.com/slipset/deps-ancient) - check for newer dependencies (maven only)
 
-| Command                                              | Description                                               |
-|------------------------------------------------------|-----------------------------------------------------------|
-| `clojure -M:project/check`                           | detailed report of compilation errors for a project       |
-| `clojure -M:project/find-deps library-name`          | fuzzy search Maven & Clojars                              |
-| `clojure -M:project/find-deps -F:merge library-name` | fuzzy search Maven & Clojars and save to project deps.edn |
-| `clojure -M:project/outdated`                        | report newer versions for maven and git dependencies      |
-| `clojure -M:project/outdated-mvn`                    | check for newer dependencies (maven only)                 |
+| `clojure -M:project/outdated`                        | report newer versions for maven and git dependencies                 |
+| `clojure -M:project/outdated-mvn`                    | check for newer dependencies (maven only)                            |
+| Command                                              | Description                                                          |
+|------------------------------------------------------|----------------------------------------------------------------------|
+| `clojure -M:project/check`                           | detailed report of compilation errors for a project                  |
+| `clojure -M:project/find-deps library-name`          | fuzzy search Maven & Clojars                                         |
+| `clojure -M:project/find-deps -F:merge library-name` | fuzzy search Maven & Clojars and save to project deps.edn            |
+| `clojure -X:project/graph-deps`                      | generate png image of project dependencies from projet deps.edn file |
+| `clojure -M:project/outdated`                        | report newer versions for maven and git dependencies                 |
+| `clojure -M:project/outdated-mvn`                    | check for newer dependencies (maven only)                            |
 
 
 ### Project packaging

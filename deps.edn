@@ -142,6 +142,18 @@
    :main-opts ["-m" "find-deps.core"]}
 
 
+  ;; Visualizing dependencies in a project
+  ;; https://github.com/clojure/tools.deps.graph
+  ;; clojure -X:project/graph-deps
+  :project/graph-deps
+  {:replace-deps {org.clojure/tools.deps.graph {:mvn/version "1.0.56"}}
+   :main-opts    ["-m" "clojure.tools.deps.graph"] ;; deprecated
+   :ns-default   clojure.tools.deps.graph
+   :exec-fn      graph
+   :exec-args    {:output "project-dependencies-graph.png"
+                  :size   true}}
+
+
   ;; Dependency version management
   ;; https://github.com/liquidz/antq
   ;; Manage versions for maven and git dependencies
