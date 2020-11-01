@@ -407,9 +407,9 @@
                 "--middleware" "[cider.nrepl/cider-middleware]"]}
 
   :middleware/cider-clj-refactor
-  {:extra-deps {nrepl/nrepl       {:mvn/version "0.8.2"}
-                refactor-nrepl    {:mvn/version "2.5.0"}
-                cider/cider-nrepl {:mvn/version "0.25.3"}}
+  {:extra-deps {nrepl/nrepl                   {:mvn/version "0.8.2"}
+                refactor-nrepl/refactor-nrepl {:mvn/version "2.5.0"}
+                cider/cider-nrepl             {:mvn/version "0.25.3"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"]}
 
