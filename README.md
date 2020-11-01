@@ -421,6 +421,7 @@ Run clojure with the specific test runner alias: `clojure -A:test-runner-alias`
 | `clojure -M:test/midje`                     | Midje test runner for BDD style tests                                                      |
 | `clojure -M:test/eftest`                    | Fast Clojure test runner, pretty output, parallel tests                                    |
 | `clojure -M:test/coverage`                  | Cloverage clojure.test coverage report                                                     |
+| `clojure -X:test/coverage`                  | Cloverage clojure.test coverage report (clojure exec)                                      |
 
 
 ## Lint tools

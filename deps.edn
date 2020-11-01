@@ -609,10 +609,16 @@
   ;; https://github.com/cloverage/cloverage
   ;; In the root of your Clojure project, run the command:
   ;; clojure -M:test/coverage
+  ;; clojure -X:test/coverage
   :test/cloverage
   {:extra-paths ["test"]
    :extra-deps  {cloverage/cloverage {:mvn/version "RELEASE"}}
-   :main-opts   ["-m" "cloverage.coverage"]}
+   :main-opts   ["-m" "cloverage.coverage"
+                 "--src-ns-path" "src"
+                 "--test-ns-path" "test"]
+   :exec-fn cloverage.coverage/run-project
+   :exec-args {:src-ns-path ["src"]
+               :test-ns-path ["test"]}}
 
   ;; End of Test Coverage tools
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
