@@ -87,6 +87,53 @@
 
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Alternative REPLs - not tested
+
+  ;; Clojure Socket REPL on port 50505:
+  ;; clojure -M:repl/socket
+  :repl/socket
+  {:jvm-opts ["-Dclojure.server.repl={:port,50505,:accept,clojure.core.server/repl}"]}
+
+  ;; Clojure Socket REPL on an available port, displaying port number (container/cloud environments)
+  ;; - specify -r to start a repl
+  :repl/socket-zero
+  {:jvm-opts  ["-Dclojure.server.repl={:port,0,:accept,clojure.core.server/repl}"]
+   :main-opts ["-e" "(.getLocalPort,(get-in,@#'clojure.core.server/servers,[\"repl\",:socket]))"]}
+
+  ;; ClojureScript (node) Socket REPL on port 55555:
+  ;; clojure -M:repl/socket-cljs
+  :repl/socket-node
+  {:jvm-opts ["-Dclojure.server.repl={:port,55555,:accept,cljs.server.node/repl}"]}
+
+  ;; ClojureScript (browser) Socket REPL on port 58585:
+  ;; clojure -M:repl/socket-cljs
+  :repl/socket-browser
+  {:jvm-opts ["-Dclojure.server.repl={:port,58585,:accept,cljs.server.browser/repl}"]}
+
+  ;; tubular - socket repl client
+  ;; https://github.com/mfikes/tubular
+  ;; Connect to a socket repl, e.g. :repl/socket
+  ;; clojure -M:repl/socket-client
+  :repl/socket-client
+  {:extra-deps {tubular/tubular {:mvn/version "1.3.0"}}
+   :main-opts  ["-m" "tubular.core"
+                "-p" "55555"]}
+
+  ;; Start a Clojure Socket pREPL on port 40404:
+  ;; clojure -M:repl/prepl
+  :repl/prepl
+  {:jvm-opts ["-Dclojure.server.repl={:port,40404,:accept,clojure.core.server/io-prepl}"]}
+
+  ;; Start a ClojureScript Socket pREPL on port 44444:
+  :repl/prepl-cljs
+  ;; clojure -M:repl/prepl-cljs
+  {:jvm-opts ["-Dclojure.server.repl={:port,44444,:accept,cljs.server.browser/prepl}"]}
+
+  ;; End of Alternative REPL's
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Creating projects from templates
 
   ;; clj-new - https://github.com/seancorfield/clj-new
@@ -616,9 +663,9 @@
    :main-opts   ["-m" "cloverage.coverage"
                  "--src-ns-path" "src"
                  "--test-ns-path" "test"]
-   :exec-fn cloverage.coverage/run-project
-   :exec-args {:src-ns-path ["src"]
-               :test-ns-path ["test"]}}
+   :exec-fn     cloverage.coverage/run-project
+   :exec-args   {:src-ns-path  ["src"]
+                 :test-ns-path ["test"]}}
 
   ;; End of Test Coverage tools
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -814,27 +861,6 @@
                  :sha     "dec68b43a66ff8547e4742fa433c4d486f550e60"}}
    :main-opts  ["-m" "closh.zero.frontend.rebel"]}
 
-
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;; Alternative REPLs - not tested
-
-  ;; Socket REPL on port 55555:
-  ;; :socket
-  ;; {:jvm-opts ["-Dclojure.server.repl={:port,55555,:accept,clojure.core.server/repl}"]}
-
-  ;; - start a Socket REPL on an available port, and display that port:
-  ;; - specify -r as well if you want a repl
-
-  ;; :socket-zero
-  ;; {:jvm-opts  ["-Dclojure.server.repl={:port,0,:accept,clojure.core.server/repl}"]
-  ;;  :main-opts ["-e" "(.getLocalPort,(get-in,@#'clojure.core.server/servers,[\"repl\",:socket]))"]}
-
-  ;; - start a Socket pREPL on port 40404:
-  ;; :prepl
-  ;; {:jvm-opts ["-Dclojure.server.repl={:port,40404,:accept,clojure.core.server/io-prepl}"]}
-
-  ;; End of Alternative REPL's
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
   } ;; End of alias definitions

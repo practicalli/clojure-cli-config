@@ -14,7 +14,7 @@ Aliases with common options are provided for convenience and to minimize the amo
 * [Updating practicalli/clojure-deps-edn](#updating-practicalli-clojure-deps-edn)
 * [Common development tasks](#common-development-tasks)
 * [Aliases](#aliases)
-    * [REPL experience](#repl-experience) | [Projects](#clojure-projects) | [Java sources](#java-sources) | [Databases](#databases-and-drivers) | [Data Inspectors](#data-inspectors) | [Middleware](#middleware) | [Clojure Spec](#clojure-specification) | [Unit Testing](#unit-testing-frameworks) | [Test runners](#test-runners-and-test-coverage-tools) | [Lint tools](#lint-tools) | [Visualize vars and deps](#visualizing-project-vars-and-library-dependencies) | [Performance testing](#performance-testing)
+    * [REPL experience](#repl-experience) | [Alternative REPLs](#alternative-repls) | [Projects](#clojure-projects) | [Java sources](#java-sources) | [Databases](#databases-and-drivers) | [Data Inspectors](#data-inspectors) | [Middleware](#middleware) | [Clojure Spec](#clojure-specification) | [Unit Testing](#unit-testing-frameworks) | [Test runners](#test-runners-and-test-coverage-tools) | [Lint tools](#lint-tools) | [Visualize vars and deps](#visualizing-project-vars-and-library-dependencies) | [Performance testing](#performance-testing)
 * [Library repositories](#library-repositories)
 * [Experimental](#experimental)
 
@@ -116,6 +116,24 @@ Aliases provide additional configuration when running a REPL, an application or 
 | `clojure -M:alias:repl/rebel-cljs` | Run a ClojureScript REPL using Rebel Readline, including deps and path from alias                              |
 
 `:repl/help` in the REPL for help and available commands.  `:repl/quit` to close the REPL.
+
+
+## Alternative REPLs
+Clojure 1.10.x onward can [run a Socket Server](https://clojure.org/reference/repl_and_main#_launching_a_socket_server) for serving a socket-based REPL (Clojure and ClojureScript).  [tubular](https://github.com/mfikes/tubular) is a Socket Server client for Clojure and Clojurescript REPLs.
+
+PREPL is a REPL with structured output.  See [Cloure socket prepl cookbook](https://oli.me.uk/clojure-socket-prepl-cookbook/) for examples.
+
+| Command                          | Description                                                                     |
+|----------------------------------|---------------------------------------------------------------------------------|
+| `clojure -M:repl/socket`         | Clojure REPL using Socket Server on port 50505                                  |
+| `clojure -M:repl/socket-zero`    | As above but on first available port (container, cloud environment)             |
+| `clojure -M:repl/socket-zero -r` | As above but and run a REPL                                                     |
+| `clojure -M:repl/socket-node`    | ClojureScript REPL using Socket Server on port 55555                            |
+| `clojure -M:repl/socket-browser` | ClojureScript REPL using Socket Server on port 58585                            |
+| `clojure -M:repl/socket-client`  | Socket REPL client on port 50505 ([tubular](https://github.com/mfikes/tubular)) |
+| `clojure -M:repl/prepl`          | Clojure REPL using PREPL Server on port 40404                                   |
+| `clojure -M:repl/prepl-cljs`     | Clojure REPL using PREPL Server on port 44444                                   |
+|                                  |                                                                                 |
 
 
 ## Clojure Projects
