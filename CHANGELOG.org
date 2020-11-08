@@ -1,5 +1,34 @@
 #+TITLE: Changelog
 
+* 2020-11-08
+
+  :community/zulip-event alias for creating standard events on the Clojurians Zulip, which are then added to a global ical of events.
+
+  The following updates were made manually after running the =:project/outdated= in the root of the =~/.clojure/= directory
+
+| :name                        |                                 :version | :latest-version                          |
+|------------------------------+------------------------------------------+------------------------------------------|
+| athos/clj-check              | 0f734f560dd989b2ec0f9078cc646476bfdab4e1 | cd1f25456de5eebda0a69602dd3445905382b3a4 |
+| borkdude/carve               | 542078b21d72a96848bc342e57aa560339b79698 | e9e2b1fbdd337b989c65a1983a1b3f72e310c970 |
+| cider/cider-nrepl            |                                   0.25.3 | 0.25.4                                   |
+| cider/piggieback             |                                    0.5.1 | 0.5.2                                    |
+| com.cognitect/test-runner    | 6ec7f8eef509cd14d831e8cc16e856b31327a862 | b6b3193fcc42659d7e46ecd1884a228993441182 |
+| djblue/portal                |                                    0.5.0 | 0.6.3                                    |
+| nrepl/nrepl                  |                                    0.8.2 | 0.8.3                                    |
+| olical/cljs-test-runner      |                                    3.7.0 | 3.8.0                                    |
+| org.clojure/spec-alpha2      | d514b06b25c41a676b95afcc9bfac8ca34c5741e | 8ba5dc543872369129181c4432f438c82b6cd297 |
+| org.clojure/tools.deps.alpha | 2ff45e287273f86eaf9765a5f2d0042464748c0e | 65b1f039929acdd852aae60c87b2e57606e099a3 |
+| seancorfield/next.jdbc       |                                  1.1.588 | 1.1.613                                  |
+| tubular/tubular              |                                    1.3.0 | 1.4.0                                    |
+| vlaaad/reveal                |                                  1.0.154 | 1.1.159                                  |
+
+
+  Kaocha reverted to 1.0.672 due to [[https://github.com/lambdaisland/kaocha/issues/159][#159]]
+
+| lambdaisland/kaocha          |                                  1.0.672 | 1.0.700                                  |
+
+
+
 * 2020-10-09
   Reorganized project related aliases into one section.  Changed ~:build/~ and ~:deploy/~ to ~:project/~ alias name qualifier, simplifying the catagories of aliases.
 
