@@ -520,6 +520,8 @@ In the REPL:
 ```
 
 ## Community activities
+The [Clojurians Zulip CLI](https://gitlab.com/clojurians-zulip/feeds/-/blob/master/README.md#announce-an-event) provides a simple way to register community events.
+
 * `:community/zulip-event` create an event on the Clojurians Zulip community
 
 Set an environment variable called ZULIP_AUTH to your account email, followed by
