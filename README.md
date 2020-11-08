@@ -519,6 +519,27 @@ In the REPL:
    (memory-meter/measure (your-expression))
 ```
 
+## Community activities
+* `:community/zulip-event` create an event on the Clojurians Zulip community
+
+Set an environment variable called ZULIP_AUTH to your account email, followed by
+the account token (in settings), e.g.
+
+```
+your@email.com:493u984u3249834uo4u
+```
+Create an event using the following command
+
+```
+clojure -M:community/zulip-event create --zulip-auth "${ZULIP_AUTH}" --title 'Practicalli Live - Exercism.io challenges' --start '2020-11-14T09:00+00:00' --duration 1 --url https://youtu.be/Z5C7X1UN8yo --description 'Walking through solutions to the Exercism.io challenges'
+```
+
+Take care to get the timezone notation correct.
+
+
+---
+
+
 ## Experimental / Alpha Aliases
 
 * [`:alpha/carve`](https://github.com/borkdude/carve) - EXPERIMENTAL, use with caution - carve out unwanted vars in code

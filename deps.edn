@@ -793,6 +793,21 @@
 
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Zulip Event announcement
+
+  :community/zulip-event
+  {:replace-deps {clojurians-zulip/feeds
+                  {:git/url "https://gitlab.com/clojurians-zulip/feeds.git"
+                   :sha     "8668c3ed7285ebb004f2060c893e07183a192bcf"}}
+   :main-opts    ["-m" "inclined.main"
+                  "--ns" "clojurians-zulip.events" "--"]}
+
+  ;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; EXPERIMENTAL - use at your own risk, you have been warned
 
