@@ -297,8 +297,8 @@ Navigate data in the form of edn, json and transit
 ### [Reveal](https://vlaaad.github.io/reveal/) is a repl and data visualization tool
 Reveal - read evaluate visualize loop.  A REPL with data visualisation.  Also used as a tap> source
 
-* `inspector/reveal` - repl and data visualization tool
-* `inspector/reveal-nrepl` - repl and data visualization tool with nrepl server, for connection from [Clojure aware editors](https://practicalli.github.io/clojure/clojure-editors/)
+* `inspect/reveal` - repl and data visualization tool
+* `inspect/reveal-nrepl` - repl and data visualization tool with nrepl server, for connection from [Clojure aware editors](https://practicalli.github.io/clojure/clojure-editors/)
 
 | Command                                      | Description                                                                        |
 |----------------------------------------------|------------------------------------------------------------------------------------|
@@ -306,6 +306,7 @@ Reveal - read evaluate visualize loop.  A REPL with data visualisation.  Also us
 | `clojure -M:inspect/reveal-light`            | as above with light theme and large font                                           |
 | `clojure -X:inspect/reveal`                  | start a Reveal repl with data visualization window (clojure exec)                  |
 | `clojure -X:inspect/reveal-light`            | as above with light theme and large font                                           |
+| `clojure -M:inspect/reveal-nrepl`            | Start nrepl server to use Cider / Calva editors with reveal                        |
 | `clojure -M:inspect/reveal:repl/rebel`       | Start a Rebel REPL with Reveal dependency. Add reveal as tap> source               |
 | `clojure -M:inspect/reveal-light:repl/rebel` | Start a Rebel REPL with Reveal dependency & light theme. Add reveal as tap> source |
 
