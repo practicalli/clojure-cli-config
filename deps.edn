@@ -433,6 +433,37 @@
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[vlaaad.reveal.nrepl/middleware]"]}
 
+  ;; Light version of :inspect/reveal-nrepl
+  :inspect/reveal-light-nrepl
+  {:extra-deps {vlaaad/reveal {:mvn/version "1.1.159"}
+                nrepl/nrepl   {:mvn/version "0.8.3"}}
+   :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[vlaaad.reveal.nrepl/middleware]"]}
+
+  ;; Reveal REPL with nrepl server and Emacs CIDER specific middleware
+  ;; Use with `C-u cider-jack-in-clj` or `SPC u , '` on Spacemacs
+  ;; Edit jack-in command: clojure -M:inspect/reveal-nrepl-cider
+  :inspect/reveal-nrepl-cider
+  {:extra-deps {vlaaad/reveal                 {:mvn/version "1.1.159"}
+                nrepl/nrepl                   {:mvn/version "0.8.3"}
+                cider/cider-nrepl             {:mvn/version "0.25.4"}
+                refactor-nrepl/refactor-nrepl {:mvn/version "2.5.0"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[vlaaad.reveal.nrepl/middleware,refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"]}
+
+  ;; Light version of :inspect/reveal-nrepl-cider
+  :inspect/reveal-light-nrepl-cider
+  {:extra-deps {vlaaad/reveal                 {:mvn/version "1.1.159"}
+                nrepl/nrepl                   {:mvn/version "0.8.3"}
+                cider/cider-nrepl             {:mvn/version "0.25.4"}
+                refactor-nrepl/refactor-nrepl {:mvn/version "2.5.0"}}
+   :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[vlaaad.reveal.nrepl/middleware,refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"]}
+
+
+
   ;; End of data browsers
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
