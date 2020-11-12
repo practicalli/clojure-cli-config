@@ -464,6 +464,23 @@ Run clojure with the specific test runner alias: `clojure -A:test-runner-alias`
 | `clojure -M:test/coverage`                  | Cloverage clojure.test coverage report                                                     |
 | `clojure -X:test/coverage`                  | Cloverage clojure.test coverage report (clojure exec)                                      |
 
+#### Compiling tests before running - automate Ahead of Time compilation
+Use one of the test runner alias and over-ride the :main-opts on the command line
+```shell
+clojure -M:test/cognitect -e "(compile, 'your.namespace)" -m cognitect.test-runner
+```
+
+Or add the following alias in your project `deps.edn`, changing to the specific namespace in `:main-opts` before use
+```clojure
+  :test/cognitect-precompile
+  {:extra-paths ["test"]
+   :extra-deps  {com.cognitect/test-runner
+                 {:git/url "https://github.com/cognitect-labs/test-runner.git"
+                  :sha     "b6b3193fcc42659d7e46ecd1884a228993441182"}}
+   :main-opts   ["-e" "(compile,'your.namespace-here)"
+                 "-m" "cognitect.test-runner"]}
+```
+
 
 ## Lint tools
 Static analysis tools to help maintain code quality and suggest Clojure idioms.

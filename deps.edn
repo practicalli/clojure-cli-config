@@ -594,6 +594,20 @@
                   :sha     "b6b3193fcc42659d7e46ecd1884a228993441182"}}
    :main-opts   ["-m" "cognitect.test-runner"]}
 
+  ;; Compiling tests before running - automate Ahead of Time compilation
+  ;; Use the above alias and over-ride the :main-opts on the command line
+  ;; clojure -M:test/cognitect -e "(compile, 'your.namespace)" -m cognitect.test-runner
+  ;; Or use the following alias in your project deps.edn
+  ;;Example only - change to specific namespace in :main-opts before use
+  :test/cognitect-precompile
+  {:extra-paths ["test"]
+   :extra-deps  {com.cognitect/test-runner
+                 {:git/url "https://github.com/cognitect-labs/test-runner.git"
+                  :sha     "b6b3193fcc42659d7e46ecd1884a228993441182"}}
+   :main-opts   ["-e" "(compile,'your.namespace-here)"
+                 "-m" "cognitect.test-runner"]}
+
+
   ;; ClojureScript test runner
   ;; https://github.com/Olical/cljs-test-runner
 
