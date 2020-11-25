@@ -28,9 +28,14 @@ clojure -Sdescribe
 
 
 # Install Practicalli clojure-deps-edn
-Clojure CLI tools creates a configuration directory called `.clojure`.  `CLJ_CONFIG` if set will [determine the location](https://clojure.org/reference/deps_and_cli#_deps_edn_sources). If not set `XDG_CONFIG_HOME` is used.  If neither are set, then the configuration is placed in the root of the operating system user account directory, e.g. `$HOME/.clojure`.
+Clojure CLI tools creates a configuration directory called `.clojure`, which [by default](https://clojure.org/reference/deps_and_cli#_deps_edn_sources) is placed in the root of the operating system user account directory, e.g. `$HOME/.clojure`.
 
-> Check the location of your configuration by running `clojure -Sdescribe` and check the `:user-config` value.
+`XDG_CONFIG_HOME` may be set by your operating system and over-rides the default location, e.g. `$HOME/.config/.clojure`
+
+`CLJ_CONFIG` can be used to over-ride all other location settings
+
+> Check the location of your Clojure configuration directory by running `clojure -Sdescribe` and checking the `:user-config` value.
+
 
 Fork the practicalli/clojure-deps-edn repository and clone your fork to an existing `.clojure/` directory (eg. `$HOME/.clojure` or `%HOME%\.clojure`).
 
