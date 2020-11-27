@@ -148,16 +148,18 @@
   ;; clojure -X:project/new :template luminus :name practicalli/full-stack-app +http-kit +h2 +reagent +auth
 
   :project/new
-  {:replace-deps {seancorfield/clj-new {:mvn/version "1.1.226"}}
-   :exec-fn      clj-new/create
-   :exec-args    {:template lib :name practicalli/playground}
-   :main-opts    ["-m" "clj-new.create"]}
+  {:replace-deps  {seancorfield/clj-new {:mvn/version "1.1.226"}}
+   :replace-paths []
+   :exec-fn       clj-new/create
+   :exec-args     {:template lib :name practicalli/playground}
+   :main-opts     ["-m" "clj-new.create"]}
 
   ;; ALPHA status: Add 'something' to existing project (subject to change)
   :project/add
-  {:replace-deps {seancorfield/clj-new {:mvn/version "1.1.226"}}
-   :exec-fn      clj-new/generate
-   :main-opts    ["-m" "clj-new.generate"]}
+  {:replace-deps  {seancorfield/clj-new {:mvn/version "1.1.226"}}
+   :replace-paths []
+   :exec-fn       clj-new/generate
+   :main-opts     ["-m" "clj-new.generate"]}
 
   ;; End of: Creating projects from templates
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -194,12 +196,13 @@
   ;; https://github.com/clojure/tools.deps.graph
   ;; clojure -X:project/graph-deps
   :project/graph-deps
-  {:replace-deps {org.clojure/tools.deps.graph {:mvn/version "1.0.56"}}
-   :main-opts    ["-m" "clojure.tools.deps.graph"] ;; deprecated
-   :ns-default   clojure.tools.deps.graph
-   :exec-fn      graph
-   :exec-args    {:output "project-dependencies-graph.png"
-                  :size   true}}
+  {:replace-deps  {org.clojure/tools.deps.graph {:mvn/version "1.0.56"}}
+   :replace-paths []
+   :main-opts     ["-m" "clojure.tools.deps.graph"] ;; deprecated
+   :ns-default    clojure.tools.deps.graph
+   :exec-fn       graph
+   :exec-args     {:output "project-dependencies-graph.png"
+                   :size   true}}
 
 
   ;; Dependency version management
@@ -211,15 +214,17 @@
   ;; - update library versions in this deps.edn file:
   ;; cd ~/.clojure && clojure -M:project/outdated
   :project/outdated
-  {:replace-deps {antq/antq {:mvn/version "RELEASE"}}
-   :main-opts    ["-m" "antq.core"]}
+  {:replace-deps  {antq/antq {:mvn/version "RELEASE"}}
+   :replace-paths []
+   :main-opts     ["-m" "antq.core"]}
 
 
   ;; The classic project for checking maven based dependencies
   ;; clojure -M:project/outdated-mvn
   :project/outdated-mvn
-  {:replace-deps {deps-ancient/deps-ancient {:mvn/version "RELEASE"}}
-   :main-opts    ["-m" "deps-ancient.deps-ancient"]}
+  {:replace-deps  {deps-ancient/deps-ancient {:mvn/version "RELEASE"}}
+   :replace-paths []
+   :main-opts     ["-m" "deps-ancient.deps-ancient"]}
 
   ;; End of: Projects and dependencies
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -236,21 +241,23 @@
   ;; clojure -X:project/jar :main-class domain.application
   ;; clojure -X:project/jar :jar '"project-name.jar"' :main-class domain.application
   :project/jar
-  {:replace-deps {seancorfield/depstar {:mvn/version "1.1.126"}}
-   :exec-fn      hf.depstar/jar
-   :exec-args    {:jar        "project.jar"
-                  :aot        true
-                  :main-class project.core}}
+  {:replace-deps  {seancorfield/depstar {:mvn/version "1.1.126"}}
+   :replace-paths []
+   :exec-fn       hf.depstar/jar
+   :exec-args     {:jar        "project.jar"
+                   :aot        true
+                   :main-class project.core}}
 
   ;; Uberjar archive of the project, including Clojure runtime
   ;; clojure -X:project/uberjar :main-class domain.application
   ;; clojure -X:project/uberjar :jar '"project-name.jar"' :main-class domain.application
   :project/uberjar
-  {:replace-deps {seancorfield/depstar {:mvn/version "1.1.126"}}
-   :exec-fn      hf.depstar/uberjar
-   :exec-args    {:jar        "uber.jar"
-                  :aot        true
-                  :main-class project.core}}
+  {:replace-deps  {seancorfield/depstar {:mvn/version "1.1.126"}}
+   :replace-paths []
+   :exec-fn       hf.depstar/uberjar
+   :exec-args     {:jar        "uber.jar"
+                   :aot        true
+                   :main-class project.core}}
 
 
   ;; uberdeps - uberjar builder
@@ -258,8 +265,9 @@
   ;; "--target" "target/cdeps-0.1.0.jar" in `:main-opts` to specify output file
 
   :project/uberdeps
-  {:replace-deps {uberdeps/uberdeps {:mvn/version "1.0.2"}}
-   :main-opts    ["-m" "uberdeps.uberjar"]}
+  {:replace-deps  {uberdeps/uberdeps {:mvn/version "1.0.3"}}
+   :replace-paths []
+   :main-opts     ["-m" "uberdeps.uberjar"]}
 
   ;; Packaging libraries and applications
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -285,15 +293,17 @@
   ;; Set fully qualified artifact-name and version in project `pom.xml` file
 
   :project/clojars
-  {:replace-deps {slipset/deps-deploy {:mvn/version "RELEASE"}}
-   :main-opts    ["-m" "deps-deploy.deps-deploy"
-                  "deploy"]}
+  {:replace-deps  {slipset/deps-deploy {:mvn/version "RELEASE"}}
+   :replace-paths []
+   :main-opts     ["-m" "deps-deploy.deps-deploy"
+                   "deploy"]}
 
   :project/clojars-signed
-  {:replace-deps {slipset/deps-deploy {:mvn/version "RELEASE"}}
-   :main-opts    ["-m" "deps-deploy.deps-deploy"
-                  "deploy"
-                  :true]}
+  {:replace-deps  {slipset/deps-deploy {:mvn/version "RELEASE"}}
+   :replace-paths []
+   :main-opts     ["-m" "deps-deploy.deps-deploy"
+                   "deploy"
+                   :true]}
 
   ;; DEPRECATED - use `clojure -X:deps mvn-install`
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -741,8 +751,9 @@
   ;; https://github.com/jonase/kibit/issues/221
 
   :lint/idiom
-  {:replace-deps {tvaughan/kibit-runner {:mvn/version "1.0.1"}}
-   :main-opts    ["-m" "kibit-runner.cmdline"]}
+  {:replace-deps  {tvaughan/kibit-runner {:mvn/version "1.0.1"}}
+   :replace-paths []
+   :main-opts     ["-m" "kibit-runner.cmdline"]}
 
   ;; End of Linting/ static analysis
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -842,11 +853,12 @@
   ;; Zulip Event announcement
 
   :community/zulip-event
-  {:replace-deps {clojurians-zulip/feeds
-                  {:git/url "https://gitlab.com/clojurians-zulip/feeds.git"
-                   :sha     "8668c3ed7285ebb004f2060c893e07183a192bcf"}}
-   :main-opts    ["-m" "inclined.main"
-                  "--ns" "clojurians-zulip.events" "--"]}
+  {:replace-deps  {clojurians-zulip/feeds
+                   {:git/url "https://gitlab.com/clojurians-zulip/feeds.git"
+                    :sha     "8668c3ed7285ebb004f2060c893e07183a192bcf"}}
+   :replace-paths []
+   :main-opts     ["-m" "inclined.main"
+                   "--ns" "clojurians-zulip.events" "--"]}
 
   ;;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
