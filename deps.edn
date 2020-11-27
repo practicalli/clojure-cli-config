@@ -371,11 +371,12 @@
 
 
   ;; REBL Data browser
-  ;; https://github.com/cognitect-labs/REBL-distro
+  ;; http://practicalli.github.io/clojure/alternative-tools/clojure-tools/cognitect-rebl.html
   ;; Requires Clojure 1.10 or greater
-  ;; Requrires Cognitect dev-tools https://cognitect.com/dev-tools/index.html
-  ;; - Oracle JDK 8 -- use :inspect/rebl-java8
-  ;; - OpenJDK 8 or 11 -- use :inspect/rebl
+  ;; Requires Cognitect dev-tools https://cognitect.com/dev-tools/index.html
+  ;; - Java 8 -- use :inspect/rebl-java8
+  ;; - Java 11 -- use :inspect/rebl
+  ;; - Other java versions -- update org.openjfx library version to match Java version
 
   :inspect/rebl
   {:extra-deps {com.cognitect/rebl          {:mvn/version "0.9.241"}
