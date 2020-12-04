@@ -375,8 +375,19 @@
   ;; Requires Clojure 1.10 or greater
   ;; Requires Cognitect dev-tools https://cognitect.com/dev-tools/index.html
   ;; - Java 8 -- use :inspect/rebl-java8
-  ;; - Java 11 -- use :inspect/rebl
-  ;; - Other java versions -- update org.openjfx library version to match Java version
+  ;;             Note: this needs a JDK installation which bundles JavaFX
+  ;;                   as OpenJFX requires at least Java 11.
+  ;;             Works:
+  ;;               - OracleJDK 8
+  ;;             Might work:
+  ;;               - Zulu JDK FX
+  ;;             Does not work (no JavaFX bundled):
+  ;;               - OpenJDK 8
+  ;;               - AdoptOpenJDK 8
+  ;; - Java 9, 10 -- does not work
+  ;; - Java 11 and above -- use :inspect/rebl
+  ;;                        Note: you might need to update the org.openjfx library version
+  ;;                              to match Java version
 
   :inspect/rebl
   {:extra-deps {com.cognitect/rebl          {:mvn/version "0.9.241"}
