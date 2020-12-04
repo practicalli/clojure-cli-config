@@ -367,15 +367,17 @@ Evaluate `(add-tap ((requiring-resolve 'vlaaad.reveal/ui)))` when using Rebel Re
 Visualize the results of each evaluation in the REPL in the REBL UI.  Navigate through complex data structures.
 
 > Cognitect REBL aliases requires [several separate install steps](http://practicalli.github.io/clojure/alternative-tools/clojure-tools/cognitect-rebl.html) before they are operational
+>
+> Tested on Oracle JDK 8 and OpenJDK 11 (current long term support).  Other Java 11 JDK distributions may work, but not tested. Newer (short term release) may work, but will need the `org.openjdk` library version in the `:inspect/rebl` alias changed to match the version of Java used.
 
 * `inspect/rebl` - REBL, a visual data explorer (Java 11)
 * `inspect/rebl-java8` - REBL, a visual data explorer (Oracle Java 8)
 
-| Command                                                    | Description                                       |
-|------------------------------------------------------------|---------------------------------------------------|
-| `clojure -M:inspect/rebl`                                  | Start REBL REPL and UI (Java 11)                  |
-| `clojure -M:inspect/rebl-java8`                            | REBL REPL and UI  (Java 8)                        |
-| `clojure -M:lib/cider-nrepl:inspect/rebl:middleware/nrebl` | REBL REPL and UI with nREPL server (CIDER, Calva) |
+| Command                                                    | Description                                                      |
+|------------------------------------------------------------|------------------------------------------------------------------|
+| `clojure -M:inspect/rebl`                                  | Start REBL REPL and UI (Java 11 only)                            |
+| `clojure -M:inspect/rebl-java8`                            | REBL REPL and UI  (Oracle Java 8 only)                           |
+| `clojure -M:lib/cider-nrepl:inspect/rebl:middleware/nrebl` | REBL REPL and UI with nREPL server (CIDER, Calva) (Java 11 only) |
 
 
 ## Middleware
