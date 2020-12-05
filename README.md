@@ -324,7 +324,15 @@ Reveal - read evaluate visualize loop.  A REPL with data visualisation.  Also us
 | `clojure -M:inspect/reveal-nrepl`            | Start nrepl server to use Cider / Calva editors with reveal                        |
 | `clojure -X:inspect/reveal-light-nrepl`      | as above with light theme and large font                                           |
 | `clojure -M:inspect/reveal:repl/rebel`       | Start a Rebel REPL with Reveal dependency. Add reveal as tap> source               |
-| `clojure -M:inspect/reveal-light:repl/rebel` | Start a Rebel REPL with Reveal dependency & light theme. Add reveal as tap> source |
+| `clojure -M:inspect/reveal-light:repl/rebel** | Start a Rebel REPL with Reveal dependency & light theme. Add reveal as tap> source |
+
+**Connecting nREPL based editors**
+Use the `:inspect/reveal-nrepl` alias when running the REPL, either in the terminal or via an nREPL based editor (CIDER, Calva, Conjure, Cursive, etc.)
+
+Alternatively, add an `.nrepl.edn` file to the root of a project to include the Reveal middleware
+```
+{:middleware [vlaaad.reveal.nrepl/middleware]}
+```
 
 **Cider jack-in and reveal**
 See the [Reveal section of Practicalli Clojure](https://practicalli.github.io/clojure-staging/clojure-tools/data-browsers/reveal.html#using-reveal-with-nrepl-editors) for full details, including how to set up a `.dir-locals.el` configuration.
