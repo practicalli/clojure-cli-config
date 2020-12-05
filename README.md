@@ -308,9 +308,9 @@ Navigate data in the form of edn, json and transit
 ### [Reveal](https://vlaaad.github.io/reveal/) is a repl and data visualization tool
 Reveal - read evaluate visualize loop.  A REPL with data visualisation.  Also used as a tap> source
 
-* `inspect/reveal` - visualisation with terminal REPL.
-* `inspect/reveal-light` - as above with light theme and 32 point Ubuntu Mono font
-* `inspect/reveal-nrepl` - visualization for [Clojure aware editors](https://practicalli.github.io/clojure/clojure-editors/) via an nrepl server
+* `:inspect/reveal` - visualisation with terminal REPL.
+* `:inspect/reveal-light` - as above with light theme and 32 point Ubuntu Mono font
+* `:inspect/reveal-nrepl` - visualization for [Clojure aware editors](https://practicalli.github.io/clojure/clojure-editors/) via an nrepl server
 * `:inspec/reveal-light-nrepl` - as above with light theme and 32 point Ubuntu Mono font
 * `:inspect/reveal-nrepl-cider` - visualization tool for Emacs Cider / Spacemacs / VSCode Calva
 * `:inspec/reveal-light-nrepl-cider` - as above with light theme and 32 point Ubuntu Mono font
