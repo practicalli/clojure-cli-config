@@ -305,8 +305,9 @@ Navigate data in the form of edn, json and transit
 `(portal/close)` to close the inspector window.
 
 
-### [Reveal](https://vlaaad.github.io/reveal/) is a repl and data visualization tool
-Reveal - read evaluate visualize loop.  A REPL with data visualisation.  Also used as a tap> source
+### Reveal data inspector and visualization tool
+[Reveal](https://vlaaad.github.io/reveal/) - run a Terminal REPL with data visualisation or connect with nREPL, socket or prepl connection and use from any [Clojure aware editor]([Clojure aware editors](https://practicalli.github.io/clojure/clojure-editors/)).
+Reveal can also used as a `tap>` source for more powerful manual debugging.
 
 * `:inspect/reveal` - visualisation with terminal REPL.
 * `:inspect/reveal-light` - as above with light theme and 32 point Ubuntu Mono font
