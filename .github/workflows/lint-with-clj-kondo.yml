@@ -13,7 +13,7 @@ jobs:
       with:
         version: '2020.04.05'
 
-    - uses: actions/checkout@v2.3.3
+    - uses: actions/checkout@v2.3.4
 
     - name: Run clj-kondo on ubuntu
       run: clj-kondo --lint deps.edn

@@ -1,5 +1,29 @@
 #+TITLE: Changelog
 
+* 2020-12-05
+  :test/kaocha* updated as issue [[https://github.com/lambdaisland/kaocha/issues/159][#159]] seems to be resolved.  If issues are experienced, revert to kaocha version 1.0.672 and comment on the related issue
+
+  GitHub action that practicalli/clojure-deps-edn uses for linting has also been updated thanks to new library version detected by antq
+
+  *deps.edn library version updates*
+
+| :name                         | :version                                 | :latest-version                          |
+|-------------------------------+------------------------------------------+------------------------------------------|
+| borkdude/carve                | e9e2b1fbdd337b989c65a1983a1b3f72e310c970 | af7004dab7000ad7e9c942499f269cf7d21c0728 |
+| cider/cider-nrepl             | 0.25.4                                   | 0.25.5                                   |
+| lambdaisland/kaocha           | 1.0.672                                  | 1.0.732                                  |
+| lambdaisland/kaocha-cloverage | 1.0.63                                   | 1.0.75                                   |
+| org.clojure/spec-alpha2       | 8ba5dc543872369129181c4432f438c82b6cd297 | cd07a40c4ee720614a18429da4b09a6c5d8fe979 |
+| org.clojure/tools.deps.alpha  | 65b1f039929acdd852aae60c87b2e57606e099a3 | f3a2fbb426ae65d5a5c79a756f3b95b463f334a4 |
+
+
+  *.github/workflows/lint-with-clj-kondo.yml GitHub action update*
+
+| :name            | :version | :latest-version |
+|------------------+----------+-----------------|
+| actions/checkout |    2.3.3 |           2.3.4 |
+
+
 * 2020-11-08
 
   :community/zulip-event alias for creating standard events on the Clojurians Zulip, which are then added to a global ical of events.

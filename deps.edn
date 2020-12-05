@@ -65,7 +65,7 @@
   ;; clojure -M:repl/rebel-nrepl
   :repl/rebel-nrepl
   {:extra-deps {nrepl/nrepl                {:mvn/version "0.8.3"}
-                cider/cider-nrepl          {:mvn/version "0.25.4"}
+                cider/cider-nrepl          {:mvn/version "0.25.5"}
                 com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware]"
@@ -448,7 +448,7 @@
   :inspect/reveal-nrepl-cider
   {:extra-deps {vlaaad/reveal                 {:mvn/version "1.1.164"}
                 nrepl/nrepl                   {:mvn/version "0.8.3"}
-                cider/cider-nrepl             {:mvn/version "0.25.4"}
+                cider/cider-nrepl             {:mvn/version "0.25.5"}
                 refactor-nrepl/refactor-nrepl {:mvn/version "2.5.0"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[vlaaad.reveal.nrepl/middleware,refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"]}
@@ -457,7 +457,7 @@
   :inspect/reveal-light-nrepl-cider
   {:extra-deps {vlaaad/reveal                 {:mvn/version "1.1.164"}
                 nrepl/nrepl                   {:mvn/version "0.8.3"}
-                cider/cider-nrepl             {:mvn/version "0.25.4"}
+                cider/cider-nrepl             {:mvn/version "0.25.5"}
                 refactor-nrepl/refactor-nrepl {:mvn/version "2.5.0"}}
    :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
    :main-opts  ["-m" "nrepl.cmdline"
@@ -481,14 +481,14 @@
   ;; clojure -M:middleware/cider-clj
   :middleware/cider-clj
   {:extra-deps {nrepl/nrepl       {:mvn/version "0.8.3"}
-                cider/cider-nrepl {:mvn/version "0.25.4"}}
+                cider/cider-nrepl {:mvn/version "0.25.5"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware]"]}
 
   :middleware/cider-clj-refactor
   {:extra-deps {nrepl/nrepl                   {:mvn/version "0.8.3"}
                 refactor-nrepl/refactor-nrepl {:mvn/version "2.5.0"}
-                cider/cider-nrepl             {:mvn/version "0.25.4"}}
+                cider/cider-nrepl             {:mvn/version "0.25.5"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"]}
 
@@ -497,7 +497,7 @@
   ;; clojure -M:middleware/cider-cljs
   :middleware/cider-cljs
   {:extra-deps {org.clojure/clojurescript {:mvn/version "1.10.773"}
-                cider/cider-nrepl         {:mvn/version "0.25.4"}
+                cider/cider-nrepl         {:mvn/version "0.25.5"}
                 cider/piggieback          {:mvn/version "0.5.2"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}
@@ -521,7 +521,7 @@
 
   :lib/cider-nrepl
   {:extra-deps {nrepl/nrepl                   {:mvn/version "0.8.3"}
-                cider/cider-nrepl             {:mvn/version "0.25.4"}
+                cider/cider-nrepl             {:mvn/version "0.25.5"}
                 refactor-nrepl/refactor-nrepl {:mvn/version "2.5.0"}}}
 
 
@@ -547,7 +547,7 @@
   :lib/spec2
   {:extra-deps {org.clojure/spec-alpha2
                 {:git/url "https://github.com/clojure/spec-alpha2"
-                 :sha     "8ba5dc543872369129181c4432f438c82b6cd297"}}}
+                 :sha     "cd07a40c4ee720614a18429da4b09a6c5d8fe979"}}}
 
   ;; End of Clojure Specifications
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -626,20 +626,20 @@
   ;; clojure -M:test/runner
   :test/runner
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.672"}}
+   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.732"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
   ;; clojure -M:env/test:test/kaocha
   :test/kaocha
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.672"}}
+   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.732"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
 
   ;; clojure -M:test/kaocha-cljs
   :test/kaocha-cljs
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha      {:mvn/version "1.0.672"}
+   :extra-deps  {lambdaisland/kaocha      {:mvn/version "1.0.732"}
                  lambdaisland/kaocha-cljs {:mvn/version "1.0.71"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
@@ -647,7 +647,7 @@
   ;; clojure -M:test/kaocha-cucumber
   :test/kaocha-cucumber
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha          {:mvn/version "1.0.672"}
+   :extra-deps  {lambdaisland/kaocha          {:mvn/version "1.0.732"}
                  lambdaisland/kaocha-cucumber {:mvn/version "0.0.53"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
@@ -655,7 +655,7 @@
   ;; clojure -M:test/kaocha-junit-xml
   :test/kaocha-junit-xml
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha           {:mvn/version "1.0.672"}
+   :extra-deps  {lambdaisland/kaocha           {:mvn/version "1.0.732"}
                  lambdaisland/kaocha-junit-xml {:mvn/version "0.0.76"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
@@ -664,8 +664,8 @@
   ;; clojure -M:test/kaocha-cloverage
   :test/kaocha-cloverage
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha           {:mvn/version "1.0.672"}
-                 lambdaisland/kaocha-cloverage {:mvn/version "1.0.63"}}
+   :extra-deps  {lambdaisland/kaocha           {:mvn/version "1.0.732"}
+                 lambdaisland/kaocha-cloverage {:mvn/version "1.0.75"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
 
@@ -861,7 +861,7 @@
   :alpha/carve
   {:extra-deps {borkdude/carve
                 {:git/url "https://github.com/borkdude/carve"
-                 :sha     "e9e2b1fbdd337b989c65a1983a1b3f72e310c970"}}
+                 :sha     "af7004dab7000ad7e9c942499f269cf7d21c0728"}}
    :main-opts  ["-m" "carve.main"]}
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -885,7 +885,7 @@
   :alpha/hot-load
   {:extra-deps {org.clojure/tools.deps.alpha
                 {:git/url "https://github.com/clojure/tools.deps.alpha"
-                 :sha     "65b1f039929acdd852aae60c87b2e57606e099a3"}}
+                 :sha     "f3a2fbb426ae65d5a5c79a756f3b95b463f334a4"}}
    ;; DynamicClassLoader required for add-lib to work
    ;; if starting other processes via aliases such as a socket REPL or Cognitect's REBL
    :main-opts  ["-e" "(->>(Thread/currentThread)(.getContextClassLoader)(clojure.lang.DynamicClassLoader.)(.setContextClassLoader,(Thread/currentThread)))"]}
