@@ -149,7 +149,7 @@
 
   :project/new
   {:replace-paths []
-   :replace-deps  {seancorfield/clj-new {:mvn/version "1.1.226"}}
+   :replace-deps  {seancorfield/clj-new {:mvn/version "1.1.228"}}
    :exec-fn       clj-new/create
    :exec-args     {:template lib :name practicalli/playground}
    :main-opts     ["-m" "clj-new.create"]}
@@ -157,7 +157,7 @@
   ;; ALPHA status: Add 'something' to existing project (subject to change)
   :project/add
   {:replace-paths []
-   :replace-deps  {seancorfield/clj-new {:mvn/version "1.1.226"}}
+   :replace-deps  {seancorfield/clj-new {:mvn/version "1.1.228"}}
    :exec-fn       clj-new/generate
    :main-opts     ["-m" "clj-new.generate"]}
 
@@ -215,8 +215,13 @@
   ;; cd ~/.clojure && clojure -M:project/outdated
   :project/outdated
   {:replace-paths []
-   :replace-deps  {antq/antq {:mvn/version "RELEASE"}}
+   :replace-deps  {antq/antq {:mvn/version "0.9.3"}}
    :main-opts     ["-m" "antq.core"]}
+
+  :hack/antq
+  {:replace-deps
+   {antq/antq {:local/root "/home/practicalli/projects/clojure/community-tools/antq"}}
+   :main-opts ["-m" "antq.core"]}
 
 
   ;; The classic project for checking maven based dependencies
@@ -242,7 +247,7 @@
   ;; clojure -X:project/jar :jar '"project-name.jar"' :main-class domain.application
   :project/jar
   {:replace-paths []
-   :replace-deps  {seancorfield/depstar {:mvn/version "1.1.126"}}
+   :replace-deps  {seancorfield/depstar {:mvn/version "1.1.136"}}
    :exec-fn       hf.depstar/jar
    :exec-args     {:jar        "project.jar"
                    :aot        true
@@ -253,7 +258,7 @@
   ;; clojure -X:project/uberjar :jar '"project-name.jar"' :main-class domain.application
   :project/uberjar
   {:replace-paths []
-   :replace-deps  {seancorfield/depstar {:mvn/version "1.1.126"}}
+   :replace-deps  {seancorfield/depstar {:mvn/version "1.1.136"}}
    :exec-fn       hf.depstar/uberjar
    :exec-args     {:jar        "uber.jar"
                    :aot        true
@@ -266,7 +271,7 @@
 
   :project/uberdeps
   {:replace-paths []
-   :replace-deps  {uberdeps/uberdeps {:mvn/version "1.0.2"}}
+   :replace-deps  {uberdeps/uberdeps {:mvn/version "1.0.3"}}
    :main-opts     ["-m" "uberdeps.uberjar"]}
 
   ;; Packaging libraries and applications
@@ -856,7 +861,7 @@
   {:replace-paths []
    :replace-deps  {clojurians-zulip/feeds
                    {:git/url "https://gitlab.com/clojurians-zulip/feeds.git"
-                    :sha     "8668c3ed7285ebb004f2060c893e07183a192bcf"}}
+                    :sha     "002335d93e937bfb56d1c9f5c6760bef885a58b8"}}
    :main-opts     ["-m" "inclined.main"
                    "--ns" "clojurians-zulip.events" "--"]}
 
@@ -897,7 +902,7 @@
   :alpha/hot-load
   {:extra-deps {org.clojure/tools.deps.alpha
                 {:git/url "https://github.com/clojure/tools.deps.alpha"
-                 :sha     "f3a2fbb426ae65d5a5c79a756f3b95b463f334a4"}}
+                 :sha     "34f40ea3b1e0ccf8aedb927c7d5bacfbfa7ee6af"}}
    ;; DynamicClassLoader required for add-lib to work
    ;; if starting other processes via aliases such as a socket REPL or Cognitect's REBL
    :main-opts  ["-e" "(->>(Thread/currentThread)(.getContextClassLoader)(clojure.lang.DynamicClassLoader.)(.setContextClassLoader,(Thread/currentThread)))"]}

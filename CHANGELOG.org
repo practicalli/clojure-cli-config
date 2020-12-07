@@ -1,5 +1,22 @@
 #+TITLE: Changelog
 
+* 2020-12-07
+  Add ~:replace-paths~ to aliases representing tools that do not require access to a Clojure project configuration.  These tools already ignore the project dependencies via ~:replace-deps~
+
+  antq updated to support ~:replace-deps~ and ~clojure -M:project/outdated~ run to update tools library versions.
+
+  *deps.edn library version updates*
+
+| :name                        |                                 :version |                          :latest-version |
+|------------------------------+------------------------------------------+------------------------------------------|
+| antq/antq                    |                                    0.9.2 |                                    0.9.3 |
+| clojurians-zulip/feeds       | 8668c3ed7285ebb004f2060c893e07183a192bcf | 002335d93e937bfb56d1c9f5c6760bef885a58b8 |
+| org.clojure/tools.deps.alpha | f3a2fbb426ae65d5a5c79a756f3b95b463f334a4 | 34f40ea3b1e0ccf8aedb927c7d5bacfbfa7ee6af |
+| seancorfield/clj-new         |                                  1.1.226 |                                  1.1.228 |
+| seancorfield/depstar         |                                  1.1.126 |                                  1.1.136 |
+| uberdeps/uberdeps            |                                    1.0.2 |                                    1.0.3 |
+
+
 * 2020-12-05
   :test/kaocha* updated as issue [[https://github.com/lambdaisland/kaocha/issues/159][#159]] seems to be resolved.  If issues are experienced, revert to kaocha version 1.0.672 and comment on the related issue
 
