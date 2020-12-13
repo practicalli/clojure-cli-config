@@ -1,5 +1,12 @@
 #+TITLE: Changelog
 
+* 2020-12-13
+  Add aliases to run Reveal data visualization tool with Rebel Readline terminal repl
+  - :repl/rebel-reveal
+  - :inspect/reveal-rebel
+  - :inspect/reveal-light-rebel
+
+
 * 2020-12-07
   Add ~:replace-paths~ to aliases representing tools that do not require access to a Clojure project configuration.  These tools already ignore the project dependencies via ~:replace-deps~
 

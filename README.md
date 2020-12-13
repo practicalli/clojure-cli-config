@@ -79,6 +79,7 @@ How to run common tasks for Clojure development.
 | Create project (clojure exec)                           | `clojure -X:project/new :template app :name practicalli/my-app` | User alias         |
 | Run REPL (rebel readline)                               | `clojure -M:repl/rebel`                                         | User alias         |
 | Run REPL (rebel and nrepl)                              | `clojure -M:repl/rebel-nrepl`                                   | User alias         |
+| Run REPL (rebel and reveal data visualization)          | `clojure -M:repl/rebel-reveal`                                  | User alias         |
 | Download dependencies                                   | `clojure -Spath` or `clojure -P`  (plus optional aliases)       | Built-in           |
 | Find libraries (mvn & git)                              | `clojure -M:project/find-deps library-name`                     | User alias         |
 | Generate image of project dependency graph              | `clojure -X:project/graph-deps`                                 | User alias         |
@@ -322,15 +323,17 @@ Reveal can also used as a `tap>` source for more powerful manual debugging.
 * `:inspect/reveal-nrepl-cider` - visualization tool for Emacs Cider / Spacemacs / VSCode Calva
 * `:inspec/reveal-light-nrepl-cider` - as above with light theme and 32 point Ubuntu Mono font
 
-| Command                                      | Description                                                                        |
-|----------------------------------------------|------------------------------------------------------------------------------------|
-| `clojure -M:inspect/reveal`                  | start a Reveal repl with data visualization window (cloure.main)                   |
-| `clojure -M:inspect/reveal-light`            | as above with light theme and large font                                           |
-| `clojure -X:inspect/reveal`                  | start a Reveal repl with data visualization window (clojure exec)                  |
-| `clojure -X:inspect/reveal-light`            | as above with light theme and large font                                           |
-| `clojure -M:inspect/reveal-nrepl`            | Start nrepl server to use Cider / Calva editors with reveal                        |
-| `clojure -X:inspect/reveal-light-nrepl`      | as above with light theme and large font                                           |
-| `clojure -M:inspect/reveal:repl/rebel`       | Start a Rebel REPL with Reveal dependency. Add reveal as tap> source               |
+| Command                                       | Description                                                                        |
+|-----------------------------------------------|------------------------------------------------------------------------------------|
+| `clojure -M:inspect/reveal`                   | start a Reveal repl with data visualization window (cloure.main)                   |
+| `clojure -M:inspect/reveal-light`             | as above with light theme and large font                                           |
+| `clojure -X:inspect/reveal`                   | start a Reveal repl with data visualization window (clojure exec)                  |
+| `clojure -X:inspect/reveal-light`             | as above with light theme and large font                                           |
+| `clojure -M:inspect/reveal-nrepl`             | Start nrepl server to use Cider / Calva editors with reveal                        |
+| `clojure -X:inspect/reveal-light-nrepl`       | as above with light theme and large font                                           |
+| `clojure -M:inspect/reveal-rebel`             | Start a Rebel REPL with Reveal Visualizations                                      |
+| `clojure -M:inspect/reveal-light-rebel`       | Start a Rebel REPL with Reveal Visualizations & light theme                        |
+| `clojure -M:inspect/reveal:repl/rebel`        | Start a Rebel REPL with Reveal dependency. Add reveal as tap> source               |
 | `clojure -M:inspect/reveal-light:repl/rebel** | Start a Rebel REPL with Reveal dependency & light theme. Add reveal as tap> source |
 
 **Connecting nREPL based editors**

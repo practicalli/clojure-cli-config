@@ -73,6 +73,19 @@
                 "-f" "rebel-readline.main/-main"]}
 
 
+  ;; rebel readline with reveal data visualization
+  ;; clojure -M:repl/rebel-reveal
+  :repl/rebel-reveal
+  {:extra-deps
+   {vlaaad/reveal              {:mvn/version "1.1.164"}
+    com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
+   :jvm-opts  ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
+   :main-opts ["-e" "(require,'rebel-readline.core),(require,'rebel-readline.clojure.line-reader),(require,'rebel-readline.clojure.service.local),(require,'rebel-readline.clojure.main),(require,'vlaaad.reveal)(rebel-readline.core/with-line-reader,(rebel-readline.clojure.line-reader/create,(rebel-readline.clojure.service.local/create)),(vlaaad.reveal/repl,:prompt,(fn,[]),:read,(rebel-readline.clojure.main/create-repl-read)))"]
+   }
+
+
+
+
   ;; Development environment
   ;; Include `dev` directory on the class path
   ;; Supports the use of `dev/user.clj` to configure REPL startup
@@ -435,6 +448,24 @@
    :exec-fn    repl
    :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
    :main-opts  ["-m" "vlaaad.reveal" "repl"]}
+
+
+  ;; rebel readline with reveal data visualization
+  ;; clojure -M:inspect/reveal-rebel
+  :inspect/reveal-rebel
+  {:extra-deps
+   {vlaaad/reveal              {:mvn/version "1.1.164"}
+    com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
+   :main-opts ["-e" "(require,'rebel-readline.core),(require,'rebel-readline.clojure.line-reader),(require,'rebel-readline.clojure.service.local),(require,'rebel-readline.clojure.main),(require,'vlaaad.reveal)(rebel-readline.core/with-line-reader,(rebel-readline.clojure.line-reader/create,(rebel-readline.clojure.service.local/create)),(vlaaad.reveal/repl,:prompt,(fn,[]),:read,(rebel-readline.clojure.main/create-repl-read)))"]}
+
+  ;; clojure -M:inspect/reveal-light-rebel
+  :inspect/reveal-light-rebel
+  {:extra-deps
+   {vlaaad/reveal              {:mvn/version "1.1.164"}
+    com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
+   :jvm-opts  ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
+   :main-opts ["-e" "(require,'rebel-readline.core),(require,'rebel-readline.clojure.line-reader),(require,'rebel-readline.clojure.service.local),(require,'rebel-readline.clojure.main),(require,'vlaaad.reveal)(rebel-readline.core/with-line-reader,(rebel-readline.clojure.line-reader/create,(rebel-readline.clojure.service.local/create)),(vlaaad.reveal/repl,:prompt,(fn,[]),:read,(rebel-readline.clojure.main/create-repl-read)))"]}
+
 
   :inspect/reveal-local ;; Hacking the project
   {:extra-deps {vlaaad/reveal
