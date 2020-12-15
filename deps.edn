@@ -259,21 +259,21 @@
   ;; clojure -X:project/jar :main-class domain.application
   ;; clojure -X:project/jar :jar '"project-name.jar"' :main-class domain.application
   :project/jar
-  {:replace-deps {seancorfield/depstar {:mvn/version "1.1.136"}}
-   :exec-fn      hf.depstar/jar
-   :exec-args    {:jar        "project.jar"
-                  :aot        true
-                  :main-class project.core}}
+  {:extra-deps {seancorfield/depstar {:mvn/version "1.1.136"}}
+   :exec-fn    hf.depstar/jar
+   :exec-args  {:jar        "project.jar"
+                :aot        true
+                :main-class project.core}}
 
   ;; Uberjar archive of the project, including Clojure runtime
   ;; clojure -X:project/uberjar :main-class domain.application
   ;; clojure -X:project/uberjar :jar '"project-name.jar"' :main-class domain.application
   :project/uberjar
-  {:replace-deps {seancorfield/depstar {:mvn/version "1.1.136"}}
-   :exec-fn      hf.depstar/uberjar
-   :exec-args    {:jar        "uber.jar"
-                  :aot        true
-                  :main-class project.core}}
+  {:extra-deps {seancorfield/depstar {:mvn/version "1.1.136"}}
+   :exec-fn    hf.depstar/uberjar
+   :exec-args  {:jar        "uber.jar"
+                :aot        true
+                :main-class project.core}}
 
 
   ;; uberdeps - uberjar builder
@@ -281,8 +281,8 @@
   ;; "--target" "target/cdeps-0.1.0.jar" in `:main-opts` to specify output file
 
   :project/uberdeps
-  {:replace-deps {uberdeps/uberdeps {:mvn/version "1.0.3"}}
-   :main-opts    ["-m" "uberdeps.uberjar"]}
+  {:extra-deps {uberdeps/uberdeps {:mvn/version "1.0.3"}}
+   :main-opts  ["-m" "uberdeps.uberjar"]}
 
   ;; Packaging libraries and applications
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
