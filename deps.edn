@@ -283,9 +283,8 @@
   ;; "--target" "target/cdeps-0.1.0.jar" in `:main-opts` to specify output file
 
   :project/uberdeps
-  {:replace-paths []
-   :replace-deps  {uberdeps/uberdeps {:mvn/version "1.0.3"}}
-   :main-opts     ["-m" "uberdeps.uberjar"]}
+  {:replace-deps {uberdeps/uberdeps {:mvn/version "1.0.3"}}
+   :main-opts    ["-m" "uberdeps.uberjar"]}
 
   ;; Packaging libraries and applications
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
