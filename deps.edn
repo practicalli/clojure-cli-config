@@ -259,23 +259,21 @@
   ;; clojure -X:project/jar :main-class domain.application
   ;; clojure -X:project/jar :jar '"project-name.jar"' :main-class domain.application
   :project/jar
-  {:replace-paths []
-   :replace-deps  {seancorfield/depstar {:mvn/version "1.1.136"}}
-   :exec-fn       hf.depstar/jar
-   :exec-args     {:jar        "project.jar"
-                   :aot        true
-                   :main-class project.core}}
+  {:replace-deps {seancorfield/depstar {:mvn/version "1.1.136"}}
+   :exec-fn      hf.depstar/jar
+   :exec-args    {:jar        "project.jar"
+                  :aot        true
+                  :main-class project.core}}
 
   ;; Uberjar archive of the project, including Clojure runtime
   ;; clojure -X:project/uberjar :main-class domain.application
   ;; clojure -X:project/uberjar :jar '"project-name.jar"' :main-class domain.application
   :project/uberjar
-  {:replace-paths []
-   :replace-deps  {seancorfield/depstar {:mvn/version "1.1.136"}}
-   :exec-fn       hf.depstar/uberjar
-   :exec-args     {:jar        "uber.jar"
-                   :aot        true
-                   :main-class project.core}}
+  {:replace-deps {seancorfield/depstar {:mvn/version "1.1.136"}}
+   :exec-fn      hf.depstar/uberjar
+   :exec-args    {:jar        "uber.jar"
+                  :aot        true
+                  :main-class project.core}}
 
 
   ;; uberdeps - uberjar builder
