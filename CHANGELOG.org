@@ -1,5 +1,17 @@
 #+TITLE: Changelog
 
+* 2020-12-15
+  Reverted `:project/jar`, `:project/uberjar`, `:project/uberdeps` to `:extra-deps` configuration and removed the `:replace-paths` configuration.
+
+  **deps.edn library version updates**
+
+| :name                        |                                 :version |                          :latest-version |
+|------------------------------+------------------------------------------+------------------------------------------|
+| djblue/portal                |                                    0.6.4 |                                    0.7.0 |
+| org.clojure/tools.deps.alpha | 34f40ea3b1e0ccf8aedb927c7d5bacfbfa7ee6af | ada6944e1bf949f9e2ed5291a6fd45e5c4628392 |
+| vlaaad/reveal                |                                  1.1.164 |                                  1.1.171 |
+
+
 * 2020-12-13
   Add aliases to run Reveal data visualization tool with Rebel Readline terminal repl
   - :repl/rebel-reveal
