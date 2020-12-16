@@ -9,11 +9,11 @@ jobs:
   lint:
     runs-on: ubuntu-20.04
     steps:
-    - uses: DeLaGuardo/setup-clj-kondo@v1
+    - uses: DeLaGuardo/setup-clj-kondo@master
       with:
         version: '2020.04.05'
 
-    - uses: actions/checkout@v2.3.3
+    - uses: actions/checkout@v2.3.4
 
     - name: Run clj-kondo on ubuntu
       run: clj-kondo --lint deps.edn

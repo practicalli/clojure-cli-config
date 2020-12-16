@@ -28,15 +28,30 @@ clojure -Sdescribe
 
 
 # Install Practicalli clojure-deps-edn
-Fork the practicalli/clojure-deps-edn repository and clone your fork to an existing `~/.clojure/` directory (eg. `$HOME/.clojure` or `%HOME%\.clojure`).
+Clojure CLI tools creates a configuration directory called `.clojure`, which [by default](https://clojure.org/reference/deps_and_cli#_deps_edn_sources) is placed in the root of the operating system user account directory, e.g. `$HOME/.clojure`.
+
+`XDG_CONFIG_HOME` may be set by your operating system and over-rides the default location, e.g. `$HOME/.config/.clojure`
+
+`CLJ_CONFIG` can be used to over-ride all other location settings
+
+> Check the location of your Clojure configuration directory by running `clojure -Sdescribe` and checking the `:user-config` value.
+
+
+Fork the practicalli/clojure-deps-edn repository and clone your fork to an existing `.clojure/` directory (eg. `$HOME/.clojure` or `%HOME%\.clojure`).
 
 ```shell
 git clone your-fork-url ~/.clojure/
 ```
 
-The configuration from `~/.clojure/deps.edn` is now available for all Clojure CLI projects for that user account.
+The configuration from `.clojure/deps.edn` is now available for all Clojure CLI projects for that user account.
 
-Any directory containing a `deps.edn` file is considered a Clojure project. A `deps.edn` file can contain an empty hash-map, `{}` or hash-map with configuration.  The project `deps.edn` file is merged with the user wide configuration, with the project `deps.edn` keys taking precedence if there is duplication.
+
+# Using Practicalli clojure-deps-edn
+Any directory containing a `deps.edn` file is considered a Clojure project. A `deps.edn` file can contain an empty hash-map, `{}` or hash-map with configuration, usually `:paths` and `:dependencies` and perhaps some `:aliases`.
+
+The project `deps.edn` file is merged with the user wide configuration, e.g `$HOME/.clojure/deps.edn`, with the project `deps.edn` keys taking precedence if there is duplication, otherwise they are merged.
+
+Configuration passed via the command line when running `clojure` or the `clj` wrapper will take precedence over the project and user level configuration if there is duplication, otherwise they are merged.
 
 ![Clojure CLI tools deps.edn configuration precedence](https://raw.githubusercontent.com/practicalli/graphic-design/live/clojure/clojure-cli-tools/clojure-cli-tools-deps-edn-configuration-precedence.png)
 
@@ -64,6 +79,7 @@ How to run common tasks for Clojure development.
 | Create project (clojure exec)                           | `clojure -X:project/new :template app :name practicalli/my-app` | User alias         |
 | Run REPL (rebel readline)                               | `clojure -M:repl/rebel`                                         | User alias         |
 | Run REPL (rebel and nrepl)                              | `clojure -M:repl/rebel-nrepl`                                   | User alias         |
+| Run REPL (rebel and reveal data visualization)          | `clojure -M:repl/rebel-reveal`                                  | User alias         |
 | Download dependencies                                   | `clojure -Spath` or `clojure -P`  (plus optional aliases)       | Built-in           |
 | Find libraries (mvn & git)                              | `clojure -M:project/find-deps library-name`                     | User alias         |
 | Generate image of project dependency graph              | `clojure -X:project/graph-deps`                                 | User alias         |
@@ -296,26 +312,37 @@ Navigate data in the form of edn, json and transit
 `(portal/close)` to close the inspector window.
 
 
-### [Reveal](https://vlaaad.github.io/reveal/) is a repl and data visualization tool
-Reveal - read evaluate visualize loop.  A REPL with data visualisation.  Also used as a tap> source
+### Reveal data inspector and visualization tool
+[Reveal](https://vlaaad.github.io/reveal/) - run a Terminal REPL with data visualisation or connect with nREPL, socket or prepl connection and use from any [Clojure aware editor]([Clojure aware editors](https://practicalli.github.io/clojure/clojure-editors/)).
+Reveal can also used as a `tap>` source for more powerful manual debugging.
 
-* `inspect/reveal` - visualisation with terminal REPL.
-* `inspect/reveal-light` - as above with light theme and 32 point Ubuntu Mono font
-* `inspect/reveal-nrepl` - visualization for [Clojure aware editors](https://practicalli.github.io/clojure/clojure-editors/) via an nrepl server
+* `:inspect/reveal` - visualisation with terminal REPL.
+* `:inspect/reveal-light` - as above with light theme and 32 point Ubuntu Mono font
+* `:inspect/reveal-nrepl` - visualization for [Clojure aware editors](https://practicalli.github.io/clojure/clojure-editors/) via an nrepl server
 * `:inspec/reveal-light-nrepl` - as above with light theme and 32 point Ubuntu Mono font
-* `inspect/reveal-nrepl-cider` - visualization tool for Emacs Cider / Spacemacs / VSCode Calva
+* `:inspect/reveal-nrepl-cider` - visualization tool for Emacs Cider / Spacemacs / VSCode Calva
 * `:inspec/reveal-light-nrepl-cider` - as above with light theme and 32 point Ubuntu Mono font
 
-| Command                                      | Description                                                                        |
-|----------------------------------------------|------------------------------------------------------------------------------------|
-| `clojure -M:inspect/reveal`                  | start a Reveal repl with data visualization window (cloure.main)                   |
-| `clojure -M:inspect/reveal-light`            | as above with light theme and large font                                           |
-| `clojure -X:inspect/reveal`                  | start a Reveal repl with data visualization window (clojure exec)                  |
-| `clojure -X:inspect/reveal-light`            | as above with light theme and large font                                           |
-| `clojure -M:inspect/reveal-nrepl`            | Start nrepl server to use Cider / Calva editors with reveal                        |
-| `clojure -X:inspect/reveal-light-nrepl`      | as above with light theme and large font                                           |
-| `clojure -M:inspect/reveal:repl/rebel`       | Start a Rebel REPL with Reveal dependency. Add reveal as tap> source               |
-| `clojure -M:inspect/reveal-light:repl/rebel` | Start a Rebel REPL with Reveal dependency & light theme. Add reveal as tap> source |
+| Command                                       | Description                                                                        |
+|-----------------------------------------------|------------------------------------------------------------------------------------|
+| `clojure -M:inspect/reveal`                   | start a Reveal repl with data visualization window (cloure.main)                   |
+| `clojure -M:inspect/reveal-light`             | as above with light theme and large font                                           |
+| `clojure -X:inspect/reveal`                   | start a Reveal repl with data visualization window (clojure exec)                  |
+| `clojure -X:inspect/reveal-light`             | as above with light theme and large font                                           |
+| `clojure -M:inspect/reveal-nrepl`             | Start nrepl server to use Cider / Calva editors with reveal                        |
+| `clojure -X:inspect/reveal-light-nrepl`       | as above with light theme and large font                                           |
+| `clojure -M:inspect/reveal-rebel`             | Start a Rebel REPL with Reveal Visualizations                                      |
+| `clojure -M:inspect/reveal-light-rebel`       | Start a Rebel REPL with Reveal Visualizations & light theme                        |
+| `clojure -M:inspect/reveal:repl/rebel`        | Start a Rebel REPL with Reveal dependency. Add reveal as tap> source               |
+| `clojure -M:inspect/reveal-light:repl/rebel** | Start a Rebel REPL with Reveal dependency & light theme. Add reveal as tap> source |
+
+**Connecting nREPL based editors**
+Use the `:inspect/reveal-nrepl` alias when running the REPL, either in the terminal or via an nREPL based editor (CIDER, Calva, Conjure, Cursive, etc.)
+
+Alternatively, add an `.nrepl.edn` file to the root of a project to include the Reveal middleware
+```
+{:middleware [vlaaad.reveal.nrepl/middleware]}
+```
 
 **Cider jack-in and reveal**
 See the [Reveal section of Practicalli Clojure](https://practicalli.github.io/clojure-staging/clojure-tools/data-browsers/reveal.html#using-reveal-with-nrepl-editors) for full details, including how to set up a `.dir-locals.el` configuration.
@@ -358,15 +385,17 @@ Evaluate `(add-tap ((requiring-resolve 'vlaaad.reveal/ui)))` when using Rebel Re
 Visualize the results of each evaluation in the REPL in the REBL UI.  Navigate through complex data structures.
 
 > Cognitect REBL aliases requires [several separate install steps](http://practicalli.github.io/clojure/alternative-tools/clojure-tools/cognitect-rebl.html) before they are operational
+>
+> Tested on Oracle JDK 8 and OpenJDK 11 (current long term support).  Other Java 11 JDK distributions may work, but not tested. Newer (short term release) may work, but will need the `org.openjdk` library version in the `:inspect/rebl` alias changed to match the version of Java used.
 
 * `inspect/rebl` - REBL, a visual data explorer (Java 11)
 * `inspect/rebl-java8` - REBL, a visual data explorer (Oracle Java 8)
 
-| Command                                                    | Description                                       |
-|------------------------------------------------------------|---------------------------------------------------|
-| `clojure -M:inspect/rebl`                                  | Start REBL REPL and UI (Java 11)                  |
-| `clojure -M:inspect/rebl-java8`                            | REBL REPL and UI  (Java 8)                        |
-| `clojure -M:lib/cider-nrepl:inspect/rebl:middleware/nrebl` | REBL REPL and UI with nREPL server (CIDER, Calva) |
+| Command                                                    | Description                                                      |
+|------------------------------------------------------------|------------------------------------------------------------------|
+| `clojure -M:inspect/rebl`                                  | Start REBL REPL and UI (Java 11 only)                            |
+| `clojure -M:inspect/rebl-java8`                            | REBL REPL and UI  (Oracle Java 8 only)                           |
+| `clojure -M:lib/cider-nrepl:inspect/rebl:middleware/nrebl` | REBL REPL and UI with nREPL server (CIDER, Calva) (Java 11 only) |
 
 
 ## Middleware
