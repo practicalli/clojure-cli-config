@@ -73,6 +73,28 @@
                 "-f" "rebel-readline.main/-main"]}
 
 
+  ;; Run a Clojure repl with reveal and nrepl interactively
+  ;; - see :inspect/reveal* for more reveal aliases
+  ;; clj -M:repl/reveal-nrepl
+  :repl/reveal-nrepl
+  {:extra-deps {vlaaad/reveal {:mvn/version "1.1.171"}
+                nrepl/nrepl   {:mvn/version "0.8.3"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[vlaaad.reveal.nrepl/middleware]"
+                "-i"]}
+
+  ;; As with :repl/reveal-nrepl with a light theme and 32 point font
+  ;; Replace font-family with local font (should be slightly faster startup)
+  ;; clj -M:repl/reveal-light-nrepl
+  :repl/reveal-light-nrepl
+  {:extra-deps {vlaaad/reveal {:mvn/version "1.1.171"}
+                nrepl/nrepl   {:mvn/version "0.8.3"}}
+   :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[vlaaad.reveal.nrepl/middleware]"
+                "-i"]}
+
+
   ;; rebel readline with reveal data visualization
   ;; clojure -M:repl/rebel-reveal
   :repl/rebel-reveal

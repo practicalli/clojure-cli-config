@@ -1,5 +1,11 @@
 #+TITLE: Changelog
 
+
+* 2020-12-18
+  - 6bb07d2 middleware/cider-cljs: add nrepl as explicit dependency
+  - ~:repl/reveal-nrepl~ and ~:repl/reveal-light-nrepl~ aliases for reveal data visualization with a terminal REPL and editor connection via nREPL protocol.
+
+
 * 2020-12-15
   Reverted `:project/jar`, `:project/uberjar`, `:project/uberdeps` to `:extra-deps` configuration and removed the `:replace-paths` configuration.
 
