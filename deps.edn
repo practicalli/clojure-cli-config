@@ -963,10 +963,14 @@
   ;;    (add-lib lib {:git/url git :sha (gitlibs/resolve git "master")})))
   ;; - e.g., using the GitHub path (not the usual Maven group/artifact):
   ;; (load-master 'clojure/tools.trace)
+
   :alpha/hot-load
   {:extra-deps {org.clojure/tools.deps.alpha
                 {:git/url "https://github.com/clojure/tools.deps.alpha"
-                 :sha     "ada6944e1bf949f9e2ed5291a6fd45e5c4628392"}}
+                 :sha     "d77476f3d5f624249462e275ae62d26da89f320b"
+                 ;; Using latest commit on the add-lib3 branch
+                 ;; do not use :project/outdated to update
+                 }}
    ;; DynamicClassLoader required for add-lib to work
    ;; if starting other processes via aliases such as a socket REPL or Cognitect's REBL
    :main-opts  ["-e" "(->>(Thread/currentThread)(.getContextClassLoader)(clojure.lang.DynamicClassLoader.)(.setContextClassLoader,(Thread/currentThread)))"]}
