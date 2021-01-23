@@ -1,5 +1,28 @@
 #+TITLE: Changelog
 
+* Unreleased
+
+* 2020-12-18
+  - Reset ~org.clojure/tools.deps.alpha~ to latest commit on ~add-libs3~ branch which has the SHA ~d77476f3d5f624249462e275ae62d26da89f320b~
+  - promote calve to main aliases
+  - depstar to version 2.x
+
+  **deps.edn library version updates**
+
+ | :name                   |                                 :version |                          :latest-version |
+ |-------------------------+------------------------------------------+------------------------------------------|
+ | borkdude/carve          | 4d30e186e3a0d66f6b1ede1a70169e66d0f070ed | b79d411e49244becf40787a7fcc2ead8e40ba3b5 |
+ | cider/cider-nrepl       |                                   0.25.5 |                                   0.25.7 |
+ | clojurians-zulip/feeds  | 002335d93e937bfb56d1c9f5c6760bef885a58b8 | 345a756196d68bde6de0eaa22d217a45f87362b7 |
+ | closh/closh             | dec68b43a66ff8547e4742fa433c4d486f550e60 | 80735a4df79bd8572b568f61977a2c3611625623 |
+ | djblue/portal           |                                    0.7.0 |                                    0.9.0 |
+ | org.clojure/spec-alpha2 | cd07a40c4ee720614a18429da4b09a6c5d8fe979 | a5ffe8bf89b3095676fb5eb0f4b9fc2828296fba |
+ | seancorfield/clj-new    |                                  1.1.228 |                                  1.1.234 |
+ | seancorfield/depstar    |                                  1.1.136 |                                  2.0.165 |
+ | uberdeps/uberdeps       |                                    1.0.3 |                                    1.0.4 |
+ | vlaaad/reveal           |                                  1.1.171 |                                  1.3.193 |
+
+
 
 * 2020-12-18
   - 6bb07d2 middleware/cider-cljs: add nrepl as explicit dependency
