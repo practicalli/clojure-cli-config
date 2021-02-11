@@ -970,8 +970,8 @@
   ;; this alias could change significantly in future
 
   ;; Add new deps to a running REPL:
-  ;; (require '[clojure.tools.deps.alpha.repl :refer [add-lib]])
-  ;; (add-lib 'domain/library {:mvn/version "RELEASE"})
+  ;; (require '[clojure.tools.deps.alpha.repl :refer [add-libs]])
+  ;; (add-libs 'domain/library {:mvn/version "RELEASE"})
   ;; Git deps
   ;; (require '[clojure.tools.gitlibs :as gitlibs])
   ;; (defn load-master [lib]
@@ -980,6 +980,17 @@
   ;; - e.g., using the GitHub path (not the usual Maven group/artifact):
   ;; (load-master 'clojure/tools.trace)
 
+  :alpha/hotload-libs
+  {:extra-deps {org.clojure/tools.deps.alpha
+                {:git/url "https://github.com/clojure/tools.deps.alpha"
+                 :sha     "d77476f3d5f624249462e275ae62d26da89f320b"
+                 ;; Using latest commit on the add-lib3 branch
+                 ;; do not use :project/outdated to update
+                 }}
+   ;; DynamicClassLoader required for add-libs to work
+   ;; if starting other processes via aliases such as a socket REPL or Cognitect's REBL
+   :main-opts  ["-e" "(->>(Thread/currentThread)(.getContextClassLoader)(clojure.lang.DynamicClassLoader.)(.setContextClassLoader,(Thread/currentThread)))"]}
+
   :alpha/hot-load
   {:extra-deps {org.clojure/tools.deps.alpha
                 {:git/url "https://github.com/clojure/tools.deps.alpha"
@@ -987,7 +998,7 @@
                  ;; Using latest commit on the add-lib3 branch
                  ;; do not use :project/outdated to update
                  }}
-   ;; DynamicClassLoader required for add-lib to work
+   ;; DynamicClassLoader required for add-libs to work
    ;; if starting other processes via aliases such as a socket REPL or Cognitect's REBL
    :main-opts  ["-e" "(->>(Thread/currentThread)(.getContextClassLoader)(clojure.lang.DynamicClassLoader.)(.setContextClassLoader,(Thread/currentThread)))"]}
 

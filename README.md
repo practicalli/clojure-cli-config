@@ -619,7 +619,7 @@ Take care to get the timezone notation correct.
 ## Experimental / Alpha Aliases
 
 * [`:alpha/carve`](https://github.com/borkdude/carve) - EXPERIMENTAL, use with caution - carve out unwanted vars in code
-* [`:alpha/hot-load`](https://github.com/clojure/tools.deps.alpha) - EXPERIMENTAL, use with caution - hot-load libraries into a running namespace.
+* [`:alpha/hotload-libs`](https://github.com/clojure/tools.deps.alpha) - EXPERIMENTAL, use with caution - hot-load libraries into a running namespace.
 
 
 **Hot loading dependencies** (unofficial - changes planned already)
