@@ -960,6 +960,20 @@
 
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Services
+
+  ;; https://github.com/kachayev/nasus
+  ;; simple zero-configuration command-line HTTP files server. Like Python's SimpleHTTPServer but scalable
+  :service/webserver
+  {:replace-deps {nasus/nasus {:mvn/version "0.1.7"}}
+   :main-opts    ["-m" "http.server"]}
+
+  ;; End of Services
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; EXPERIMENTAL - use at your own risk, you have been warned
 
