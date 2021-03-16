@@ -27,7 +27,7 @@
 
  :deps
  ;; Clojure standard library
- {org.clojure/clojure {:mvn/version "1.10.1"}}
+ {org.clojure/clojure {:mvn/version "1.10.3"}}
 
  ;; End of: Main dependencies
  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -99,7 +99,7 @@
   ;; clojure -M:repl/rebel-reveal
   :repl/rebel-reveal
   {:extra-deps
-   {vlaaad/reveal              {:mvn/version "1.1.164"}
+   {vlaaad/reveal              {:mvn/version "1.3.196"}
     com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
    :jvm-opts  ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
    :main-opts ["-e" "(require,'rebel-readline.core),(require,'rebel-readline.clojure.line-reader),(require,'rebel-readline.clojure.service.local),(require,'rebel-readline.clojure.main),(require,'vlaaad.reveal)(rebel-readline.core/with-line-reader,(rebel-readline.clojure.line-reader/create,(rebel-readline.clojure.service.local/create)),(vlaaad.reveal/repl,:prompt,(fn,[]),:read,(rebel-readline.clojure.main/create-repl-read)))"]
@@ -289,7 +289,7 @@
   ;; clojure -X:project/jar :main-class domain.application
   ;; clojure -X:project/jar :jar '"project-name.jar"' :main-class domain.application
   :project/jar
-  {:replace-deps {seancorfield/depstar {:mvn/version "2.0.193"}}
+  {:replace-deps {com.github.seancorfield/next.jdbc {:mvn/version "2.0.193"}}
    :exec-fn      hf.depstar/jar
    :exec-args    {:jar "project.jar"
                   :aot true}}
@@ -298,7 +298,7 @@
   ;; clojure -X:project/uberjar :main-class domain.application
   ;; clojure -X:project/uberjar :jar '"project-name.jar"' :main-class domain.application
   :project/uberjar
-  {:replace-deps {seancorfield/depstar {:mvn/version "2.0.193"}}
+  {:replace-deps {com.github.seancorfield/next.jdbc {:mvn/version "2.0.193"}}
    :exec-fn      hf.depstar/uberjar
    :exec-args    {:jar "uber.jar"
                   :aot true}}
@@ -415,8 +415,8 @@
 
   ;; H2 embedded database
   :database/h2
-  {:extra-deps {com.h2database/h2      {:mvn/version "1.4.200"}
-                seancorfield/next.jdbc {:mvn/version "1.1.646"}}}
+  {:extra-deps {com.h2database/h2                 {:mvn/version "1.4.200"}
+                com.github.seancorfield/next.jdbc {:mvn/version "1.1.646"}}}
 
   ;; End of Databases and drivers uses only during development
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -891,7 +891,7 @@
   :graph/vars-svg
   {:extra-deps {thomasa/morpheus
                 {:git/url "https://github.com/benedekfazekas/morpheus.git"
-                 :sha     "d3decebc1cb9ef697cd34781f9cf83d44a071e85"}}
+                 :sha     "7f4876ea631a6f5ccee2094d255efd2d1a98ffb6"}}
    :main-opts  ["-m" "thomasa.morpheus.main"
                 "-d"  "graphs" "-f" "svg" "src" "test"]}
 
@@ -1031,14 +1031,6 @@
   {:extra-deps {com.stuarthalloway/reflector
                 {:git/url "https://github.com/stuarthalloway/reflector"
                  :sha     "93a0c19b4526c1180959e940202928d35e5c3cef"}}}
-
-
-  ;; - see https://github.com/athos/clj-check
-  :alpha/check
-  {:extra-deps {athos/clj-check
-                {:git/url "https://github.com/athos/clj-check"
-                 :sha     "0f734f560dd989b2ec0f9078cc646476bfdab4e1"}}
-   :main-opts  ["-m" "clj-check.check"]}
 
 
   ;; closh - bash shell with Clojure
