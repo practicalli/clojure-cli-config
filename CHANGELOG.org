@@ -2,6 +2,29 @@
 
 * Unreleased
 
+* 2021-03-16
+  Library version updates
+
+  | :name                         |                                 :version |                          :latest-version |
+  |-------------------------------+------------------------------------------+------------------------------------------|
+  | antq/antq                     |                                    0.9.3 |                                   0.12.0 |
+  | borkdude/carve                | a3a5b941d4327127e36541bf7322b15b33260386 | c0f68129e37a8bae06225e8cd09075911af0d9a3 |
+  | cider/cider-nrepl             |                                   0.25.8 |                                   0.25.9 |
+  | closh/closh                   | 80735a4df79bd8572b568f61977a2c3611625623 | b1a7fd310b6511048fbacb8e496f574c8ccfa291 |
+  | djblue/portal                 |                                    0.9.0 |                                   0.10.0 |
+  | lambdaisland/kaocha           |                                  1.0.732 |                                  1.0.829 |
+  | org.clojure/data.json         |                                    1.0.0 |                                    1.1.0 |
+  | org.clojure/spec-alpha2       | a5ffe8bf89b3095676fb5eb0f4b9fc2828296fba | 6a5889b3c12e645147b9af8661908c1d54f685bd |
+  | org.yaml/snakeyaml            |                                     1.27 |                                     1.28 |
+  | refactor-nrepl/refactor-nrepl |                                    2.5.0 |                                    2.5.1 |
+  | seancorfield/clj-new          |                                  1.1.243 |                                  1.1.264 |
+  | seancorfield/depstar          |                                  1.1.136 |                                  2.0.193 |
+  | seancorfield/next.jdbc        |                                  1.1.613 |                                  1.1.646 |
+
+** Not upgraded
+   tools.deps.alpha is not upgraded as the SHA uses the add-libs branch to the add-libs function which hotloads one or more libraries into a running repl.
+
+
 * 2021-02-09
 
   | :name                |                                 :version |                          :latest-version |
