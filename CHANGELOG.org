@@ -32,6 +32,8 @@
 ** Not upgraded
    tools.deps.alpha is not upgraded as the SHA uses the add-libs branch to the add-libs function which hotloads one or more libraries into a running repl.
 
+* 2021-03-09
+  new ~:service/webserver~ zero-config command line HTTP server using the [[https://github.com/kachayev/nasus][nasus project]]
 
 * 2021-02-09
 
