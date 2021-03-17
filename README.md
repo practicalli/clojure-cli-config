@@ -602,7 +602,7 @@ Web servers and other standalone services run with Clojure CLI tools
 |------------------------------------------------|-----------------------------------------------------|
 | `clojure -M:service/webserver`                 | HTTP file server for current directory on port 8000 |
 | `clojure -M:service/webserver 8888`            | as above with PORT specified to 8888                |
-| `clojure -M:service/webserver 8888 - dir docs` | as above with PORT 8888 and doc directory           |
+| `clojure -M:service/webserver 8888 --dir docs` | as above with PORT 8888 and doc directory           |
 
 
 ## Community activities
