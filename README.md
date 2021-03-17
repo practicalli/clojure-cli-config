@@ -604,6 +604,8 @@ Web servers and other standalone services run with Clojure CLI tools
 | `clojure -M:service/webserver 8888`            | as above with PORT specified to 8888                |
 | `clojure -M:service/webserver 8888 --dir docs` | as above with PORT 8888 and doc directory           |
 
+> Use `Ctrl-c` to stop the server when running in the foreground
+
 
 ## Community activities
 The [Clojurians Zulip CLI](https://gitlab.com/clojurians-zulip/feeds/-/blob/master/README.md#announce-an-event) provides a simple way to register community events.
