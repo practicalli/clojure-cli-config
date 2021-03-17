@@ -248,7 +248,7 @@
   ;; cd ~/.clojure && clojure -M:project/outdated
   :project/outdated
   {:replace-paths []
-   :replace-deps  {antq/antq {:mvn/version "0.12.0"}}
+   :replace-deps  {com.github.liquidz/antq {:mvn/version "0.12.1"}}
    :main-opts     ["-m" "antq.core"]}
 
   :hack/antq

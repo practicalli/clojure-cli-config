@@ -2,6 +2,15 @@
 
 * Unreleased
 
+* 2021-03-17
+  Minor fix for antq
+
+  | :name     | :current  | :latest                 |
+  |-----------+-----------+-------------------------|
+  | antq/antq | antq/antq | com.github.liquidz/antq |
+  | antq/antq | 0.12.0    | 0.12.1                  |
+
+
 * 2021-03-16
   Library version updates
 
