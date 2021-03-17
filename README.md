@@ -174,12 +174,12 @@ clojure -M:project/new luminus practicalli/full-stack-app +http-kit +h2 +reagent
 ```
 
 Create a new project (Edn command line arguments - recommended approach)
-| Command                                                                                   | Description                                          |
-|-------------------------------------------------------------------------------------------|------------------------------------------------------|
-| `clojure -X:project/new`                                                                  | library project called playground                    |
-| `clojure -X:project/new :name practicalli/my-library`                                     | library project with given name                      |
-| `clojure -X:project/new :template app :name practicalli/my-application`                   | App project with given name                          |
-| `clojure -X:project/new :template luminus :name practicalli/full-stack-app +http-kit +h2` | Luminus project with given name and template options |
+| Command                                                                                                | Description                                          |
+|--------------------------------------------------------------------------------------------------------|------------------------------------------------------|
+| `clojure -X:project/new`                                                                               | library project called playground                    |
+| `clojure -X:project/new :name practicalli/my-library`                                                  | library project with given name                      |
+| `clojure -X:project/new :template app :name practicalli/my-application`                                | App project with given name                          |
+| `clojure -X:project/new :template luminus :name practicalli/full-stack-app :args '["+http-kit" "+h2"]` | Luminus project with given name and template options |
 
 ### Running projects
 
