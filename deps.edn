@@ -248,7 +248,8 @@
   ;; cd ~/.clojure && clojure -M:project/outdated
   :project/outdated
   {:replace-paths []
-   :replace-deps  {com.github.liquidz/antq {:mvn/version "0.12.1"}}
+   :replace-deps  {com.github.liquidz/antq {:mvn/version "0.12.2"}
+                   org.slf4j/slf4j-nop     {:mvn/version "RELEASE"}}
    :main-opts     ["-m" "antq.core"]}
 
   :hack/antq
@@ -270,7 +271,7 @@
   :project/unused
   {:extra-deps {borkdude/carve
                 {:git/url "https://github.com/borkdude/carve"
-                 :sha     "c0f68129e37a8bae06225e8cd09075911af0d9a3"}}
+                 :sha     "f499f65e36e02484609f01ce891f3c0207b24444"}}
    :main-opts  ["-m" "carve.main"]}
 
 
@@ -289,7 +290,7 @@
   ;; clojure -X:project/jar :main-class domain.application
   ;; clojure -X:project/jar :jar '"project-name.jar"' :main-class domain.application
   :project/jar
-  {:replace-deps {com.github.seancorfield/depstar {:mvn/version "2.0.193"}}
+  {:replace-deps {com.github.seancorfield/depstar {:mvn/version "2.0.206"}}
    :exec-fn      hf.depstar/jar
    :exec-args    {:jar "project.jar"
                   :aot true}}
@@ -298,28 +299,10 @@
   ;; clojure -X:project/uberjar :main-class domain.application
   ;; clojure -X:project/uberjar :jar '"project-name.jar"' :main-class domain.application
   :project/uberjar
-  {:replace-deps {com.github.seancorfield/depstar {:mvn/version "2.0.193"}}
+  {:replace-deps {com.github.seancorfield/depstar {:mvn/version "2.0.206"}}
    :exec-fn      hf.depstar/uberjar
    :exec-args    {:jar "uber.jar"
                   :aot true}}
-
-
-  ;; Depstar changed between version 1.x and 2.x
-  ;; - changed version 1.x aliases to -classic for legacy use
-  ;; - these aliases will be removed in a few months
-  :project/jar-classic
-  {:extra-deps {seancorfield/depstar {:mvn/version "1.1.136"}}
-   :exec-fn    hf.depstar/jar
-   :exec-args  {:jar        "project.jar"
-                :aot        true
-                :main-class project.core}}
-
-  :project/uberjar-classic
-  {:extra-deps {seancorfield/depstar {:mvn/version "1.1.136"}}
-   :exec-fn    hf.depstar/uberjar
-   :exec-args  {:jar        "uber.jar"
-                :aot        true
-                :main-class project.core}}
 
 
   ;; uberdeps - uberjar builder
@@ -651,7 +634,7 @@
   :lib/spec2
   {:extra-deps {org.clojure/spec-alpha2
                 {:git/url "https://github.com/clojure/spec-alpha2"
-                 :sha     "6a5889b3c12e645147b9af8661908c1d54f685bd"}}}
+                 :sha     "9118b766b3fd8451995182264f3b2eb04d7a1167"}}}
 
 
   ;; End of Clojure Specifications

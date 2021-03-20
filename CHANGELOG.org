@@ -5,6 +5,21 @@
 * 2021-03-20
   Fixed copy-paste error for :project/uberjar and :project/jar aliases when changing fully qualified name of depstar
 
+  Add ~org.slf4j/slf4j-nop~ library to ~:project/antq~ to [[https://github.com/liquidz/antq/blob/main/doc/avoid-slf4j-warnings.adoc][suppress SLF4J warnings]]
+
+  Remove depstar 1.x versions and only using version 2.x
+
+  Library updates reported by ~:project/outdated~
+
+  | :name                           |                                 :current |                                  :latest |
+  |---------------------------------+------------------------------------------+------------------------------------------|
+  | borkdude/carve                  | c0f68129e37a8bae06225e8cd09075911af0d9a3 | f499f65e36e02484609f01ce891f3c0207b24444 |
+  | com.github.liquidz/antq         |                                   0.12.1 |                                   0.12.2 |
+  | com.github.seancorfield/depstar |                                  2.0.193 |                                  2.0.206 |
+  | org.clojure/data.json           |                                    1.1.0 |                                    2.0.1 |
+  | org.clojure/spec-alpha2         | 6a5889b3c12e645147b9af8661908c1d54f685bd | 9118b766b3fd8451995182264f3b2eb04d7a1167 |
+
+
 * 2021-03-17
   Minor fix for antq
 
