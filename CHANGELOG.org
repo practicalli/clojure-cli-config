@@ -2,6 +2,9 @@
 
 * Unreleased
 
+* 2021-03-20
+  Fixed copy-paste error for :project/uberjar and :project/jar aliases when changing fully qualified name of depstar
+
 * 2021-03-17
   Minor fix for antq
 
