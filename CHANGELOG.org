@@ -2,6 +2,17 @@
 
 * Unreleased
 
+* 2021-03-28
+  Library version updates
+
+  | :name                 |                                 :current |                                  :latest |
+  |-----------------------+------------------------------------------+------------------------------------------|
+  | athos/clj-check       | cd1f25456de5eebda0a69602dd3445905382b3a4 | 518d5a1cbfcd7c952f548e6dbfcb9a4a5faf9062 |
+  | org.clojure/data.json |                                    1.1.0 |                                    2.0.2 |
+  | vlaaad/reveal         |                                  1.3.196 |                                  1.3.199 |
+
+
+
 * 2021-03-20
   Fixed copy-paste error for :project/uberjar and :project/jar aliases when changing fully qualified name of depstar
 
