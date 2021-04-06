@@ -2,6 +2,24 @@
 
 * Unreleased
 
+* 2021-04-06
+  Add ~:project/calve~ and ~:project/unused-vars~ to complement the ~:project/outdated~ alias that uses carve to find unused vars in the code base.
+
+  Library version updates
+
+  | :name                           |                                 :current |                                  :latest |
+  |---------------------------------+------------------------------------------+------------------------------------------|
+  | com.github.liquidz/antq         |                                   0.12.2 |                                   0.12.4 |
+  | com.github.seancorfield/depstar |                                  2.0.206 |                                  2.0.211 |
+  | org.clojure/clojurescript       |                                 1.10.773 |                                 1.10.844 |
+  | seancorfield/clj-new            |                                  1.1.264 |                                  1.1.293 |
+
+  Available diffs:
+  - https://github.com/liquidz/antq/compare/0.12.2...0.12.4
+  - https://github.com/seancorfield/depstar/compare/v2.0.206...v2.0.211
+  - https://github.com/seancorfield/clj-new/compare/v1.1.264...v1.1.293
+
+
 * 2021-03-28
   Library version updates
 

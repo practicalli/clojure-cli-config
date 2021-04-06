@@ -221,6 +221,23 @@ Then the project can be run using `clojure -X:project/run` and arguments can opt
 | `clojure -M:project/outdated-mvn`                    | check for newer dependencies (maven only)                            |
 
 
+## Project analysis
+[Carve](https://github.com/borkdude/carve) - static analysis of code (clj-kondo) and remove or report unused vars
+
+* [`:project/carve`](https://github.com/borkdude/carve.git) - remove / report unused vars
+* [`:project/unused`](https://github.com/borkdude/carve.git) - alternative alias name for :project/carve
+* [`:project/unused-vars`](https://github.com/borkdude/carve.git) - alternative alias name for :project/carve
+
+| Command                                                                               | Description                                    |
+|---------------------------------------------------------------------------------------|------------------------------------------------|
+| `clojure -M:project/unused --opts '{:paths ["src" "test"]}'`                          | remove unused vars from the src and test paths |
+| `clojure -M:project/unused --opts '{:paths ["src" "test"] :report {:format :text}} '` | report unused vars from the src and test paths |
+
+Generate report in a file:
+```shell
+clojure -M:project/unused --opts '{:paths ["src" "test"] :report {:format :ignore}}' > .carve/ignore
+```
+
 ### Project packaging
 Build a project archive file for deployment
 
