@@ -39,30 +39,64 @@
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; REPL experience
 
-  ;; Rebel Readline
+  ;; Built-in Clojure REPL
+  ;; Run interactive REPL with nREPL connection
+  ;; NOTE: For non-interactive REPL session, use :middleware versions
+
+  ;; Simple nREPL server with no additional libraries
+  :repl/nrepl
+  {:extra-deps {nrepl/nrepl                {:mvn/version "0.8.3"}}
+   :main-opts  ["-m" "nrepl.cmdline"]}
+
+  ;; Run an interactive Clojure REPL with nREPL connection and CIDER libraries
+  ;; clojure -M:repl/nrepl
+  :repl/cider
+  {:extra-deps {nrepl/nrepl                {:mvn/version "0.8.3"}
+                cider/cider-nrepl          {:mvn/version "0.25.9"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[cider.nrepl/cider-middleware]"
+                "-i"]}
+
+  :repl/cider-refactor
+  {:extra-deps {nrepl/nrepl                   {:mvn/version "0.8.3"}
+                cider/cider-nrepl             {:mvn/version "0.25.9"}
+                refactor-nrepl/refactor-nrepl {:mvn/version "2.5.1"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
+                "-i"]}
+
+
+  ;; Rebel Readline enhanced REPL UI
   ;; Clojure REPL with syntax highlighting, built in docs and a quit command `:repl/quit`
   ;; https://github.com/bhauman/rebel-readline
 
   ;; clojure -M:repl/rebel
+
+
   :repl/rebel
   {:extra-deps {com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
    :main-opts  ["-m" "rebel-readline.main"]}
 
 
-  ;; ClojureScript REPL - starts the default CLJS repl
+  ;; ClojureScript REPL - start the default CLJS repl
   ;; https://github.com/bhauman/rebel-readline/tree/master/rebel-readline-cljs
 
   ;; clojure -M:repl/rebel-cljs
+
+
   :repl/rebel-cljs
   {:extra-deps {com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}}
    :main-opts  ["-m" "rebel-readline-cljs.main"]}
 
 
   ;; rebel readline with nrepl for editor connection to REPL
-  ;; CIDER: run `cider-connect-clj` and expressions evaluated in rebel
-  ;; are also available from CIDER/Emacs/Spacemacs
+  ;; Conjure: opening a Clojure file will automatically connect to the REPL process
+  ;; CIDER: run `cider-connect-clj` and select REPL host and port
+  ;; Calva: connect to REPL command and select build tool, REPL host and port
 
   ;; clojure -M:repl/rebel-nrepl
+
+
   :repl/rebel-nrepl
   {:extra-deps {nrepl/nrepl                {:mvn/version "0.8.3"}
                 cider/cider-nrepl          {:mvn/version "0.25.9"}
@@ -72,9 +106,8 @@
                 "-i"
                 "-f" "rebel-readline.main/-main"]}
 
-
+  ;;;; Reveal - visualise data in the REPL
   ;; Run a Clojure repl with reveal and nrepl interactively
-  ;; - see :inspect/reveal* for more reveal aliases
   ;; clj -M:repl/reveal-nrepl
   :repl/reveal-nrepl
   {:extra-deps {vlaaad/reveal {:mvn/version "1.3.199"}
@@ -107,8 +140,8 @@
 
 
 
+  ;;;; Development environment
 
-  ;; Development environment
   ;; Include `dev` directory on the class path
   ;; Supports the use of `dev/user.clj` to configure REPL startup
   ;; http://practicalli.github.io/clojure/clojure-tools/configure-repl-startup.html
@@ -117,12 +150,36 @@
   :env/dev
   {:extra-paths ["dev"]}
 
+
+  ;;;; Remote REPL connection
+  ;; Connect to the nREPL server of a remote REPL
+  ;; clojure -M:repl/remote --host hostname --port 12345
+  ;; replace --host and --port values with that of remote nREPL server
+  :repl/remote
+  {:extra-deps {nrepl/nrepl {:mvn/version "0.8.3"}}
+   :main-opts ["-m" "nrepl.cmdline"
+               "--connect"]}
+
+  ;; clojure -M:repl/rebel-remote --host hostname --port 12345
+  :repl/rebel-remote
+  {:extra-deps {nrepl/nrepl                {:mvn/version "0.8.3"}
+                cider/cider-nrepl          {:mvn/version "0.25.9"}
+                com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--connect"
+                "--middleware" "[cider.nrepl/cider-middleware]"
+                "-i"
+                "-f" "rebel-readline.main/-main"]}
+
+
+
+
   ;; End of REPL experience
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;; Alternative REPLs - not tested
+  ;; Alternative REPLs - not extensively tested
 
   ;; Clojure Socket REPL on port 50505:
   ;; clojure -M:repl/socket
@@ -575,10 +632,12 @@
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Middleware
 
-  ;; - start an interactive REPL with a headless nREPL server
+  ;; - start a non-interactive REPL with a headless nREPL server
   ;; clojure -M:middleware/nrepl
+
+
   :middleware/nrepl {:extra-deps {nrepl/nrepl {:mvn/version "0.8.3"}}
-                     :main-opts  ["-m" "nrepl.cmdline" "-i"]}
+                     :main-opts  ["-m" "nrepl.cmdline"]}
 
   ;; Run a REPL using nREPL server for access by cider-connect-clj
   ;; clojure -M:middleware/cider-clj

@@ -16,7 +16,7 @@ The **[Practicalli Clojure book](https://practicalli.github.io/clojure/clojure-t
 * [Updating practicalli/clojure-deps-edn](#updating-practicalli-clojure-deps-edn)
 * [Common development tasks](#common-development-tasks)
 * [Aliases](#aliases)
-    * [REPL experience](#repl-experience) | [Alternative REPLs](#alternative-repls) | [Projects](#clojure-projects) | [Java sources](#java-sources) | [Databases](#databases-and-drivers) | [Data Inspectors](#data-inspectors) | [Middleware](#middleware) | [Clojure Spec](#clojure-specification) | [Unit Testing](#unit-testing-frameworks) | [Test runners](#test-runners-and-test-coverage-tools) | [Lint tools](#lint-tools) | [Visualize vars and deps](#visualizing-project-vars-and-library-dependencies) | [Performance testing](#performance-testing) | [Serices](#services)
+    * [REPL Terminal UI](#repl-terminal-ui) | [REPL with Editor](#repl-with-editor) | [Remote REPL Connection](#remote-repl-connection) | [Alternative REPLs](#alternative-repls) | [Projects](#clojure-projects) | [Java sources](#java-sources) | [Databases](#databases-and-drivers) | [Data Inspectors](#data-inspectors) | [Middleware](#middleware) | [Clojure Spec](#clojure-specification) | [Unit Testing](#unit-testing-frameworks) | [Test runners](#test-runners-and-test-coverage-tools) | [Lint tools](#lint-tools) | [Visualize vars and deps](#visualizing-project-vars-and-library-dependencies) | [Performance testing](#performance-testing) | [Serices](#services)
 * [Library repositories](#library-repositories)
 * [Experimental](#experimental)
 
@@ -117,28 +117,46 @@ Aliases provide additional configuration when running a REPL, an application or 
 * path = `:path`, `:extra-paths`, `replace-paths`
 
 
-## REPL experience
-[Rebel readline](https://github.com/bhauman/rebel-readline) provides a feature rich REPL experience, far beyond the basic `clojure` and `clj` commands.
+## REPL terminal UI
+Run an interactive REPL on the command line with the simple REPL UI or [Rebel readline](https://github.com/bhauman/rebel-readline) for a feature rich REPL experience.
+nREPL server is started by default, so that editors and other command line sessions can connect to the same REPL.
 
-* `repl/rebel` - run a Clojure REPL
-* `repl/rebel-cljs` - run the default ClojureScript REPL
-* `repl/rebel-nrepl` - run rebel REPL with nrepl connection for editor connections (eg. CIDER, Calva)
-* `repl/reveal-nrepl` - run terminal UI REPL, Reveal data visualization, with nrepl connection for editor connections (eg. CIDER, Calva, Conjure)
-* `repl/reveal-light-nrepl` - as above with light theme
-* `:env/dev` include `dev/` in classpath to [configure REPL startup actions using `dev/user.clj`](http://practicalli.github.io/clojure/clojure-tools/configure-repl-startup.html)
+See [Middleware aliases](#middleware) to run a headless REPL process without a REPL UI
+
+Use the `:env/dev` alias with the :repl aliases to include `dev/` in classpath and [configure REPL startup actions using `dev/user.clj`](http://practicalli.github.io/clojure/clojure-tools/configure-repl-startup.html)
 
 | Command                            | Description                                                                                                    |
 |------------------------------------|----------------------------------------------------------------------------------------------------------------|
 | `clojure -M:repl/rebel`            | Run a Clojure REPL using Rebel Readline                                                                        |
-| `clojure -M:alias:repl/rebel`      | Run a Clojure REPL using Rebel Readline, including deps and path from alias                                    |
 | `clojure -M:env/dev:repl/rebel`    | Run a Clojure REPL using Rebel Readline, including deps and path from `:env/dev` alias to configure REPL start |
 | `clojure -M:repl/rebel-cljs`       | Run a ClojureScript REPL using Rebel Readline                                                                  |
-| `clojure -M:alias:repl/rebel-cljs` | Run a ClojureScript REPL using Rebel Readline, including deps and path from alias                              |
+
+`:repl/help` in the Rebel UI for help and available commands.  `:repl/quit` to close the REPL.
+
+> [Data Inspectors](#data-inspectors) section defines `:inspect/reveal` alias for a Reveal REPL with visualization, along with other data visualization tools.
+
+
+## REPL with Editor
+Run an interactive REPL on the command line with the simple terminal UI, including an nREPL server and Cider libraries to support connections from Clojure editors, e.g. Conjure, CIDER and Calva.
+
+| Command                            | Description                                                                                                    |
+|------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| `clojure -M:repl/nrepl`            | Clojure REPL with nREPL server                                                                                 |
+| `clojure -M:repl/cider`            | Clojure REPL with nREPL server and Cider-nrepl (code completion, pretty print, etc.)                   |
+| `clojure -M:repl/cider-refactor`   | Clojure REPL with nREPL server, Cider-nrepl and clj-refactor
 | `clj -M:repl/reveal-nrepl`         | Run a Clojure REPL with Reveal data visualization and nREPL interactively                                     |
 | `clj -M:repl/reveal-light-nrepl`   | Run a Clojure REPL with Reveal data visualization (light theme) and nREPL interactively                        |
 
 
-`:repl/help` in the REPL for help and available commands.  `:repl/quit` to close the REPL.
+## Remote REPL connection
+Connect to the nREPL server of a remote REPL using nREPL connect, using a simple terminal UI
+
+`clj -M:repl/remote --host hostname --port 12345`
+
+As above but using the enhanced Rebel Readline UI
+
+`clj -M:repl/rebel-remote --host hostname --port 12345`
+
 
 
 ## Alternative REPLs

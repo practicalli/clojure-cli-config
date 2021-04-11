@@ -2,6 +2,17 @@
 
 * Unreleased
 
+* 2021-04-11
+  Add aliases for more REPL options, with nREPL server and client.  Separated REPL into REPL terminal UI, REPL with Editor and Remote REPL connection
+
+  New aliases:
+  - :repl/nrepl - Clojure REPL with nREPL server
+  - :repl/cider - Clojure REPL with nREPL server and Cider-nrepl (code completion, pretty print, etc.)
+  - :repl/cider - as above with clj-refactor
+  - :repl/remote - simple terminal UI nREPL client for a remote REPL
+  - :repl/rebel-remote - as above with Rebel Readline UI
+
+
 * 2021-04-06
   Add ~:project/calve~ and ~:project/unused-vars~ to complement the ~:project/outdated~ alias that uses carve to find unused vars in the code base.
 
