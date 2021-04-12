@@ -61,10 +61,11 @@ See the rest of this readme for examples of how to use each alias this configura
 # Updating Practicalli clojure-deps-edn
 The collection of aliases is regularly reviewed and expanded upon and suggestions are most welcome.
 
-The versions of libraries are manually updated at least once per month using the `:outdated` alias and a new version of the `deps.edn` file pushed to this repository.
+The versions of libraries are manually updated at least once per month using the `:outdated` alias and a new version of the `deps.edn` file pushed to this repository.  The antq project is used to report new library versions, sent to an org file which is then used to update the changelog.
+
 ```shell
 cd ~/.clojure/
-clojure -M:project/outdated
+clojure -M:project/outdated > outdated.org
 ```
 
 # Common development tasks
@@ -186,12 +187,12 @@ PREPL is a REPL with structured output.  See [Cloure socket prepl cookbook](http
 ### Create new projects from templates
 * `:project/new` - create a new project from a template
 
-Create a new project (via clojure.main - classic approach)
+Create a new project (via clojure.main - classic approach - recommended for Windows to ensure template arguments are parsed correctly)
 ```shell
 clojure -M:project/new luminus practicalli/full-stack-app +http-kit +h2 +reagent +auth
 ```
 
-Create a new project (Edn command line arguments - recommended approach)
+Create a new project (Edn command line arguments - recommended approach - except for Windows)
 | Command                                                                                                 | Description                                          |
 |---------------------------------------------------------------------------------------------------------|------------------------------------------------------|
 | `clojure -X:project/new`                                                                                | library project called playground                    |
