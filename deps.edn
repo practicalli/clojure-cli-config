@@ -295,8 +295,6 @@
   ;; cd project-directory && clojure -M:project/outdated
   ;; - update library versions in this deps.edn file:
   ;; cd ~/.clojure && clojure -M:project/outdated
-
-
   :project/outdated
   {:replace-paths []
    :replace-deps  {com.github.liquidz/antq {:mvn/version "0.12.4"}
