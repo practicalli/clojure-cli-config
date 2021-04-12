@@ -37,13 +37,13 @@
  {
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;; REPL experience
+  ;; REPL and nREPL connections
 
   ;; Built-in Clojure REPL
   ;; Run interactive REPL with nREPL connection
   ;; NOTE: For non-interactive REPL session, use :middleware versions
 
-  ;; Simple nREPL server with no additional libraries
+  ;;;; Simple nREPL server with no additional libraries
   :repl/nrepl
   {:extra-deps {nrepl/nrepl                {:mvn/version "0.8.3"}}
    :main-opts  ["-m" "nrepl.cmdline"]}
@@ -66,13 +66,11 @@
                 "-i"]}
 
 
-  ;; Rebel Readline enhanced REPL UI
+  ;;;; Rebel Readline enhanced REPL UI
   ;; Clojure REPL with syntax highlighting, built in docs and a quit command `:repl/quit`
   ;; https://github.com/bhauman/rebel-readline
 
   ;; clojure -M:repl/rebel
-
-
   :repl/rebel
   {:extra-deps {com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
    :main-opts  ["-m" "rebel-readline.main"]}
@@ -82,8 +80,6 @@
   ;; https://github.com/bhauman/rebel-readline/tree/master/rebel-readline-cljs
 
   ;; clojure -M:repl/rebel-cljs
-
-
   :repl/rebel-cljs
   {:extra-deps {com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}}
    :main-opts  ["-m" "rebel-readline-cljs.main"]}
@@ -95,8 +91,6 @@
   ;; Calva: connect to REPL command and select build tool, REPL host and port
 
   ;; clojure -M:repl/rebel-nrepl
-
-
   :repl/rebel-nrepl
   {:extra-deps {nrepl/nrepl                {:mvn/version "0.8.3"}
                 cider/cider-nrepl          {:mvn/version "0.25.9"}
@@ -172,9 +166,7 @@
                 "-f" "rebel-readline.main/-main"]}
 
 
-
-
-  ;; End of REPL experience
+  ;; End of REPL and nREPL connections
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -346,7 +338,6 @@
    :main-opts  ["-m" "carve.main"]}
 
 
-
   ;; End of: Projects and dependencies
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -442,9 +433,6 @@
 
   ;; End of Project Deployment
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
-
 
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
