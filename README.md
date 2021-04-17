@@ -531,6 +531,7 @@ Run clojure with the specific test runner alias: `clojure -A:test-runner-alias`
 | `clojure -M:env/test:test/kaocha-cloverage` | Kaocha - comprehensive test runner with test coverage reporting                            |
 | `clojure -M:test/midje`                     | Midje test runner for BDD style tests                                                      |
 | `clojure -M:test/eftest`                    | Fast Clojure test runner, pretty output, parallel tests                                    |
+| `clojure -M:test/eftest-sequential`         | Fast Clojure test runner, pretty output with test run sequential
 | `clojure -M:test/coverage`                  | Cloverage clojure.test coverage report                                                     |
 | `clojure -X:test/coverage`                  | Cloverage clojure.test coverage report (clojure exec)                                      |
 

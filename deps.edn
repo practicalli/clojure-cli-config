@@ -841,6 +841,13 @@
    :extra-deps  {eftest/eftest {:mvn/version "0.5.9"}}
    :main-opts   ["-e"  "(require,'[eftest.runner,:refer,[find-tests,run-tests]]),(run-tests,(find-tests,\"test\"))"]}
 
+  ;; clojure -M:test/eftest
+  :test/eftest-sequential
+  {:extra-paths ["test"]
+   :extra-deps  {eftest/eftest {:mvn/version "0.5.9"}}
+   :main-opts   ["-e"  "(require,'[eftest.runner,:refer,[find-tests,run-tests]]),(run-tests,(find-tests,\"test\"){:multithread?,false})"]}
+
+
   ;; End of Test runners
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
