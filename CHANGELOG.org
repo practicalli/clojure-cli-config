@@ -2,6 +2,27 @@
 
 * Unreleased
 
+* 2021-04-17
+  Add ~:test/eftest-sequential~ to run unit tests sequentially with eftest (which defaults to parrallel running of unit tests)
+
+  Library version updates from :project/outdated
+
+  | :name                           |                                 :current |                                  :latest |
+  |---------------------------------+------------------------------------------+------------------------------------------|
+  | com.github.liquidz/antq         |                                   0.12.4 |                                   0.13.0 |
+  | com.github.seancorfield/depstar |                                  2.0.211 |                                  2.0.216 |
+  | djblue/portal                   |                                   0.10.0 |                                   0.11.0 |
+  | org.clojure/data.json           |                                    2.1.0 |                                    2.2.0 |
+  | org.clojure/spec-alpha2         | 9118b766b3fd8451995182264f3b2eb04d7a1167 | c087ded910b3532a938b37e853df79fc3b9c48c1 |
+
+  Available diffs:
+  - https://github.com/liquidz/antq/compare/0.12.4...0.13.0
+  - https://github.com/seancorfield/depstar/compare/v2.0.211...v2.0.216
+  - https://github.com/djblue/portal/compare/0.10.0...0.11.0
+  - https://github.com/clojure/data.json/compare/data.json-2.1.0...v2.2.0
+  - https://github.com/clojure/spec-alpha2/compare/9118b766b3fd8451995182264f3b2eb04d7a1167...c087ded910b3532a938b37e853df79fc3b9c48c1
+
+
 * 2021-04-14
   Library version updates
 
