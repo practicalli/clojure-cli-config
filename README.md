@@ -508,17 +508,6 @@ Tools to run unit tests in a project which are defined under `test` path.
 
 Run clojure with the specific test runner alias: `clojure -A:test-runner-alias`
 
-* [`:test/cognitect`](https://github.com/cognitect-labs/test-runner) - Cognitect test-runner
-* [`:test/cljs`](https://github.com/Olical/cljs-test-runner) - test runner for Clojure/Script
-* [`:test/kaocha`](https://github.com/lambdaisland/kaocha) - comprehensive test runner for Clojure
-* [`:test/kaocha-cljs`](https://github.com/lambdaisland/kaocha) - comprehensive test runner for ClojureScript
-* [`:test/kaocha-cucumber`](https://github.com/lambdaisland/kaocha-cucumber) - comprehensive test runner with BDD Cucumber tests
-* [`:test/kaocha-junit-xml`](https://github.com/lambdaisland/kaocha) - comprehensive test runner with Junit XML reporting for CI dashboards and wallboards
-* [`:test-runner/kaocha-cljs`](https://github.com/lambdaisland/kaocha) - comprehensive test runner with test coverage
-* [`:test-runner/midje`	](https://github.com/miorimmax/midje-runner) - runner for midje and clojure.test tests
-* [`:test-runner/eftest`](https://github.com/weavejester/eftest) - fast and pretty test runner
-* [:test-runner/coverage](https://github.com/cloverage/cloverage) - simple clojure coverage tool for `clojure.test` defined unit tests.
-
 | Command                                     | Description                                                                                |
 |---------------------------------------------|--------------------------------------------------------------------------------------------|
 | `clojure -M:test/cognitect`                 | Cognitect Clojure test runner                                                              |
@@ -534,6 +523,8 @@ Run clojure with the specific test runner alias: `clojure -A:test-runner-alias`
 | `clojure -M:test/eftest-sequential`         | Fast Clojure test runner, pretty output with test run sequential
 | `clojure -M:test/coverage`                  | Cloverage clojure.test coverage report                                                     |
 | `clojure -X:test/coverage`                  | Cloverage clojure.test coverage report (clojure exec)                                      |
+
+> Use a `test.edn` [configuration file](https://cljdoc.org/d/lambdaisland/kaocha/1.0.829/doc/3-configuration) with kaocha aliases will mean only test/kaocha and :test/kaocha-cljs aliases are needed.
 
 #### Compiling tests before running - automate Ahead of Time compilation
 Use one of the test runner alias and over-ride the :main-opts on the command line
