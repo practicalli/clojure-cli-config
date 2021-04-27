@@ -52,14 +52,14 @@
   ;; clojure -M:repl/nrepl
   :repl/cider
   {:extra-deps {nrepl/nrepl                {:mvn/version "0.8.3"}
-                cider/cider-nrepl          {:mvn/version "0.25.11"}}
+                cider/cider-nrepl          {:mvn/version "0.26.0"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware]"
                 "-i"]}
 
   :repl/cider-refactor
   {:extra-deps {nrepl/nrepl                   {:mvn/version "0.8.3"}
-                cider/cider-nrepl             {:mvn/version "0.25.11"}
+                cider/cider-nrepl             {:mvn/version "0.26.0"}
                 refactor-nrepl/refactor-nrepl {:mvn/version "2.5.1"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
@@ -93,7 +93,7 @@
   ;; clojure -M:repl/rebel-nrepl
   :repl/rebel-nrepl
   {:extra-deps {nrepl/nrepl                {:mvn/version "0.8.3"}
-                cider/cider-nrepl          {:mvn/version "0.25.11"}
+                cider/cider-nrepl          {:mvn/version "0.26.0"}
                 com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware]"
@@ -104,7 +104,7 @@
   ;; Run a Clojure repl with reveal and nrepl interactively
   ;; clj -M:repl/reveal-nrepl
   :repl/reveal-nrepl
-  {:extra-deps {vlaaad/reveal {:mvn/version "1.3.206"}
+  {:extra-deps {vlaaad/reveal {:mvn/version "1.3.209"}
                 nrepl/nrepl   {:mvn/version "0.8.3"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[vlaaad.reveal.nrepl/middleware]"
@@ -114,7 +114,7 @@
   ;; Replace font-family with local font (should be slightly faster startup)
   ;; clj -M:repl/reveal-light-nrepl
   :repl/reveal-light-nrepl
-  {:extra-deps {vlaaad/reveal {:mvn/version "1.3.206"}
+  {:extra-deps {vlaaad/reveal {:mvn/version "1.3.209"}
                 nrepl/nrepl   {:mvn/version "0.8.3"}}
    :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
    :main-opts  ["-m" "nrepl.cmdline"
@@ -126,7 +126,7 @@
   ;; clojure -M:repl/rebel-reveal
   :repl/rebel-reveal
   {:extra-deps
-   {vlaaad/reveal              {:mvn/version "1.3.206"}
+   {vlaaad/reveal              {:mvn/version "1.3.209"}
     com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
    :jvm-opts  ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
    :main-opts ["-e" "(require,'rebel-readline.core),(require,'rebel-readline.clojure.line-reader),(require,'rebel-readline.clojure.service.local),(require,'rebel-readline.clojure.main),(require,'vlaaad.reveal)(rebel-readline.core/with-line-reader,(rebel-readline.clojure.line-reader/create,(rebel-readline.clojure.service.local/create)),(vlaaad.reveal/repl,:prompt,(fn,[]),:read,(rebel-readline.clojure.main/create-repl-read)))"]
@@ -157,7 +157,7 @@
   ;; clojure -M:repl/rebel-remote --host hostname --port 12345
   :repl/rebel-remote
   {:extra-deps {nrepl/nrepl                {:mvn/version "0.8.3"}
-                cider/cider-nrepl          {:mvn/version "0.25.11"}
+                cider/cider-nrepl          {:mvn/version "0.26.0"}
                 com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--connect"
@@ -473,15 +473,15 @@
   ;; https://github.com/djblue/portal
 
   :inspect/portal-cli
-  {:extra-deps {djblue/portal {:mvn/version "0.11.0"}}}
+  {:extra-deps {djblue/portal {:mvn/version "0.11.1"}}}
 
   :inspect/portal-web
-  {:extra-deps {djblue/portal             {:mvn/version "0.11.0"}
+  {:extra-deps {djblue/portal             {:mvn/version "0.11.1"}
                 org.clojure/clojurescript {:mvn/version "1.10.844"}}
    :main-opts  ["-m" "cljs.main"]}
 
   :inspect/portal-node
-  {:extra-deps {djblue/portal             {:mvn/version "0.11.0"}
+  {:extra-deps {djblue/portal             {:mvn/version "0.11.1"}
                 org.clojure/clojurescript {:mvn/version "1.10.844"}}
    :main-opts  ["-m" "cljs.main" "-re" "node"]}
 
@@ -496,7 +496,7 @@
 
   :inspect/rebl
   {:extra-deps {com.cognitect/rebl          {:mvn/version "0.9.241"}
-                org.clojure/core.async      {:mvn/version "1.3.610"}
+                org.clojure/core.async      {:mvn/version "1.3.618"}
                 org.openjfx/javafx-fxml     {:mvn/version "11.0.1"}
                 org.openjfx/javafx-controls {:mvn/version "11.0.1"}
                 org.openjfx/javafx-swing    {:mvn/version "11.0.1"}
@@ -525,13 +525,13 @@
   ;; clojure -M:inspect/reveal:rebel -J-Dvlaaad.reveal.prefs='{:theme :light :font-family "Ubuntu Mono" :font-size 32}'
 
   :inspect/reveal
-  {:extra-deps {vlaaad/reveal {:mvn/version "1.3.206"}}
+  {:extra-deps {vlaaad/reveal {:mvn/version "1.3.209"}}
    :ns-default vlaaad.reveal
    :exec-fn    repl
    :main-opts  ["-m" "vlaaad.reveal" "repl"]}
 
   :inspect/reveal-light
-  {:extra-deps {vlaaad/reveal {:mvn/version "1.3.206"}}
+  {:extra-deps {vlaaad/reveal {:mvn/version "1.3.209"}}
    :ns-default vlaaad.reveal
    :exec-fn    repl
    :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
@@ -542,14 +542,14 @@
   ;; clojure -M:inspect/reveal-rebel
   :inspect/reveal-rebel
   {:extra-deps
-   {vlaaad/reveal              {:mvn/version "1.3.206"}
+   {vlaaad/reveal              {:mvn/version "1.3.209"}
     com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
    :main-opts ["-e" "(require,'rebel-readline.core),(require,'rebel-readline.clojure.line-reader),(require,'rebel-readline.clojure.service.local),(require,'rebel-readline.clojure.main),(require,'vlaaad.reveal)(rebel-readline.core/with-line-reader,(rebel-readline.clojure.line-reader/create,(rebel-readline.clojure.service.local/create)),(vlaaad.reveal/repl,:prompt,(fn,[]),:read,(rebel-readline.clojure.main/create-repl-read)))"]}
 
   ;; clojure -M:inspect/reveal-light-rebel
   :inspect/reveal-light-rebel
   {:extra-deps
-   {vlaaad/reveal              {:mvn/version "1.3.206"}
+   {vlaaad/reveal              {:mvn/version "1.3.209"}
     com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
    :jvm-opts  ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
    :main-opts ["-e" "(require,'rebel-readline.core),(require,'rebel-readline.clojure.line-reader),(require,'rebel-readline.clojure.service.local),(require,'rebel-readline.clojure.main),(require,'vlaaad.reveal)(rebel-readline.core/with-line-reader,(rebel-readline.clojure.line-reader/create,(rebel-readline.clojure.service.local/create)),(vlaaad.reveal/repl,:prompt,(fn,[]),:read,(rebel-readline.clojure.main/create-repl-read)))"]}
@@ -558,8 +558,8 @@
   ;; It does send tap> results to Reveal
   ;; :repl/reveal-rebel-nrepl
   ;; {:extra-deps {nrepl/nrepl                {:mvn/version "0.8.3"}
-  ;;               cider/cider-nrepl          {:mvn/version "0.25.11"}
-  ;;               vlaaad/reveal              {:mvn/version "1.3.206"}
+  ;;               cider/cider-nrepl          {:mvn/version "0.26.0"}
+  ;;               vlaaad/reveal              {:mvn/version "1.3.209"}
   ;;               com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
   ;;  :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
   ;;  :main-opts  ["-m" "nrepl.cmdline"
@@ -575,14 +575,14 @@
   ;; Reveal REPL with nrepl server, connect to from a Clojure aware editor
   ;; clj -M:inspect/reveal-nrepl
   :inspect/reveal-nrepl
-  {:extra-deps {vlaaad/reveal {:mvn/version "1.3.206"}
+  {:extra-deps {vlaaad/reveal {:mvn/version "1.3.209"}
                 nrepl/nrepl   {:mvn/version "0.8.3"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[vlaaad.reveal.nrepl/middleware]"]}
 
   ;; Light version of :inspect/reveal-nrepl
   :inspect/reveal-light-nrepl
-  {:extra-deps {vlaaad/reveal {:mvn/version "1.3.206"}
+  {:extra-deps {vlaaad/reveal {:mvn/version "1.3.209"}
                 nrepl/nrepl   {:mvn/version "0.8.3"}}
    :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
    :main-opts  ["-m" "nrepl.cmdline"
@@ -592,18 +592,18 @@
   ;; Use with `C-u cider-jack-in-clj` or `SPC u , '` on Spacemacs
   ;; Edit jack-in command: clojure -M:inspect/reveal-nrepl-cider
   :inspect/reveal-nrepl-cider
-  {:extra-deps {vlaaad/reveal                 {:mvn/version "1.3.206"}
+  {:extra-deps {vlaaad/reveal                 {:mvn/version "1.3.209"}
                 nrepl/nrepl                   {:mvn/version "0.8.3"}
-                cider/cider-nrepl             {:mvn/version "0.25.11"}
+                cider/cider-nrepl             {:mvn/version "0.26.0"}
                 refactor-nrepl/refactor-nrepl {:mvn/version "2.5.1"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[vlaaad.reveal.nrepl/middleware,refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"]}
 
   ;; Light version of :inspect/reveal-nrepl-cider
   :inspect/reveal-light-nrepl-cider
-  {:extra-deps {vlaaad/reveal                 {:mvn/version "1.3.206"}
+  {:extra-deps {vlaaad/reveal                 {:mvn/version "1.3.209"}
                 nrepl/nrepl                   {:mvn/version "0.8.3"}
-                cider/cider-nrepl             {:mvn/version "0.25.11"}
+                cider/cider-nrepl             {:mvn/version "0.26.0"}
                 refactor-nrepl/refactor-nrepl {:mvn/version "2.5.1"}}
    :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
    :main-opts  ["-m" "nrepl.cmdline"
@@ -629,14 +629,14 @@
   ;; clojure -M:middleware/cider-clj
   :middleware/cider-clj
   {:extra-deps {nrepl/nrepl       {:mvn/version "0.8.3"}
-                cider/cider-nrepl {:mvn/version "0.25.11"}}
+                cider/cider-nrepl {:mvn/version "0.26.0"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware]"]}
 
   :middleware/cider-clj-refactor
   {:extra-deps {nrepl/nrepl                   {:mvn/version "0.8.3"}
                 refactor-nrepl/refactor-nrepl {:mvn/version "2.5.1"}
-                cider/cider-nrepl             {:mvn/version "0.25.11"}}
+                cider/cider-nrepl             {:mvn/version "0.26.0"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"]}
 
@@ -646,7 +646,7 @@
   :middleware/cider-cljs
   {:extra-deps {org.clojure/clojurescript {:mvn/version "1.10.773"}
                 nrepl/nrepl               {:mvn/version "0.8.3"}
-                cider/cider-nrepl         {:mvn/version "0.25.11"}
+                cider/cider-nrepl         {:mvn/version "0.26.0"}
                 cider/piggieback          {:mvn/version "0.5.2"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}
@@ -670,7 +670,7 @@
 
   :lib/cider-nrepl
   {:extra-deps {nrepl/nrepl                   {:mvn/version "0.8.3"}
-                cider/cider-nrepl             {:mvn/version "0.25.11"}
+                cider/cider-nrepl             {:mvn/version "0.26.0"}
                 refactor-nrepl/refactor-nrepl {:mvn/version "2.5.1"}}}
 
 
