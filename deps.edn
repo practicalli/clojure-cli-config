@@ -10,6 +10,14 @@
 ;; Only the last :paths is kept and others are dropped.
 ;; In an :alias, only the last :main-opts is kept and others are dropped.
 
+;;;; Top level keys include
+;; :paths
+;; :aliases
+;; :mvn/repositories
+;; :mvn/local-repo
+
+;; Everything else should be defined within :aliases
+
 {
 
  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
