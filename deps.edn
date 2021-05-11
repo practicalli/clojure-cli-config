@@ -467,7 +467,7 @@
   ;; H2 embedded database
   :database/h2
   {:extra-deps {com.h2database/h2                 {:mvn/version "1.4.200"}
-                com.github.seancorfield/next.jdbc {:mvn/version "1.1.646"}}}
+                com.github.seancorfield/next.jdbc {:mvn/version "1.2.659"}}}
 
   ;; End of Databases and drivers uses only during development
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -481,15 +481,15 @@
   ;; https://github.com/djblue/portal
 
   :inspect/portal-cli
-  {:extra-deps {djblue/portal {:mvn/version "0.11.1"}}}
+  {:extra-deps {djblue/portal {:mvn/version "0.11.2"}}}
 
   :inspect/portal-web
-  {:extra-deps {djblue/portal             {:mvn/version "0.11.1"}
+  {:extra-deps {djblue/portal             {:mvn/version "0.11.2"}
                 org.clojure/clojurescript {:mvn/version "1.10.844"}}
    :main-opts  ["-m" "cljs.main"]}
 
   :inspect/portal-node
-  {:extra-deps {djblue/portal             {:mvn/version "0.11.1"}
+  {:extra-deps {djblue/portal             {:mvn/version "0.11.2"}
                 org.clojure/clojurescript {:mvn/version "1.10.844"}}
    :main-opts  ["-m" "cljs.main" "-re" "node"]}
 
@@ -512,7 +512,7 @@
                 org.openjfx/javafx-web      {:mvn/version "11.0.1"}
                 ;; deps for file datafication (REBL 0.9.149 or later)
                 org.clojure/data.csv        {:mvn/version "1.0.0"}
-                org.clojure/data.json       {:mvn/version "2.2.2"}
+                org.clojure/data.json       {:mvn/version "2.2.3"}
                 org.yaml/snakeyaml          {:mvn/version "1.28"}}
    :main-opts  ["-m" "cognitect.rebl"]}
 
@@ -720,11 +720,14 @@
   {:extra-paths ["test"]
    :extra-deps  {org.clojure/test.check {:mvn/version "1.1.0"}}}
 
+  :lib/ring-mock
+  {:extra-deps {ring/ring-mock         {:mvn/version "0.4.0"}}}
+
 
   ;; Expectations test framework
   ;; https://github.com/clojure-expectations/clojure-test
   ;; Example usage:
-  ;; clojure -A:expectations:test-runner-cognitect
+  ;; clojure -A:expectations:test/cognitect
 
   :lib/expectations
   {:extra-deps {expectations/clojure-test {:mvn/version "1.2.1"}}}
@@ -750,7 +753,7 @@
   {:extra-paths ["test"]
    :extra-deps  {com.cognitect/test-runner
                  {:git/url "https://github.com/cognitect-labs/test-runner.git"
-                  :sha     "b6b3193fcc42659d7e46ecd1884a228993441182"}}
+                  :sha     "2d69f33d7980c3353b246c28f72ffeafbd9f2fab"}}
    :main-opts   ["-m" "cognitect.test-runner"]}
 
   ;; Compiling tests before running - automate Ahead of Time compilation
@@ -787,7 +790,7 @@
    :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.829"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
-  ;; clojure -M:env/test:test/kaocha
+  ;; clojure -M:test/kaocha
   :test/kaocha
   {:extra-paths ["test"]
    :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.829"}}

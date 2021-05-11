@@ -1,6 +1,21 @@
 #+TITLE: Changelog
 
 * Unreleased
+  Add ~:lib/ring-mock~ alias to include mocking library for testing ring based web applications
+
+  | :name                             |                                 :current | :latest                                  |
+  |-----------------------------------+------------------------------------------+------------------------------------------|
+  | com.cognitect/test-runner         | b6b3193fcc42659d7e46ecd1884a228993441182 | 2d69f33d7980c3353b246c28f72ffeafbd9f2fab |
+  | com.github.seancorfield/next.jdbc |                                  1.1.646 | 1.2.659                                  |
+  | djblue/portal                     |                                   0.11.1 | 0.11.2                                   |
+  | org.clojure/data.json             |                                    2.2.2 | 2.2.3                                    |
+
+  Available diffs:
+  - https://github.com/cognitect-labs/test-runner/compare/b6b3193fcc42659d7e46ecd1884a228993441182...2d69f33d7980c3353b246c28f72ffeafbd9f2fab
+  - https://github.com/seancorfield/next-jdbc/compare/v1.1.646...v1.2.659
+  - https://github.com/djblue/portal/compare/0.11.1...0.11.2
+  - https://github.com/clojure/data.json/compare/v2.2.2...v2.2.3
+
 
 * 2021-04-27
   org.clojure/data.json updated to 2.2.2
