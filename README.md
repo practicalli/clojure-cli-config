@@ -199,6 +199,7 @@ Create a new project (Edn command line arguments - recommended approach - except
 | `clojure -X:project/new :name practicalli/my-library`                                                   | library project with given name                      |
 | `clojure -X:project/new :template app :name practicalli/my-application`                                 | App project with given name                          |
 | `clojure -X:project/new :template luminus :name practicalli/full-stack-app :args '["+http-kit" "+h2"]'` | Luminus project with given name and template options |
+| `clojure -X:project/new :template figwheel-main :name practicalli/landing-page :args '["--reagent"]'`   | ClojureScript Figwheel-main project with reagent     |
 
 ### Running projects
 
