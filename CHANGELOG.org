@@ -1,6 +1,14 @@
 #+TITLE: Changelog
 
 * Unreleased
+  Add ~:format/zprint~ alias to format a given Clojure data structure, similar to clojure.pprint but with more options.
+
+
+* 2021-05-17
+  Add ~:project/new~ example to generate a ClojureScript Figwheel-main project with reagent
+
+
+* 2021-05-11
   Add ~:lib/ring-mock~ alias to include mocking library for testing ring based web applications
 
   | :name                             |                                 :current | :latest                                  |

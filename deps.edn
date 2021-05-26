@@ -469,6 +469,19 @@
 
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Formatting tools
+
+  ;; pretty printing capabilities for Clojure code and EDN
+  ;; clojure -M:data/zprint filename
+  :format/zprint
+  {:extra-deps {zprint/zprint {:mvn/version "1.1.2"}}
+   :main-opts  ["-m" "zprint.main"]}
+
+  ;; End of: Data manipulation tools
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Databases and drivers uses only during development
 
   ;; H2 embedded database
