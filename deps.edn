@@ -240,14 +240,14 @@
   ;; clojure -X:project/new :template luminus :name practicalli/full-stack-app +http-kit +h2 +reagent +auth
 
   :project/new
-  {:replace-deps {seancorfield/clj-new {:mvn/version "1.1.297"}}
+  {:replace-deps {seancorfield/clj-new {:mvn/version "1.1.309"}}
    :exec-fn      clj-new/create
    :exec-args    {:template lib :name practicalli/playground}
    :main-opts    ["-m" "clj-new.create"]}
 
   ;; ALPHA status: Add 'something' to existing project (subject to change)
   :project/add
-  {:replace-deps {seancorfield/clj-new {:mvn/version "1.1.297"}}
+  {:replace-deps {seancorfield/clj-new {:mvn/version "1.1.309"}}
    :exec-fn      clj-new/generate
    :main-opts    ["-m" "clj-new.generate"]}
 
@@ -305,7 +305,7 @@
   ;; cd ~/.clojure && clojure -M:project/outdated
   :project/outdated
   {:replace-paths []
-   :replace-deps  {com.github.liquidz/antq {:mvn/version "0.13.0"}
+   :replace-deps  {com.github.liquidz/antq {:mvn/version "0.14.1"}
                    org.slf4j/slf4j-nop     {:mvn/version "RELEASE"}}
    :main-opts     ["-m" "antq.core"]}
 
@@ -328,26 +328,26 @@
   :project/unused
   {:extra-deps {borkdude/carve
                 {:git/url "https://github.com/borkdude/carve"
-                 :sha     "f499f65e36e02484609f01ce891f3c0207b24444"}}
+                 :sha     "3fcc2a900e4fa4be2c9a539c9971c60e2e921162"}}
    :main-opts  ["-m" "carve.main"]}
 
   :project/unused-vars
   {:extra-deps {borkdude/carve
                 {:git/url "https://github.com/borkdude/carve"
-                 :sha     "f499f65e36e02484609f01ce891f3c0207b24444"}}
+                 :sha     "3fcc2a900e4fa4be2c9a539c9971c60e2e921162"}}
    :main-opts  ["-m" "carve.main"]}
 
   :project/carve
   {:extra-deps {borkdude/carve
                 {:git/url "https://github.com/borkdude/carve"
-                 :sha     "f499f65e36e02484609f01ce891f3c0207b24444"}}
+                 :sha     "3fcc2a900e4fa4be2c9a539c9971c60e2e921162"}}
    :main-opts  ["-m" "carve.main"]}
 
 
   ;; Convert Leiningen projects to Clojure CLI tools with depify
   :project/depify
   {:extra-deps {depify/depify {:git/url "https://github.com/hagmonk/depify"
-                        :sha     "b3f61517c860518c1990133aa6eb54caf1e4d591"}}
+                               :sha     "b3f61517c860518c1990133aa6eb54caf1e4d591"}}
    :main-opts  ["-m" "depify.project"]}
 
 
@@ -532,7 +532,7 @@
                 org.openjfx/javafx-web      {:mvn/version "11.0.1"}
                 ;; deps for file datafication (REBL 0.9.149 or later)
                 org.clojure/data.csv        {:mvn/version "1.0.0"}
-                org.clojure/data.json       {:mvn/version "2.2.3"}
+                org.clojure/data.json       {:mvn/version "2.3.1"}
                 org.yaml/snakeyaml          {:mvn/version "1.28"}}
    :main-opts  ["-m" "cognitect.rebl"]}
 
@@ -773,7 +773,7 @@
   {:extra-paths ["test"]
    :extra-deps  {com.cognitect/test-runner
                  {:git/url "https://github.com/cognitect-labs/test-runner.git"
-                  :sha     "2d69f33d7980c3353b246c28f72ffeafbd9f2fab"}}
+                  :sha     "705ad25bbf0228b1c38d0244a36001c2987d7337"}}
    :main-opts   ["-m" "cognitect.test-runner"]}
 
   ;; Compiling tests before running - automate Ahead of Time compilation
@@ -785,7 +785,7 @@
   {:extra-paths ["test"]
    :extra-deps  {com.cognitect/test-runner
                  {:git/url "https://github.com/cognitect-labs/test-runner.git"
-                  :sha     "b6b3193fcc42659d7e46ecd1884a228993441182"}}
+                  :sha     "705ad25bbf0228b1c38d0244a36001c2987d7337"}}
    :main-opts   ["-e" "(compile,'your.namespace-here)"
                  "-m" "cognitect.test-runner"]}
 
@@ -807,20 +807,20 @@
   ;; clojure -M:test/runner
   :test/runner
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.829"}}
+   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.861"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
   ;; clojure -M:test/kaocha
   :test/kaocha
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.829"}}
+   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.861"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
 
   ;; clojure -M:test/kaocha-cljs
   :test/kaocha-cljs
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha      {:mvn/version "1.0.829"}
+   :extra-deps  {lambdaisland/kaocha      {:mvn/version "1.0.861"}
                  lambdaisland/kaocha-cljs {:mvn/version "1.0.71"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
@@ -828,7 +828,7 @@
   ;; clojure -M:test/kaocha-cucumber
   :test/kaocha-cucumber
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha          {:mvn/version "1.0.829"}
+   :extra-deps  {lambdaisland/kaocha          {:mvn/version "1.0.861"}
                  lambdaisland/kaocha-cucumber {:mvn/version "0.0.53"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
@@ -836,7 +836,7 @@
   ;; clojure -M:test/kaocha-junit-xml
   :test/kaocha-junit-xml
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha           {:mvn/version "1.0.829"}
+   :extra-deps  {lambdaisland/kaocha           {:mvn/version "1.0.861"}
                  lambdaisland/kaocha-junit-xml {:mvn/version "0.0.76"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
@@ -845,7 +845,7 @@
   ;; clojure -M:test/kaocha-cloverage
   :test/kaocha-cloverage
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha           {:mvn/version "1.0.829"}
+   :extra-deps  {lambdaisland/kaocha           {:mvn/version "1.0.861"}
                  lambdaisland/kaocha-cloverage {:mvn/version "1.0.75"}}
    :main-opts   ["-m" "kaocha.runner"]}
 

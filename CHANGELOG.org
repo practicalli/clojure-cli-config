@@ -1,7 +1,37 @@
 #+TITLE: Changelog
 
 * Unreleased
+
+* 2021-05-26
+  PR #21 The  `clojure` CLI tool has renamed the configuration `user-config` to `config-user` bringing it in line with the other configuration names
+
+  Add ~:project/depsify~ alias to generate a Clojure CLI deps.edn configuration from a Leiningen project.clj configuration file.
+
   Add ~:format/zprint~ alias to format a given Clojure data structure, similar to clojure.pprint but with more options.
+
+  Regular library version updates:
+
+  | :name                     |                                 :current |                                  :latest |
+  |---------------------------+------------------------------------------+------------------------------------------|
+  | borkdude/carve            | f499f65e36e02484609f01ce891f3c0207b24444 | 3fcc2a900e4fa4be2c9a539c9971c60e2e921162 |
+  | com.cognitect/test-runner | 2d69f33d7980c3353b246c28f72ffeafbd9f2fab | 705ad25bbf0228b1c38d0244a36001c2987d7337 |
+  | com.github.liquidz/antq   |                                   0.13.0 |                                   0.14.1 |
+  | depify/depify             | 04329744872890711dbba8939a16e9987dd33bb3 | b3f61517c860518c1990133aa6eb54caf1e4d591 |
+  | lambdaisland/kaocha       |                                  1.0.829 |                                  1.0.861 |
+  | org.clojure/data.json     |                                    2.2.3 |                                    2.3.1 |
+  | seancorfield/clj-new      |                                  1.1.297 |                                  1.1.309 |
+  | zprint/zprint             |                                    0.4.9 |                                    1.1.2 |
+
+  Available diffs:
+  - https://github.com/borkdude/carve/compare/f499f65e36e02484609f01ce891f3c0207b24444...3fcc2a900e4fa4be2c9a539c9971c60e2e921162
+  - https://github.com/cognitect-labs/test-runner/compare/b6b3193fcc42659d7e46ecd1884a228993441182...705ad25bbf0228b1c38d0244a36001c2987d7337
+  - https://github.com/cognitect-labs/test-runner/compare/2d69f33d7980c3353b246c28f72ffeafbd9f2fab...705ad25bbf0228b1c38d0244a36001c2987d7337
+  - https://github.com/liquidz/antq/compare/0.13.0...0.14.1
+  - https://github.com/hagmonk/depify/compare/04329744872890711dbba8939a16e9987dd33bb3...b3f61517c860518c1990133aa6eb54caf1e4d591
+  - https://github.com/lambdaisland/kaocha/compare/v1.0.829...v1.0.861
+  - https://github.com/clojure/data.json/compare/v2.2.3...v2.3.1
+  - https://github.com/seancorfield/clj-new/compare/v1.1.297...v1.1.309
+  - https://github.com/kkinnear/zprint/compare/0.4.9...1.1.2
 
 
 * 2021-05-17
