@@ -76,11 +76,12 @@ How to run common tasks for Clojure development.
 * User/Project alias can be defined in both user and project deps.edn files (typically added to project deps.edn for external running such as Continuous Integration)
 
 | Task                                                    | Command                                                         | Configuration      |
-|---------------------------------------------------------|-----------------------------------------------------------------|--------------------|
+|---------------------------------------------------------+-----------------------------------------------------------------+--------------------|
 | Create project (clojure exec)                           | `clojure -X:project/new :template app :name practicalli/my-app` | User alias         |
 | Run REPL (rebel readline)                               | `clojure -M:repl/rebel`                                         | User alias         |
 | Run REPL (rebel and nrepl)                              | `clojure -M:repl/rebel-nrepl`                                   | User alias         |
 | Run REPL (rebel and reveal data visualization)          | `clojure -M:repl/rebel-reveal`                                  | User alias         |
+| Run ClojureScipt REPL with nREPL (editor support)       | `clojure -M:repl/cljs-nrepl`                                    | User alias         |
 | Download dependencies                                   | `clojure -Spath` or `clojure -P`  (plus optional aliases)       | Built-in           |
 | Find libraries (mvn & git)                              | `clojure -M:project/find-deps library-name`                     | User alias         |
 | Generate image of project dependency graph              | `clojure -X:project/graph-deps`                                 | User alias         |
@@ -140,13 +141,14 @@ Use the `:env/dev` alias with the :repl aliases to include `dev/` in classpath a
 ## REPL with Editor
 Run an interactive REPL on the command line with the simple terminal UI, including an nREPL server and Cider libraries to support connections from Clojure editors, e.g. Conjure, CIDER and Calva.
 
-| Command                            | Description                                                                                                    |
-|------------------------------------|----------------------------------------------------------------------------------------------------------------|
-| `clojure -M:repl/nrepl`            | Clojure REPL with nREPL server                                                                                 |
-| `clojure -M:repl/cider`            | Clojure REPL with nREPL server and Cider-nrepl (code completion, pretty print, etc.)                   |
-| `clojure -M:repl/cider-refactor`   | Clojure REPL with nREPL server, Cider-nrepl and clj-refactor
-| `clj -M:repl/reveal-nrepl`         | Run a Clojure REPL with Reveal data visualization and nREPL interactively                                     |
-| `clj -M:repl/reveal-light-nrepl`   | Run a Clojure REPL with Reveal data visualization (light theme) and nREPL interactively                        |
+| Command                          | Description                                                                       |
+|----------------------------------+-----------------------------------------------------------------------------------|
+| `clojure -M:repl/nrepl`          | Clojure REPL with nREPL server for editor support                                 |
+| `clojure -M:repl/cljs-nrepl`     | ClojureScipt REPL with nREPL for editor support                                   |
+| `clojure -M:repl/cider`          | Clojure REPL with nREPL server and Cider-nrepl                                    |
+| `clojure -M:repl/cider-refactor` | Clojure REPL with nREPL server, Cider-nrepl and clj-refactor                      |
+| `clj -M:repl/reveal-nrepl`       | Clojure REPL with Reveal data visualization and nREPL interactively               |
+| `clj -M:repl/reveal-light-nrepl` | Clojure REPL with Reveal data visualization (light theme) and nREPL interactively |
 
 
 ## Remote REPL connection
@@ -462,6 +464,17 @@ Run a REPL on the command line for access by `cider-connect-` commands, providin
 | `clojure -M:middleware/cider-clj-refactor` | Run a Clojure REPL that includes nREPL server and CIDER connection dependencies and clj-refactor |
 | `clojure -M:middleware/cider-cljs`         | Run a ClojureScript REPL that includes nREPL server and CIDER connection dependencies            |
 
+
+#### Figwheel-main project and cider-connect-cljs
+Open a terminal and run the REPL process with the command:
+
+```bash
+clojure -M:middleware/cider-cljs:fig
+```
+
+An nREPL server process is started along with the figwheel-main process.
+
+In Emacs, run the command `cider-connect-cljs`, select `figwheel-main` build tool and the `dev` build
 
 
 ### Cognitect REBL with CIDER
