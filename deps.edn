@@ -1055,6 +1055,7 @@
   ;; Hot loading dependencies - EXPERIMENTAL / APLPHA
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Hot loading is not officially part of tools.deps and could change in future
+  ;; https://practical.li/clojure/alternative-tools/clojure-tools/hotload-libraries.html
 
   ;; Add new deps to a running REPL:
   ;; (require '[clojure.tools.deps.alpha.repl :refer [add-libs]])
