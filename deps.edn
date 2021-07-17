@@ -328,7 +328,7 @@
   :project/outdated
   {:replace-paths []
    :replace-deps  {com.github.liquidz/antq {:mvn/version "0.16.0"}
-                   org.slf4j/slf4j-nop     {:mvn/version "RELEASE"}}
+                   org.slf4j/slf4j-nop     {:mvn/version "1.7.31"}}
    :main-opts     ["-m" "antq.core"]}
 
   :hack/antq
@@ -339,9 +339,10 @@
 
   ;; The classic project for checking maven based dependencies
   ;; clojure -M:project/outdated-mvn
+  ;; DEPRECATE
   :project/outdated-mvn
   {:replace-paths []
-   :replace-deps  {deps-ancient/deps-ancient {:mvn/version "RELEASE"}}
+   :replace-deps  {deps-ancient/deps-ancient {:mvn/version "0.0.5"}}
    :main-opts     ["-m" "deps-ancient.deps-ancient"]}
 
 
@@ -438,31 +439,16 @@
 
   :project/clojars
   {:replace-paths []
-   :replace-deps  {slipset/deps-deploy {:mvn/version "RELEASE"}}
+   :replace-deps  {slipset/deps-deploy {:mvn/version "0.1.5"}}
    :main-opts     ["-m" "deps-deploy.deps-deploy"
                    "deploy"]}
 
   :project/clojars-signed
   {:replace-paths []
-   :replace-deps  {slipset/deps-deploy {:mvn/version "RELEASE"}}
+   :replace-deps  {slipset/deps-deploy {:mvn/version "0.1.5"}}
    :main-opts     ["-m" "deps-deploy.deps-deploy"
                    "deploy"
                    :true]}
-
-  ;; DEPRECATED - use `clojure -X:deps mvn-install`
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;; Add the path to the jar for deployment to simplify command
-  ;; :deploy-locally
-  ;; {:extra-deps {deps-deploy/deps-deploy {:mvn/version "RELEASE"}}
-  ;;  :main-opts  ["-m" "deps-deploy.deps-deploy"
-  ;;               "install"
-  ;;               "path/to/my.jar"]}
-
-  ;; {:deploy-clojars
-  ;;  {:extra-deps {deps-deploy/deps-deploy {:mvn/version "RELEASE"}}
-  ;;   :main-opts  ["-m" "deps-deploy.deps-deploy"
-  ;;                "deploy"
-  ;;               "path/to/my.jar"]}}
 
   ;; End of Project Deployment
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -905,7 +891,7 @@
   ;; clojure -X:test/coverage
   :test/cloverage
   {:extra-paths ["test"]
-   :extra-deps  {cloverage/cloverage {:mvn/version "RELEASE"}}
+   :extra-deps  {cloverage/cloverage {:mvn/version "1.2.2"}}
    :main-opts   ["-m" "cloverage.coverage"
                  "--src-ns-path" "src"
                  "--test-ns-path" "test"]
@@ -923,14 +909,14 @@
   ;; clj-kondo - comprehensive and fast linter
   ;; https://github.com/borkdude/clj-kondo/
   :lint/kondo
-  {:extra-deps {clj-kondo/clj-kondo {:mvn/version "RELEASE"}}
+  {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2021.06.18"}}
    :main-opts  ["-m" "clj-kondo.main" "--lint" "src"]}
 
 
   ;; Eastwood - classic lint tool
   ;; https://github.com/jonase/eastwood#running-eastwood-in-a-repl
   :lint/eastwood
-  {:extra-deps {jonase/eastwood {:mvn/version "RELEASE"}}
+  {:extra-deps {jonase/eastwood {:mvn/version "0.8.1"}}
    :main-opts  ["-m" "eastwood.lint"
                 "{:source-paths,[\"src\"],:test-paths,[\"test\"]}"]}
 
@@ -1073,7 +1059,7 @@
 
   ;; Add new deps to a running REPL:
   ;; (require '[clojure.tools.deps.alpha.repl :refer [add-libs]])
-  ;; (add-libs 'domain/library {:mvn/version "RELEASE"})
+  ;; (add-libs 'domain/library {:mvn/version "1.0.1"})
   ;; Git deps
   ;; (require '[clojure.tools.gitlibs :as gitlibs])
   ;; (defn load-master [lib]
