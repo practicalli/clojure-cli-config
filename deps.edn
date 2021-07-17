@@ -1054,8 +1054,7 @@
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Hot loading dependencies - EXPERIMENTAL / APLPHA
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;; Hot loading is not officially part of tools.deps and
-  ;; this alias could change significantly in future
+  ;; Hot loading is not officially part of tools.deps and could change in future
 
   ;; Add new deps to a running REPL:
   ;; (require '[clojure.tools.deps.alpha.repl :refer [add-libs]])
@@ -1068,26 +1067,25 @@
   ;; - e.g., using the GitHub path (not the usual Maven group/artifact):
   ;; (load-master 'clojure/tools.trace)
 
+
   :alpha/hotload-libs
   {:extra-deps {org.clojure/tools.deps.alpha
+                ;; Latest commit on add-lib3 branch, don't update with :project/outdated
                 {:git/url "https://github.com/clojure/tools.deps.alpha"
-                 :sha     "d77476f3d5f624249462e275ae62d26da89f320b"
-                 ;; Using latest commit on the add-lib3 branch
-                 ;; do not use :project/outdated to update
-                 }}
-   ;; DynamicClassLoader required for add-libs to work
-   ;; if starting other processes via aliases such as a socket REPL or Cognitect's REBL
+                 :sha     "d77476f3d5f624249462e275ae62d26da89f320b"}
+                ;; Set logging implementation to no-operation
+                org.slf4j/slf4j-nop     {:mvn/version "1.7.31"}}
+   ;; DynamicClassLoader required when starting other processes via aliases, e.g. socket REPL or Cognitect's REBL
    :main-opts  ["-e" "(->>(Thread/currentThread)(.getContextClassLoader)(clojure.lang.DynamicClassLoader.)(.setContextClassLoader,(Thread/currentThread)))"]}
 
   :alpha/hot-load
   {:extra-deps {org.clojure/tools.deps.alpha
+                ;; Latest commit on add-lib3 branch, don't update with :project/outdated
                 {:git/url "https://github.com/clojure/tools.deps.alpha"
-                 :sha     "d77476f3d5f624249462e275ae62d26da89f320b"
-                 ;; Using latest commit on the add-lib3 branch
-                 ;; do not use :project/outdated to update
-                 }}
-   ;; DynamicClassLoader required for add-libs to work
-   ;; if starting other processes via aliases such as a socket REPL or Cognitect's REBL
+                 :sha     "d77476f3d5f624249462e275ae62d26da89f320b"}
+                ;; Set logging implementation to no-operation
+                org.slf4j/slf4j-nop     {:mvn/version "1.7.31"}}
+   ;; DynamicClassLoader required when starting other processes via aliases, e.g. socket REPL or Cognitect's REBL
    :main-opts  ["-e" "(->>(Thread/currentThread)(.getContextClassLoader)(clojure.lang.DynamicClassLoader.)(.setContextClassLoader,(Thread/currentThread)))"]}
 
   ;;  End of EXPERIMENTAL
