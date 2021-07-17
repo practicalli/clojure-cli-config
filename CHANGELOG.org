@@ -2,6 +2,9 @@
 
 * Unreleased
 
+* 2021-07-17
+  Updated version of GitHub actions lint-with-clj-kondo.  Checks deps.edn to ensure its a valid structure.
+
 * 2021-07-16
   Readme updates
   Monthly library updates
