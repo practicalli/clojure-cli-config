@@ -13,7 +13,7 @@ jobs:
         with:
           version: '2021.06.18'
 
-      - uses: actions/checkout@latest
+      - uses: actions/checkout@v2
 
       - name: Run on Ubuntu
         run: clj-kondo --lint deps.edn
