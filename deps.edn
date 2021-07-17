@@ -263,14 +263,14 @@
   ;; clojure -X:project/new :template luminus :name practicalli/full-stack-app +http-kit +h2 +reagent +auth
 
   :project/new
-  {:replace-deps {seancorfield/clj-new {:mvn/version "1.1.309"}}
+  {:replace-deps {com.github.seancorfield/clj-new {:mvn/version "1.1.321"}}
    :exec-fn      clj-new/create
    :exec-args    {:template lib :name practicalli/playground}
    :main-opts    ["-m" "clj-new.create"]}
 
   ;; ALPHA status: Add 'something' to existing project (subject to change)
   :project/add
-  {:replace-deps {seancorfield/clj-new {:mvn/version "1.1.309"}}
+  {:replace-deps {com.github.seancorfield/clj-new {:mvn/version "1.1.321"}}
    :exec-fn      clj-new/generate
    :main-opts    ["-m" "clj-new.generate"]}
 

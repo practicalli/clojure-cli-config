@@ -5,6 +5,9 @@
 * 2021-07-17
   Updated version of GitHub actions lint-with-clj-kondo.  Checks deps.edn to ensure its a valid structure.
 
+  Changes seancorfield/clj-new to new com.github.seancorfield/clj-new
+
+
 * 2021-07-16
   Readme updates
   Monthly library updates
