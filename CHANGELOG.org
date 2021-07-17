@@ -7,6 +7,7 @@
 
   Changes seancorfield/clj-new to new com.github.seancorfield/clj-new
 
+  Update hotload of library documentation - links to Practicalli Clojure page on hotloading and example project.
 
 * 2021-07-16
   Readme updates

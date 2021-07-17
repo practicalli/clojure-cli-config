@@ -681,25 +681,14 @@ Take care to get the timezone notation correct.
 * [`:alpha/hotload-libs`](https://github.com/clojure/tools.deps.alpha) - EXPERIMENTAL, use with caution - hot-load libraries into a running namespace.
 
 
-**Hot loading dependencies** (unofficial - changes planned already)
-> This is a very unofficial approach to hot loading and the design may change quite soon, so this alias is likely to break without notice.  Do not rely on this alias working and use with caution.
+**Hot loading dependencies** (unofficial)
+> This is an unofficial approach using to hot loading and the API may change in future
 
-* [`:project/hotload-dep`](https://github.com/clojure/tools.deps.alpha) - Add jar dependencies into a running REPL.
+* [`:alpha/hotload-libs`](https://github.com/clojure/tools.deps.alpha) - Add jar dependencies into a running REPL.
 
-Require the `add-lib` function to include a maven style dependency
-```
-(require '[clojure.tools.deps.alpha.repl :refer [add-lib]])
-  (add-lib 'domain/library {:mvn/version "RELEASE"})
-```
+Practically Clojure [details how to hot-load libraries into a running REP using tools.deps.alpha](https://practical.li/clojure/alternative-tools/clojure-tools/hotload-libraries.html).
 
-Require `clojure.tools.gitlibs` namesapace to hot load dependencies from a Git repository
-```
-(require '[clojure.tools.gitlibs :as gitlibs])
-(defn load-master [library]
-  (let [git (str "https://github.com/" library ".git")]
-    (add-lib library {:git/url git :sha (gitlibs/resolve git "master")})))
-(load-master 'clojure/tools.trace)
-```
+[The Clojure Webapp hotload libraries repository](https://github.com/practicalli/clojure-webapp-hotload-libraries) contains and example project that uses `add-libs` to hotload library dependencies.
 
 
 # Library repositories
