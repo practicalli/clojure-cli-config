@@ -78,7 +78,7 @@ How to run common tasks for Clojure development.
 * User/Project alias can be defined in both user and project deps.edn files (typically added to project deps.edn for external running such as Continuous Integration)
 
 | Task                                                    | Command                                                         | Configuration      |
-|---------------------------------------------------------+-----------------------------------------------------------------+--------------------|
+|---------------------------------------------------------|-----------------------------------------------------------------|--------------------|
 | Create project (clojure exec)                           | `clojure -X:project/new :template app :name practicalli/my-app` | User alias         |
 | Run REPL (rebel readline)                               | `clojure -M:repl/rebel`                                         | User alias         |
 | Run REPL (rebel and nrepl)                              | `clojure -M:repl/rebel-nrepl`                                   | User alias         |
@@ -144,7 +144,7 @@ Use the `:env/dev` alias with the :repl aliases to include `dev/` in classpath a
 Run an interactive REPL on the command line with the simple terminal UI, including an nREPL server and Cider libraries to support connections from Clojure editors, e.g. Conjure, CIDER and Calva.
 
 | Command                          | Description                                                                       |
-|----------------------------------+-----------------------------------------------------------------------------------|
+|----------------------------------|-----------------------------------------------------------------------------------|
 | `clojure -M:repl/nrepl`          | Clojure REPL with nREPL server for editor support                                 |
 | `clojure -M:repl/cljs-nrepl`     | ClojureScipt REPL with nREPL for editor support                                   |
 | `clojure -M:repl/cider`          | Clojure REPL with nREPL server and Cider-nrepl                                    |
