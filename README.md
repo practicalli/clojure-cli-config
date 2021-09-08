@@ -14,7 +14,7 @@ The **[Practicalli Clojure book](https://practicalli.github.io/clojure/clojure-t
 > Use the `classic-aliases` tag for the last version of this repository before these changes
 
 # Contents
-* [Installing practicalli/clojure-deps-edn](#installing-practicalli-clojure-deps-edn)
+* [Installing practicalli/clojure-deps-edn](#install-practicalli-clojure-deps-edn)
 * [Updating practicalli/clojure-deps-edn](#updating-practicalli-clojure-deps-edn)
 * [Common development tasks](#common-development-tasks)
 * [Aliases](#aliases)
