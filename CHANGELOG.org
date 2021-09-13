@@ -2,6 +2,44 @@
 
 * Unreleased
 
+* 2021-09-13
+** .github/workflows/lint-with-clj-kondo.yml
+   Update run command to output messages in GitHub Actions format
+
+   Library version updates from ~:project/outdated~ alias
+
+  | :name               |   :current |    :latest |
+  |---------------------+------------+------------|
+  | clj-kondo/clj-kondo | 2020.04.05 | 2021.08.06 |
+
+** deps.edn
+   Add ~:lib/hotload~ alias to load libraries into a running REPL process.  This is a more memorable name for the alpha/hotload alias
+
+   Cognitect test runner version  using Git tag and providing Clojure exec function, invoked by ~clojure -X:test/cognitect~
+
+   Removed eftest aliases due to #22 eftest runner hangs when finished.  Kaocha or Cognitect-labs runners are recommended instead
+
+   Deprecated: test/midje - seldom used test runner and not recommended approach by Practicalli
+
+   Deprecated: `project/uberdeps` removed, depstar recommended until that itself is incorporated into tools.build
+
+   Library version updates from ~:project/outdated~ alias
+
+  | :name                             | :current |     :latest |
+  |-----------------------------------+----------+-------------|
+  | com.bhauman/figwheel-main         |   0.2.13 |      0.2.14 |
+  | com.github.liquidz/antq           |   0.16.0 |       1.0.0 |
+  | com.github.seancorfield/clj-new   |  1.1.321 |     1.1.331 |
+  | com.github.seancorfield/depstar   |  2.1.267 |     2.1.297 |
+  | com.github.seancorfield/next.jdbc |  1.2.659 |     1.2.709 |
+  | djblue/portal                     |   0.12.0 |      0.14.0 |
+  | jonase/eastwood                   |    0.8.1 |       0.9.9 |
+  | lambdaisland/kaocha               |  1.0.861 |     1.0.887 |
+  | lambdaisland/kaocha-cljs          |   1.0.71 |     1.0.107 |
+  | refactor-nrepl/refactor-nrepl     |    2.5.1 | 3.0.0-pr301 |
+  | vlaaad/reveal                     |  1.3.212 |     1.3.214 |
+
+
 * 2021-07-17
   Update version of GitHub actions lint-with-clj-kondo.  Checks deps.edn to ensure its a valid structure.
 

@@ -11,9 +11,9 @@ jobs:
     steps:
       - uses: DeLaGuardo/setup-clj-kondo@master
         with:
-          version: '2021.06.18'
+          version: '2021.08.06'
 
       - uses: actions/checkout@v2
 
       - name: Run on Ubuntu
-        run: clj-kondo --lint deps.edn
+        run: clj-kondo --lint deps.edn --config '{:output {:pattern "::{{level}} file={{filename}},line={{row}},col={{col}}::{{message}}"}}'

@@ -129,6 +129,7 @@ See [Middleware aliases](#middleware) to run a headless REPL process without a R
 
 Use the `:env/dev` alias with the :repl aliases to include `dev/` in classpath and [configure REPL startup actions using `dev/user.clj`](http://practicalli.github.io/clojure/clojure-tools/configure-repl-startup.html)
 
+
 | Command                            | Description                                                                                                    |
 |------------------------------------|----------------------------------------------------------------------------------------------------------------|
 | `clojure -M:repl/rebel`            | Run a Clojure REPL using Rebel Readline                                                                        |
@@ -151,6 +152,15 @@ Run an interactive REPL on the command line with the simple terminal UI, includi
 | `clojure -M:repl/cider-refactor` | Clojure REPL with nREPL server, Cider-nrepl and clj-refactor                      |
 | `clj -M:repl/reveal-nrepl`       | Clojure REPL with Reveal data visualization and nREPL interactively               |
 | `clj -M:repl/reveal-light-nrepl` | Clojure REPL with Reveal data visualization (light theme) and nREPL interactively |
+
+
+## Hotload libraries into a running REPL
+
+Use the `:lib/hotload` alias in front of any of the above aliases to enable [hotloading of libraries into a running REPL process](https://practical.li/clojure/alternative-tools/clojure-tools/hotload-libraries.html).
+
+`clojure -M:lib/hotload:repl/rebel` enables hotloading in the REPL terminal UI.
+
+`clojure -M:lib/hotload:env/dev:repl/rebel` enables hotloading, included the dev directory (to auto-load `user.clj`) with a REPL terminal UI.
 
 
 ## Remote REPL connection
@@ -519,17 +529,16 @@ Unit test libraries and configuration.  The Clojure standard library includes th
 * [`:lib/expectations`](https://github.com/clojure-expectations/clojure-test) - `clojure.test` with expectations
 * [`:lib/expectations-classic`](https://github.com/clojure-expectations/expectations) - expectations framework
 
-Use expectations in a project `clojure -A:test:expectations` or from the command line with cognitect test runner `clojure -A:expectations:test-runner-cognitect`
+Include expectations as a development dependency in a project `clojure -M:env/test:lib/expectations`, or on the command line with the cognitect test runner `clojure -M:lib/expectations:test/cognitect`
 
 
 ## Test runners and Test Coverage tools
 Tools to run unit tests in a project which are defined under `test` path.
 
-Run clojure with the specific test runner alias: `clojure -A:test-runner-alias`
-
 | Command                                     | Description                                                                                |
-|---------------------------------------------|--------------------------------------------------------------------------------------------|
-| `clojure -M:test/cognitect`                 | Cognitect Clojure test runner                                                              |
+|---------------------------------------------+--------------------------------------------------------------------------------------------|
+| `clojure -X:test/cognitect`                 | Cognitect Clojure test runner                                                              |
+| `clojure -X:test/coverage`                  | Cloverage clojure.test coverage report                                                     |
 | `clojure -M:test/cljs`                      | ClojureScript test runner (Olical)                                                         |
 | `clojure -M:test/runner`                    | Kaocha - comprehensive test runner for Clojure (same as :test/kaocha)                      |
 | `clojure -M:env/test:test/kaocha`           | Kaocha - comprehensive test runner for Clojure                                             |
@@ -537,30 +546,8 @@ Run clojure with the specific test runner alias: `clojure -A:test-runner-alias`
 | `clojure -M:env/test:test/kaocha-cucumber`  | Kaocha - comprehensive test runner with BDD Cucumber tests                                 |
 | `clojure -M:env/test:test/kaocha-junit-xml` | Kaocha - comprehensive test runner with Junit XML reporting for CI dashboards & wallboards |
 | `clojure -M:env/test:test/kaocha-cloverage` | Kaocha - comprehensive test runner with test coverage reporting                            |
-| `clojure -M:test/midje`                     | Midje test runner for BDD style tests                                                      |
-| `clojure -M:test/eftest`                    | Fast Clojure test runner, pretty output, parallel tests                                    |
-| `clojure -M:test/eftest-sequential`         | Fast Clojure test runner, pretty output with test run sequential
-| `clojure -M:test/coverage`                  | Cloverage clojure.test coverage report                                                     |
-| `clojure -X:test/coverage`                  | Cloverage clojure.test coverage report (clojure exec)                                      |
 
-> Use a `test.edn` [configuration file](https://cljdoc.org/d/lambdaisland/kaocha/1.0.829/doc/3-configuration) with kaocha aliases will mean only test/kaocha and :test/kaocha-cljs aliases are needed.
-
-#### Compiling tests before running - automate Ahead of Time compilation
-Use one of the test runner alias and over-ride the :main-opts on the command line
-```shell
-clojure -M:test/cognitect -e "(compile, 'your.namespace)" -m cognitect.test-runner
-```
-
-Or add the following alias in your project `deps.edn`, changing to the specific namespace in `:main-opts` before use
-```clojure
-  :test/cognitect-precompile
-  {:extra-paths ["test"]
-   :extra-deps  {com.cognitect/test-runner
-                 {:git/url "https://github.com/cognitect-labs/test-runner.git"
-                  :sha     "b6b3193fcc42659d7e46ecd1884a228993441182"}}
-   :main-opts   ["-e" "(compile,'your.namespace-here)"
-                 "-m" "cognitect.test-runner"]}
-```
+> A `test.edn` [configuration file](https://cljdoc.org/d/lambdaisland/kaocha/1.0.829/doc/3-configuration) with kaocha aliases will mean only test/kaocha and :test/kaocha-cljs aliases are needed.
 
 
 ## Lint tools
