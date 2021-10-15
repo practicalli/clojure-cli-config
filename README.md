@@ -536,7 +536,7 @@ Include expectations as a development dependency in a project `clojure -M:env/te
 Tools to run unit tests in a project which are defined under `test` path.
 
 | Command                                     | Description                                                                                |
-|---------------------------------------------+--------------------------------------------------------------------------------------------|
+|---------------------------------------------|--------------------------------------------------------------------------------------------|
 | `clojure -X:test/cognitect`                 | Cognitect Clojure test runner                                                              |
 | `clojure -X:test/coverage`                  | Cloverage clojure.test coverage report                                                     |
 | `clojure -M:test/cljs`                      | ClojureScript test runner (Olical)                                                         |
