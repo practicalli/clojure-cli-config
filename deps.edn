@@ -788,20 +788,47 @@
   ;; https://github.com/lambdaisland/kaocha
 
   ;; Default test runner using kaocha (change to your own preference)
-  ;; clojure -M:test/runner
-  :test/runner
+  ;; clojure -X:test/run
+  ;; clojure -M:test/run
+  :test/run
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.887"}}
-   :main-opts   ["-m" "kaocha.runner"]}
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.60.945"}}
+   :main-opts   ["-m" "kaocha.runner"]
+   :exec-fn kaocha.runner/exec-fn
+   :exec-args {}}
 
+;; Default test runner kaocha with watch enabled using (change to your own preference)
+  ;; clojure -X:test/watch
+  ;; clojure -M:test/runner
+  :test/watch
+  {:extra-paths ["test"]
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.60.945"}}
+   :exec-fn kaocha.runner/exec-fn
+   ;; exec-args seem to be ignored currently
+   :exec-args {:watch? true
+               :randomize? false
+               :fail-fast? true}}
+
+  ;; clojure -X:test/kaocha
   ;; clojure -M:test/kaocha
   :test/kaocha
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.0.887"}}
-   :main-opts   ["-m" "kaocha.runner"]}
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.60.945"}}
+   :main-opts   ["-m" "kaocha.runner"]
+   :exec-fn kaocha.runner/exec-fn
+   :exec-args {}}
 
-
-  ;; clojure -M:test/kaocha-cljs
+  ;; clojure -X:test/kaocha
+  ;; clojure -M:test/kaocha-watch
+  :test/kaocha-watch
+  {:extra-paths ["test"]
+   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.60.945"}}
+   :main-opts   ["-m" "kaocha.runner" "--watch"]
+   :exec-fn kaocha.runner/exec-fn
+   ;; exec-args seem to be ignored currently
+   :exec-args {:watch? true
+               :randomize? false
+               :fail-fast? true}}
   :test/kaocha-cljs
   {:extra-paths ["test"]
    :extra-deps  {lambdaisland/kaocha      {:mvn/version "1.0.887"}
