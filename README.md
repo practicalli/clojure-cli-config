@@ -630,13 +630,13 @@ In the REPL:
 ## Services
 Web servers and other standalone services run with Clojure CLI tools
 
-* `:service/webserver` - serve files from current directory or specified directory and port.  More options at [kachayev/nasus project](https://github.com/kachayev/nasus).
+* `:service/http` - serve files from current directory or specified directory and port.  More options at [kachayev/nasus project](https://github.com/kachayev/nasus).
 
-| Command                                        | Description                                         |
-|------------------------------------------------|-----------------------------------------------------|
-| `clojure -M:service/webserver`                 | HTTP file server for current directory on port 8000 |
-| `clojure -M:service/webserver 8888`            | as above with PORT specified to 8888                |
-| `clojure -M:service/webserver 8888 --dir docs` | as above with PORT 8888 and doc directory           |
+| Command                                   | Description                                         |
+|-------------------------------------------+-----------------------------------------------------|
+| `clojure -M:service/http`                 | HTTP file server for current directory on port 8000 |
+| `clojure -M:service/http 8888`            | as above with PORT specified to 8888                |
+| `clojure -M:service/http 8888 --dir docs` | as above with PORT 8888 and doc directory           |
 
 > Use `Ctrl-c` to stop the server when running in the foreground
 

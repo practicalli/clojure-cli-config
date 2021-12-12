@@ -998,6 +998,10 @@
   {:replace-deps {nasus/nasus {:mvn/version "0.1.7"}}
    :main-opts    ["-m" "http.server"]}
 
+  :service/http
+  {:replace-deps {nasus/nasus {:mvn/version "0.1.7"}}
+   :main-opts    ["-m" "http.server"]}
+
   ;; End of Services
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
