@@ -74,26 +74,26 @@ clojure -M:project/outdated > outdated.org
 How to run common tasks for Clojure development.
 * Built-in tasks require no additional configuration.
 * User aliases should be added to `~/.clojure/deps.edn`.
-* Project aliases should be added to the individual project deps.edn file (or may be part of a template).
-* User/Project alias can be defined in both user and project deps.edn files (typically added to project deps.edn for external running such as Continuous Integration)
+* Project aliases should be added to the individual project `deps.edn` file (or may be part of a template).
+* User/Project alias can be defined in both user and project `deps.edn` files (add to project `deps.edn` for Continuous Integration)
 
-| Task                                                    | Command                                                         | Configuration      |
-|---------------------------------------------------------|-----------------------------------------------------------------|--------------------|
-| Create project (clojure exec)                           | `clojure -X:project/new :template app :name practicalli/my-app` | User alias         |
-| Run REPL (rebel readline)                               | `clojure -M:repl/rebel`                                         | User alias         |
-| Run REPL (rebel and nrepl)                              | `clojure -M:repl/rebel-nrepl`                                   | User alias         |
-| Run REPL (rebel and reveal data visualization)          | `clojure -M:repl/rebel-reveal`                                  | User alias         |
-| Run ClojureScipt REPL with nREPL (editor support)       | `clojure -M:repl/cljs-nrepl`                                    | User alias         |
-| Download dependencies                                   | `clojure -Spath` or `clojure -P`  (plus optional aliases)       | Built-in           |
-| Find libraries (mvn & git)                              | `clojure -M:project/find-deps library-name`                     | User alias         |
-| Generate image of project dependency graph              | `clojure -X:project/graph-deps`                                 | User alias         |
-| Check for new dependency versions                       | `clojure -M:project/outdated`                                   | User alias         |
-| Run tests                                               | `clojure -M:test/runner`                                        | User/Project alias |
-| Run the project                                         | `clojure -M -m domain.main-namespace`                           | Built-in           |
-| [Run the project](https://youtu.be/u5VoFpsntXc?t=2166)* | `clojure -X:project/run`                                        | Project alias      |
-| Package library                                         | `clojure -X:project/jar`                                        | User/Project alias |
-| Deploy library locally                                  | `clojure -X:deps mvn-install`                                   | Built-in           |
-| Package application                                     | `clojure -X:project/uberjar`                                    | User/Project alias |
+| Task                                                   | Command                                                         | Configuration      |
+|--------------------------------------------------------+-----------------------------------------------------------------+--------------------|
+| Create project (clojure exec)                          | `clojure -X:project/new :template app :name practicalli/my-app` | User alias         |
+| Run REPL (rebel readline with nrepl server)            | `clojure -M:repl/rebel`                                         | User alias         |
+| Run ClojureScipt REPL with nREPL (editor support)      | `clojure -M:repl/cljs-nrepl`                                    | User alias         |
+| Download dependencies                                  | `clojure -X:deps prep` or `clojure -P`  (plus optional aliases) | Built-in           |
+| Find libraries (mvn & git)                             | `clojure -M:project/find-deps library-name`                     | User alias         |
+| Find available versions of a library                   | `clojure -M:project/find-deps -X:deps find-versions`            | Built-in           |
+| Resolve git coord tags to shas and update deps.edn     | `clojure -X:deps git-resolve-tags git-coord-tag`                | Built-in           |
+| Generate image of project dependency graph             | `clojure -X:project/graph-deps`                                 | User alias         |
+| Check for new dependency versions                      | `clojure -M:project/outdated`                                   | User alias         |
+| Run tests                                              | `clojure -M:test/run`                                           | User/Project alias |
+| Run the project                                        | `clojure -M -m domain.main-namespace`                           | Built-in           |
+| [Run the project](https://youtu.be/u5VoFpsntXc?t=2166) | `clojure -X:project/run`                                        | Project alias      |
+| Package library                                        | `clojure -X:project/jar`                                        | User/Project alias |
+| Deploy library locally (~/.m2/repository)              | `clojure -X:deps mvn-install`                                   | Built-in           |
+| Package application                                    | `clojure -X:project/uberjar`                                    | User/Project alias |
 
 > Add alias `:project/run` to the deps.edn file in the root of a project: `:project/run {:ns-default domain.namespace :exec-fn -main}` - see this video for an example https://youtu.be/u5VoFpsntXc?t=2166
 
@@ -535,19 +535,20 @@ Include expectations as a development dependency in a project `clojure -M:env/te
 ## Test runners and Test Coverage tools
 Tools to run unit tests in a project which are defined under `test` path.
 
-| Command                                     | Description                                                                                |
-|---------------------------------------------|--------------------------------------------------------------------------------------------|
-| `clojure -X:test/cognitect`                 | Cognitect Clojure test runner                                                              |
-| `clojure -X:test/coverage`                  | Cloverage clojure.test coverage report                                                     |
-| `clojure -M:test/cljs`                      | ClojureScript test runner (Olical)                                                         |
-| `clojure -M:test/runner`                    | Kaocha - comprehensive test runner for Clojure (same as :test/kaocha)                      |
-| `clojure -M:env/test:test/kaocha`           | Kaocha - comprehensive test runner for Clojure                                             |
-| `clojure -M:env/test:test/kaocha-cljs`      | Kaocha - comprehensive test runner for ClojureScript                                       |
-| `clojure -M:env/test:test/kaocha-cucumber`  | Kaocha - comprehensive test runner with BDD Cucumber tests                                 |
-| `clojure -M:env/test:test/kaocha-junit-xml` | Kaocha - comprehensive test runner with Junit XML reporting for CI dashboards & wallboards |
-| `clojure -M:env/test:test/kaocha-cloverage` | Kaocha - comprehensive test runner with test coverage reporting                            |
+| Command                            | Description                                                                               |
+|------------------------------------+-------------------------------------------------------------------------------------------|
+| `clojure -M:test/run`              | run tests with the Kaocha comprehensive test runner for Clojure (same as :test/kaocha)    |
+| `clojure -M:test/watch`            | run tests in watch mode using Kaocha test runner for Clojure (same as :test/kaocha-watch) |
+| `clojure -X:test/cognitect`        | Cognitect Clojure test runner                                                             |
+| `clojure -X:test/coverage`         | Cloverage clojure.test coverage report                                                    |
+| `clojure -M:test/cljs`             | ClojureScript test runner (Olical)                                                        |
+| `clojure -M:test/kaocha`           | Kaocha - test runner for Clojure                                                          |
+| `clojure -M:test/kaocha-cljs`      | Kaocha - test runner for ClojureScript                                                    |
+| `clojure -M:test/kaocha-cucumber`  | Kaocha - test runner with BDD Cucumber tests                                              |
+| `clojure -M:test/kaocha-junit-xml` | Kaocha - test runner with Junit XML reporting for CI dashboards & wallboards              |
+| `clojure -M:test/kaocha-cloverage` | Kaocha - test runner with test coverage reporting                                         |
 
-> A `test.edn` [configuration file](https://cljdoc.org/d/lambdaisland/kaocha/1.0.829/doc/3-configuration) with kaocha aliases will mean only test/kaocha and :test/kaocha-cljs aliases are needed.
+> A `test.edn` [configuration file](https://cljdoc.org/d/lambdaisland/kaocha/1.0.829/doc/3-configuration) can be used with the :test/run alias instead of using various aliases defined above
 
 
 ## Lint tools
