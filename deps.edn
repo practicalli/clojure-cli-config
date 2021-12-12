@@ -803,6 +803,7 @@
   :test/watch
   {:extra-paths ["test"]
    :extra-deps {lambdaisland/kaocha {:mvn/version "1.60.945"}}
+   :main-opts   ["-m" "kaocha.runner" "--watch" "--fail-fast" "--skip-meta" ":slow"]
    :exec-fn kaocha.runner/exec-fn
    ;; exec-args seem to be ignored currently
    :exec-args {:watch? true
@@ -823,7 +824,7 @@
   :test/kaocha-watch
   {:extra-paths ["test"]
    :extra-deps  {lambdaisland/kaocha {:mvn/version "1.60.945"}}
-   :main-opts   ["-m" "kaocha.runner" "--watch"]
+   :main-opts   ["-m" "kaocha.runner" "--watch" "--fail-fast" "--skip-meta" ":slow"]
    :exec-fn kaocha.runner/exec-fn
    ;; exec-args seem to be ignored currently
    :exec-args {:watch? true

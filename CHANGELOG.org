@@ -2,6 +2,14 @@
 
 * Unreleased
 
+* 2021-12-12
+** Added
+*** `test/watch` alias - Kaocha test runner in watch mode, including fast fail and skipping meta data.  Provides a quick to use test runner that watches for file changes and re-runs tests from the last failed test.
+** Changed
+*** `test/run` alias replaces `test/runner` to fit better with the intent and the name of the watch alias
+*** Add Kaocha alias changes to README.org
+*** Simplify common aliases table in README.org
+
 * 2021-09-13
 ** .github/workflows/lint-with-clj-kondo.yml
    Update run command to output messages in GitHub Actions format
