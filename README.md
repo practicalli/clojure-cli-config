@@ -78,7 +78,7 @@ How to run common tasks for Clojure development.
 * User/Project alias can be defined in both user and project `deps.edn` files (add to project `deps.edn` for Continuous Integration)
 
 | Task                                                   | Command                                                         | Configuration      |
-|--------------------------------------------------------+-----------------------------------------------------------------+--------------------|
+|--------------------------------------------------------|-----------------------------------------------------------------|--------------------|
 | Create project (clojure exec)                          | `clojure -X:project/new :template app :name practicalli/my-app` | User alias         |
 | Run REPL (rebel readline with nrepl server)            | `clojure -M:repl/rebel`                                         | User alias         |
 | Run ClojureScipt REPL with nREPL (editor support)      | `clojure -M:repl/cljs-nrepl`                                    | User alias         |
@@ -536,7 +536,7 @@ Include expectations as a development dependency in a project `clojure -M:env/te
 Tools to run unit tests in a project which are defined under `test` path.
 
 | Command                            | Description                                                                               |
-|------------------------------------+-------------------------------------------------------------------------------------------|
+|------------------------------------|-------------------------------------------------------------------------------------------|
 | `clojure -M:test/run`              | run tests with the Kaocha comprehensive test runner for Clojure (same as :test/kaocha)    |
 | `clojure -M:test/watch`            | run tests in watch mode using Kaocha test runner for Clojure (same as :test/kaocha-watch) |
 | `clojure -X:test/cognitect`        | Cognitect Clojure test runner                                                             |
@@ -634,7 +634,7 @@ Web servers and other standalone services run with Clojure CLI tools
 * `:service/http` - serve files from current directory or specified directory and port.  More options at [kachayev/nasus project](https://github.com/kachayev/nasus).
 
 | Command                                   | Description                                         |
-|-------------------------------------------+-----------------------------------------------------|
+|-------------------------------------------|-----------------------------------------------------|
 | `clojure -M:service/http`                 | HTTP file server for current directory on port 8000 |
 | `clojure -M:service/http 8888`            | as above with PORT specified to 8888                |
 | `clojure -M:service/http 8888 --dir docs` | as above with PORT 8888 and doc directory           |
