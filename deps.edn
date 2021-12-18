@@ -792,17 +792,16 @@
   ;; clojure -M:test/run
   :test/run
   {:extra-paths ["test"]
-   :extra-deps {lambdaisland/kaocha {:mvn/version "1.60.945"}}
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.60.972"}}
    :main-opts   ["-m" "kaocha.runner"]
    :exec-fn kaocha.runner/exec-fn
    :exec-args {}}
 
-;; Default test runner kaocha with watch enabled using (change to your own preference)
+  ;; Kaocha test runner in watch mode
   ;; clojure -X:test/watch
-  ;; clojure -M:test/runner
   :test/watch
   {:extra-paths ["test"]
-   :extra-deps {lambdaisland/kaocha {:mvn/version "1.60.945"}}
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.60.972"}}
    :main-opts   ["-m" "kaocha.runner" "--watch" "--fail-fast" "--skip-meta" ":slow"]
    :exec-fn kaocha.runner/exec-fn
    ;; exec-args seem to be ignored currently
@@ -810,11 +809,18 @@
                :randomize? false
                :fail-fast? true}}
 
+  ;; Experiment: test using alternative configuration
+  :test/kaocha-global
+  {:extra-paths ["test"]
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.60.972"}}
+   :exec-fn kaocha.runner/exec-fn
+   :exec-args {:config-file ["~/.clojure/kaocha-global-tests.edn"]}}
+
   ;; clojure -X:test/kaocha
   ;; clojure -M:test/kaocha
   :test/kaocha
   {:extra-paths ["test"]
-   :extra-deps {lambdaisland/kaocha {:mvn/version "1.60.945"}}
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.60.972"}}
    :main-opts   ["-m" "kaocha.runner"]
    :exec-fn kaocha.runner/exec-fn
    :exec-args {}}
@@ -823,16 +829,18 @@
   ;; clojure -M:test/kaocha-watch
   :test/kaocha-watch
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.60.945"}}
+   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.60.972"}}
    :main-opts   ["-m" "kaocha.runner" "--watch" "--fail-fast" "--skip-meta" ":slow"]
    :exec-fn kaocha.runner/exec-fn
    ;; exec-args seem to be ignored currently
    :exec-args {:watch? true
                :randomize? false
                :fail-fast? true}}
+
+;; clojure -M:test/kaocha-cljs
   :test/kaocha-cljs
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha      {:mvn/version "1.0.887"}
+   :extra-deps  {lambdaisland/kaocha      {:mvn/version "1.60.972"}
                  lambdaisland/kaocha-cljs {:mvn/version "1.0.107"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
@@ -840,7 +848,7 @@
   ;; clojure -M:test/kaocha-cucumber
   :test/kaocha-cucumber
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha          {:mvn/version "1.0.887"}
+   :extra-deps  {lambdaisland/kaocha          {:mvn/version "1.60.972"}
                  lambdaisland/kaocha-cucumber {:mvn/version "0.0.53"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
@@ -848,16 +856,15 @@
   ;; clojure -M:test/kaocha-junit-xml
   :test/kaocha-junit-xml
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha           {:mvn/version "1.0.887"}
+   :extra-deps  {lambdaisland/kaocha           {:mvn/version "1.60.972"}
                  lambdaisland/kaocha-junit-xml {:mvn/version "0.0.76"}}
    :main-opts   ["-m" "kaocha.runner"]}
-
 
   ;; https://github.com/lambdaisland/kaocha-cloverage
   ;; clojure -M:test/kaocha-cloverage
   :test/kaocha-cloverage
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha           {:mvn/version "1.0.887"}
+   :extra-deps  {lambdaisland/kaocha           {:mvn/version "1.60.945"}
                  lambdaisland/kaocha-cloverage {:mvn/version "1.0.75"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
