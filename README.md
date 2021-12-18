@@ -905,8 +905,8 @@ Use only one mirror entry for a specific repository, to ensure a repeatable buil
  ;; UK specific mirror
  "uk"      {:url "http://uk.maven.org/maven2/"}
 
-  ;; CDN access to clojars
-  "clojars" {:url "https://repo.clojars.org/"}}
+ ;; CDN access to clojars
+ "clojars" {:url "https://repo.clojars.org/"}}
 ```
 
 ### Asian Region Mirrors
@@ -915,11 +915,11 @@ Use only one mirror entry for a specific repository, to ensure a repeatable buil
  :mvn/repos
  {"google-maven-central" {:url "https://maven-central-asia.storage-download.googleapis.com/maven2/"}
 
-  ;; Community mirror
-  "clojars-china-mirror" {:url "https://mirrors.tuna.tsinghua.edu.cn/clojars/"}
+ ;; Community mirror
+ "clojars-china-mirror" {:url "https://mirrors.tuna.tsinghua.edu.cn/clojars/"}
 
-  ;; CDN access to clojars
-  "clojars" {:url "https://repo.clojars.org/"}}
+ ;; CDN access to clojars
+ "clojars" {:url "https://repo.clojars.org/"}}
 ```
 
 ## Maven local repository
