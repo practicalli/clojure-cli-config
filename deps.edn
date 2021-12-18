@@ -912,6 +912,12 @@
    :replace-deps  {tvaughan/kibit-runner {:mvn/version "1.0.1"}}
    :main-opts     ["-m" "kibit-runner.cmdline"]}
 
+  ;; cljfmt - show/fix Clojure formatting issues
+  ;; https://github.com/weavejester/cljfmt
+  :lint/cljfmt
+  {:extra-deps {cljfmt/cljfmt {:mvn/version "0.8.0"}}
+   :main-opts ["-m" "cljfmt.main"]}
+
   ;; End of Linting/ static analysis
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
