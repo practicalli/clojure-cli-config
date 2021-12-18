@@ -18,7 +18,7 @@ The **[Practicalli Clojure book](https://practicalli.github.io/clojure/clojure-t
 * [Updating practicalli/clojure-deps-edn](#updating-practicalli-clojure-deps-edn)
 * [Common development tasks](#common-development-tasks)
 * [Aliases](#aliases)
-    * [REPL Terminal UI](#repl-terminal-ui) | [REPL with Editor](#repl-with-editor) | [Remote REPL Connection](#remote-repl-connection) | [Alternative REPLs](#alternative-repls) | [Projects](#clojure-projects) | [Formatting](#formatting) [Java sources](#java-sources) | [Databases](#databases-and-drivers) | [Data Inspectors](#data-inspectors) | [Middleware](#middleware) | [Clojure Spec](#clojure-specification) | [Unit Testing](#unit-testing-frameworks) | [Test runners](#test-runners-and-test-coverage-tools) | [Lint tools](#lint-tools) | [Visualize vars and deps](#visualizing-project-vars-and-library-dependencies) | [Performance testing](#performance-testing) | [Serices](#services)
+    * [REPL Terminal UI](#repl-terminal-ui) | [REPL with Editor](#repl-with-editor) | [Remote REPL Connection](#remote-repl-connection) | [Alternative REPLs](#alternative-repls) | [Projects](#clojure-projects) | [Formatting](#formatting) [Java sources](#java-sources) | [Databases](#databases-and-drivers) | [Data Inspectors](#data-inspectors) | [Middleware](#middleware) | [Clojure Spec](#clojure-specification) | [Unit Testing](#unit-testing-frameworks) | [Test runners](#test-runners-and-test-coverage-tools) | [Lint tools](#lint-tools) | [Visualize vars and deps](#visualizing-project-vars-and-library-dependencies) | [Performance testing](#performance-testing) | [Serices](#services) | [Security](#security)
 * [Library repositories](#library-repositories)
 * [Experimental](#experimental)
 
@@ -640,6 +640,15 @@ Web servers and other standalone services run with Clojure CLI tools
 | `clojure -M:service/http 8888 --dir docs` | as above with PORT 8888 and doc directory           |
 
 > Use `Ctrl-c` to stop the server when running in the foreground
+
+
+## Security
+
+* `:service/nvd` - check library dependencies of a project against the [National Vulnerability Database](https://nvd.nist.gov/) using [nvd-clojure](https://github.com/rm-hull/nvd-clojure)
+
+| Command                  | Description                                                        |
+|--------------------------+--------------------------------------------------------------------|
+| `clojure -M:service/nvd` | check all jar files on the class path for security vulnerabilities |
 
 
 ## Community activities
