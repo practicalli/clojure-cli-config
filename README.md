@@ -767,3 +767,4 @@ Use only one mirror entry for a specific repository, to ensure a repeatable buil
 ```
 
 > NOTE: using `clj -Sforce` forces a classpath recompute, deleting the contents of .cpcache
+
