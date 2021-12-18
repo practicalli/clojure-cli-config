@@ -315,7 +315,8 @@ Path to project.jar can also be set in alias to simplify the Clojure command.
 
 ## Formatting
 
-* `:format/zprint filename` - format clojure code and Edn data structures in the given file
+* `:format/zprint filename` - format clojure code and Edn data structures in the given file using zpring
+* `:format/cljfmt [check|fix] filename` - format clojure code and Edn data structures in the given file(s) using cljfmt
 
 
 ## Java Sources
