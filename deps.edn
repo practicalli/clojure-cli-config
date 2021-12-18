@@ -1037,7 +1037,8 @@
   ;; Security
 
   ;; https://github.com/rm-hull/nvd-clojure
-  ;; check all the jars in the classpath for known security vulnerabilities using the National Vulnerability Database:w
+  ;; check all the jars in the classpath for known security vulnerabilities using the
+  ;; National Vulnerability Database
   :security/nvd 
   {:extra-deps {nvd-clojure/nvd-clojure {:mvn/version "1.9.0"}} 
    :main-opts ["-m" "nvd.task.check"]}
