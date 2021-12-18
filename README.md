@@ -797,7 +797,7 @@ Web servers and other standalone services run with Clojure CLI tools
   [nvd-clojure](https://github.com/rm-hull/nvd-clojure)
 
 | Command                  | Description                                                        |
-|--------------------------+--------------------------------------------------------------------|
+|--------------------------|--------------------------------------------------------------------|
 | `clojure -M:service/nvd` | check all jar files on the class path for security vulnerabilities |
 
 ## Community activities
