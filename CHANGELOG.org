@@ -6,7 +6,39 @@
 ** Added
 *** [[https://github.com/practicalli/clojure-deps-edn/pull/27][#27]] ~:security/nvd~ alias added to run nvd-clojure to detect security issues in dependencies, as identified in the [[https://nvd.nist.gov/][National Vunerability Database]]
 *** `:kaocha-global` experimental alias to use a user level configuration rather than the project specific `tests.edn` configuration
+
+** Changed
 *** Update kaocha library versions
+*** GitHub Action workflow lint-with-clj-kondo.yml updated from 2021.08.06 to 2021.12.16
+*** Update library versions using `:project/outated` alias
+
+  | :name                             |                                 :current |                                  :latest |
+  |-----------------------------------+------------------------------------------+------------------------------------------|
+  | borkdude/carve                    | c9a4dec89032f2003cc439c473fcd3c41e809669 | 1fd3da8472cf9ee902f9616ca3aeb4812b5c734c |
+  | cider/cider-nrepl                 |                                   0.26.0 |                                   0.27.4 |
+  | cider/piggieback                  |                                    0.5.2 |                                    0.5.3 |
+  | clj-kondo/clj-kondo               |                               2021.08.06 |                               2021.12.16 |
+  | com.bhauman/figwheel-main         |                                   0.2.14 |                                   0.2.15 |
+  | com.github.liquidz/antq           |                                    1.0.0 |                                    1.3.0 |
+  | com.github.seancorfield/clj-new   |                                  1.1.331 |                                  1.2.380 |
+  | com.github.seancorfield/depstar   |                                  2.1.297 |                                  2.1.303 |
+  | com.github.seancorfield/next.jdbc |                                  1.2.709 |                                  1.2.761 |
+  | com.h2database/h2                 |                                  1.4.200 |                                  2.0.202 |
+  | djblue/portal                     |                                   0.14.0 |                                   0.19.0 |
+  | jonase/eastwood                   |                                    0.9.9 |                                    1.0.0 |
+  | lambdaisland/kaocha               |                                 1.60.945 |                                 1.60.972 |
+  | nrepl/nrepl                       |                                    0.8.3 |                                    0.9.0 |
+  | org.clojure/spec-alpha2           | c087ded910b3532a938b37e853df79fc3b9c48c1 | 99456b1856a6fd934e2c30b17920bd790dd81775 |
+  | org.clojure/test.check            |                                    1.1.0 |                                    1.1.1 |
+  | org.clojure/tools.deps.graph      |                                   1.0.63 |                                   1.1.68 |
+  | org.slf4j/slf4j-nop               |                                   1.7.31 |                                   1.7.32 |
+  | refactor-nrepl/refactor-nrepl     |                              3.0.0-pr301 |                                    3.1.0 |
+  | slipset/deps-deploy               |                                    0.1.5 |                                    0.2.0 |
+  | thomasa/morpheus                  | 7f4876ea631a6f5ccee2094d255efd2d1a98ffb6 | 0c4cb1436e49077a4762347cf4b1f5885a007a2f |
+  | uberdeps/uberdeps                 |                                    1.0.4 |                                    1.1.1 |
+  | vlaaad/reveal                     |                                  1.3.214 |                                  1.3.251 |
+  | zprint/zprint                     |                                    1.1.2 |                                    1.2.0 |
+
 
 * 2021-12-12
 ** Added
