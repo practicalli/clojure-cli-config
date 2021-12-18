@@ -2,6 +2,12 @@
 
 * Unreleased
 
+* 2021-12-18
+** Added
+*** [[https://github.com/practicalli/clojure-deps-edn/pull/27][#27]] ~:security/nvd~ alias added to run nvd-clojure to detect security issues in dependencies, as identified in the [[https://nvd.nist.gov/][National Vunerability Database]]
+*** `:kaocha-global` experimental alias to use a user level configuration rather than the project specific `tests.edn` configuration
+*** Update kaocha library versions
+
 * 2021-12-12
 ** Added
 *** `test/watch` alias - Kaocha test runner in watch mode, including fast fail and skipping meta data.  Provides a quick to use test runner that watches for file changes and re-runs tests from the last failed test.
