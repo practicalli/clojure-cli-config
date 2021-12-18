@@ -661,7 +661,7 @@ Web servers and other standalone services run with Clojure CLI tools
 * `:service/nvd` - check library dependencies of a project against the [National Vulnerability Database](https://nvd.nist.gov/) using [nvd-clojure](https://github.com/rm-hull/nvd-clojure)
 
 | Command                  | Description                                                        |
-|--------------------------+--------------------------------------------------------------------|
+|--------------------------|--------------------------------------------------------------------|
 | `clojure -M:service/nvd` | check all jar files on the class path for security vulnerabilities |
 
 ## Community activities
