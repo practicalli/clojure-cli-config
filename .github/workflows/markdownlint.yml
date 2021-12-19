@@ -13,4 +13,4 @@ jobs:
       with:
         #rules: '/lint/rules/changelog.js'
         #config: '/lint/config/changelog.yml'
-        #args: './README.md'
+        args: './README.md'
