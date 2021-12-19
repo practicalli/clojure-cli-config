@@ -1,3 +1,5 @@
+on: push
+
 jobs:
   lint-readme:
     name: Lint README.md
