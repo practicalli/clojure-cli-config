@@ -901,15 +901,17 @@
   ;; https://github.com/borkdude/clj-kondo/
   :lint/clj-kondo
   {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2021.12.16"}}
-   :main-opts  ["-m" "clj-kondo.main" "--lint" "src"]}
+   :main-opts  ["-m" "clj-kondo.main" "--lint" "src" "test"]}
 
 
   ;; Eastwood - classic lint tool
   ;; https://github.com/jonase/eastwood#running-eastwood-in-a-repl
   :lint/eastwood
   {:extra-deps {jonase/eastwood {:mvn/version "1.0.0"}}
-   :main-opts  ["-m" "eastwood.lint"
-                "{:source-paths,[\"src\"],:test-paths,[\"test\"]}"]}
+   ;; NOTE: source/test paths are accurately inferred, particularly for deps.edn projects,
+   ;; so typically you never have to set them up explicitly.
+   ;; Leaving them for inference is recommended, otherwise a fixed list can get out of date and lint fewer dirs than due.
+   :main-opts  ["-m" "eastwood.lint"]}
 
 
   ;; kibit - suggest idiomatic use of Clojure
