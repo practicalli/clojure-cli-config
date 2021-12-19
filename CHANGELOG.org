@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Changed
+*** command line documentation for :security/nvd to pass correct arguments
 
 * 2021-12-18
 ** Added
