@@ -482,7 +482,20 @@
   {:extra-deps {zprint/zprint {:mvn/version "1.2.0"}}
    :main-opts  ["-m" "zprint.main"]}
 
-  ;; End of: Data manipulation tools
+  ;; check and fix Clojure formatting with cljfmt:
+  ;; https://github.com/weavejester/cljfmt
+
+  ;; cljfmt-check - check/report formatting issues
+  :format/cljfmt-check
+  {:extra-deps {cljfmt/cljfmt {:mvn/version "0.8.0"}}
+   :main-opts ["-m" "cljfmt.main" "check"]}
+
+  ;; cljfmt-check - check/report formatting issues
+  :format/cljfmt-fix
+  {:extra-deps {cljfmt/cljfmt {:mvn/version "0.8.0"}}
+   :main-opts ["-m" "cljfmt.main" "fix"]}
+
+  ;; End of: Formatting tools
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
