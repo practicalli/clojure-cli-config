@@ -659,7 +659,7 @@ the `clojure.test` namespace, so no alias is required.
 * `:env/test` - add `test` directory to classpath
 * [`:lib/expectations`](https://github.com/clojure-expectations/clojure-test) -
   `clojure.test` with expectations
-* [`:lib/expectations-classic`](https://github.com/clojure-expectations/expectations) - 
+* [`:lib/expectations-classic`](https://github.com/clojure-expectations/expectations) -
   expectations framework
 
 Include expectations as a development dependency in a project `clojure
@@ -793,6 +793,8 @@ Web servers and other standalone services run with Clojure CLI tools
 
 ## Security
 
+> DEPRECATED: this command also [checks the clojure-nvd for security issues as clojure-nvd jar and dependencies are merged into the classpath](https://github.com/practicalli/clojure-deps-edn/pull/31).  This goes [against the recommended approach by the clojure-nvd maintainer](https://github.com/rm-hull/nvd-clojure#avoiding-classpath-interference) and will [in future fail to run](https://github.com/rm-hull/nvd-clojure/issues/117), so use with caution.
+
 * `:service/nvd` - check library dependencies of a project against the
   [National Vulnerability Database](https://nvd.nist.gov/) using
   [nvd-clojure](https://github.com/rm-hull/nvd-clojure)
@@ -802,6 +804,8 @@ Web servers and other standalone services run with Clojure CLI tools
 | `clojure -M:security/nvd "" "$(clojure -Spath)"` | check all jar files on the class path for security vulnerabilities |
 
 > The first "" is required argument and can contain a filename to a json file of additional configuration.  The second argument, `"$(clojure -Spath)"`, passes the project classpath to be analysed as a string.
+>
+
 
 ## Community activities
 
@@ -933,4 +937,3 @@ Use only one mirror entry for a specific repository, to ensure a repeatable buil
 
 > NOTE: using `clj -Sforce` forces a classpath recompute, deleting the contents
 > of .cpcache
-
