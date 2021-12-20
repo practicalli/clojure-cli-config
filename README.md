@@ -798,7 +798,7 @@ Web servers and other standalone services run with Clojure CLI tools
   [nvd-clojure](https://github.com/rm-hull/nvd-clojure)
 
 | Command                                          | Description                                                        |
-|--------------------------------------------------+--------------------------------------------------------------------|
+|--------------------------------------------------|--------------------------------------------------------------------|
 | `clojure -M:security/nvd "" "$(clojure -Spath)"` | check all jar files on the class path for security vulnerabilities |
 
 > The first "" is required argument and can contain a filename to a json file of additional configuration.  The second argument, `"$(clojure -Spath)"`, passes the project classpath to be analysed as a string.
