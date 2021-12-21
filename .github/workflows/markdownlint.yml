@@ -1,4 +1,9 @@
-on: push
+name: "Lint README.md markdown"
+on: 
+  pull_request:
+  push:
+    branches:
+      - live
 
 jobs:
   lint-readme:
@@ -8,8 +13,8 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v2
 
-    - name: Lint changelog file
-      uses: docker://avtodev/markdown-lint:v1 # fastest way
+    - name: Lint README
+      uses: docker://avtodev/markdown-lint:v1 
       with:
         args: './README.md'
 
