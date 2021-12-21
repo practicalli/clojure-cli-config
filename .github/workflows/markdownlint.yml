@@ -1,16 +1,9 @@
 on: push
 
 jobs:
-  lint-readme:
-    name: Lint README.md
+  build:
     runs-on: ubuntu-latest
     steps:
-    - name: Check out code
-      uses: actions/checkout@v2
-
-    - name: Lint README.md
-      uses: avtodev/markdown-lint@v1
-      with:
-        #rules: '/lint/rules/changelog.js'
-        #config: '/lint/config/changelog.yml'
-        args: './README.md'
+      - uses: actions/checkout@v2
+      - uses: xt0rted/markdownlint-problem-matcher@v1
+      - run: markdownlint **/*.md 
