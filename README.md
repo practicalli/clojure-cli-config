@@ -931,8 +931,10 @@ Use only one mirror entry for a specific repository, to ensure a repeatable buil
 
 ## Maven local repository
 
+Define a local Maven repository.  Useful if you wish to specify an alternative to the default `~/.m2/` directory.
+
 ```
- :mvn/local-repo "m2"
+ :mvn/local-repo "/cache/.m2"
 ```
 
 > NOTE: using `clj -Sforce` forces a classpath recompute, deleting the contents
