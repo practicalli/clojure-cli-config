@@ -30,6 +30,11 @@ jobs:
       - name: Lint everything
         uses: github/super-linter/slim@v4
         env:
+          ## Define Linters to run (others set to false)
+          VALIDATE_YAML: true
+          VALIDATE_MARKDOWN: true
+          VALIDATE_CLOJURE: true
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: live
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FILTER_REGEX_INCLUDE: .*/.*
