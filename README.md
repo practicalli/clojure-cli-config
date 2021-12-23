@@ -177,9 +177,7 @@ sessions can connect to the same REPL.
 See [Middleware aliases](#middleware) to run a headless REPL process without a
 REPL UI
 
-Use the `:env/dev` alias with the :repl aliases to include `dev/` in classpath
-and [configure REPL startup actions using
-`dev/user.clj`](http://practicalli.github.io/clojure/clojure-tools/configure-repl-startup.html)
+Use the `:env/dev` alias with the :repl aliases to include `dev/` in classpath and [configure REPL startup actions using `dev/user.clj`](https://practical.li/clojure/clojure-tools/projects/configure-repl-startup.html)
 
 | Command                            | Description                                                                                                    |
 |------------------------------------|----------------------------------------------------------------------------------------------------------------|
@@ -609,8 +607,8 @@ To start a REBL REPL from `cider-jack-in-clj` add a `.dir-locals.el` file to the
                   (cider-clojure-cli-parameters . ""))))
 ```
 
-* [REBL data visualization: run REBL with nREPL based
-  editors](http://practicalli.github.io/clojure/clojure-tools/data-browsers/rebl-data-visualization.html#run-rebl-for-nrepl-based-editors)
+* [REBL data visualization: run REBL with nREPL based editors](https://practical.li/clojure/alternative-tools/clojure-tools/cognitect-rebl.html#configure-rebl-with-clojure-editors)
+
 
 ## Clojure Specification
 
