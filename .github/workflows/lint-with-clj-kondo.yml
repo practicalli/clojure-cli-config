@@ -1,7 +1,11 @@
 name: "Lint with clj-kondo"
 on:
   pull_request:
+    paths:
+      - 'deps.edn'
   push:
+    paths:
+      - 'deps.edn'
     branches:
       - live
 
