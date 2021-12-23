@@ -23,7 +23,7 @@ jobs:
           fetch-depth: 0
       - name: MegaLinter
         id: ml
-        uses: megalinter/megalinter@v5
+        uses: megalinter/megalinter@beta
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}' # report individual linter status
           # Validate all source when push on main, else just the git diff with live.
