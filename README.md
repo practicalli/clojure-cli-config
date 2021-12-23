@@ -17,7 +17,7 @@ inspiration taken from
 [seancorfield/dot-clojure](https://github.com/seancorfield/dot-clojure).
 
 The **[Practicalli Clojure
-book](https://practicalli.github.io/clojure/clojure-tools/data-browsers/portal.html)**
+book](https://practical.li/clojure/clojure-tools/data-browsers/portal.html)**
 uses this configuration extensively to help you develop Clojure projects and
 learn the Clojure language.
 
@@ -397,7 +397,7 @@ Path to project.jar can also be set in alias to simplify the Clojure command.
 
 ## Java Sources
 
-Include Java source on the  classpath to [look up Java Class and method definitions, eg. `cider-find-var` in Emacs](https://practicalli.github.io/spacemacs/navigating-code/java-definitions.html)
+Include Java source on the  classpath to [look up Java Class and method definitions, eg. `cider-find-var` in Emacs](https://practical.li/spacemacs/navigating-code/java-definitions.html)
 
 Requires: Java sources installed locally (e.g. `"/usr/lib/jvm/openjdk-11/lib/src.zip"`)
 
@@ -423,7 +423,7 @@ REPL driven data inspectors and `tap>` sources for visualizing data.
 ### [Portal](https://github.com/djblue/portal)
 
 Navigate data in the form of edn, json and transit
-[Practicalli Clojure -data browsers section - portal](https://practicalli.github.io/clojure/clojure-tools/data-browsers/portal.html)
+[Practicalli Clojure -data browsers section - portal](https://practical.li/clojure/clojure-tools/data-browsers/portal.html)
 
 * `inspect/portal-cli` - Clojure CLI (simplest approach)
 * `inspect/portal-web` - Web ClojureScript REPL
@@ -453,14 +453,14 @@ data you wish to send)
 ### Reveal data inspector and visualization tool
 
 [Reveal](https://vlaaad.github.io/reveal/) - run a Terminal REPL with data visualisation or connect with nREPL, socket or prepl connection and use from
-any [Clojure aware editor]([Clojure aware editors](https://practicalli.github.io/clojure/clojure-editors/)).
+any [Clojure aware editor]([Clojure aware editors](https://practical.li/clojure/clojure-editors/)).
 
 Reveal can also used as a `tap>` source for more powerful manual debugging.
 
 * `:inspect/reveal` - visualisation with terminal REPL.
 * `:inspect/reveal-light` - as above with light theme and 32 point Ubuntu Mono font
 * `:inspect/reveal-nrepl` - visualization for [Clojure aware
-  editors](https://practicalli.github.io/clojure/clojure-editors/) via an nrepl
+  editors](https://practical.li/clojure/clojure-editors/) via an nrepl
   server
 * `:inspec/reveal-light-nrepl` - as above with light theme and 32 point Ubuntu Mono font
 * `:inspect/reveal-nrepl-cider` - visualization tool for Emacs Cider / Spacemacs / VSCode Calva
@@ -493,7 +493,7 @@ Alternatively, add an `.nrepl.edn` file to the root of a project to include the 
 #### Cider jack-in and reveal
 
 See the [Reveal section of Practicalli
-Clojure](https://practicalli.github.io/clojure-staging/clojure-tools/data-browsers/reveal.html#using-reveal-with-nrepl-editors) for full details, including how to set up a `.dir-locals.el` configuration.
+Clojure](https://practical.li/clojure-staging/clojure-tools/data-browsers/reveal.html#using-reveal-with-nrepl-editors) for full details, including how to set up a `.dir-locals.el` configuration.
 
 `:inspect/reveal-nrepl-cider` alias contains Reveal REPL with nrepl server and Emacs CIDER specific middleware
 
