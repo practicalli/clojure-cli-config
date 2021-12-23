@@ -1,6 +1,7 @@
 ![Practicalli Clojure deps.edn user wide configuration for Clojure projects](https://raw.githubusercontent.com/practicalli/graphic-design/live/practicalli-clojure-deps.png)
 
 ![clj-kondo GitHub action](https://github.com/practicalli/clojure-deps-edn/actions/workflows/lint-with-clj-kondo.yml/badge.svg)
+[![MegaLinter](https://github.com/practicalli/clojure-deps-edn/actions/workflows/manual-mega-linter.yaml/badge.svg)](https://github.com/practicalli/clojure-deps-edn/actions/workflows/manual-mega-linter.yaml)
 
 # User level configuration for Clojure CLI tools
 
