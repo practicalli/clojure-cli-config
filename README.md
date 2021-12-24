@@ -798,7 +798,7 @@ Repositories that host libraries for Clojure.
 
 The order of additional repositories consulted is not guaranteed, so may cause unpredictable side effects in the project build especially if `RELEASE` or `LATEST` tags are used rather than a numeric library version.
 
-Maven supports [explicit mirror definition](http://maven.apache.org/guides/mini/guide-mirror-settings.html) in `~/.m2/settings.xml` and Clojure CLI tools(tools.deps) supports this configuration.  Adding Maven Central or a mirror to  `~/.m2/settings.xml` negates the need for its entry in deps.edn configuration.
+Maven supports [explicit mirror definition](https://maven.apache.org/guides/mini/guide-mirror-settings.html) in `~/.m2/settings.xml` and Clojure CLI tools(tools.deps) supports this configuration.  Adding Maven Central or a mirror to  `~/.m2/settings.xml` negates the need for its entry in deps.edn configuration.
 
 ## Recommended repositories
 
@@ -807,10 +807,19 @@ Maven supports [explicit mirror definition](http://maven.apache.org/guides/mini/
 
 ## Optional repositories
 
-* `sonatype` - snapshots of Clojure development releases, useful for testing against before new stable releases.
-* `jcenter` - the largest mirror of all open source libraries (useful as a backup or accessing through corporate firewalls)
+* `sonatype` - [snapshots of Clojure development releases](https://oss.sonatype.org/), useful for testing against before new stable releases.
 * `business-area` - example of adding a local Artifactory server for your team or business area.
 * `google-maven-central` - [Maven Central mirror hosted on Google Cloud Storage](https://storage-download.googleapis.com/maven-central/index.html) - Americas, Asia, Europe
+
+> Use only one entry for a specific repository to ensure a repeatable build.  For example, avoid having Maven Central and a Maven Central mirror both included.
+
+### Business area
+
+Example of local Artifactory repository configuration
+```clojure
+ :mvn/repos
+ {"business-area" {:url "https://artifacts.internal-server.com:443/artifactory/business-area-maven-local"}
+```
 
 ### Americas mirrors
 
@@ -821,14 +830,9 @@ Maven supports [explicit mirror definition](http://maven.apache.org/guides/mini/
 
 ### Europe mirrors
 
-Use only one mirror entry for a specific repository, to ensure a repeatable build.
-
 ```clojure
  :mvn/repos
  {"google-maven-central" {:url "https://maven-central-eu.storage-download.googleapis.com/maven2/"}
-
- ;; UK specific mirror
- "uk"      {:url "http://uk.maven.org/maven2/"}
 
  ;; CDN access to clojars
  "clojars" {:url "https://repo.clojars.org/"}}

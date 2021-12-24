@@ -1174,8 +1174,6 @@
              ;; Clojure snapshots
              ;; "sonatype" {:url "https://oss.sonatype.org/content/repositories/snapshots/"}
 
-             ;; clojars.org mirror - publicly accessible
-             ;; "jcenter" {:url "https://jcenter.bintray.com"}
 
              ;; Maven Central Google Cloud Storage mirrors
              ;; Americas
