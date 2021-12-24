@@ -33,7 +33,7 @@ jobs:
           # Specific linters to run
           VALIDATE_YAML: true
           VALIDATE_MARKDOWN: true
-          VALIDATE_CLOJURE: true
+          VALIDATE_CLOJURE: false
           CLOJURE_CLJ_KONDO_ARGUMENTS: '--lint deps.edn'
 
           # ADD CUSTOM ENV VARIABLES OR DEFINE IN A FILE .mega-linter.yml AT ROOT OF REPOSITORY
