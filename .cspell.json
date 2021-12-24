@@ -5,5 +5,6 @@
   "description": "Practicalli Custom Dictionary",
   "addWords": true}
   ],
-  "dictionaries": ["practicalli"]
+ "dictionaries": ["practicalli"],
+ "ignorePaths": ["**/*.yml", "**/*.yaml"]
 }
