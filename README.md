@@ -35,7 +35,7 @@ learn the Clojure language.
 * [Updating practicalli/clojure-deps-edn](#updating-practicalli-clojure-deps-edn)
 * [Common development tasks](#common-development-tasks)
 * [Aliases](#aliases)
-  * [REPL Terminal UI](#repl-terminal-ui) | [REPL with Editor](#repl-with-editor) | [Remote REPL Connection](#remote-repl-connection) | [Alternative REPLs](#alternative-repls) | [Projects](#clojure-projects) | [Formatting](#formatting) [Java sources](#java-sources) | [Databases](#databases-and-drivers) | [Data Inspectors](#data-inspectors) | [Middleware](#middleware) | [Clojure Spec](#clojure-specification) | [Unit Testing](#unit-testing-frameworks) | [Test runners](#test-runners-and-test-coverage-tools) | [Lint tools](#lint-tools) | [Visualize vars and deps](#visualizing-project-vars-and-library-dependencies) | [Performance testing](#performance-testing) | [Serices](#services) | [Security](#security)
+  * [REPL Terminal UI](#repl-terminal-ui) | [REPL with Editor](#repl-with-editor) | [Remote REPL Connection](#remote-repl-connection) | [Alternative REPL](#alternative-repl) | [Projects](#clojure-projects) | [Formatting](#formatting) [Java sources](#java-sources) | [Databases](#databases-and-drivers) | [Data Inspectors](#data-inspectors) | [Middleware](#middleware) | [Clojure Spec](#clojure-specification) | [Unit Testing](#unit-testing-frameworks) | [Test runners](#test-runners-and-test-coverage-tools) | [Lint tools](#lint-tools) | [Visualize vars and deps](#visualizing-project-vars-and-library-dependencies) | [Performance testing](#performance-testing) | [Services](#services) | [Security](#security)
 * [Library repositories](#library-repositories)
 * [Experimental](#experimental)
 
@@ -160,7 +160,7 @@ to use a community tool.
 | `-P -M:aliases` | Prepare / dry run including alias deps and paths         | deps, path                                           |
 | `-P -X:aliases` | Prepare / dry run including alias deps and paths         | deps, path                                           |
 | `-X`            | Execute a qualified function, optional default arguments | deps, path, `:exec-fn`, `:exec-args` & :key val args |
-| `-J`            | Java Virtual Machine specific options (menory size, etc) |                                                      |
+| `-J`            | Java Virtual Machine specific options (memory size, etc) |                                                      |
 
 * deps = `:deps`, `:extra-deps`, `replace-deps`
 * path = `:path`, `:extra-paths`, `replace-paths`
@@ -214,8 +214,7 @@ process](https://practical.li/clojure/alternative-tools/clojure-tools/hotload-li
 
 `clojure -M:lib/hotload:repl/rebel` enables hotloading in the REPL terminal UI.
 
-`clojure -M:lib/hotload:env/dev:repl/rebel` enables hotloading, included the
-dev directory (to auto-load `user.clj`) with a REPL terminal UI.
+`clojure -M:lib/hotload:env/dev:repl/rebel` enables hotloading, included the dev directory (to auto-load `user.clj`) with a REPL terminal UI.
 
 ## Remote REPL connection
 
@@ -232,12 +231,11 @@ clj -M:repl/rebel-remote --host hostname --port 12345
 ```
 
 
-## Alternative REPLs
+## Alternative REPL
 
-Clojure 1.10.x onward can [run a Socket Server](https://clojure.org/reference/repl_and_main#_launching_a_socket_server)
-for serving a socket-based REPL (Clojure and ClojureScript).
+Clojure 1.10.x onward can [run a Socket Server](https://clojure.org/reference/repl_and_main#_launching_a_socket_server) for serving a socket-based REPL (Clojure and ClojureScript).
 
-[tubular](https://github.com/mfikes/tubular) is a Socket Server client for Clojure and Clojurescript REPLs.
+[tubular](https://github.com/mfikes/tubular) is a Socket Server client for Clojure and Clojurescript REPL processes.
 
 PREPL is a REPL with structured output.  See [Cloure socket prepl cookbook](https://oli.me.uk/clojure-socket-prepl-cookbook/) for examples.
 
@@ -306,7 +304,7 @@ default arguments that are passed to that function.
 
 Then the project can be run using `clojure -X:project/run` and arguments can
 optionally be included in this command line, to complement or replace any
-default aruments in `exec-args`.
+default arguments in `exec-args`.
 
 ## Project dependencies
 
@@ -323,7 +321,7 @@ default aruments in `exec-args`.
 | `clojure -M:project/check`                           | detailed report of compilation errors for a project                  |
 | `clojure -M:project/find-deps library-name`          | fuzzy search Maven & Clojars                                         |
 | `clojure -M:project/find-deps -F:merge library-name` | fuzzy search Maven & Clojars and save to project deps.edn            |
-| `clojure -X:project/graph-deps`                      | generate png image of project dependencies from projet deps.edn file |
+| `clojure -X:project/graph-deps`                      | generate png image of project dependencies from project `deps.edn` file |
 | `clojure -M:project/outdated`                        | report newer versions for maven and git dependencies                 |
 | `clojure -M:project/outdated-mvn`                    | check for newer dependencies (maven only)                            |
 
@@ -392,7 +390,7 @@ Path to project.jar can also be set in alias to simplify the Clojure command.
 
 ## Formatting
 
-* `:format/zprint filename` - format clojure code and Edn data structures in the given file using zpring
+* `:format/zprint filename` - format clojure code and Edn data structures in the given file using zprint
 * `:format/cljfmt [check|fix] filename` - format clojure code and Edn data structures in the given file(s) using cljfmt
 
 ## Java Sources
@@ -429,11 +427,11 @@ Navigate data in the form of edn, json and transit
 * `inspect/portal-web` - Web ClojureScript REPL
 * `inspect/portal-node` - node ClojureScript REPL
 
-| Command                          | Description                                            |
-|----------------------------------|--------------------------------------------------------|
-| `clojure -M:inspect/portal-cli`  | Clojure REPL with Portal dependency                    |
-| `clojure -M:inspect/portal-web`  | ClojureScript web browswer REPL with Portal dependency |
-| `clojure -M:inspect/portal-node** | ClojureScript node.js REPL with Portal dependency      |
+| Command                           | Description                                           |
+|-----------------------------------+-------------------------------------------------------|
+| `clojure -M:inspect/portal-cli`   | Clojure REPL with Portal dependency                   |
+| `clojure -M:inspect/portal-web`   | ClojureScript web browser REPL with Portal dependency |
+| `clojure -M:inspect/portal-node** | ClojureScript node.js REPL with Portal dependency     |
 
 **Using Portal once running**
 `(require '[portal.api :as portal])` once the REPL starts.  For `inspect/portal-web` use `(require '[portal.web :as portal])` instead
@@ -518,7 +516,7 @@ the command line, supplying the `io-prepl` or `remote-prepl` functions.
 #### Configure theme & font
 
 Add a custom theme and font via the `-J` command line option or create an alias
-using `:insepct/reveal-light` as an example.
+using `:inspect/reveal-light` as an example.
 
 ```shell
 clojure -M:inspect/reveal -J-Dvlaaad.reveal.prefs='{:theme :light :font-family "Ubuntu Mono" :font-size 32}'
@@ -552,7 +550,7 @@ Aliases for libraries that combine community tools and REPL protocols (nREPL, So
 
 Run a REPL on the command line for access by `cider-connect-` commands,
 providing the require cider middleware libraries that are auto-injected in
-`ccider-jack-in-` commands.
+`cider-jack-in-` commands.
 
 ### nREPL
 
@@ -602,7 +600,6 @@ To start a REBL REPL from `cider-jack-in-clj` add a `.dir-locals.el` file to the
 ((clojure-mode . ((cider-preferred-build-tool . clojure-cli)
                   (cider-clojure-cli-global-options . "-M:lib/cider-nrepl:inspect/rebl:middleware/nrebl")
                   (cider-jack-in-dependencies . nil)
-                  (cider-jack-in-nrepl-middlewares . nil)
                   (cider-jack-in-lein-plugins . nil)
                   (cider-clojure-cli-parameters . ""))))
 ```
