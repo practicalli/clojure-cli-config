@@ -34,6 +34,7 @@ jobs:
 
           # Specific linters to run
           ENABLE: CREDENTIALS,MARKDOWN,GIT,SPELL,YAML
+          SPELL_CSPELL_DISABLE_ERRORS: true
           #  - CLOJURE
           # CLOJURE_CLJ_KONDO_ARGUMENTS: '--lint deps.edn'
 
