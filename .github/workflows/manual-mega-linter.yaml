@@ -23,18 +23,24 @@ jobs:
           fetch-depth: 0
       - name: MegaLinter
         id: ml
-        uses: megalinter/megalinter@beta
+        uses: megalinter/megalinter/flavors/java@v5
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}' # report individual linter status
           # Validate all source when push on main, else just the git diff with live.
           VALIDATE_ALL_CODEBASE: >-
             ${{ github.event_name == 'push' && github.ref == 'refs/heads/live'}}
 
+          PARALLEL: true
+
           # Specific linters to run
-          VALIDATE_YAML: true
-          VALIDATE_MARKDOWN: true
-          VALIDATE_CLOJURE: false
-          CLOJURE_CLJ_KONDO_ARGUMENTS: '--lint deps.edn'
+          ENABLE:
+            - CREDENTIALS
+            - MARKDOWN
+            - GIT
+            - SPELL
+            - YAML
+          #  - CLOJURE
+          # CLOJURE_CLJ_KONDO_ARGUMENTS: '--lint deps.edn'
 
           # ADD CUSTOM ENV VARIABLES OR DEFINE IN A FILE .mega-linter.yml AT ROOT OF REPOSITORY
           # DISABLE: COPYPASTE,SPELL # Uncomment to disable copy-paste and spell checks
