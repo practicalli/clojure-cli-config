@@ -33,12 +33,7 @@ jobs:
           PARALLEL: true
 
           # Specific linters to run
-          ENABLE:
-            - CREDENTIALS
-            - MARKDOWN
-            - GIT
-            - SPELL
-            - YAML
+          ENABLE: CREDENTIALS,MARKDOWN,GIT,SPELL,YAML
           #  - CLOJURE
           # CLOJURE_CLJ_KONDO_ARGUMENTS: '--lint deps.edn'
 
