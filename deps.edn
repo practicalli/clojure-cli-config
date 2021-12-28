@@ -331,14 +331,27 @@
   ;; Manage versions for maven and git dependencies
 
   ;; - report project dependencies that have newer versions available:
-  ;; cd project-directory && clojure -M:project/outdated
+  ;; cd project-directory && clojure -T:project/outdated
   ;; - update library versions in this deps.edn file:
-  ;; cd ~/.clojure && clojure -M:project/outdated
+  ;; cd ~/.clojure && clojure -T:project/outdated
   :project/outdated
-  {:replace-paths []
-   :replace-deps  {com.github.liquidz/antq {:mvn/version "1.3.0"}
+  {:replace-paths ["."]
+   :replace-deps  {com.github.liquidz/antq {:mvn/version "1.3.1"}
                    org.slf4j/slf4j-nop     {:mvn/version "1.7.32"}}
-   :main-opts     ["-m" "antq.core"]}
+   :exec-fn antq.tool/outdated
+   :exec-args {:directory ["."] ; default
+               :exclude ["com.cognitect/rebl"
+                         "org.openjfx/javafx-base"
+                         "org.openjfx/javafx-controls"
+                         "org.openjfx/javafx-fxml"
+                         "org.openjfx/javafx-swing"
+                         "org.openjfx/javafx-web"]
+               ;; :focus ["com.github.liquidz/antq"]
+               :skip ["boot" "leiningen"]
+               :reporter "table" ; json edn format
+               :verbose false
+               :upgrade false
+               :force   false}}
 
   :hack/antq
   {:replace-deps

@@ -128,7 +128,7 @@ How to run common tasks for Clojure development.
 | Find available versions of a library                   | `clojure -M:project/find-deps -X:deps find-versions`            | Built-in           |
 | Resolve git coord tags to shas and update deps.edn     | `clojure -X:deps git-resolve-tags git-coord-tag`                | Built-in           |
 | Generate image of project dependency graph             | `clojure -X:project/graph-deps`                                 | User alias         |
-| Check for new dependency versions                      | `clojure -M:project/outdated`                                   | User alias         |
+| Check for new dependency versions                      | `clojure -T:project/outdated`                                   | User alias         |
 | Run tests                                              | `clojure -M:test/run`                                           | User/Project alias |
 | Run the project                                        | `clojure -M -m domain.main-namespace`                           | Built-in           |
 | [Run the project](https://youtu.be/u5VoFpsntXc?t=2166) | `clojure -X:project/run`                                        | Project alias      |
@@ -160,6 +160,7 @@ to use a community tool.
 | `-P -M:aliases` | Prepare / dry run including alias deps and paths         | deps, path                                           |
 | `-P -X:aliases` | Prepare / dry run including alias deps and paths         | deps, path                                           |
 | `-X`            | Execute a qualified function, optional default arguments | deps, path, `:exec-fn`, `:exec-args` & :key val args |
+| `-T`            | Run a tool or alias separate from a project classpathnts | `:exec-fn`, `:exec-args` & :key val args             |
 | `-J`            | Java Virtual Machine specific options (memory size, etc) |                                                      |
 
 * deps = `:deps`, `:extra-deps`, `replace-deps`
@@ -322,8 +323,8 @@ default arguments in `exec-args`.
 | `clojure -M:project/find-deps library-name`          | fuzzy search Maven & Clojars                                         |
 | `clojure -M:project/find-deps -F:merge library-name` | fuzzy search Maven & Clojars and save to project deps.edn            |
 | `clojure -X:project/graph-deps`                      | generate png image of project dependencies from project `deps.edn` file |
-| `clojure -M:project/outdated`                        | report newer versions for maven and git dependencies                 |
 | `clojure -M:project/outdated-mvn`                    | check for newer dependencies (maven only)                            |
+| `clojure -T:project/outdated`                        | report newer versions for maven and git dependencies                    |
 
 ## Project analysis
 
