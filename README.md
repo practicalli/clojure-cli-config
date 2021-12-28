@@ -5,29 +5,13 @@
 
 # User level configuration for Clojure CLI tools
 
-[practicalli/clojure-deps-edn](https://github.com/practicalli/clojure-deps-edn)
-provides a user level configuration, containing over 30 aliases to support
-Clojure CLI and tools.deps project development.  These aliases use meaningful
-and descriptive names to avoid clashes with project specific aliases, ensuring
-that the user wide aliases remain available in all projects.
+[practicalli/clojure-deps-edn](https://github.com/practicalli/clojure-deps-edn) adds community libraries and tools to use with all Clojure CLI projects or as stand-alone tools.  Aliases use qualified descriptive names to avoid clashes with project specific aliases, ensuring that the user wide aliases remain available in all projects.
 
-Aliases with common options are provided for convenience and to minimize the
-amount of cognitive load required to remember how to use aliases. Initial
-inspiration taken from
-[seancorfield/dot-clojure](https://github.com/seancorfield/dot-clojure).
+Common default arguments are included in an alias via `:exec-args` to minimise the cognitive load required to use aliases.
 
-The **[Practicalli Clojure
-book](https://practical.li/clojure/clojure-tools/data-browsers/portal.html)**
-uses this configuration extensively to help you develop Clojure projects and
-learn the Clojure language.
+The **[Practicalli Clojure book](https://practical.li/clojure)** uses this configuration extensively to help you develop Clojure projects and learn the Clojure language. Initial inspiration taken from [seancorfield/dot-clojure](https://github.com/seancorfield/dot-clojure).
 
-> MAJOR CHANGES: practicalli/clojure-deps-edn recommends using [Clojure CLI
-> tools](https://clojure.org/guides/getting_started) version 1.10.1.697 or
-> later.
-> Aliases are now qualified keywords, which is recommended in general for using
-> keywords in Clojure.
-> Use the `classic-aliases` tag for the last version of this repository before
-> these changes
+> REQUIREMENT: [Clojure CLI tools](https://clojure.org/guides/getting_started) version 1.10.3.1040 or later.
 
 # Contents
 
