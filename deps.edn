@@ -175,7 +175,7 @@
   :env/dev
   {:extra-paths ["dev"]}
 
-  ;; alpha state software as API has not been finalize however the code works reliably
+  ;; alpha state software as API has not been finalized however the code works reliably
   :lib/hotload
   {:extra-deps {org.clojure/tools.deps.alpha
                 ;; Latest commit on add-lib3 branch, don't update with :project/outdated
@@ -793,7 +793,7 @@
 
   ;; Cognitect test-runner
   ;; https://github.com/cognitect-labs/test-runner
-  ;; clojure -X:test/congnitect
+  ;; clojure -X:test/cognitect
   :test/cognitect
   {:extra-paths ["test"]
    :extra-deps  {io.github.cognitect-labs/test-runner
