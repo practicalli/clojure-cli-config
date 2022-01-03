@@ -35,6 +35,7 @@ jobs:
           # Specific linters to run
           ENABLE: CREDENTIALS,MARKDOWN,GIT,SPELL,YAML, CLOJURE
           SPELL_CSPELL_DISABLE_ERRORS: true
+          MARKDOWN_MARKDOWNLINT_CONFIG_FILE: ".github/linters/.markdown-lint.yml"
           CLOJURE_CLJ_KONDO_ARGUMENTS: '--lint deps.edn'
 
           # ADD CUSTOM ENV VARIABLES OR DEFINE IN A FILE .mega-linter.yml AT ROOT OF REPOSITORY
