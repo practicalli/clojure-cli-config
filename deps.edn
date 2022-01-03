@@ -69,8 +69,8 @@
                 "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
                 "-i"]}
 
-  ;; clojure -M:repl/cljs-nrepl
-  :repl/cljs-nrepl
+  ;; clojure -M:repl/cider-cljs
+  :repl/cider-cljs
   {:extra-deps {org.clojure/clojurescript       {:mvn/version "1.10.773"}
                 nrepl/nrepl                     {:mvn/version "0.9.0"}
                 cider/cider-nrepl               {:mvn/version "0.27.4"}
@@ -79,7 +79,7 @@
                 "-i"
                 "--middleware" "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}
 
-  :repl/cljs-figwheel
+  :repl/figwheel
   {:extra-deps {org.clojure/clojurescript       {:mvn/version "1.10.773"}
                 com.bhauman/figwheel-main       {:mvn/version "0.2.15"}
                 nrepl/nrepl                     {:mvn/version "0.9.0"}
@@ -118,9 +118,9 @@
 
 
   ;; Requires nashorn in a version of ClojureScript
-  ;; WARNING: stack trace - does not run
-  :repl/rebel-cljs-figwheel
-  {:extra-deps {org.clojure/clojurescript       {:mvn/version "1.9.946"}  ;; version contains cljs.repl.nashorn
+  ;; WARNING: stack trace - does not run TO DEPRECATE
+  :repl/rebel-figwheel
+  {:extra-deps {org.clojure/clojurescript       {:mvn/version "1.9.946"} ;; version contains cljs.repl.nashorn
                 nrepl/nrepl                     {:mvn/version "0.9.0"}
                 com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}
                 com.bhauman/figwheel-main       {:mvn/version "0.2.15"}
