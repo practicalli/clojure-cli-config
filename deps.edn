@@ -47,7 +47,7 @@
   ;; Run interactive REPL with nREPL connection
   ;; NOTE: For non-interactive REPL session, use :middleware versions
 
-  ;;;; Simple nREPL server with no additional libraries
+  ;;;; Simple nREPL server with no additional libraries, headless
   :repl/nrepl
   {:extra-deps {nrepl/nrepl                {:mvn/version "0.9.0"}}
    :main-opts  ["-m" "nrepl.cmdline"]}
@@ -862,7 +862,7 @@
                :randomize? false
                :fail-fast? true}}
 
-;; clojure -M:test/kaocha-cljs
+  ;; clojure -M:test/kaocha-cljs
   :test/kaocha-cljs
   {:extra-paths ["test"]
    :extra-deps  {lambdaisland/kaocha      {:mvn/version "1.60.972"}
