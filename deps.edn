@@ -312,19 +312,16 @@
      :sha     "9bf23a52cb0a8190c9c2c7ad1d796da802f8ce7a"}}
    :main-opts ["-m" "find-deps.core"]}
 
-
   ;; Visualizing dependencies in a project
   ;; https://github.com/clojure/tools.deps.graph
-  ;; clojure -X:project/graph-deps
+  ;; clojure -T:project/graph-deps
   :project/graph-deps
   {:replace-paths []
    :replace-deps  {org.clojure/tools.deps.graph {:mvn/version "1.1.68"}}
-   :main-opts     ["-m" "clojure.tools.deps.graph"] ;; deprecated
    :ns-default    clojure.tools.deps.graph
    :exec-fn       graph
    :exec-args     {:output "project-dependencies-graph.png"
                    :size   true}}
-
 
   ;; Dependency version management
   ;; https://github.com/liquidz/antq
