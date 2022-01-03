@@ -33,10 +33,9 @@ jobs:
           PARALLEL: true
 
           # Specific linters to run
-          ENABLE: CREDENTIALS,MARKDOWN,GIT,SPELL,YAML
+          ENABLE: CREDENTIALS,MARKDOWN,GIT,SPELL,YAML, CLOJURE
           SPELL_CSPELL_DISABLE_ERRORS: true
-          #  - CLOJURE
-          # CLOJURE_CLJ_KONDO_ARGUMENTS: '--lint deps.edn'
+          CLOJURE_CLJ_KONDO_ARGUMENTS: '--lint deps.edn'
 
           # ADD CUSTOM ENV VARIABLES OR DEFINE IN A FILE .mega-linter.yml AT ROOT OF REPOSITORY
           # DISABLE: COPYPASTE,SPELL # Uncomment to disable copy-paste and spell checks
