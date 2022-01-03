@@ -30,7 +30,7 @@ Version **1.10.3.1040** or later of [Clojure CLI](https://clojure.org/guides/get
 clojure -Sdescribe
 ```
 
-> To install Clojure CLI for a specific operating system, follow the [Practicalli guide to installing Clojure](https://practical.li/clojure/clojure-cli/install/clojure-cli/) or follow the [Clojure.org Getting Started page](https://clojure.org/guides/getting_started).
+> To install Clojure CLI for a specific operating system, follow the [Practicalli guide to installing Clojure](https://practical.li/clojure/clojure-cli/install/clojure-cli.html) or follow the [Clojure.org Getting Started page](https://clojure.org/guides/getting_started).
 
 
 Fork the practicalli/clojure-deps-edn repository and clone your fork to an existing `.clojure/` directory (eg. `$HOME/.clojure` or `$XDG_HOME%/.clojure`).
