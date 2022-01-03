@@ -74,7 +74,7 @@ How to run common tasks for Clojure development.
 * User/Project alias can be defined in both user and project `deps.edn` files (add to project `deps.edn` for Continuous Integration)
 
 | Task                                                   | Command                                                         | Configuration      |
-|--------------------------------------------------------+-----------------------------------------------------------------+--------------------|
+|--------------------------------------------------------|-----------------------------------------------------------------|--------------------|
 | Create project (clojure exec)                          | `clojure -X:project/new :template app :name practicalli/my-app` | User alias         |
 | Run REPL (rebel readline with nrepl server)            | `clojure -M:repl/rebel`                                         | User alias         |
 | Run ClojureScipt REPL with nREPL (editor support)      | `clojure -M:repl/cljs-nrepl`                                    | User alias         |
@@ -365,10 +365,11 @@ Navigate data in the form of edn, json and transit
 * `inspect/portal-node` - node ClojureScript REPL
 
 | Command                           | Description                                           |
-|-----------------------------------+-------------------------------------------------------|
+|-----------------------------------|-------------------------------------------------------|
 | `clojure -M:inspect/portal-cli`   | Clojure REPL with Portal dependency                   |
 | `clojure -M:inspect/portal-web`   | ClojureScript web browser REPL with Portal dependency |
 | `clojure -M:inspect/portal-node** | ClojureScript node.js REPL with Portal dependency     |
+
 
 **Using Portal once running**
 `(require '[portal.api :as portal])` once the REPL starts.  For `inspect/portal-web` use `(require '[portal.web :as portal])` instead
@@ -398,7 +399,7 @@ Reveal can also used as a `tap>` source for more powerful manual debugging.
 * `:inspec/reveal-light-nrepl-cider` - as above with light theme and 32 point Ubuntu Mono font
 
 | Command                                      | Description                                                                        |
-|----------------------------------------------+------------------------------------------------------------------------------------|
+|----------------------------------------------|------------------------------------------------------------------------------------|
 | `clojure -M:inspect/reveal`                  | start a Reveal repl with data visualization window (cloure.main)                   |
 | `clojure -M:inspect/reveal-light`            | as above with light theme and large font                                           |
 | `clojure -X:inspect/reveal`                  | start a Reveal repl with data visualization window (clojure exec)                  |
