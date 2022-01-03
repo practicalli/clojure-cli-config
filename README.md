@@ -30,7 +30,7 @@ Version **1.10.3.1040** or later of [Clojure CLI](https://clojure.org/guides/get
 clojure -Sdescribe
 ```
 
-> To install Clojure CLI for a specific operating system, follow the [Practicalli guide to installing Clojure](https://practical.li/clojure/clojure-cli/install/clojure-cli.html) or follow the [Clojure.org Getting Started page](https://clojure.org/guides/getting_started).
+> To install Clojure CLI for a specific operating system, follow the [Practicalli guide to installing Clojure](https://practical.li/clojure/clojure-cli/install/clojure-cli/) or follow the [Clojure.org Getting Started page](https://clojure.org/guides/getting_started).
 
 
 Fork the practicalli/clojure-deps-edn repository and clone your fork to an existing `.clojure/` directory (eg. `$HOME/.clojure` or `$XDG_HOME%/.clojure`).
@@ -422,7 +422,7 @@ Alternatively, add an `.nrepl.edn` file to the root of a project to include the 
 
 #### Cider jack-in and reveal
 
-See the [Reveal section of Practicalli Clojure](https://practical.li/clojure-staging/clojure-cli/data-browsers/reveal.html#using-reveal-with-nrepl-editors) for full details, including how to set up a `.dir-locals.el` configuration.
+See the [Reveal section of Practicalli Clojure](https://practical.li/clojure/clojure-cli/data-browsers/reveal.html#using-reveal-with-nrepl-editors) for full details, including how to set up a `.dir-locals.el` configuration.
 
 `:inspect/reveal-nrepl-cider` alias contains Reveal REPL with nrepl server and Emacs CIDER specific middleware
 
