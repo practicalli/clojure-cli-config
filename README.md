@@ -418,7 +418,7 @@ Use the `:inspect/reveal-nrepl` alias when running the REPL, either in the termi
 
 Alternatively, add an `.nrepl.edn` file to the root of a project to include the Reveal middleware
 
-```
+```clojure
 {:middleware [vlaaad.reveal.nrepl/middleware]}
 ```
 
@@ -621,7 +621,7 @@ Use the aliases with either `-M` or `-X` flags on the Clojure command line.
 
 > TODO: check these alias combinations are correct
 
-```
+```clojure
 clojure -M:performance/benchmark:repl/rebel
 
 (require '[criterium.core :refer [bench quick-bench]])
@@ -632,7 +632,7 @@ clojure -M:performance/benchmark:repl/rebel
 
 Performance test a project in the REPL
 
-```
+```clojure
 clojure -M:performance/benchmark:repl/rebel
 
 (require '[practicalli/namespace-name]) ; require project code
@@ -646,7 +646,7 @@ Use the aliases with either `-M` or `-X` flags on the Clojure command line.
 
 In the REPL:
 
-```
+```clojure
   (require '[clj-memory-meter.core :as memory-meter])
    (memory-meter/measure (your-expression))
 ```
@@ -687,13 +687,13 @@ CLI](https://gitlab.com/clojurians-zulip/feeds/-/blob/master/README.md#announce-
 
 Set an environment variable called ZULIP_AUTH to your account email, followed by the account token (in settings), e.g.
 
-```
+```shell
 your@email.com:493u984u3249834uo4u
 ```
 
 Create an event using the following command
 
-```
+```shell
 clojure -M:community/zulip-event create --zulip-auth "${ZULIP_AUTH}" --title 'Practicalli Live - Exercism.io challenges' --start '2020-11-14T09:00+00:00' --duration 1 --url https://youtu.be/Z5C7X1UN8yo --description 'Walking through solutions to the Exercism.io challenges'
 ```
 
