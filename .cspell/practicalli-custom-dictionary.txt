@@ -53,6 +53,7 @@ luminus
 nasus
 nrebl
 nrepl
+minimise
 practicalli
 prefs
 prepl
