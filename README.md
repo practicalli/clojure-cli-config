@@ -113,7 +113,7 @@ Aliases provide additional configuration when running a REPL, an application or 
 | `-P -M:aliases` | Prepare / dry run including alias deps and paths         | deps, path                                           |
 | `-P -X:aliases` | Prepare / dry run including alias deps and paths         | deps, path                                           |
 | `-X`            | Execute a qualified function, optional default arguments | deps, path, `:exec-fn`, `:exec-args` & :key val args |
-| `-T`            | Run a tool or alias separate from a project classpathnts | `:exec-fn`, `:exec-args` & :key val args             |
+| `-T`            | Run a tool or alias separate from a project classpath    | `:exec-fn`, `:exec-args` & :key val args             |
 | `-J`            | Java Virtual Machine specific options (memory size, etc) |                                                      |
 
 * deps = `:deps`, `:extra-deps`, `replace-deps`
@@ -299,7 +299,7 @@ Build a project archive file for deployment
 
 Additionally specify `:jar` name and if ahead of time compilation should be used (default true)
 c
-```lojure
+```clojure
 clojure -X:project/jar :jar '"practicalli.app.jar"' :aot false :main-class domain.app-name
 ```
 
