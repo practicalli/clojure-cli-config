@@ -334,10 +334,11 @@ Path to project.jar can also be set in alias to simplify the Clojure command.
 
 Include Java source on the  classpath to [look up Java Class and method definitions, eg. `cider-find-var` in Emacs](https://practical.li/spacemacs/navigating-code/java-definitions.html)
 
-Requires: Java sources installed locally (e.g. `"/usr/lib/jvm/openjdk-11/lib/src.zip"`)
+Requires: Java sources installed locally (e.g. `"/usr/lib/jvm/openjdk-17/lib/src.zip"`)
 
 * `:lib/java8-source`
 * `:lib/java11-source`
+* `:lib/java17-source`
 
 Use the aliases with either `-M` or `-X` flags on the Clojure command line.
 

@@ -467,10 +467,10 @@
   ;; Java Sources
 
   ;; Look up Java Class and method definitions, eg. `cider-find-var` in Emacs
-  ;; Requires: Java sources installed locally
+  ;; Requires: Java sources installed locally e.g. sudo apt install openjdk-17-source
   ;; Examples are from Ubuntu package install locations
 
-  ;; clojure -M:lib/java11-source
+  ;; clojure -M:lib/java17-source
   :lib/java8-source
   {:extra-deps
    {openjdk/java-sources {:local/root "/usr/lib/jvm/openjdk-8/lib/src.zip"}}}
@@ -478,6 +478,10 @@
   :lib/java11-source
   {:extra-deps
    {openjdk/java-sources {:local/root "/usr/lib/jvm/openjdk-11/lib/src.zip"}}}
+
+  :lib/java17-source
+  {:extra-deps
+   {openjdk/java-sources {:local/root "/usr/lib/jvm/openjdk-17/lib/src.zip"}}}
 
   ;; End of: Java Sources
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
