@@ -56,7 +56,21 @@ git git@github.com:practicalli/clojure-deps-edn.git $XDG_CONFIG_HOME/clojure
 The `deps.edn` file in the Clojure CLI configuration directory contains all the Practicalli aliases, which are available from any Clojure CLI project for the current user account.
 
 
-# Using Practicalli clojure-deps-edn
+### Updating Practicalli clojure-deps-edn
+
+The collection of aliases is regularly reviewed and additional alias suggestions and PRs are most welcome.
+
+The versions of libraries are updated at least once per month using the `:project/outdated` alias, updating the `deps.edn` file.  The [antq tool](https://github.com/liquidz/antq) is used to report new library versions, sent to an org file which is then used to update the changelog.
+
+```shell
+cd $XDG_CONFIG_HOME/clojure
+clojure -T:project/outdated > outdated.org
+```
+
+> antq can also be installed as a separate tool (this is not part of practicalli/clojure-deps-edn yet)
+
+
+## Using Practicalli clojure-deps-edn
 
 Any directory containing a `deps.edn` file is considered a Clojure project. A `deps.edn` file can contain an empty hash-map, `{}` or hash-map with configuration, usually `:paths` and `:dependencies` and perhaps some `:aliases`.
 
@@ -68,18 +82,8 @@ Configuration passed via the command line when running `clojure` or the `clj` wr
 
 See the rest of this readme for examples of how to use each alias this configuration contains.
 
-# Updating Practicalli clojure-deps-edn
 
-The collection of aliases is regularly reviewed and expanded upon and suggestions are most welcome.
-
-The versions of libraries are manually updated at least once per month using the `:outdated` alias and a new version of the `deps.edn` file pushed to this repository.  The antq project is used to report new library versions, sent to an org file which is then used to update the changelog.
-
-```shell
-cd ~/.clojure/
-clojure -M:project/outdated > outdated.org
-```
-
-# Common development tasks
+## Common development tasks
 
 How to run common tasks for Clojure development.
 
