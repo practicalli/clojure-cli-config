@@ -187,13 +187,13 @@ Use the `:lib/hotload` alias in front of any of the above aliases to enable [hot
 Connect to the nREPL server of a remote REPL using nREPL connect, using a simple terminal UI
 
 ```shell
-clj -M:repl/remote --host hostname --port 12345
+clojure -M:repl/remote --host hostname --port 12345
 ```
 
 As above but using the enhanced Rebel Readline UI
 
 ```shell
-clj -M:repl/rebel-remote --host hostname --port 12345
+clojure -M:repl/rebel-remote --host hostname --port 12345
 ```
 
 
@@ -808,4 +808,4 @@ Define a local Maven repository.  Useful if you wish to specify an alternative t
  :mvn/local-repo "/cache/.m2"
 ```
 
-> NOTE: using `clj -Sforce` forces a classpath recompute, deleting the contents of .cpcache
+> NOTE: using `clojure -Sforce` forces a classpath recompute, deleting the contents of .cpcache
