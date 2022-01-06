@@ -64,6 +64,7 @@ sonatype
 uberdeps
 uberjar
 uberjars
+viins
 Visualise
 visualising
 visualisation
