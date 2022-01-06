@@ -17,7 +17,18 @@ The **[Practicalli Clojure book](https://practical.li/clojure)** uses this confi
 * [Updating practicalli/clojure-deps-edn](#updating-practicalli-clojure-deps-edn)
 * [Common development tasks](#common-development-tasks)
 * [Aliases](#aliases)
-  * [REPL Terminal UI](#repl-terminal-ui) | [REPL with Editor](#repl-with-editor) | [Remote REPL Connection](#remote-repl-connection) | [Alternative REPL](#alternative-repl) | [Projects](#clojure-projects) | [Formatting](#formatting) [Java sources](#java-sources) | [Databases](#databases-and-drivers) | [Data Inspectors](#data-inspectors) | [Middleware](#middleware) | [Clojure Spec](#clojure-specification) | [Unit Testing](#unit-testing-frameworks) | [Test runners](#test-runners-and-test-coverage-tools) | [Lint tools](#lint-tools) | [Visualize vars and deps](#visualizing-project-vars-and-library-dependencies) | [Performance testing](#performance-testing) | [Services](#services) | [Security](#security)
+  * Running a REPL
+    * [REPL Terminal UI](#repl-terminal-ui) | [REPL with Editor](#repl-with-editor) | [Hotload dependencies](#hotload-libraries-into-a-running-repl) | [Remote REPL Connection](#remote-repl-connection) | [Alternative REPL](#alternative-repl) | [Middleware](#middleware)
+  * [Clojure Projects](#clojure-projects)
+    * [Dependencies](#project-dependencies) | [Analysis](#project-analysis) | [Packaging](#project-packaging) | [Deployment](#project-deployment)
+  * [Format](#format-code) | [Lint](#lint-tools)
+  * [Java sources](#java-sources)
+  * [Unit Testing](#unit-testing-frameworks)
+    * [Test runners](#test-runners-and-test-coverage-tools) | [Clojure Spec](#clojure-specification) | [Performance](#performance-testing) | [Security](#security)
+  * [Databases](#databases-and-drivers)
+  * [Data Inspectors](#data-inspectors)
+    * [Visualise vars and deps](#visualising-project-vars-and-library-dependencies)
+  * [Services](#services)
 * [Library repositories](#library-repositories)
 * [Experimental](#experimental)
 
@@ -325,7 +336,7 @@ Path to project.jar can also be set in alias to simplify the Clojure command.
 
 > `clojure -X:deps mvn-install project.jar` for local deployment of jars is part of the 1.10.1.697 release of the [Clojure CLI](https://clojure.org/guides/getting_started) in September 2020.
 
-## Formatting
+## Format code
 
 * `:format/zprint filename` - format clojure code and Edn data structures in the given file using zprint
 * `:format/cljfmt [check|fix] filename` - format clojure code and Edn data structures in the given file(s) using cljfmt
@@ -354,7 +365,7 @@ Use the aliases with either `-M` or `-X` flags on the Clojure command line.
 
 ## Data Inspectors
 
-REPL driven data inspectors and `tap>` sources for visualizing data.
+REPL driven data inspectors and `tap>` sources for visualising data.
 
 ### [Portal](https://github.com/djblue/portal)
 
@@ -461,7 +472,7 @@ Evaluate `(add-tap ((requiring-resolve 'vlaaad.reveal/ui)))` when using Rebel Re
 
 ### Cognitect REBL (DEPRECATED)
 
-Visualize the results of each evaluation in the REPL in the REBL UI.  Navigate through complex data structures.
+Visualise the results of each evaluation in the REPL in the REBL UI.  Navigate through complex data structures.
 
 > Cognitect REBL aliases requires [several separate install steps](http://practicalli.github.io/clojure/alternative-tools/clojure-cli/cognitect-rebl.html) before they are operational
 > Tested on Oracle JDK 8 and OpenJDK 11 (current long term support).  Other Java 11 JDK distributions may work, but not tested. Newer (short term release) may work, but will need the `org.openjdk` library version in the `:inspect/rebl` alias changed to match the version of Java used.
@@ -586,7 +597,7 @@ Static analysis tools to help maintain code quality and suggest Clojure idioms.
 | `clojure -M:lint/eastwood` | classic lint tool for Clojure                    |
 | `clojure -M:lint/idiom`    | Suggest idiomatic Clojure code                   |
 
-## Visualizing project vars and library dependencies
+## Visualising project vars and library dependencies
 
 Create [Graphviz](https://www.graphviz.org/) graphs of project and library dependencies
 
