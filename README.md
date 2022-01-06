@@ -149,11 +149,11 @@ See [Middleware aliases](#middleware) to run a headless REPL process without a R
 
 Use the `:env/dev` alias with the :repl aliases to include `dev/` in classpath and [configure REPL startup actions using `dev/user.clj`](https://practical.li/clojure/clojure-cli/projects/configure-repl-startup.html)
 
-| Command                            | Description                                                                                                    |
-|------------------------------------|----------------------------------------------------------------------------------------------------------------|
-| `clojure -M:repl/rebel`            | Run a Clojure REPL using Rebel Readline                                                                        |
-| `clojure -M:env/dev:repl/rebel`    | Run a Clojure REPL using Rebel Readline, including deps and path from `:env/dev` alias to configure REPL start |
-| `clojure -M:repl/rebel-cljs`       | Run a ClojureScript REPL using Rebel Readline                                                                  |
+| Command                         | Description                                                                                                    |
+|---------------------------------|----------------------------------------------------------------------------------------------------------------|
+| `clojure -M:repl/rebel`         | Run a Clojure REPL using Rebel Readline                                                                        |
+| `clojure -M:env/dev:repl/rebel` | Run a Clojure REPL using Rebel Readline, including deps and path from `:env/dev` alias to configure REPL start |
+| `clojure -M:repl/rebel-cljs`    | Run a ClojureScript REPL using Rebel Readline                                                                  |
 
 `:repl/help` in the Rebel UI for help and available commands.  `:repl/quit` to close the REPL.
 
@@ -384,11 +384,11 @@ Navigate data in the form of edn, json and transit
 * `inspect/portal-web` - Web ClojureScript REPL
 * `inspect/portal-node` - node ClojureScript REPL
 
-| Command                           | Description                                           |
-|-----------------------------------|-------------------------------------------------------|
-| `clojure -M:inspect/portal-cli`   | Clojure REPL with Portal dependency                   |
-| `clojure -M:inspect/portal-web`   | ClojureScript web browser REPL with Portal dependency |
-| `clojure -M:inspect/portal-node** | ClojureScript node.js REPL with Portal dependency     |
+| Command                          | Description                                           |
+|----------------------------------|-------------------------------------------------------|
+| `clojure -M:inspect/portal-cli`  | Clojure REPL with Portal dependency                   |
+| `clojure -M:inspect/portal-web`  | ClojureScript web browser REPL with Portal dependency |
+| `clojure -M:inspect/portal-node` | ClojureScript node.js REPL with Portal dependency     |
 
 
 **Using Portal once running**
