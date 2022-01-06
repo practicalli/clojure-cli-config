@@ -64,6 +64,8 @@ sonatype
 uberdeps
 uberjar
 uberjars
+Visualise
+visualising
 visualisation
 vlaaad
 wallboards
