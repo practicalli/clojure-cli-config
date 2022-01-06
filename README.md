@@ -215,7 +215,7 @@ PREPL is a REPL with structured output.  See [Cloure socket prepl cookbook](http
 | `clojure -M:repl/socket-client`  | Socket REPL client on port 50505 ([tubular](https://github.com/mfikes/tubular)) |
 | `clojure -M:repl/prepl`          | Clojure REPL using PREPL Server on port 40404                                   |
 | `clojure -M:repl/prepl-cljs`     | Clojure REPL using PREPL Server on port 44444                                   |
-|                                  |                                                                                 |
+
 
 ## Clojure Projects
 
