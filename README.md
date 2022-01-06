@@ -686,7 +686,10 @@ Web servers and other standalone services run with Clojure CLI
 
 ## Security
 
-> DEPRECATED: this command also [checks the clojure-nvd for security issues as clojure-nvd jar and dependencies are merged into the classpath](https://github.com/practicalli/clojure-deps-edn/pull/31).  This goes [against the recommended approach by the clojure-nvd maintainer](https://github.com/rm-hull/nvd-clojure#avoiding-classpath-interference) and will [in future fail to run](https://github.com/rm-hull/nvd-clojure/issues/117), so use with caution.
+> DEPRECATED: `:security/nvd`
+> Using clojure-nvd via an alias [checks for security issues in clojure-nvd and its dependencies as they merged into the classpath](https://github.com/practicalli/clojure-deps-edn/pull/31).
+>
+> The maintainer of clojure-nvd [suggested several ways to avoid classpath interference](https://github.com/rm-hull/nvd-clojure#avoiding-classpath-interference)
 
 * `:service/nvd` - check library dependencies of a project against the [National Vulnerability Database](https://nvd.nist.gov/) using [nvd-clojure](https://github.com/rm-hull/nvd-clojure)
 
