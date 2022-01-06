@@ -35,22 +35,26 @@ The **[Practicalli Clojure book](https://practical.li/clojure)** uses this confi
 
 ## Install Practicalli clojure-deps-edn
 
-Version **1.10.3.1040** or later of [Clojure CLI](https://clojure.org/guides/getting_started) is recommended. Check the version of Clojure CLI currently installed
+[Clojure CLI](https://clojure.org/guides/getting_started) version **1.10.3.1040** or later is recommended. Check the version of Clojure CLI currently installed via:
 
 ```shell
 clojure -Sdescribe
 ```
 
-> To install Clojure CLI for a specific operating system, follow the [Practicalli guide to installing Clojure](https://practical.li/clojure/clojure-cli/install/clojure-cli.html) or follow the [Clojure.org Getting Started page](https://clojure.org/guides/getting_started).
+> [Practicalli guide to installing Clojure](https://practical.li/clojure/clojure-cli/install/clojure-cli.html) has detailed instructions to install Clojure CLI for a specific operating system, or follow the [Clojure.org Getting Started page](https://clojure.org/guides/getting_started).
 
+When Clojure CLI runs for the first time a configuration directory is created in `$XDG_CONFIG_HOME/clojure` or `$HOME/.clojure` if [XDG_CONFIG_HOME](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html "FreeDesktop.org specification") not set
 
-Fork the practicalli/clojure-deps-edn repository and clone your fork to an existing `.clojure/` directory (eg. `$HOME/.clojure` or `$XDG_HOME%/.clojure`).
+Backup or delete the Clojure CLI configuration directory if it exists
+
+Clone [practicalli/clojure-deps-edn](https://github.com/practicalli/clojure-deps-edn) repository (or create a fork and clone that instead)
 
 ```shell
-git clone your-fork-url ~/.clojure/
+git git@github.com:practicalli/clojure-deps-edn.git $XDG_CONFIG_HOME/clojure
 ```
 
-The configuration from `.clojure/deps.edn` is now available for all Clojure CLI projects for that user account.
+The `deps.edn` file in the Clojure CLI configuration directory contains all the Practicalli aliases, which are available from any Clojure CLI project for the current user account.
+
 
 # Using Practicalli clojure-deps-edn
 
