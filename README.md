@@ -45,13 +45,17 @@ clojure -Sdescribe
 
 When Clojure CLI runs for the first time a configuration directory is created in `$XDG_CONFIG_HOME/clojure` or `$HOME/.clojure` if [XDG_CONFIG_HOME](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html "FreeDesktop.org specification") not set
 
+> Practicalli recommends setting `$XDG_CONFIG_HOME` to `$HOME/.config`
+
 Backup or delete the Clojure CLI configuration directory if it exists
 
 Clone [practicalli/clojure-deps-edn](https://github.com/practicalli/clojure-deps-edn) repository (or create a fork and clone that instead)
 
 ```shell
-git git@github.com:practicalli/clojure-deps-edn.git $XDG_CONFIG_HOME/clojure
+git clone git@github.com:practicalli/clojure-deps-edn.git $XDG_CONFIG_HOME/clojure
 ```
+
+> If $XDG_CONFIG_HOME not set, then use `git clone git@github.com:practicalli/clojure-deps-edn.git $HOME/.clojure`
 
 The `deps.edn` file in the Clojure CLI configuration directory contains all the Practicalli aliases, which are available from any Clojure CLI project for the current user account.
 
