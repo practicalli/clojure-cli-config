@@ -355,11 +355,14 @@ Include Java source on the  classpath to [look up Java Class and method definiti
 
 Requires: Java sources installed locally (e.g. `"/usr/lib/jvm/openjdk-17/lib/src.zip"`)
 
-* `:lib/java8-source`
-* `:lib/java11-source`
-* `:lib/java17-source`
+* `:src/java8`
+* `:src/java11`
+* `:src/java17`
+* `:src/clojure`
 
-Use the aliases with either `-M` or `-X` flags on the Clojure command line.
+Use the aliases with either `-A`, `-M` or `-X` execution options on the Clojure command line.
+
+> Clone [clojure/clojure](https://github.com/clojure-expectations/clojure-test) repository. Clojure core Java source code in [src/jvm/clojure/lang/](https://github.com/clojure/clojure/tree/master/src/jvm/clojure/lang "GitHub: Clojure core Java source code")
 
 ## Databases and drivers
 

@@ -6,6 +6,10 @@
 *** command line documentation for :security/nvd to pass correct arguments
 *** Use -T flag with :project/outated alias, with alias updated to use `:exec-fn` and `:exec-args` for default values
 *** Rewrite project introduction
+*** sources alias moved from lib/ to src/ for greater clarity
+
+** Added
+*** add `:src/clojure` to add local clone of Clojure core sources (Java & Clojure)
 
 * 2021-12-18
 ** Added
