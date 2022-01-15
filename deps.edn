@@ -902,6 +902,11 @@
                  lambdaisland/kaocha-cloverage {:mvn/version "1.0.75"}}
    :main-opts   ["-m" "kaocha.runner"]}
 
+  ;; Include kaocha library only
+  ;; - used for kaocha-runner.el to run Kaocha test runner in Emacs Cider
+  :lib/kaocha
+  {:extra-deps {lambdaisland/kaocha {:mvn/version "1.60.972"}}}
+
   ;; End of Test runners
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

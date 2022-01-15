@@ -10,6 +10,7 @@
 
 ** Added
 *** add `:src/clojure` to add local clone of Clojure core sources (Java & Clojure)
+*** add `:lib/kaocha` alias to include kaocha as a library, enabling scripts such as kaocha-runner.el to run Kaocha test runner from Emacs Cider
 
 * 2021-12-18
 ** Added
