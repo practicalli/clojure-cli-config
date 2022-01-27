@@ -585,12 +585,12 @@ Tools to run unit tests in a project which are defined under `test` path.
 
 | Command                            | Description                                                                               |
 |------------------------------------|-------------------------------------------------------------------------------------------|
-| `clojure -M:test/run`              | run tests with the Kaocha comprehensive test runner for Clojure (same as :test/kaocha)    |
-| `clojure -M:test/watch`            | run tests in watch mode using Kaocha test runner for Clojure (same as :test/kaocha-watch) |
+| `clojure -T:test/run`              | run tests with the Kaocha comprehensive test runner for Clojure (same as :test/kaocha)    |
+| `clojure -T:test/watch`            | run tests in watch mode using Kaocha test runner for Clojure (same as :test/kaocha-watch) |
 | `clojure -T:test/cognitect`        | Cognitect Clojure test runner                                                             |
 | `clojure -X:test/coverage`         | Cloverage clojure.test coverage report                                                    |
 | `clojure -M:test/cljs`             | ClojureScript test runner (Olical)                                                        |
-| `clojure -M:test/kaocha`           | Kaocha - test runner for Clojure  (same as :test/run)                                     |
+| `clojure -T:test/kaocha`           | Kaocha - test runner for Clojure  (same as :test/run)                                     |
 | `clojure -M:test/kaocha-cljs`      | Kaocha - test runner for ClojureScript                                                    |
 | `clojure -M:test/kaocha-cucumber`  | Kaocha - test runner with BDD Cucumber tests                                              |
 | `clojure -M:test/kaocha-junit-xml` | Kaocha - test runner with Junit XML reporting for CI dashboards & wallboards              |
