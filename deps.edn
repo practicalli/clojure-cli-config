@@ -801,7 +801,7 @@
 
   ;; Cognitect test-runner
   ;; https://github.com/cognitect-labs/test-runner
-  ;; clojure -X:test/cognitect
+  ;; clojure -T:test/cognitect
   :test/cognitect
   {:extra-paths ["test"]
    :extra-deps  {io.github.cognitect-labs/test-runner
