@@ -581,16 +581,16 @@ Include expectations as a development dependency in a project `clojure -M:env/te
 
 ## Test runners and Test Coverage tools
 
-Tools to run unit tests in a project which are defined under `test` path.
+Run unit tests in a project which are defined under the `test` path. See [Practicalli Clojure: Unit testing](https://practical.li/clojure/testing/unit-testing/)
 
 | Command                            | Description                                                                               |
 |------------------------------------|-------------------------------------------------------------------------------------------|
-| `clojure -T:test/run`              | run tests with the Kaocha comprehensive test runner for Clojure (same as :test/kaocha)    |
-| `clojure -T:test/watch`            | run tests in watch mode using Kaocha test runner for Clojure (same as :test/kaocha-watch) |
-| `clojure -T:test/cognitect`        | Cognitect Clojure test runner                                                             |
+| `clojure -X:test/run`              | run tests with the Kaocha comprehensive test runner for Clojure (same as :test/kaocha)    |
+| `clojure -X:test/watch`            | run tests in watch mode using Kaocha test runner for Clojure (same as :test/kaocha-watch) |
+| `clojure -X:test/cognitect`        | Cognitect Clojure test runner                                                             |
 | `clojure -X:test/coverage`         | Cloverage clojure.test coverage report                                                    |
 | `clojure -M:test/cljs`             | ClojureScript test runner (Olical)                                                        |
-| `clojure -T:test/kaocha`           | Kaocha - test runner for Clojure  (same as :test/run)                                     |
+| `clojure -X:test/kaocha`           | Kaocha - test runner for Clojure  (same as :test/run)                                     |
 | `clojure -M:test/kaocha-cljs`      | Kaocha - test runner for ClojureScript                                                    |
 | `clojure -M:test/kaocha-cucumber`  | Kaocha - test runner with BDD Cucumber tests                                              |
 | `clojure -M:test/kaocha-junit-xml` | Kaocha - test runner with Junit XML reporting for CI dashboards & wallboards              |
@@ -599,6 +599,14 @@ Tools to run unit tests in a project which are defined under `test` path.
 `:lib/kaocha` alias adds kaocha as a library to the class path, enabling scripts such as kaocha-runner.el to run Kaocha test runner from Emacs Cider
 
 > A `test.edn` [configuration file](https://cljdoc.org/d/lambdaisland/kaocha/1.0.829/doc/3-configuration) can be used with the :test/run alias instead of using various aliases defined above
+> Kaocha aliases can be run with `-T` execution option if both the `src` and `test` paths are included, either in the combined deps.edn config or in the `tests.edn` config.
+
+[kaocha recommends adding a `bin/kaocha` shell script](https://github.com/lambdaisland/kaocha#clojure-cli-toolsdeps) to run the tool, which can be written using the Practicalli aliases, for example:
+
+```bash
+#!/usr/bin/env sh
+clojure -X:test/run "$@"
+```
 
 ## Lint tools
 

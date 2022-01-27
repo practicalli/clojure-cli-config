@@ -8,6 +8,7 @@
 *** Rewrite project introduction
 *** sources alias moved from lib/ to src/ for greater clarity
 *** kaocha version update and migration to -T execution option
+*** revert kaocha migration to -T execution option as it requires both src and test path to be included as extra paths
 
 ** Added
 *** add `:src/clojure` to add local clone of Clojure core sources (Java & Clojure)
