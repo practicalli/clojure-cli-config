@@ -153,11 +153,12 @@ See [Middleware aliases](#middleware) to run a headless REPL process without a R
 
 Use the `:env/dev` alias with the :repl aliases to include `dev/` in classpath and [configure REPL startup actions using `dev/user.clj`](https://practical.li/clojure/clojure-cli/projects/configure-repl-startup.html)
 
-| Command                         | Description                                                                                                    |
-|---------------------------------|----------------------------------------------------------------------------------------------------------------|
-| `clojure -M:repl/rebel`         | Run a Clojure REPL using Rebel Readline                                                                        |
-| `clojure -M:env/dev:repl/rebel` | Run a Clojure REPL using Rebel Readline, including deps and path from `:env/dev` alias to configure REPL start |
-| `clojure -M:repl/rebel-cljs`    | Run a ClojureScript REPL using Rebel Readline                                                                  |
+| Command                         | Description                                                                  |
+|---------------------------------|------------------------------------------------------------------------------|
+| `clojure -M:repl/rebel`         | Rich terminal UI Clojure REPL using Rebel Readline                           |
+| `clojure -M:env/dev:repl/rebel` | As above, including `:extra-deps` and `:extra-path` from `:env/dev` alias    |
+| `clojure -M:repl/rebel-cljs`    | Rich terminal UI ClojureScript REPL using Rebel Readline                     |
+| `clojure -M:repl/rebel-reveal`  | Rich terminal UI Clojure REPL using Rebel Readline and Reveal data inspector |
 
 `:repl/help` in the Rebel UI for help and available commands.  `:repl/quit` to close the REPL.
 
@@ -418,51 +419,40 @@ any [Clojure aware editor]([Clojure aware editors](https://practical.li/clojure/
 
 Reveal can also used as a `tap>` source for more powerful manual debugging.
 
-* `:inspect/reveal` - visualisation with terminal REPL.
+* `:inspect/reveal` - simple terminal UI Clojure REPL with Reveal data visualisation UI.
 * `:inspect/reveal-light` - as above with light theme and 32 point Ubuntu Mono font
-* `:inspect/reveal-nrepl` - visualization for [Clojure aware editors](https://practical.li/clojure/clojure-editors/) via an nrepl server
+* `:inspect/reveal-nrepl` - as `:inspect/reveal` with nREPL server for [Clojure aware editors](https://practical.li/clojure/clojure-editors/)
 * `:inspec/reveal-light-nrepl` - as above with light theme and 32 point Ubuntu Mono font
-* `:inspect/reveal-nrepl-cider` - visualization tool for Emacs Cider / Spacemacs / VSCode Calva
-* `:inspec/reveal-light-nrepl-cider` - as above with light theme and 32 point Ubuntu Mono font
+* `:inspect/reveal-nrepl-cider` - as `:inspect-nrepl` with Clojure nREPL support for Emacs Cider
+* `:inspec/reveal-light-cider` - as above with light theme and 32 point Ubuntu Mono font
 
 | Command                                      | Description                                                                        |
 |----------------------------------------------|------------------------------------------------------------------------------------|
-| `clojure -M:inspect/reveal`                  | start a Reveal repl with data visualization window (cloure.main)                   |
-| `clojure -M:inspect/reveal-light`            | as above with light theme and large font                                           |
+| `clojure -X:inspect/reveal`                  | start a Reveal repl with data visualization window (cloure.main)                   |
+| `clojure -X:inspect/reveal-light`            | as above with light theme and large font                                           |
 | `clojure -X:inspect/reveal`                  | start a Reveal repl with data visualization window (clojure exec)                  |
 | `clojure -X:inspect/reveal-light`            | as above with light theme and large font                                           |
 | `clojure -M:inspect/reveal-nrepl`            | Start nrepl server to use Cider / Calva editors with reveal                        |
-| `clojure -X:inspect/reveal-light-nrepl`      | as above with light theme and large font                                           |
-| `clojure -M:inspect/reveal-rebel`            | Start a Rebel REPL with Reveal Visualisations                                      |
-| `clojure -M:inspect/reveal-light-rebel`      | Start a Rebel REPL with Reveal Visualisations & light theme                        |
-| `clojure -M:inspect/reveal:repl/rebel`       | Start a Rebel REPL with Reveal dependency. Add reveal as tap> source               |
-| `clojure -M:inspect/reveal-light:repl/rebel` | Start a Rebel REPL with Reveal dependency & light theme. Add reveal as tap> source |
+| `clojure -M:inspect/reveal-light-nrepl`      | as above with light theme and large font                                           |
+| `clojure -M:inspect/reveal-nrepl`            | Start nrepl server to use Cider / Calva editors with reveal                        |
+| `clojure -M:inspect/reveal-light-nrepl`      | as above with light theme and large font                                           |
 
-#### Connecting nREPL based editors
-
-Use the `:inspect/reveal-nrepl` alias when running the REPL, either in the terminal or via an nREPL based editor (CIDER, Calva, Conjure, Cursive, etc.)
-
-Alternatively, add an `.nrepl.edn` file to the root of a project to include the Reveal middleware
-
-```clojure
-{:middleware [vlaaad.reveal.nrepl/middleware]}
-```
 
 #### Cider jack-in and reveal
 
 See the [Reveal section of Practicalli Clojure](https://practical.li/clojure/clojure-cli/data-browsers/reveal.html#using-reveal-with-nrepl-editors) for full details, including how to set up a `.dir-locals.el` configuration.
 
-`:inspect/reveal-nrepl-cider` alias contains Reveal REPL with nrepl server and Emacs CIDER specific middleware
+`:inspect/reveal-cider` alias contains Reveal REPL with nrepl server and Emacs CIDER specific middleware
 
 `C-u cider-jack-in-clj` in CIDER to start a reveal REPL  (`SPC u , '` in Spacemacs)
 
 Edit the jack-in command by deleting the all the configuration after the `clojure` command and add the alias
 
 ```shell
-clojure -M:inspect/reveal-nrepl-cider
+clojure -M:inspect/reveal-cider
 ```
 
-`:inspect/reveal-nrepl-cider` is a light version of the above.
+`:inspect/reveal-cider` is a light version of the above.
 
 #### Running different types of repl
 
