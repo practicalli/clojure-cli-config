@@ -1,6 +1,14 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Added
+
+** Changed
+
+* 2021-02-18
+** Added
+*** add `:src/clojure` to add local clone of Clojure core sources (Java & Clojure)
+*** add `:lib/kaocha` alias to include kaocha as a library, enabling scripts such as kaocha-runner.el to run Kaocha test runner from Emacs Cider
 
 ** Changed
 *** command line documentation for :security/nvd to pass correct arguments
@@ -10,10 +18,29 @@
 *** kaocha version update and migration to -T execution option
 *** revert kaocha migration to -T execution option as it requires both src and test path to be included as extra paths
 *** re-organised aliases for using Reveal and Rebel together
+*** Update clj-kondo library in .github/workflows/lint-with-clj-kondo.yml GitHub Action from 2021.12.16 to 2022.02.09
+*** Update library versions using `:project/outated` alias
 
-** Added
-*** add `:src/clojure` to add local clone of Clojure core sources (Java & Clojure)
-*** add `:lib/kaocha` alias to include kaocha as a library, enabling scripts such as kaocha-runner.el to run Kaocha test runner from Emacs Cider
+| :name                             |                                 :current |                                  :latest |
+|-----------------------------------+------------------------------------------+------------------------------------------|
+| borkdude/carve                    | 1fd3da8472cf9ee902f9616ca3aeb4812b5c734c | df552797a198b6701fb2d92390fce7c59205ea77 |
+| cider/cider-nrepl                 |                                   0.27.4 |                                   0.28.2 |
+| clj-kondo/clj-kondo               |                               2021.12.16 |                               2022.02.09 |
+| com.bhauman/figwheel-main         |                                   0.2.15 |                                   0.2.16 |
+| com.github.liquidz/antq           |                                    1.3.1 |                                    1.5.0 |
+| com.github.seancorfield/clj-new   |                                  1.2.380 |                                  1.2.381 |
+| com.github.seancorfield/next.jdbc |                                  1.2.761 |                                  1.2.772 |
+| com.h2database/h2                 |                                  2.0.202 |                                  2.1.210 |
+| djblue/portal                     |                                   0.19.0 |                                   0.21.2 |
+| jonase/eastwood                   |                                    1.0.0 |                                    1.2.2 |
+| lambdaisland/kaocha               |                                 1.60.977 |                                 1.63.998 |
+| nvd-clojure/nvd-clojure           |                                    1.9.0 |                                    2.2.0 |
+| org.clojure/test.check            |                                    1.1.0 |                                    1.1.1 |
+| org.slf4j/slf4j-nop               |                                   1.7.32 |                                   1.7.36 |
+| refactor-nrepl/refactor-nrepl     |                                    3.1.0 |                                    3.3.2 |
+| uberdeps/uberdeps                 |                                    1.1.1 |                                    1.1.2 |
+| zprint/zprint                     |                                    1.2.0 |                                    1.2.2 |
+
 
 * 2021-12-18
 ** Added
