@@ -10,6 +10,8 @@
 *** ~:lib/sayid~ include [[https://github.com/clojure-emacs/sayid][Sayid]] as a dependency to support provide REPL driven debugging and profiling
 
 ** Changed
+*** `:graph/` aliases documentation in README
+*** github actions - update checkout to v3
 
 * 2021-02-18
 ** Added
