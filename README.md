@@ -28,6 +28,7 @@ The **[Practicalli Clojure book](https://practical.li/clojure)** uses this confi
   * [Databases](#databases-and-drivers)
   * [Data Inspectors](#data-inspectors)
     * [Visualise vars and deps](#visualising-project-vars-and-library-dependencies)
+  * [Debug](#debug-tools)
   * [Services](#services)
 * [Library repositories](#library-repositories)
 * [Experimental](#experimental)
@@ -550,6 +551,16 @@ To start a REBL REPL from `cider-jack-in-clj` add a `.dir-locals.el` file to the
 ```
 
 * [REBL data visualization: run REBL with nREPL based editors](https://practical.li/clojure/alternative-tools/clojure-cli/cognitect-rebl.html#configure-rebl-with-clojure-editors)
+
+## Debug Tools
+
+Emacs CIDER has a built in debug tool that requires no dependencies (other than Cider itself).
+
+[Sayid](https://github.com/clojure-emacs/sayid) is a comprehensive debug and profile tool (which requires your code to compile) and generated a full and detailed history of an evaluation.
+
+* `lib/sayid` -  an omniscient debugger and profiler for Clojure
+
+The `:lib/sayid` alias can be used with `:repl/cider` when using `cider-connect-clj` or added to the `cider-jack-in-clj` command manually, or via a `.dir-locals.el` configuration using `cider-clojure-cli-aliases`. See the [Practicalli Spacemacs project configuration guide](https://practical.li/spacemacs/clojure-projects/project-configuration.html) for examples.
 
 
 ## Clojure Specification

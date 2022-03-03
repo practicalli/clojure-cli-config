@@ -1,10 +1,13 @@
 #+TITLE: Changelog
 
 * Unreleased
+
+* 2021-03-03
 ** Added
 *** ~graph/ns-deps~ shows connections between library dependencies and the namespace
 *** ~graph/deps~ now uses tools.deps.graph to show relationship between library
 *** ~:lib/pprint-sorted~ alias to include the [[https://github.com/greglook/puget][puget library]] when starting a REPL session, enabling sorted keys and set values when pretty printing and colour highlighting
+*** ~:lib/sayid~ include [[https://github.com/clojure-emacs/sayid][Sayid]] as a dependency to support provide REPL driven debugging and profiling
 
 ** Changed
 
