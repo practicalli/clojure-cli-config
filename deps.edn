@@ -64,7 +64,7 @@
    :main-opts  ["-m" "nrepl.cmdline"]}
 
   ;; Run an interactive Clojure REPL with nREPL connection and CIDER libraries
-  ;; clojure -M:repl/nrepl
+  ;; clojure -M:repl/cider
   :repl/cider
   {:extra-deps {nrepl/nrepl       {:mvn/version "0.9.0"}
                 cider/cider-nrepl {:mvn/version "0.28.2"}}
@@ -109,7 +109,7 @@
   ;; CIDER: run `cider-connect-clj` and select REPL host and port
   ;; Calva: connect to REPL command and select build tool, REPL host and port
 
-  ;; clojure -M:repl/rebel-nrepl
+  ;; clojure -M:repl/rebel
   :repl/rebel
   {:extra-deps {nrepl/nrepl                {:mvn/version "0.9.0"}
                 cider/cider-nrepl          {:mvn/version "0.28.2"}
@@ -899,7 +899,7 @@
   ;; -f to specify image format, dot (default), png or svg
   ;; Options are followed by list of paths to analyze.
 
-  ;; clojure -A:graph-vars -d graphs -f png src test
+  ;; clojure -M:graph/vars -d graphs -f png src test
   :graph/vars
   {:extra-deps {thomasa/morpheus
                 {:git/url "https://github.com/benedekfazekas/morpheus.git"
@@ -907,7 +907,7 @@
    :main-opts  ["-m" "thomasa.morpheus.main"]}
 
   ;; Generate PNG image of dependency graph in directory called `graphs`
-  ;; clojure -A:graph-vars-png
+  ;; clojure -M:graph/vars-png
   :graph/vars-png
   {:extra-deps {thomasa/morpheus
                 {:git/url "https://github.com/benedekfazekas/morpheus.git"
@@ -916,7 +916,7 @@
                 "-d" "graphs" "-f" "png" "src" "test"]}
 
   ;; Generate SVG image of dependency graph in directory called `graphs`
-  ;; clojure -A:graph-vars-svg
+  ;; clojure -M:graph/vars-svg
   :graph/vars-svg
   {:extra-deps {thomasa/morpheus
                 {:git/url "https://github.com/benedekfazekas/morpheus.git"
