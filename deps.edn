@@ -314,17 +314,6 @@
      :sha     "9bf23a52cb0a8190c9c2c7ad1d796da802f8ce7a"}}
    :main-opts ["-m" "find-deps.core"]}
 
-  ;; Visualizing dependencies in a project
-  ;; https://github.com/clojure/tools.deps.graph
-  ;; clojure -T:project/graph-deps
-  :project/graph-deps
-  {:replace-paths []
-   :replace-deps  {org.clojure/tools.deps.graph {:mvn/version "1.1.68"}}
-   :ns-default    clojure.tools.deps.graph
-   :exec-fn       graph
-   :exec-args     {:output "project-dependencies-graph.png"
-                   :size   true}}
-
   ;; Dependency version management
   ;; https://github.com/liquidz/antq
   ;; Manage versions for maven and git dependencies
@@ -888,10 +877,6 @@
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Visualizing dependencies
 
-  ;; TODO: review and evaluate
-  ;; :graph {:deps      {org.clojure/tools.deps.graph {:mvn/version "1.1.68"}}
-  ;;         :main-opts ["-m" "clojure.tools.deps.graph"]}
-
   ;; Morpheus - visualize project var relationships
   ;; https://github.com/benedekfazekas/morpheus
   ;; Options:
@@ -926,16 +911,28 @@
 
   ;; Visualize connections between library dependencies and project namespaces
   ;; https://github.com/SevereOverfl0w/vizns
-  :graph/deps
+  ;; clojure -M:graph/ns-deps
+  :graph/ns-deps
   {:extra-deps {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
                                   :sha     "69774e8c29e1c1c691f9922d5c5a6d764374ada3"}}
    :main-opts  ["-m" "io.dominic.vizns.core"]}
 
   ;; Generate single PNG image of library dependencies
-  :graph/deps-png
+  :graph/ns-deps-png
   {:extra-deps {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
                                   :sha     "69774e8c29e1c1c691f9922d5c5a6d764374ada3"}}
    :main-opts  ["-m" "io.dominic.vizns.core" "single" "-o" "deps-graph.png" "-f" "png"]}
+
+  ;; GraphViz of project dependencies
+  ;; https://github.com/clojure/tools.deps.graph
+  ;; clojure -T:graph/deps
+  :graph/deps
+  {:replace-paths []
+   :replace-deps  {org.clojure/tools.deps.graph {:mvn/version "1.1.68"}}
+   :ns-default    clojure.tools.deps.graph
+   :exec-fn       graph
+   :exec-args     {:output "project-dependencies-graph.png"
+                   :size   true}}
 
   ;; Visualizing dependencies
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

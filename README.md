@@ -284,7 +284,6 @@ Then the project can be run using `clojure -X:project/run` and arguments can opt
 | `clojure -M:project/check`                           | detailed report of compilation errors for a project                     |
 | `clojure -M:project/find-deps library-name`          | fuzzy search Maven & Clojars                                            |
 | `clojure -M:project/find-deps -F:merge library-name` | fuzzy search Maven & Clojars and save to project deps.edn               |
-| `clojure -T:project/graph-deps`                      | generate png image of project dependencies from project `deps.edn` file |
 | `clojure -T:project/outdated`                        | report newer versions for maven and git dependencies                    |
 | `clojure -M:project/outdated-mvn`                    | check for newer dependencies (maven only)                               |
 
@@ -612,30 +611,52 @@ Static analysis tools to help maintain code quality and suggest Clojure idioms.
 | `clojure -M:lint/eastwood` | classic lint tool for Clojure                    |
 | `clojure -M:lint/idiom`    | Suggest idiomatic Clojure code                   |
 
+
 ## Visualising project vars and library dependencies
 
 Create [Graphviz](https://www.graphviz.org/) graphs of project and library dependencies
 
-Morpheus creates grahps of project vars and their relationships
+> Install [Graphviz](https://www.graphviz.org/) to generate PNG and SVG images. Or use the [Edotor website](https://edotor.net/) to convert .dot files to PNG or SVG images and select different graph layout engines.
+
+### Var dependencies
+
+Generate dependency graphs for Vars in Clojure & ClojureScript namespaces
 
 * [`:graph/vars`](https://github.com/benedekfazekas/morpheus) - generate graph of vars in a project as a .dot file
 * [`:graph/vars-png`](https://github.com/benedekfazekas/morpheus) - generate graph of vars in a project as a .png file using `src` and `test` paths
 * [`:graph/vars-svg`](https://github.com/benedekfazekas/morpheus) - generate graph of vars in a project as a .svg file using `src` and `test` paths
 
-> Install [Graphviz](https://www.graphviz.org/) to generate PNG and SVG images. Or use the [Edotor website](https://edotor.net/) to convert .dot files to PNG or SVG images and select different graph layout engines.
+> Use `-f` command line argument to over-ride file type created, i.e `-f png`
 
-[Vizns](https://github.com/SevereOverfl0w/vizns) creates graphs of relationships between library dependencies and project namespaces
+### Namespace dependencies
 
-* `:graph/deps`
-* `:graph/deps-png` - generate a single deps-graph png image
+[Vizns](https://github.com/SevereOverfl0w/vizns) creates graphs of relationships between namespaces and their dependencies
 
-Other options:
+* `clojure -M:graph/ns-deps` - generate a single deps-graph SVG image
+* `clojure -M:graph/ns-deps-png` as above with PNG image
 
-* `clojure -M:graph/deps navigate`  # navigable folder of SVGs
-* `clojure -M:graph/deps single`    # deps-graph.dot file
-* `clojure -M:graph/deps single -o deps-graph.png -f png`
-* `clojure -M:graph/deps single -o deps-graph.svg -f svg`
-* `clojure -M:graph/deps single --show`  # View graph without saving
+Other [options described in the visns project readme](https://github.com/SevereOverfl0w/vizns#usage):
+
+
+### Project Dependency Relationships
+
+Visualise the relationships between dependencies in the project (or given `deps.edn` configuration).  Shows the fully qualified name of a dependency, its version and size.
+
+Generate a PNG image from the project `deps.edn` configuration and save to `project-dependencies-graph.png` file
+
+```bash
+clojure -T:graph/deps
+```
+
+Options available
+
+* `:deps` - Path to deps file (default = "deps.edn")
+* `:trace` - images showing individual trace images of dependency relations (default = false)
+* `:trace-file` - Path to trace.edn file to read
+* `:output` - file name string to save the generated image, `:output '"deps.png"'`
+* `:trace-omit` - Collection of lib symbols to omit in trace output
+* `:size` - Boolean flag to include sizes in images (default = false)
+
 
 ## Performance testing
 

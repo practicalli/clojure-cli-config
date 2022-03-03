@@ -2,6 +2,8 @@
 
 * Unreleased
 ** Added
+*** ~graph/ns-deps~ shows connections between library dependencies and the namespace
+*** ~graph/deps~ now uses tools.deps.graph to show relationship between library
 
 ** Changed
 
