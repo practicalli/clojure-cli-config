@@ -476,6 +476,11 @@
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Formatting tools
 
+  ;; pretty printing with sorted keys and set values
+  ;; include as a library when starting a project
+  :lib/pprint-sorted
+  {:extra-deps {mvxcvi/puget {:mvn/version "1.3.2"}}}
+
   ;; pretty printing capabilities for Clojure code and EDN
   ;; clojure -M:data/zprint filename
   :format/zprint

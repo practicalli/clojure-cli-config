@@ -4,6 +4,7 @@
 ** Added
 *** ~graph/ns-deps~ shows connections between library dependencies and the namespace
 *** ~graph/deps~ now uses tools.deps.graph to show relationship between library
+*** ~:lib/pprint-sorted~ alias to include the [[https://github.com/greglook/puget][puget library]] when starting a REPL session, enabling sorted keys and set values when pretty printing and colour highlighting
 
 ** Changed
 
