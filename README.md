@@ -101,7 +101,7 @@ How to run common tasks for Clojure development.
 
 | Task                                                   | Command                                                         | Configuration      |
 |--------------------------------------------------------|-----------------------------------------------------------------|--------------------|
-| Create project (clojure exec)                          | `clojure -X:project/new :template app :name practicalli/my-app` | User alias         |
+| Create project (clojure exec)                          | `clojure -T:project/new :template app :name practicalli/my-app` | User alias         |
 | Run REPL (rebel readline with nrepl server)            | `clojure -M:repl/rebel`                                         | User alias         |
 | Run ClojureScipt REPL with nREPL (editor support)      | `clojure -M:repl/cljs-nrepl`                                    | User alias         |
 | Download dependencies                                  | `clojure -P`  (followed by optional aliases)                    | Built-in           |
@@ -109,8 +109,8 @@ How to run common tasks for Clojure development.
 | Find available versions of a library                   | `clojure -X:deps find-versions`                                 | Built-in           |
 | Resolve git coord tags to shas and update deps.edn     | `clojure -X:deps git-resolve-tags git-coord-tag`                | Built-in           |
 | Generate image of project dependency graph             | `clojure -T:project/graph-deps`                                 | User alias         |
-| Run tests                                              | `clojure -M:test/run`                                           | User/Project alias |
 | Check library dependencies for newer versions          | `clojure -T:search/outdated`                                    | User alias         |
+| Run tests / watch for changes                          | `clojure -M:test/run` / `clojure -M:test/watch`                 | User/Project alias |
 | Run the project  (clojure.main)                        | `clojure -M -m domain.main-namespace`                           | Built-in           |
 | [Run the project](https://youtu.be/u5VoFpsntXc?t=2166) | `clojure -X:project/run`                                        | Project alias      |
 | Package library                                        | `clojure -X:project/jar`                                        | User/Project alias |
@@ -142,8 +142,8 @@ Aliases provide additional configuration when running a REPL, an application or 
 | `-T`            | Run a tool or alias separate from a project classpath    | `:exec-fn`, `:exec-args` & :key val args             |
 | `-J`            | Java Virtual Machine specific options (memory size, etc) |                                                      |
 
-* deps = `:deps`, `:extra-deps`, `replace-deps`
-* path = `:path`, `:extra-paths`, `replace-paths`
+* deps = `:deps`, `:extra-deps` or `replace-deps`
+* path = `:path`, `:extra-paths` or `replace-paths`
 
 
 ## REPL terminal UI
