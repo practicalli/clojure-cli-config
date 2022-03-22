@@ -41,6 +41,47 @@
  :aliases
  {
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Development environment
+
+  ;; Include `dev` directory on the class path
+  ;; Supports the use of `dev/user.clj` to configure REPL startup
+  ;; http://practicalli.github.io/clojure/clojure-tools/configure-repl-startup.html
+
+  ;; clojure -M:env/dev
+  :env/dev
+  {:extra-paths ["dev"]}
+
+  :lib/nrepl
+  {:extra-deps {nrepl/nrepl {:mvn/version "0.9.0"}}}
+
+  ;; alpha state software as API has not been finalized however the code works reliably
+  ;; Latest commit on add-lib3 branch, don't update with :project/outdated
+  ;; Set logging implementation to no-operation
+  :lib/hotload
+  {:extra-deps {org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
+                                              :git/sha     "d77476f3d5f624249462e275ae62d26da89f320b"}
+                org.slf4j/slf4j-nop {:mvn/version "1.7.36"}}}
+
+  ;; Refresh the current namespace in a running REPL
+  :lib/tools-ns
+  {:extra-deps {org.clojure/tools.namespace {:mvn/version "1.2.0"}}}
+
+  ;; Combination of hotload and tools-ns
+  :lib/reloaded
+  {:extra-deps {org.clojure/tools.namespace {:mvn/version "1.2.0"}
+                org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
+                                              :git/sha "d77476f3d5f624249462e275ae62d26da89f320b"}
+                org.slf4j/slf4j-nop {:mvn/version "1.7.36"}}}
+
+  ;; Highlight important aspects of error stack trace using ANSI formatting
+  ;; https://github.com/AvisoNovate/pretty
+  :lib/pretty-errors
+  {:extra-deps {io.aviso/pretty {:mvn/version "1.1.1"}}}
+
+  ;; End of Development environment
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; REPL and nREPL connections
 
   ;; Built-in Clojure REPL
@@ -161,36 +202,6 @@
    :main-opts ["-e" "(require,'rebel-readline.core),(require,'rebel-readline.clojure.line-reader),(require,'rebel-readline.clojure.service.local),(require,'rebel-readline.clojure.main),(require,'vlaaad.reveal)(rebel-readline.core/with-line-reader,(rebel-readline.clojure.line-reader/create,(rebel-readline.clojure.service.local/create)),(vlaaad.reveal/repl,:prompt,(fn,[]),:read,(rebel-readline.clojure.main/create-repl-read)))"]}
 
 
-  ;;;; Development environment
-
-  ;; Include `dev` directory on the class path
-  ;; Supports the use of `dev/user.clj` to configure REPL startup
-  ;; http://practicalli.github.io/clojure/clojure-tools/configure-repl-startup.html
-
-  ;; clojure -M:env/dev
-  :env/dev
-  {:extra-paths ["dev"]}
-
-  :lib/nrepl
-  {:extra-deps {nrepl/nrepl {:mvn/version "0.9.0"}}}
-
-  ;; alpha state software as API has not been finalized however the code works reliably
-  ;; Latest commit on add-lib3 branch, don't update with :project/outdated
-  ;; Set logging implementation to no-operation
-  :lib/hotload
-  {:extra-deps {org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
-                                              :git/sha     "d77476f3d5f624249462e275ae62d26da89f320b"}
-                org.slf4j/slf4j-nop {:mvn/version "1.7.36"}}}
-
-  ;; Refresh the current namespace in a running REPL
-  :lib/tools-ns
-  {:extra-deps {org.clojure/tools.namespace {:mvn/version "1.2.0"}}}
-
-  :lib/reloaded
-  {:extra-deps {org.clojure/tools.namespace {:mvn/version "1.2.0"}
-                org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
-                                              :git/sha "d77476f3d5f624249462e275ae62d26da89f320b"}
-                org.slf4j/slf4j-nop {:mvn/version "1.7.36"}}}
 
   ;;;; Remote REPL connection
   ;; Connect to the nREPL server of a remote REPL

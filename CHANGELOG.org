@@ -2,6 +2,15 @@
 
 * Unreleased
 
+* 2021-0322
+** Added
+*** `:env/dev` - add `dev` directory to class path - e.g. include `dev/user.clj` to [configure REPL starup](https://practical.li/clojure/clojure-cli/projects/configure-repl-startup.html)
+*** `:lib/nrepl` include nrepl as a library
+*** `:lib/hotload` - include `org.clojure/tools.deps.alpha` add-libs commit to [hotload libraries into a running REPL](https://practical.li/clojure/alternative-tools/clojure-cli/hotload-libraries.html)
+*** `:lib/tools-ns` - include `org.clojure/tools.namespace` to refresh the current namespace in a running REPL
+*** `:lib/reloaded` - combination of hotload and tools-ns aliases
+*** `:lib/pretty-errors` - highlight important aspects of error stack trace using ANSI formatting
+
 * 2021-03-03
 ** Added
 *** ~graph/ns-deps~ shows connections between library dependencies and the namespace

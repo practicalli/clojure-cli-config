@@ -19,6 +19,7 @@ The **[Practicalli Clojure book](https://practical.li/clojure)** uses this confi
 * [Aliases](#aliases)
   * Running a REPL
     * [REPL Terminal UI](#repl-terminal-ui) I [REPL with Editor](#repl-with-editor) I [Hotload dependencies](#hotload-libraries-into-a-running-repl) I [Remote REPL Connection](#remote-repl-connection) I [Alternative REPL](#alternative-repl) I [Middleware](#middleware)
+  * [Development Environment](#development-environment)
   * [Clojure Projects](#clojure-projects)
     * [Dependencies](#project-dependencies) I [Analysis](#project-analysis) I [Packaging](#project-packaging) I [Deployment](#project-deployment)
   * [Format](#format-code) I [Lint](#lint-tools)
@@ -221,6 +222,18 @@ PREPL is a REPL with structured output.  See [Cloure socket prepl cookbook](http
 | `clojure -M:repl/socket-client`  | Socket REPL client on port 50505 ([tubular](https://github.com/mfikes/tubular)) |
 | `clojure -M:repl/prepl`          | Clojure REPL using PREPL Server on port 40404                                   |
 | `clojure -M:repl/prepl-cljs`     | Clojure REPL using PREPL Server on port 44444                                   |
+
+
+## Development Environment
+
+Environment settings and libraries to support REPL driven development
+
+* `:env/dev` - add `dev` directory to class path - e.g. include `dev/user.clj` to [configure REPL starup](https://practical.li/clojure/clojure-cli/projects/configure-repl-startup.html)
+* `:lib/nrepl` include nrepl as a library
+* `:lib/hotload` - include `org.clojure/tools.deps.alpha` add-libs commit to [hotload libraries into a running REPL](https://practical.li/clojure/alternative-tools/clojure-cli/hotload-libraries.html)
+* `:lib/tools-ns` - include `org.clojure/tools.namespace` to refresh the current namespace in a running REPL
+* `:lib/reloaded` - combination of hotload and tools-ns aliases
+* `:lib/pretty-errors` - highlight important aspects of error stack trace using ANSI formatting
 
 
 ## Clojure Projects
