@@ -16,6 +16,7 @@
 *** `-M:search/libraries` - [find-deps](https://github.com/hagmonk/find-deps) - fuzzy search Maven & Clojars and add deps to deps.edn
 *** `-T:search/outdated` -  [liquidz/antq](https://github.com/liquidz/antq) - check for newer versions of libraries, updating `deps.edn` if `:update true` passed as argument
 
+*** `-M:project/depify` to generate deps.edn configuration from a Leiningen project.clj configuration
 
 
 * 2021-03-03

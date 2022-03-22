@@ -298,7 +298,15 @@
    :exec-fn      clj-new/generate
    :main-opts    ["-m" "clj-new.generate"]}
 
-  ;; End of: Creating projects from templates
+  ;; Convert Leiningen projects to Clojure CLI with depify
+  ;; Use `lein pprint` when `project.clj` includes quoted variables or paths to resolve
+  ;; `lein pprint | clojure -M:project/depify`
+  :project/depify
+  {:extra-deps {depify/depify {:git/url "https://github.com/hagmonk/depify"
+                               :git/sha     "b3f61517c860518c1990133aa6eb54caf1e4d591"}}
+   :main-opts  ["-m" "depify.project"]}
+
+;; End of: Creating projects from templates
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -373,11 +381,6 @@
                  :sha     "df552797a198b6701fb2d92390fce7c59205ea77"}}
    :main-opts  ["-m" "carve.main"]}
 
-  ;; Convert Leiningen projects to Clojure CLI tools with depify
-  :project/depify
-  {:extra-deps {depify/depify {:git/url "https://github.com/hagmonk/depify"
-                               :sha     "b3f61517c860518c1990133aa6eb54caf1e4d591"}}
-   :main-opts  ["-m" "depify.project"]}
 
   ;; End of: Projects and dependencies
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
