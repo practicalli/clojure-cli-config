@@ -32,7 +32,8 @@ The **[Practicalli Clojure book](https://practical.li/clojure)** uses this confi
     * [Visualise vars and deps](#visualising-project-vars-and-library-dependencies)
   * [Debug](#debug-tools)
   * [Services](#services)
-* [Library repositories](#library-repositories)
+* [Library Hosting Services](#library-hosting-services) - maven mirrors, local repositories
+
 
 
 ## Install Practicalli clojure-deps-edn
@@ -799,7 +800,7 @@ clojure -M:community/zulip-event create --zulip-auth "${ZULIP_AUTH}" --title 'Pr
 Take care to get the timezone notation correct.
 
 
-# Library repositories
+# Library Hosting Services
 
 Repositories that host libraries for Clojure.
 
