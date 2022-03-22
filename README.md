@@ -22,6 +22,7 @@ The **[Practicalli Clojure book](https://practical.li/clojure)** uses this confi
   * [Development Environment](#development-environment)
   * [Clojure Projects](#clojure-projects)
     * [Dependencies](#project-dependencies) I [Analysis](#project-analysis) I [Packaging](#project-packaging) I [Deployment](#project-deployment)
+  * [Searching](#searching)
   * [Format](#format-code) I [Lint](#lint-tools)
   * [Java sources](#java-sources)
   * [Unit Testing](#unit-testing-frameworks)
@@ -104,12 +105,12 @@ How to run common tasks for Clojure development.
 | Run REPL (rebel readline with nrepl server)            | `clojure -M:repl/rebel`                                         | User alias         |
 | Run ClojureScipt REPL with nREPL (editor support)      | `clojure -M:repl/cljs-nrepl`                                    | User alias         |
 | Download dependencies                                  | `clojure -P`  (followed by optional aliases)                    | Built-in           |
-| Find libraries (mvn & git)                             | `clojure -M:project/find-deps library-name`                     | User alias         |
+| Find libraries (mvn & git)                             | `clojure -M:search/libraries library-name(s)`                   | User alias         |
 | Find available versions of a library                   | `clojure -X:deps find-versions`                                 | Built-in           |
 | Resolve git coord tags to shas and update deps.edn     | `clojure -X:deps git-resolve-tags git-coord-tag`                | Built-in           |
 | Generate image of project dependency graph             | `clojure -T:project/graph-deps`                                 | User alias         |
-| Check for new dependency versions                      | `clojure -T:project/outdated`                                   | User alias         |
 | Run tests                                              | `clojure -M:test/run`                                           | User/Project alias |
+| Check library dependencies for newer versions          | `clojure -T:search/outdated`                                    | User alias         |
 | Run the project  (clojure.main)                        | `clojure -M -m domain.main-namespace`                           | Built-in           |
 | [Run the project](https://youtu.be/u5VoFpsntXc?t=2166) | `clojure -X:project/run`                                        | Project alias      |
 | Package library                                        | `clojure -X:project/jar`                                        | User/Project alias |
@@ -289,15 +290,15 @@ Then the project can be run using `clojure -X:project/run` and arguments can opt
 
 * [`:project/check`](https://github.com/athos/clj-check.git) - detailed report of compilation errors for a project
 * [`:project/graph-deps`](https://github.com/clojure/tools.deps.graph) - graph of project dependencies (png image)
-* [`:project/find-deps`](https://github.com/hagmonk/find-deps) - fuzzy search for libraries to add as dependencies
+* [`:search/libraries`](https://github.com/hagmonk/find-deps) - fuzzy search for libraries to add as dependencies
 * [`:project/outdated`](https://github.com/liquidz/antq) - report newer versions for maven and git dependencies
 * [`:project/outdated-mvn`](https://github.com/slipset/deps-ancient) - check for newer dependencies (maven only)
 
 | Command                                              | Description                                                             |
 |------------------------------------------------------|-------------------------------------------------------------------------|
 | `clojure -M:project/check`                           | detailed report of compilation errors for a project                     |
-| `clojure -M:project/find-deps library-name`          | fuzzy search Maven & Clojars                                            |
-| `clojure -M:project/find-deps -F:merge library-name` | fuzzy search Maven & Clojars and save to project deps.edn               |
+| `clojure -M:search/libraries library-name`          | fuzzy search Maven & Clojars                                            |
+| `clojure -M:search/libraries -F:merge library-name` | fuzzy search Maven & Clojars and save to project deps.edn               |
 | `clojure -T:project/outdated`                        | report newer versions for maven and git dependencies                    |
 | `clojure -M:project/outdated-mvn`                    | check for newer dependencies (maven only)                               |
 
@@ -361,6 +362,30 @@ Set fully qualified artifact-name and version in project `pom.xml` file
 Path to project.jar can also be set in alias to simplify the Clojure command.
 
 > `clojure -X:deps mvn-install project.jar` for local deployment of jars is part of the 1.10.1.697 release of the [Clojure CLI](https://clojure.org/guides/getting_started) in September 2020.
+
+
+## Searching
+
+Tools to search through code and libraries
+
+* `-M:search/errors` [clj-check](https://github.com/athos/clj-check.git) - search each namespace and report compilation warnings and errors
+* `-M::search/unused-vars` [Carve](https://github.com/borkdude/carve) - search code for unused vars and remove them - optionally specifying paths `--opts '{:paths ["src" "test"]}'`
+* `-M:search/libraries` - [find-deps](https://github.com/hagmonk/find-deps) - fuzzy search Maven & Clojars and add deps to deps.edn
+* `-T:search/outdated` -  [liquidz/antq](https://github.com/liquidz/antq) - check for newer versions of libraries, updating `deps.edn` if `:update true` passed as argument
+
+
+### Searching library options
+
+A fuzzy search for a library by name, passing multiple names to search for
+
+```bash
+clojure -M:search/libraries http-kit ring compojure
+```
+
+Add the matching library as a dependency into the project `deps.edn` file
+
+clojure -M:search/libraries --format:merge http-kit
+
 
 ## Format code
 

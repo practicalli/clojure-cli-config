@@ -302,12 +302,12 @@
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;; Project compilation and dependencies
+  ;; Searching
 
-  ;; clj-check - report detailed compilation errors for a project
+  ;; clj-check - search each namespace and report compilation warnings and errors
   ;; https://github.com/athos/clj-check
-  ;; clojure -M:project/check
-  :project/check
+  ;; clojure -M:search/errors
+  :search/errors
   {:extra-deps {athos/clj-check
                 {:git/url "https://github.com/athos/clj-check.git"
                  :sha     "518d5a1cbfcd7c952f548e6dbfcb9a4a5faf9062"}}
@@ -315,10 +315,10 @@
 
   ;; find-deps - fuzzy search Maven & Clojars and add deps to deps.edn
   ;; https://github.com/hagmonk/find-deps
-  ;; clojure -M:project/find-deps http-kit  # fuzzy search for dependency
-  ;; clojure -M:project/find-deps http-kit ring compojure # multiple deps
-  ;; clojure -M:project/find-deps -F:merge http-kit # merge dep into deps.edn file
-  :project/find-deps
+  ;; clojure -M:search/libraries http-kit  # fuzzy search for dependency
+  ;; clojure -M:search/libraries http-kit ring compojure # multiple deps
+  ;; clojure -M:search/libraries --format:merge http-kit # merge dep into deps.edn file
+  :search/libraries
   {:extra-deps
    {find-deps/find-deps
     {:git/url "https://github.com/hagmonk/find-deps"
@@ -330,10 +330,10 @@
   ;; Manage versions for maven and git dependencies
 
   ;; - report project dependencies that have newer versions available:
-  ;; cd project-directory && clojure -T:project/outdated
+  ;; cd project-directory && clojure -T:search/outdated
   ;; - update library versions in this deps.edn file:
-  ;; cd ~/.clojure && clojure -T:project/outdated
-  :project/outdated
+  ;; cd $XDG_CONFIG_HOME/clojure && clojure -T:search/outdated
+  :search/outdated
   {:replace-paths ["."]
    :replace-deps  {com.github.liquidz/antq {:mvn/version "1.5.1"}
                    org.slf4j/slf4j-nop     {:mvn/version "1.7.36"}}
@@ -358,28 +358,16 @@
    :main-opts ["-m" "antq.core"]}
 
   ;; The classic project for checking maven based dependencies
-  ;; clojure -M:project/outdated-mvn
+  ;; clojure -M:search/outdated-mvn
   ;; DEPRECATE
-  :project/outdated-mvn
+  :search/outdated-mvn
   {:replace-paths []
    :replace-deps  {deps-ancient/deps-ancient {:mvn/version "0.0.5"}}
    :main-opts     ["-m" "deps-ancient.deps-ancient"]}
 
   ;; Carve - search through code for unused vars and remove them
-  ;; clojure -M:project/unused --opts '{:paths ["src" "test"]}'
-  :project/unused
-  {:extra-deps {borkdude/carve
-                {:git/url "https://github.com/borkdude/carve"
-                 :sha     "df552797a198b6701fb2d92390fce7c59205ea77"}}
-   :main-opts  ["-m" "carve.main"]}
-
-  :project/unused-vars
-  {:extra-deps {borkdude/carve
-                {:git/url "https://github.com/borkdude/carve"
-                 :sha     "df552797a198b6701fb2d92390fce7c59205ea77"}}
-   :main-opts  ["-m" "carve.main"]}
-
-  :project/carve
+  ;; clojure -M:search/unused-vars --opts '{:paths ["src" "test"]}'
+  :search/unused-vars
   {:extra-deps {borkdude/carve
                 {:git/url "https://github.com/borkdude/carve"
                  :sha     "df552797a198b6701fb2d92390fce7c59205ea77"}}
