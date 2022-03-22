@@ -160,7 +160,8 @@
                 "-i"
                 "-f" "rebel-readline.main/-main"]}
 
-  ;; ClojureScript REPL with rebel readline with nrepl for editor connection
+
+;; ClojureScript REPL with rebel readline with nrepl for editor connection
   ;; https://github.com/bhauman/rebel-readline/tree/master/rebel-readline-cljs
   ;; CIDER: run `cider-connect-cljs` and select REPL host and port, figwheel-main and dev build
   :repl/rebel-cljs
@@ -181,7 +182,6 @@
                 "--middleware" "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"
                 "-f" "rebel-readline.cljs.main/-main"]}
 
-
   ;; rebel readline with reveal data visualization
   ;; NOTE: :repl/revel-reveal alias is very much a hack and not a good example to follow
   ;; clojure -M:repl/rebel-reveal
@@ -191,7 +191,6 @@
     com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
    :jvm-opts  ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
    :main-opts ["-e" "(require,'rebel-readline.core),(require,'rebel-readline.clojure.line-reader),(require,'rebel-readline.clojure.service.local),(require,'rebel-readline.clojure.main),(require,'vlaaad.reveal)(rebel-readline.core/with-line-reader,(rebel-readline.clojure.line-reader/create,(rebel-readline.clojure.service.local/create)),(vlaaad.reveal/repl,:prompt,(fn,[]),:read,(rebel-readline.clojure.main/create-repl-read)))"]}
-
 
   ;; clojure -M:repl/reveal-light-rebel
   :repl/rebel-reveal-light
@@ -228,7 +227,7 @@
                 "-i"
                 "-f" "rebel-readline.main/-main"]}
 
-  ;; End of REPL and nREPL connections
+  ;; End of remote REPL connections
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
