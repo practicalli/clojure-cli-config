@@ -33,7 +33,6 @@ The **[Practicalli Clojure book](https://practical.li/clojure)** uses this confi
   * [Debug](#debug-tools)
   * [Services](#services)
 * [Library repositories](#library-repositories)
-* [Experimental](#experimental)
 
 
 ## Install Practicalli clojure-deps-edn
@@ -799,21 +798,6 @@ clojure -M:community/zulip-event create --zulip-auth "${ZULIP_AUTH}" --title 'Pr
 
 Take care to get the timezone notation correct.
 
----
-
-## Experimental / Alpha Aliases
-
-* [`:alpha/carve`](https://github.com/borkdude/carve) - EXPERIMENTAL, use with caution - carve out unwanted vars in code
-* [`:alpha/hotload-libs`](https://github.com/clojure/tools.deps.alpha) - EXPERIMENTAL, use with caution - hot-load libraries into a running namespace.
-
-**Hot loading dependencies** (unofficial)
-> This is an unofficial approach using to hot loading and the API may change in future
-
-* [`:alpha/hotload-libs`](https://github.com/clojure/tools.deps.alpha) - Add jar dependencies into a running REPL.
-
-Practically Clojure [details how to hot-load libraries into a running REP using tools.deps.alpha](https://practical.li/clojure/alternative-tools/clojure-cli/hotload-libraries.html).
-
-[The Clojure Webapp hotload libraries repository](https://github.com/practicalli/clojure-webapp-hotload-libraries) contains and example project that uses `add-libs` to hotload library dependencies.
 
 # Library repositories
 
