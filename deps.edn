@@ -59,7 +59,7 @@
   ;; Set logging implementation to no-operation
   :lib/hotload
   {:extra-deps {org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
-                                              :git/sha     "d77476f3d5f624249462e275ae62d26da89f320b"}
+                                              :git/sha     "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
                 org.slf4j/slf4j-nop {:mvn/version "1.7.36"}}}
 
   ;; Refresh the current namespace in a running REPL
@@ -70,7 +70,7 @@
   :lib/reloaded
   {:extra-deps {org.clojure/tools.namespace {:mvn/version "1.2.0"}
                 org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
-                                              :git/sha "d77476f3d5f624249462e275ae62d26da89f320b"}
+                                              :git/sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
                 org.slf4j/slf4j-nop {:mvn/version "1.7.36"}}}
 
   ;; Highlight important aspects of error stack trace using ANSI formatting
@@ -1069,28 +1069,16 @@
   ;; - e.g., using the GitHub path (not the usual Maven group/artifact):
   ;; (load-master 'clojure/tools.trace)
 
-  :alpha/hotload-libs
+  :alpha/hotload-socket
   {:extra-deps {org.clojure/tools.deps.alpha
                 ;; Latest commit on add-lib3 branch, don't update with :project/outdated
                 {:git/url "https://github.com/clojure/tools.deps.alpha"
-                 :sha     "d77476f3d5f624249462e275ae62d26da89f320b"}
+                 :sha     "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
                 ;; Set logging implementation to no-operation
                 org.slf4j/slf4j-nop {:mvn/version "1.7.36"}}
    ;; DynamicClassLoader required when starting other processes via aliases, e.g. socket REPL or Cognitect's REBL
    :main-opts  ["-e" "(->>(Thread/currentThread)(.getContextClassLoader)(clojure.lang.DynamicClassLoader.)(.setContextClassLoader,(Thread/currentThread)))"]}
 
-  :alpha/hot-load
-  {:extra-deps {org.clojure/tools.deps.alpha
-                ;; Latest commit on add-lib3 branch, don't update with :project/outdated
-                {:git/url "https://github.com/clojure/tools.deps.alpha"
-                 :sha     "d77476f3d5f624249462e275ae62d26da89f320b"}
-                ;; Set logging implementation to no-operation
-                org.slf4j/slf4j-nop {:mvn/version "1.7.36"}}
-   ;; DynamicClassLoader required when starting other processes via aliases, e.g. socket REPL or Cognitect's REBL
-   :main-opts  ["-e" "(->>(Thread/currentThread)(.getContextClassLoader)(clojure.lang.DynamicClassLoader.)(.setContextClassLoader,(Thread/currentThread)))"]}
-
-  ;;  End of EXPERIMENTAL
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Aliases to evaluate
