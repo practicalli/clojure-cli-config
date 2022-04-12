@@ -2,13 +2,33 @@
 
 * Unreleased
 
+* 2022-04-12
+** Changed
+*** Removed :deps from configuration to avoid over-riding version from install of Clojure CLI
+*** GitHub action .github/workflows/lint-with-clj-kondo.yml updated to version 2022.04.08
+*** Update library versions using `clojure -T:search/outated > outdated-2022-04-12.org` command
 
-* 2021-03-25
+  | :name                             |                                 :current |                                  :latest |
+  |-----------------------------------+------------------------------------------+------------------------------------------|
+  | clj-kondo/clj-kondo               |                               2022.02.09 |                               2022.04.08 |
+  | cloverage/cloverage               |                                    1.2.2 |                                    1.2.3 |
+  | com.github.liquidz/antq           |                                    1.5.1 |                                    1.6.1 |
+  | com.github.seancorfield/next.jdbc |                                  1.2.772 |                                  1.2.780 |
+  | com.h2database/h2                 |                                  2.1.210 |                                  2.1.212 |
+  | djblue/portal                     |                                   0.21.2 |                                   0.23.0 |
+  | lambdaisland/kaocha               |                                 1.63.998 |                                1.65.1029 |
+  | nvd-clojure/nvd-clojure           |                                    2.2.0 |                                    2.5.0 |
+  | refactor-nrepl/refactor-nrepl     |                                    3.3.2 |                                    3.5.2 |
+  | thomasa/morpheus                  | 0c4cb1436e49077a4762347cf4b1f5885a007a2f | 9d6f2c1ede8be7ab4508065fe6b7e40e0c099ab6 |
+  | vlaaad/reveal                     |                                  1.3.270 |                                  1.3.273 |
+
+
+* 2022-03-25
 ** Added
 *** `:lib/hotload` - latest SHA from add-libs branch of `org.clojure/tools.deps.alpha` to support [hotload libraries into a running REPL](https://practical.li/clojure/alternative-tools/clojure-cli/hotload-libraries.html)
 
 
-* 2021-03-22
+* 2022-03-22
 ** Added
 *** `:env/dev` - add `dev` directory to class path - e.g. include `dev/user.clj` to [configure REPL starup](https://practical.li/clojure/clojure-cli/projects/configure-repl-startup.html)
 *** `:lib/nrepl` include nrepl as a library
