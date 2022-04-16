@@ -716,16 +716,12 @@ Performance testing tools for the REPL
 
 Use the aliases with either `-M` or `-X` flags on the Clojure command line.
 
-> TODO: check these alias combinations are correct
-
 ```clojure
 clojure -M:performance/benchmark:repl/rebel
 
 (require '[criterium.core :refer [bench quick-bench]])
-(bench (adhoc-expression))
+(bench (expression-to-test))
 ```
-
-> TODO: check these alias combinations are correct
 
 Performance test a project in the REPL
 
