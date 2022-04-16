@@ -160,6 +160,16 @@
                 "-i"
                 "-f" "rebel-readline.main/-main"]}
 
+  ;; Not working!
+  ;; :repl/rebel-ns
+  ;; {:extra-deps {nrepl/nrepl                {:mvn/version "0.9.0"}
+  ;;               cider/cider-nrepl          {:mvn/version "0.28.3"}
+  ;;               com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
+  ;;  :main-opts  ["-m" "nrepl.cmdline"
+  ;;               "--middleware" "[cider.nrepl/cider-middleware]"
+  ;;               "-i"
+  ;;               "-f" "rebel-readline.main/-main"
+  ;;               "-e" "(ns,practicalli.jgit-hack),(alter-var-root,#'*ns*,(constantly,(find-ns,'practicalli.jgit-hack)))"]}
 
 ;; ClojureScript REPL with rebel readline with nrepl for editor connection
   ;; https://github.com/bhauman/rebel-readline/tree/master/rebel-readline-cljs
