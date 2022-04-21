@@ -114,7 +114,7 @@ How to run common tasks for Clojure development.
 | Run the project  (clojure.main)                        | `clojure -M -m domain.main-namespace`                           | Built-in           |
 | [Run the project](https://youtu.be/u5VoFpsntXc?t=2166) | `clojure -X:project/run`                                        | Project alias      |
 | Package library                                        | `clojure -X:project/jar`                                        | User/Project alias |
-| Deploy library locally (~/.m2/repository)              | `clojure -X:deps mvn-install`                                   | Built-in           |
+| Deploy library locally (~/.m2/repository)              | `clojure -X:deps mvn-install :jar '"project.jar"'`              | Built-in           |
 | Package application                                    | `clojure -X:project/uberjar`                                    | User/Project alias |
 
 > Add alias `:project/run` to the deps.edn file in the root of a project:
@@ -345,15 +345,15 @@ clojure -X:project/jar :jar '"practicalli.app.jar"' :aot false :main-class domai
 
 Deploy a project archive file locally or to Clojars.org
 
-* [`-X:deps mvn-install`](https://insideclojure.org/2020/09/04/clj-exec/) built-in Clojure CLI alias to deploy a Jar locally in the `~/.m2/repository` directory
+* [`-X:deps mvn-install`](https://clojure.org/reference/deps_and_cli#_local_maven_install) built-in Clojure CLI alias to deploy a Jar locally in the `~/.m2/repository` directory
 * [:deploy/clojars](https://github.com/slipset/deps-deploy) - deploy jar to [clojars.org](https://clojars.org/)
 * [:deploy/clojars-signed](https://github.com/slipset/deps-deploy) - sign and deploy jar to [clojars.org](https://clojars.org/)
 
-| Command                                         | Description                                                              |
-|-------------------------------------------------|--------------------------------------------------------------------------|
-| `clojure -X:deps mvn-install project.jar`       | [NEW] deploy jar file to local maven repository, i.e. `~/.m2/repository` |
-| `clojure -M:project/clojars project.jar`        | deploy jar file to Clojars                                               |
-| `clojure -M:project/clojars-signed project.jar` | deploy signed jar file to Clojars                                        |
+| Command                                            | Description                                                              |
+|----------------------------------------------------|--------------------------------------------------------------------------|
+| `clojure -X:deps mvn-install :jar '"project.jar"'` | deploy jar file to local maven repository, i.e. `~/.m2/repository` |
+| `clojure -M:project/clojars project.jar`           | deploy jar file to Clojars                                               |
+| `clojure -M:project/clojars-signed project.jar`    | deploy signed jar file to Clojars                                        |
 
 Set Clojars username/token in `CLOJARS_USERNAME` and `CLOJARS_PASSWORD` environment variables.
 
@@ -361,7 +361,7 @@ Set fully qualified artifact-name and version in project `pom.xml` file
 
 Path to project.jar can also be set in alias to simplify the Clojure command.
 
-> `clojure -X:deps mvn-install project.jar` for local deployment of jars is part of the 1.10.1.697 release of the [Clojure CLI](https://clojure.org/guides/getting_started) in September 2020.
+> `clojure -X:deps mvn-install :jar '"project.jar"'` for [local deployment of jars](https://clojure.org/reference/deps_and_cli#_local_maven_install) is part of the 1.10.1.697 release of the [Clojure CLI](https://clojure.org/guides/getting_started) in September 2020.
 
 
 ## Searching

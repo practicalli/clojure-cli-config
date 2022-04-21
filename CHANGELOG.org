@@ -2,6 +2,11 @@
 
 * Unreleased
 
+* 2022-04-21
+** Fixed
+*** `-X:deps mvn-install` documentation - wrap `:jar` value in single and double quotes. Resolves #44
+
+
 * 2022-04-12
 ** Changed
 *** Removed :deps from configuration to avoid over-riding version from install of Clojure CLI
