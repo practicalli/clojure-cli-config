@@ -126,7 +126,7 @@ How to run common tasks for Clojure development.
 
 > Add alias `:project/run` to the deps.edn file in the root of a project:
 >
-> `:project/run {:ns-default domain.namespace :exec-fn -main}`
+> `:project/run {:exec-fn domain.namespace/-main}`
 >
 > Watch: [Clojure CLI - practicalli/clojure-deps-edn community tools](https://youtu.be/u5VoFpsntXc?t=2166) to see some of these in action
 
