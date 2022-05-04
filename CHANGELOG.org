@@ -2,6 +2,10 @@
 
 * Unreleased
 
+* 2022-05-04
+** Changed
+*** `:repl/socket` using clojure.exec alias rather than JVM opts (moved to :repl/socket-jvm-opts alias
+
 * 2022-04-21
 ** Fixed
 *** `-X:deps mvn-install` documentation - wrap `:jar` value in single and double quotes. Resolves #44

@@ -243,9 +243,19 @@
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Alternative REPLs - not extensively tested
 
-  ;; Clojure Socket REPL on port 50505:
-  ;; clojure -M:repl/socket
+  ;; Clojure Socket REPL on port 55555:
+  ;; clojure -X:repl/socket
   :repl/socket
+  {:exec-fn clojure.core.server/start-server
+   :exec-args {:name "repl-server"
+               :port 55555
+               :accept clojure.core.server/repl
+               :server-daemon false}}
+
+  ;; Older Socket REPL approaches to review:
+
+  ;; clojure -M:repl/socket-jvm-opts (lesser used approach)
+  :repl/socket-jvm-opts
   {:jvm-opts ["-Dclojure.server.repl={:port,50505,:accept,clojure.core.server/repl}"]}
 
   ;; Clojure Socket REPL on an available port, displaying port number (container/cloud environments)
