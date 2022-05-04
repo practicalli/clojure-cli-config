@@ -113,7 +113,7 @@ How to run common tasks for Clojure development.
 | Run ClojureScipt REPL with nREPL (editor support)      | `clojure -M:repl/cljs-nrepl`                                    | User alias         |
 | Download dependencies                                  | `clojure -P`  (followed by optional aliases)                    | Built-in           |
 | Find libraries (Clojars & Maven Central)               | `clojure -M:search/libraries library-name(s)`                   | User alias         |
-| Find available versions of a library                   | `clojure -X:deps find-versions`                                 | Built-in           |
+| Find available versions of a library                   | `clojure -X:deps find-versions :lib domain/library-name`        | Built-in           |
 | Resolve git coord tags to shas and update deps.edn     | `clojure -X:deps git-resolve-tags git-coord-tag`                | Built-in           |
 | Generate image of project dependency graph             | `clojure -T:project/graph-deps`                                 | User alias         |
 | Check library dependencies for newer versions          | `clojure -T:search/outdated`                                    | User alias         |

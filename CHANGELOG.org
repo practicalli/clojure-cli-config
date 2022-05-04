@@ -5,6 +5,7 @@
 * 2022-05-04
 ** Changed
 *** `:repl/socket` using clojure.exec alias rather than JVM opts (moved to :repl/socket-jvm-opts alias
+*** `deps find-versions` clarified `:lib` and domain/library-name options required
 
 * 2022-04-21
 ** Fixed
