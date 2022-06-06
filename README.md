@@ -69,6 +69,10 @@ git clone git@github.com:practicalli/clojure-deps-edn.git $XDG_CONFIG_HOME/cloju
 
 The `deps.edn` file in the Clojure CLI configuration directory contains all the Practicalli aliases, which are available from any Clojure CLI project for the current user account.
 
+### Location of local Maven repository
+
+`:mvn/local-repo` key is used to set the local maven repository (the directory where all downloaded jar files are saved) to `~/.cache/maven/repository` to follow the XDG specification.  Consider moving the contents of `~/.m2/repository` to `~/.cache/maven/repository` to avoid downloading jar files that already exist locally.
+
 
 ### Updating Practicalli clojure-deps-edn
 
