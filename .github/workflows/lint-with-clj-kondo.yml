@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: DeLaGuardo/setup-clj-kondo@master
         with:
-          version: '2022.04.08'
+          version: '2022.05.31'
 
       - uses: actions/checkout@v3
 
