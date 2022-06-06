@@ -18,6 +18,7 @@
 
 ;; Everything else should be defined within :aliases
 
+
 {;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
  ;; Default Paths
  ;; Directories to include in the classpath to run the application
@@ -89,7 +90,7 @@
   ;; End of Development environment
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; REPL and nREPL connections
 
   ;; Built-in Clojure REPL
@@ -179,7 +180,7 @@
   ;;               "-f" "rebel-readline.main/-main"
   ;;               "-e" "(ns,practicalli.jgit-hack),(alter-var-root,#'*ns*,(constantly,(find-ns,'practicalli.jgit-hack)))"]}
 
-;; ClojureScript REPL with rebel readline with nrepl for editor connection
+  ;; ClojureScript REPL with rebel readline with nrepl for editor connection
   ;; https://github.com/bhauman/rebel-readline/tree/master/rebel-readline-cljs
   ;; CIDER: run `cider-connect-cljs` and select REPL host and port, figwheel-main and dev build
   :repl/rebel-cljs
@@ -338,7 +339,7 @@
                                :git/sha     "b3f61517c860518c1990133aa6eb54caf1e4d591"}}
    :main-opts  ["-m" "depify.project"]}
 
-;; End of: Creating projects from templates
+  ;; End of: Creating projects from templates
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -412,7 +413,6 @@
                 {:git/url "https://github.com/borkdude/carve"
                  :sha     "df552797a198b6701fb2d92390fce7c59205ea77"}}
    :main-opts  ["-m" "carve.main"]}
-
 
   ;; End of: Projects and dependencies
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -597,7 +597,6 @@
   ;; {:extra-deps {com.cognitect/rebl {:mvn/version "0.9.241"}}
   ;;  :main-opts  ["-m" "cognitect.rebl"]}
 
-
   ;; Reveal - read evaluate visualize loop
   ;; A REPL environment with data visualization and exploration
   ;; http://practicalli.github.io/clojure/clojure-tools/data-browsers/reveal.html
@@ -619,7 +618,6 @@
    :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
    :main-opts  ["-m" "vlaaad.reveal" "repl"]}
 
-
   ;; Not sending all evaluations to Reveal
   ;; It does send tap> results to Reveal
   ;; :repl/reveal-rebel-nrepl
@@ -636,7 +634,6 @@
   {:extra-deps {vlaaad/reveal
                 {:local/root "/home/practicalli/projects/clojure/visualization/reveal/"}}
    :main-opts  ["-m" "vlaaad.reveal" "repl"]}
-
 
   ;; Reveal with Clojure editors
   ;; clj -M:inspect/reveal-nrepl
@@ -680,7 +677,7 @@
   ;; End of Data inspectors
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Debug Tools
 
   :lib/sayid
@@ -1110,7 +1107,6 @@
    ;; DynamicClassLoader required when starting other processes via aliases, e.g. socket REPL or Cognitect's REBL
    :main-opts  ["-e" "(->>(Thread/currentThread)(.getContextClassLoader)(clojure.lang.DynamicClassLoader.)(.setContextClassLoader,(Thread/currentThread)))"]}
 
-
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Aliases to evaluate
 
@@ -1130,24 +1126,22 @@
                  :sha     "b1a7fd310b6511048fbacb8e496f574c8ccfa291"}}
    :main-opts  ["-m" "closh.zero.frontend.rebel"]}
 
-
   #_()} ;; End of alias definitions
 
-
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;; Library Repositories
+ ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ ;; Library Repositories
 
   ;; Specify a different local repository for maven (default `$HOME/.m2/repository)
   ;; :mvn/local-repo ".m2/repository"
 
-  ;; `clojure -Spath` will show the current class path which will include the path to the local maven repository for the library dependencies.
+ ;; `clojure -Spath` will show the current class path which will include the path to the local maven repository for the library dependencies.
 
-  ;; Order in which repositories are consulted is not guaranteed, so only add essential repositories
-  ;; Maven Central and Clojars are the canonical repositories for library dependencies
-  ;; JCenter is large and fast mirror often accessible behind corporate firewalls
+ ;; Order in which repositories are consulted is not guaranteed, so only add essential repositories
+ ;; Maven Central and Clojars are the canonical repositories for library dependencies
+ ;; JCenter is large and fast mirror often accessible behind corporate firewalls
 
-  :mvn/repos {"central" {:url "https://repo1.maven.org/maven2/"}
-              "clojars" {:url "https://repo.clojars.org/"}
+ :mvn/repos {"central" {:url "https://repo1.maven.org/maven2/"}
+             "clojars" {:url "https://repo.clojars.org/"}
 
              ;; Clojure snapshots
              ;; "sonatype" {:url "https://oss.sonatype.org/content/repositories/snapshots/"}
@@ -1165,6 +1159,5 @@
              ;; Example of local Artifactory repository configuration
              ;; {"business-area" {:url "https://artifacts.internal-server.com:443/artifactory/business-area-maven-local"}
 
-  #_()} ;; End of Library Repositories
-
- }
+             #_()} ;; End of Library Repositories
+}
