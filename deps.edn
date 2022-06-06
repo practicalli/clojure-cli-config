@@ -39,7 +39,15 @@
  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
  :aliases
- {
+ {;; Aliases keys
+  ;;   resolve-deps aliases (-R) affect dependency resolution, options:
+  ;;     :extra-deps - specifies extra deps to add to :deps
+  ;;     :override-deps - specifies a coordinate to use instead of that in :deps
+  ;;     :default-deps - specifies a coordinate to use for a lib if one isn't found
+  ;;   make-classpath aliases (-C) affect the classpath generation, options:
+  ;;     :extra-paths - vector of additional paths to add to the classpath
+  ;;     :classpath-overrides - map of lib to path that overrides the result of resolving deps
+
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   ;; Development environment
 
