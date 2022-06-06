@@ -2,6 +2,33 @@
 
 * Unreleased
 
+* 2022-06-06
+** Added
+*** aliases section keys documentation
+
+** Changed
+*** Set :mvn/local-repo to XDG_CACHE_HOME location, `~/.cache/maven/repository` as described in the [[https://practical.li/blog/posts/adopt-FreeDesktop.org-XDG-standard-for-configuration-files/][Practicalli blog article on XDG standard for development tools]]
+*** Update .github/workflows/lint-with-clj-kondo.yml it version 2022.05.31
+*** Update library versions using `clojure -T:search/outdated > outdated-2022-06-06.org` command
+
+| :name                                |   :current |              :latest |
+|--------------------------------------+------------+----------------------|
+| cider/cider-nrepl                    |     0.28.3 |               0.28.4 |
+| clj-kondo/clj-kondo                  | 2022.04.08 |           2022.05.31 |
+| cloverage/cloverage                  |      1.2.3 |                1.2.4 |
+| com.bhauman/figwheel-main            |     0.2.16 |               0.2.18 |
+| com.github.liquidz/antq              |      1.6.1 |              1.7.798 |
+| com.h2database/h2                    |    2.1.210 |              2.1.212 |
+| djblue/portal                        |     0.23.0 |               0.26.0 |
+| io.github.cognitect-labs/test-runner |     v0.5.0 | v0.5.1 (SHA dfb30dd) |
+| lambdaisland/kaocha                  |  1.65.1029 |            1.66.1034 |
+| nvd-clojure/nvd-clojure              |      2.5.0 |                2.6.0 |
+| org.clojure/tools.namespace          |      1.2.0 |                1.3.0 |
+| zprint/zprint                        |      1.2.2 |                1.2.3 |
+
+> Aliases that use a :git/tag version, e.g. `:test/cognitect` should also check for the latest `:git/sha` value on or after that tag to ensure the correct commit is used.  TODO: check if the latest antq checks for a new `:git/sha` value if there is a newer `:git/tag` value.
+
+
 * 2022-05-04
 ** Changed
 *** `:repl/socket` using clojure.exec alias rather than JVM opts (moved to :repl/socket-jvm-opts alias
@@ -16,7 +43,7 @@
 ** Changed
 *** Removed :deps from configuration to avoid over-riding version from install of Clojure CLI
 *** GitHub action .github/workflows/lint-with-clj-kondo.yml updated to version 2022.04.08
-*** Update library versions using `clojure -T:search/outated > outdated-2022-04-12.org` command
+*** Update library versions using `clojure -T:search/outdated > outdated-2022-04-12.org` command
 
   | :name                             |                                 :current |                                  :latest |
   |-----------------------------------+------------------------------------------+------------------------------------------|
