@@ -2,6 +2,10 @@
 
 * Unreleased
 
+* 2022-06-11
+** Resolved
+*** #48 - provide `:mvn/local-repo` as an example only - ideally requires full path
+
 * 2022-06-06
 ** Added
 *** aliases section keys documentation

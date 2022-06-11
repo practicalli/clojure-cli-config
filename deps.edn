@@ -1131,9 +1131,10 @@
  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
  ;; Library Repositories
 
- ;; Specify a different local repository for maven (default `$HOME/.m2/repository)
- ;; Use FreeDesktop.org XDG_CACHE_HOME default location
- :mvn/local-repo ".cache/maven/repository"
+ ;; Specify a local repository for maven - default `$HOME/.m2/repository`
+ ;; FreeDesktop.org XDG_CACHE_HOME is the recommended location
+ ;; Full path should be used, otherwise directory relative command is used
+ ;; :mvn/local-repo "/home/practicalli/.cache/maven/repository"
 
  ;; `clojure -Spath` will show the current class path which will include the path to the local maven repository for the library dependencies.
 
