@@ -5,6 +5,7 @@
 * 2022-06-18
 ** Changed
 *** Update `:repl/interactive` and `:repl/headless` aliases with `cider/cider-nrepl` middleware
+*** Update `:repl/*` aliases to use the `--interactive` option rather than the short `-i` version
 
 * 2022-06-11
 ** Resolved
