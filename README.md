@@ -114,7 +114,7 @@ How to run common tasks for Clojure development.
 |--------------------------------------------------------|-----------------------------------------------------------------|--------------------|
 | Create project (clojure exec)                          | `clojure -T:project/new :template app :name practicalli/my-app` | User alias         |
 | Run REPL (rebel readline with nrepl server)            | `clojure -M:repl/rebel`                                         | User alias         |
-| Run ClojureScipt REPL with nREPL (editor support)      | `clojure -M:repl/cljs-nrepl`                                    | User alias         |
+| Run ClojureScript REPL with nREPL (editor support)      | `clojure -M:repl/cljs-nrepl`                                    | User alias         |
 | Download dependencies                                  | `clojure -P`  (followed by optional aliases)                    | Built-in           |
 | Find libraries (Clojars & Maven Central)               | `clojure -M:search/libraries library-name(s)`                   | User alias         |
 | Find available versions of a library                   | `clojure -X:deps find-versions :lib domain/library-name`        | Built-in           |
@@ -189,7 +189,7 @@ Run an interactive REPL on the command line with the simple terminal UI, includi
 | Command                          | Description                                                                       |
 |----------------------------------|-----------------------------------------------------------------------------------|
 | `clojure -M:repl/nrepl`          | Clojure REPL with nREPL server for editor support                                 |
-| `clojure -M:repl/cljs-nrepl`     | ClojureScipt REPL with nREPL for editor support                                   |
+| `clojure -M:repl/cljs-nrepl`     | ClojureScript REPL with nREPL for editor support                                  |
 | `clojure -M:repl/cider`          | Clojure REPL with nREPL server and Cider-nrepl                                    |
 | `clojure -M:repl/cider-refactor` | Clojure REPL with nREPL server, Cider-nrepl and clj-refactor                      |
 | `clj -M:repl/reveal-nrepl`       | Clojure REPL with Reveal data visualization and nREPL interactively               |
@@ -664,15 +664,15 @@ clojure -X:test/run "$@"
 
 Static analysis tools to help maintain code quality and suggest Clojure idioms.
 
-* [`:lint/kondo`](https://github.com/borkdude/clj-kondo/) - comprehensive and fast static analysis lint tool
+* [`:lint/clj-kondo`](https://github.com/borkdude/clj-kondo/) - comprehensive and fast static analysis lint tool
 * [`:lint/eastwood`](https://github.com/jonase/eastwood) - classic lint tool for Clojure
 * [`:lint/idiom-check`](https://github.com/jonase/kibit) - checking for idiomatic Clojure code with Kibit
 
-| Command                    | Description                                      |
-|----------------------------|--------------------------------------------------|
-| `clojure -M:lint/kondo`    | comprehensive and fast static analysis lint tool |
-| `clojure -M:lint/eastwood` | classic lint tool for Clojure                    |
-| `clojure -M:lint/idiom`    | Suggest idiomatic Clojure code                   |
+| Command                     | Description                                      |
+|-----------------------------|--------------------------------------------------|
+| `clojure -M:lint/clj-kondo` | comprehensive and fast static analysis lint tool |
+| `clojure -M:lint/eastwood`  | classic lint tool for Clojure                    |
+| `clojure -M:lint/idiom`     | Suggest idiomatic Clojure code                   |
 
 
 ## Visualising project vars and library dependencies
