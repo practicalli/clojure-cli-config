@@ -2,6 +2,10 @@
 
 * Unreleased
 
+* 2022-06-18
+** Changed
+*** Update `:repl/interactive` and `:repl/headless` aliases with `cider/cider-nrepl` middleware
+
 * 2022-06-11
 ** Resolved
 *** #48 - provide `:mvn/local-repo` as an example only - ideally requires full path
