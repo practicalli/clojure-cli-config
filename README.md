@@ -82,7 +82,7 @@ The versions of libraries are updated at least once per month using the `:projec
 
 ```shell
 cd $XDG_CONFIG_HOME/clojure
-clojure -T:project/outdated > outdated.org
+clojure -T:search/outdated > outdated.org
 ```
 
 > antq can also be installed as a separate tool (this is not part of practicalli/clojure-deps-edn yet)
@@ -304,16 +304,16 @@ Then the project can be run using `clojure -X:project/run` and arguments can opt
 * [`:project/check`](https://github.com/athos/clj-check.git) - detailed report of compilation errors for a project
 * [`:project/graph-deps`](https://github.com/clojure/tools.deps.graph) - graph of project dependencies (png image)
 * [`:search/libraries`](https://github.com/hagmonk/find-deps) - fuzzy search for libraries to add as dependencies
-* [`:project/outdated`](https://github.com/liquidz/antq) - report newer versions for maven and git dependencies
-* [`:project/outdated-mvn`](https://github.com/slipset/deps-ancient) - check for newer dependencies (maven only)
+* [`:search/outdated`](https://github.com/liquidz/antq) - report newer versions for maven and git dependencies
+* [`:search/outdated-mvn`](https://github.com/slipset/deps-ancient) - check for newer dependencies (maven only)
 
-| Command                                              | Description                                                             |
-|------------------------------------------------------|-------------------------------------------------------------------------|
-| `clojure -M:project/check`                           | detailed report of compilation errors for a project                     |
-| `clojure -M:search/libraries library-name`          | fuzzy search Maven & Clojars                                            |
-| `clojure -M:search/libraries -F:merge library-name` | fuzzy search Maven & Clojars and save to project deps.edn               |
-| `clojure -T:project/outdated`                        | report newer versions for maven and git dependencies                    |
-| `clojure -M:project/outdated-mvn`                    | check for newer dependencies (maven only)                               |
+| Command                                             | Description                                               |
+|-----------------------------------------------------|-----------------------------------------------------------|
+| `clojure -M:project/check`                          | detailed report of compilation errors for a project       |
+| `clojure -M:search/libraries library-name`          | fuzzy search Maven & Clojars                              |
+| `clojure -M:search/libraries -F:merge library-name` | fuzzy search Maven & Clojars and save to project deps.edn |
+| `clojure -T:search/outdated`                        | report newer versions for maven and git dependencies      |
+| `clojure -M:search/outdated-mvn`                    | check for newer dependencies (maven only)                 |
 
 ## Project analysis
 

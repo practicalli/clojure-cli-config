@@ -6,6 +6,7 @@
 ** Changed
 *** Update `:repl/interactive` and `:repl/headless` aliases with `cider/cider-nrepl` middleware
 *** Update `:repl/*` aliases to use the `--interactive` option rather than the short `-i` version
+*** Update readme to use `:search/outdated` and `:search/outdated-mvn` aliases
 
 * 2022-06-11
 ** Resolved
