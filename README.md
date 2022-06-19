@@ -71,7 +71,9 @@ The `deps.edn` file in the Clojure CLI configuration directory contains all the 
 
 ### Location of local Maven repository
 
-`:mvn/local-repo` key is used to set the local maven repository (the directory where all downloaded jar files are saved) to `~/.cache/maven/repository` to follow the XDG specification.  Consider moving the contents of `~/.m2/repository` to `~/.cache/maven/repository` to avoid downloading jar files that already exist locally.
+`$HOME/.m2/repository` is the default location of the local maven repository, the directory where library dependency jar files are cached.
+
+`:mvn/local-repo` is a top-level key to set the local maven repository location, such as `$HOME/.cache/maven/repository` to follow the XDG specification.  If setting `:mvn/local-repository`, consider moving the contents of `$HOME/.m2/repository` to the new location to avoid downloading currently cached jar files (or use this as an opportunity to clear out the cache).
 
 
 ### Updating Practicalli clojure-deps-edn
