@@ -45,7 +45,7 @@ The **[Practicalli Clojure book](https://practical.li/clojure)** uses this confi
 
 ## Install Practicalli clojure-deps-edn
 
-[Clojure CLI](https://clojure.org/guides/getting_started) version **1.10.3.1040** or later is recommended. Check the version of Clojure CLI currently installed via:
+[Clojure CLI](https://clojure.org/guides/install_clojure) version **1.11.1.xxxx** or later is recommended. Check the version of Clojure CLI currently installed via:
 
 ```shell
 clojure -Sdescribe
