@@ -2,9 +2,12 @@
 
 * Unreleased
 
-* 2022-06-18
+* 2022-06-24
 ** Changed
 *** Update `:repl/interactive` and `:repl/headless` aliases with `cider/cider-nrepl` middleware
+
+* 2022-06-18
+** Changed
 *** Update `:repl/*` aliases to use the `--interactive` option rather than the short `-i` version
 *** Update readme to use `:search/outdated` and `:search/outdated-mvn` aliases
 
