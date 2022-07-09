@@ -90,7 +90,7 @@ cd $XDG_CONFIG_HOME/clojure
 clojure -T:search/outdated > outdated.org
 ```
 
-> antq can also be installed as a separate tool (this is not part of practicalli/clojure-deps-edn yet)
+> Pull Requests from `:search/outdated` cannot be accepted unless full testing of every change can be demonstrated
 
 
 ## Using Practicalli clojure-deps-edn
@@ -119,14 +119,14 @@ How to run common tasks for Clojure development.
 |--------------------------------------------------------|-----------------------------------------------------------------|--------------------|
 | Create project (clojure exec)                          | `clojure -T:project/new :template app :name practicalli/my-app` | User alias         |
 | Run REPL (rebel readline with nrepl server)            | `clojure -M:repl/rebel`                                         | User alias         |
-| Run ClojureScript REPL with nREPL (editor support)      | `clojure -M:repl/cljs-nrepl`                                    | User alias         |
+| Run ClojureScript REPL with nREPL (editor support)     | `clojure -M:repl/cljs-nrepl`                                    | User alias         |
 | Download dependencies                                  | `clojure -P`  (followed by optional aliases)                    | Built-in           |
 | Find libraries (Clojars & Maven Central)               | `clojure -M:search/libraries library-name(s)`                   | User alias         |
 | Find available versions of a library                   | `clojure -X:deps find-versions :lib domain/library-name`        | Built-in           |
 | Resolve git coord tags to shas and update deps.edn     | `clojure -X:deps git-resolve-tags git-coord-tag`                | Built-in           |
 | Generate image of project dependency graph             | `clojure -T:project/graph-deps`                                 | User alias         |
 | Check library dependencies for newer versions          | `clojure -T:search/outdated`                                    | User alias         |
-| Run tests / watch for changes                          | `clojure -M:test/run` / `clojure -M:test/watch`                 | User/Project alias |
+| Run tests / watch for changes                          | `clojure -X:tests/run` / `clojure -X:test/watch`                | User/Project alias |
 | Run the project  (clojure.main)                        | `clojure -M -m domain.main-namespace`                           | Built-in           |
 | [Run the project](https://youtu.be/u5VoFpsntXc?t=2166) | `clojure -X:project/run`                                        | Project alias      |
 | Package library                                        | `clojure -X:project/jar`                                        | User/Project alias |

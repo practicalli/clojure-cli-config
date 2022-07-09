@@ -823,6 +823,7 @@
 
   ;; Default test runner using kaocha (change to your own preference)
   ;; clojure -X:test/run
+  ;; clojure -X:test/run :fail-fast true
   :test/run
   {:extra-paths ["test"]
    :extra-deps {lambdaisland/kaocha {:mvn/version "1.66.1034"}}
