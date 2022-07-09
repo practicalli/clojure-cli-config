@@ -2,6 +2,10 @@
 
 * Unreleased
 
+* 2022-07-09
+** Added
+*** [[https://github.com/practicalli/clojure-deps-edn/issues/44][#44 Windows and Clojure CLI escape character issues]] - add link to escape quoting section of Clojure CLI documentation
+
 * 2022-06-24
 ** Changed
 *** Update `:repl/interactive` and `:repl/headless` aliases with `cider/cider-nrepl` middleware

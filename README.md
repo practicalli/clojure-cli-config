@@ -69,6 +69,9 @@ git clone git@github.com:practicalli/clojure-deps-edn.git $XDG_CONFIG_HOME/cloju
 
 The `deps.edn` file in the Clojure CLI configuration directory contains all the Practicalli aliases, which are available from any Clojure CLI project for the current user account.
 
+> Windows support:  Windows Sub-system for Linux (WSL) is strongly encouraged.  Aliases should also work on Powershell or cmd.exe, although [escape quoting of additional arguments](https://clojure.org/reference/deps_and_cli#quoting) may be required.
+
+
 ### Location of local Maven repository
 
 `$HOME/.m2/repository` is the default location of the local maven repository, the directory where library dependency jar files are cached.
