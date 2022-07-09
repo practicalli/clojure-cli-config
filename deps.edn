@@ -526,10 +526,17 @@
   {:extra-deps {zprint/zprint {:mvn/version "1.2.3"}}
    :main-opts  ["-m" "zprint.main"]}
 
-  ;; check and fix Clojure formatting with cljfmt:
-  ;; https://github.com/weavejester/cljfmt
+;; Checkstyle is a rewrite of cljfmt, designed to be easier to configure
+  :format/cljstyle
+  {:extra-deps
+   {mvxcvi/cljstyle {:git/url "https://github.com/greglook/cljstyle.git"
+                     :git/sha "14c18e5b593c39bc59f10df1b894c31a0020dc49"}}
+   :main-opts ["-m" "cljstyle.main"]}
 
-  ;; cljfmt-check - check/report formatting issues
+  :format/cljfmt
+  {:extra-deps {cljfmt/cljfmt {:mvn/version "0.8.2"}}
+   :main-opts ["-m" "cljfmt.main"]}
+
   :format/cljfmt-check
   {:extra-deps {cljfmt/cljfmt {:mvn/version "0.8.2"}}
    :main-opts ["-m" "cljfmt.main" "check"]}
