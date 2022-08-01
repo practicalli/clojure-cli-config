@@ -87,6 +87,13 @@
   :lib/pretty-errors
   {:extra-deps {io.aviso/pretty {:mvn/version "1.1.1"}}}
 
+  ;; A CLI to add common aliases and features to deps.edn-based projects.
+  ;; https://github.com/babashka/neil
+  :lib/neil
+  {:extra-deps {io.github.babashka/neil {:git/tag "v0.0.31"
+                                         :git/sha "61e9d2f"}}
+   :main-opts ["-m" "babashka.neil"]}
+
   ;; End of Development environment
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
