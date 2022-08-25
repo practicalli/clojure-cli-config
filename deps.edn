@@ -68,7 +68,7 @@
   ;; Set logging implementation to no-operation
   :lib/hotload
   {:extra-deps {org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
-                                              :git/sha     "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
+                                              :git/sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
                 org.slf4j/slf4j-nop {:mvn/version "1.7.36"}}}
 
   ;; Refresh the current namespace in a running REPL
@@ -341,7 +341,7 @@
   ;; `lein pprint | clojure -M:project/depify`
   :project/depify
   {:extra-deps {depify/depify {:git/url "https://github.com/hagmonk/depify"
-                               :git/sha     "b3f61517c860518c1990133aa6eb54caf1e4d591"}}
+                               :git/sha "b3f61517c860518c1990133aa6eb54caf1e4d591"}}
    :main-opts  ["-m" "depify.project"]}
 
   ;; End of: Creating projects from templates
