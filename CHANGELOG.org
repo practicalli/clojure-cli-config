@@ -5,8 +5,10 @@
 ** Added
 *** add cljstyle configuration to align with Clojure style and cljfmt formatting in Clojure LSP
 *** format deps.edn with cljstyle
-** Changed
+*** cljstyle workflow using clojure-setup GitHub action
 
+** Changed
+*** updated versions of GitHub actions used in the GitHub workflows during CI
 
 * 2022-07-09
 ** Added

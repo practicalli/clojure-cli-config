@@ -35,7 +35,7 @@ jobs:
       #     restore-keys: ${{ runner.os }}-clojure-deps-
 
       - name: 'Install cljstyle'
-        uses: DeLaGuardo/setup-clojure@7.0
+        uses: DeLaGuardo/setup-clojure@9.5
         with:
           # cli: 1.11.1.1149      # Clojure CLI
           cljstyle: 0.15.0      # cljstyle
