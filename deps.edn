@@ -10,16 +10,67 @@
 ;; Only the last :paths is kept and others are dropped.
 ;; In an :alias, only the last :main-opts is kept and others are dropped.
 
-;;;; Top level keys include
-;; :paths
-;; :aliases
+;; --------------------------------------------------
+;; Top-level keys for Clojure CLI deps.edn
+
 ;; :mvn/repositories
 ;; :mvn/local-repo
+;; :paths
+;; :aliases
 
-;; Everything else should be defined within :aliases
+;; All other keys should be used within :aliases
+
+;; Aliases keys
+;;   resolve-deps aliases (-R) affect dependency resolution, options:
+;;     :extra-deps - specifies extra deps to add to :deps
+;;     :override-deps - specifies a coordinate to use instead of that in :deps
+;;     :default-deps - specifies a coordinate to use for a lib if one isn't found
+;;   make-classpath aliases (-C) affect the classpath generation, options:
+;;     :extra-paths - vector of additional paths to add to the classpath
+;;     :classpath-overrides - map of lib to path that overrides the result of resolving deps
+;; ---------------------------------------------------
 
 
-{;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+{;; ---------------------------------------------------
+ ;; Library Repositories (maven)
+
+ ;; Specify a local repository for maven - default `$HOME/.m2/repository`
+ ;; FreeDesktop.org XDG_CACHE_HOME is the recommended location
+ ;; Full path should be used, otherwise directory relative command is used
+ ;; :mvn/local-repo "/home/practicalli/.cache/maven/repository"
+
+ ;; `clojure -Spath` will show the current class path which will include the path to the local maven repository for the library dependencies.
+
+ ;; Order in which repositories are consulted is not guaranteed, so only add essential repositories
+ ;; Maven Central and Clojars are the canonical repositories for library dependencies
+ ;; JCenter is large and fast mirror often accessible behind corporate firewalls
+
+ :mvn/repos {"central" {:url "https://repo1.maven.org/maven2/"}
+             "clojars" {:url "https://repo.clojars.org/"}
+
+             ;; Clojure snapshots
+             ;; "sonatype" {:url "https://oss.sonatype.org/content/repositories/snapshots/"}
+
+             ;; Maven Central Google Cloud Storage mirrors
+             ;; Americas
+             ;; "google-maven-central" {:url "https://maven-central.storage-download.googleapis.com/maven2/"}
+             ;; Asia
+             ;; "google-maven-central" {:url "https://maven-central-asia.storage-download.googleapis.com/maven2/"}
+             ;; Europe
+             ;; "google-maven-central" {:url "https://maven-central-eu.storage-download.googleapis.com/maven2/"}
+
+             ;; "clojars-china-mirror" {:url "https://mirrors.tuna.tsinghua.edu.cn/clojars/"}
+
+             ;; Example of local Artifactory repository configuration
+             ;; {"business-area" {:url "https://artifacts.internal-server.com:443/artifactory/business-area-maven-local"}
+
+             #_()}
+
+ ;; End of Library Repositories
+ ;; ---------------------------------------------------
+
+
+ ;; ---------------------------------------------------
  ;; Default Paths
  ;; Directories to include in the classpath to run the application
  ;; Development only paths should be defined in aliases, eg. :env/dev
@@ -27,9 +78,10 @@
  :paths ["src"]
 
  ;; End of: Default Paths
- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ ;; ---------------------------------------------------
 
- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+ ;; ---------------------------------------------------
  ;; Main dependencies
 
  ;; :deps
@@ -37,23 +89,17 @@
  ;; {org.clojure/clojure {:mvn/version "1.11.1"}}
 
  ;; End of: Main dependencies
- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ ;; ---------------------------------------------------
+
+
+ ;; ---------------------------------------------------
+ ;; User-level alias definitions
 
  :aliases
- {;; Aliases keys
-  ;;   resolve-deps aliases (-R) affect dependency resolution, options:
-  ;;     :extra-deps - specifies extra deps to add to :deps
-  ;;     :override-deps - specifies a coordinate to use instead of that in :deps
-  ;;     :default-deps - specifies a coordinate to use for a lib if one isn't found
-  ;;   make-classpath aliases (-C) affect the classpath generation, options:
-  ;;     :extra-paths - vector of additional paths to add to the classpath
-  ;;     :classpath-overrides - map of lib to path that overrides the result of resolving deps
-
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ {;; ---------------------------------------------------
   ;; Development environment
 
-  ;; Include `dev` directory on the class path
-  ;; Supports the use of `dev/user.clj` to configure REPL startup
+  ;; Include `dev` directory on the class path to auto-load `dev/user.clj` on REPL startup
   ;; http://practicalli.github.io/clojure/clojure-tools/configure-repl-startup.html
 
   ;; clojure -M:env/dev
@@ -64,7 +110,7 @@
   {:extra-deps {nrepl/nrepl {:mvn/version "0.9.0"}}}
 
   ;; alpha state software as API has not been finalized however the code works reliably
-  ;; Latest commit on add-lib3 branch, don't update with :project/outdated
+  ;; Latest commit on add-lib3 branch, don't update with :search/outdated
   ;; Set logging implementation to no-operation
   :lib/hotload
   {:extra-deps {org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
@@ -95,14 +141,10 @@
    :main-opts ["-m" "babashka.neil"]}
 
   ;; End of Development environment
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;; REPL and nREPL connections
-
-  ;; Built-in Clojure REPL
-  ;; Run interactive REPL with nREPL connection
-  ;; NOTE: For non-interactive REPL session, use :middleware versions
+  ;; ---------------------------------------------------
+  ;; Running a REPL
 
   ;; Simple nREPL server REPL, headless
   ;; call with -i flag to start interactive client
@@ -162,10 +204,10 @@
                 "--interactive"
                 "--middleware" "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}
 
-  ;;;; Rebel Readline enhanced REPL UI
+  ;; Rebel Readline enhanced REPL UI
   ;; REPL UI with syntax highlighting, built in docs and a quit command `:repl/quit`
 
-  ;;Clojure REPL with rebel readline with nrepl for editor connection
+  ;; Clojure REPL with rebel readline with nrepl for editor connection
   ;; https://github.com/bhauman/rebel-readline
   ;; Conjure: opening a Clojure file will automatically connect to the REPL process
   ;; CIDER: run `cider-connect-clj` and select REPL host and port
@@ -181,17 +223,6 @@
                 "--interactive"
                 "-f" "rebel-readline.main/-main"]}
 
-  ;; Not working!
-  ;; :repl/rebel-ns
-  ;; {:extra-deps {nrepl/nrepl                {:mvn/version "0.9.0"}
-  ;;               cider/cider-nrepl          {:mvn/version "0.28.5"}
-  ;;               com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
-  ;;  :main-opts  ["-m" "nrepl.cmdline"
-  ;;               "--middleware" "[cider.nrepl/cider-middleware]"
-  ;;               "--interactive"
-  ;;               "-f" "rebel-readline.main/-main"
-  ;;               "-e" "(ns,practicalli.jgit-hack),(alter-var-root,#'*ns*,(constantly,(find-ns,'practicalli.jgit-hack)))"]}
-
   ;; ClojureScript REPL with rebel readline with nrepl for editor connection
   ;; https://github.com/bhauman/rebel-readline/tree/master/rebel-readline-cljs
   ;; CIDER: run `cider-connect-cljs` and select REPL host and port, figwheel-main and dev build
@@ -202,7 +233,7 @@
   ;; Requires nashorn in a version of ClojureScript
   ;; WARNING: stack trace - does not run TO DEPRECATE
   :repl/rebel-figwheel
-  {:extra-deps {org.clojure/clojurescript       {:mvn/version "1.9.946"} ;; version contains cljs.repl.nashorn
+  {:extra-deps {org.clojure/clojurescript       {:mvn/version "1.9.946"} ; version contains cljs.repl.nashorn
                 nrepl/nrepl                     {:mvn/version "0.9.0"}
                 com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}
                 com.bhauman/figwheel-main       {:mvn/version "0.2.18"}
@@ -235,17 +266,17 @@
   {:extra-deps {com.bhauman/rebel-readline {:mvn/version "0.1.4"}}}
 
   ;; End of REPL and nREPL connections
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;;;; Remote REPL connection
+  ;; ---------------------------------------------------
+  ;; Remote REPL connection
+
   ;; Connect to the nREPL server of a remote REPL
   ;; clojure -M:repl/remote --host hostname --port 12345
   ;; replace --host and --port values with that of remote nREPL server
   :repl/remote
   {:extra-deps {nrepl/nrepl {:mvn/version "0.9.0"}}
-   :main-opts ["-m" "nrepl.cmdline"
-               "--connect"]}
+   :main-opts ["-m" "nrepl.cmdline" "--connect"]}
 
   ;; clojure -M:repl/rebel-remote --host hostname --port 12345
   :repl/rebel-remote
@@ -259,9 +290,9 @@
                 "-f" "rebel-readline.main/-main"]}
 
   ;; End of remote REPL connections
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Alternative REPLs - not extensively tested
 
   ;; Clojure Socket REPL on port 55555:
@@ -315,9 +346,9 @@
   {:jvm-opts ["-Dclojure.server.repl={:port,44444,:accept,cljs.server.browser/prepl}"]}
 
   ;; End of Alternative REPL's
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Creating projects from templates
 
   ;; clj-new - https://github.com/seancorfield/clj-new
@@ -352,9 +383,9 @@
    :main-opts  ["-m" "depify.project"]}
 
   ;; End of: Creating projects from templates
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Searching
 
   ;; clj-check - search each namespace and report compilation warnings and errors
@@ -427,9 +458,9 @@
    :main-opts  ["-m" "carve.main"]}
 
   ;; End of: Projects and dependencies
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Project Packaging
 
   ;; depstar - build jars, uberjars
@@ -455,9 +486,9 @@
                   :aot true}}
 
   ;; End of project packaging
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Project Deployment
   ;; local and remote deployment of Java archives
 
@@ -489,9 +520,9 @@
                    :true]}
 
   ;; End of Project Deployment
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Java Sources
 
   ;; Look up Java Class and method definitions, eg. `cider-find-var` in Emacs
@@ -517,9 +548,9 @@
    :extra-deps
    {org.clojure/source {:local/root "~/projects/community/clojure.org/clojure"}}}
   ;; End of: Java Sources
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Formatting tools
 
   ;; pretty printing with sorted keys and set values
@@ -533,7 +564,8 @@
   {:extra-deps {zprint/zprint {:mvn/version "1.2.3"}}
    :main-opts  ["-m" "zprint.main"]}
 
-;; Checkstyle is a rewrite of cljfmt, designed to be easier to configure
+  ;; Cljstyle is a rewrite of cljfmt, designed to be easier to configure
+  ;; clojure -M:format/cljstyle check | fix
   :format/cljstyle
   {:extra-deps
    {mvxcvi/cljstyle {:git/url "https://github.com/greglook/cljstyle.git"
@@ -554,9 +586,9 @@
    :main-opts ["-m" "cljfmt.main" "fix"]}
 
   ;; End of: Formatting tools
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Databases and drivers uses only during development
 
   :lib/next.jdbc
@@ -569,9 +601,9 @@
     com.github.seancorfield/next.jdbc {:mvn/version "1.2.780"}}}
 
   ;; End of Databases and drivers uses only during development
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Data inspectors / visualizers
 
   ;; Portal
@@ -650,7 +682,7 @@
   ;;               "--middleware" "[cider.nrepl/cider-middleware,vlaaad.reveal.nrepl/middleware]"
   ;;               "-f" "rebel-readline.main/-main"]}
 
-  :inspect/reveal-local ;; Hacking the project
+  :inspect/reveal-local ; Hacking the project
   {:extra-deps {vlaaad/reveal
                 {:local/root "/home/practicalli/projects/clojure/visualization/reveal/"}}
    :main-opts  ["-m" "vlaaad.reveal" "repl"]}
@@ -695,18 +727,18 @@
                 "--middleware" "[vlaaad.reveal.nrepl/middleware,refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"]}
 
   ;; End of Data inspectors
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Debug Tools
 
   :lib/sayid
   {:extra-deps {com.billpiel/sayid {:mvn/version "0.1.0"}}}
 
   ;; End of Debug Tools
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Middleware
 
   ;; - start a non-interactive REPL with a headless nREPL server
@@ -762,9 +794,9 @@
                 refactor-nrepl/refactor-nrepl {:mvn/version "3.5.3"}}}
 
   ;; End of: Middleware
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Clojure Specifications
 
   ;; Clojure spec test.check (clojure spec included in Clojure 1.9 onwards)
@@ -782,9 +814,9 @@
                  :sha     "99456b1856a6fd934e2c30b17920bd790dd81775"}}}
 
   ;; End of Clojure Specifications
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Testing frameworks
 
   ;; Include the test directory on the class path
@@ -810,9 +842,9 @@
   {:extra-deps {expectations/expectations {:mvn/version "2.1.10"}}}
 
   ;; End of: Testing frameworks
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Test runners
 
   ;; Cognitect test-runner
@@ -895,9 +927,9 @@
   {:extra-deps {lambdaisland/kaocha {:mvn/version "1.68.1059"}}}
 
   ;; End of Test runners
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Test Coverage tools
 
   ;; Cloverage - Simple clojure coverage tool
@@ -916,9 +948,9 @@
                  :test-ns-path ["test"]}}
 
   ;; End of Test Coverage tools
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Linting/ static analysis
 
   ;; clj-kondo - comprehensive and fast linter
@@ -941,9 +973,9 @@
    :main-opts     ["-m" "kibit-runner.cmdline"]}
 
   ;; End of Linting/ static analysis
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Visualizing dependencies
 
   ;; Morpheus - visualize project var relationships
@@ -1004,9 +1036,9 @@
                    :size   true}}
 
   ;; Visualizing dependencies
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Performance testing
 
   ;; Benchmarking library for Clojure
@@ -1029,9 +1061,9 @@
    :jvm-opts   ["-Djdk.attach.allowAttachSelf"]}
 
   ;; End of Performance testing
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Zulip Event announcement
   :community/zulip-event
   {:replace-paths []
@@ -1041,10 +1073,10 @@
    :main-opts     ["-m" "inclined.main"
                    "--ns" "clojurians-zulip.events" "--"]}
 
-  ;;
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; End of Zulip Event announcement
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Services
 
   ;; https://github.com/kachayev/nasus
@@ -1058,9 +1090,9 @@
    :main-opts    ["-m" "http.server"]}
 
   ;; End of Services
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Security
 
   ;; DEPRECATED
@@ -1073,9 +1105,9 @@
    :main-opts ["-m" "nvd.task.check"]}
 
   ;; End of Security
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Deprecated
 
   ;; midje-runner
@@ -1095,15 +1127,15 @@
    :main-opts     ["-m" "uberdeps.uberjar"]}
 
   ;; End of Deprecated
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
+  ;; ---------------------------------------------------
   ;; EXPERIMENTAL - use at your own risk, you have been warned
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Hot loading dependencies - EXPERIMENTAL / APLPHA
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Hot loading is not officially part of tools.deps and could change in future
   ;; https://practical.li/clojure/alternative-tools/clojure-tools/hotload-libraries.html
 
@@ -1120,7 +1152,7 @@
 
   :alpha/hotload-socket
   {:extra-deps {org.clojure/tools.deps.alpha
-                ;; Latest commit on add-lib3 branch, don't update with :project/outdated
+                ;; Latest commit on add-lib3 branch, don't update with :search/outdated
                 {:git/url "https://github.com/clojure/tools.deps.alpha"
                  :sha     "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
                 ;; Set logging implementation to no-operation
@@ -1128,7 +1160,7 @@
    ;; DynamicClassLoader required when starting other processes via aliases, e.g. socket REPL or Cognitect's REBL
    :main-opts  ["-e" "(->>(Thread/currentThread)(.getContextClassLoader)(clojure.lang.DynamicClassLoader.)(.setContextClassLoader,(Thread/currentThread)))"]}
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; ---------------------------------------------------
   ;; Aliases to evaluate
 
   ;; Reflector - datafy and nav
@@ -1147,40 +1179,7 @@
                  :sha     "b1a7fd310b6511048fbacb8e496f574c8ccfa291"}}
    :main-opts  ["-m" "closh.zero.frontend.rebel"]}
 
-  #_()} ;; End of alias definitions
-
- ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
- ;; Library Repositories
-
- ;; Specify a local repository for maven - default `$HOME/.m2/repository`
- ;; FreeDesktop.org XDG_CACHE_HOME is the recommended location
- ;; Full path should be used, otherwise directory relative command is used
- ;; :mvn/local-repo "/home/practicalli/.cache/maven/repository"
-
- ;; `clojure -Spath` will show the current class path which will include the path to the local maven repository for the library dependencies.
-
- ;; Order in which repositories are consulted is not guaranteed, so only add essential repositories
- ;; Maven Central and Clojars are the canonical repositories for library dependencies
- ;; JCenter is large and fast mirror often accessible behind corporate firewalls
-
- :mvn/repos {"central" {:url "https://repo1.maven.org/maven2/"}
-             "clojars" {:url "https://repo.clojars.org/"}
-
-             ;; Clojure snapshots
-             ;; "sonatype" {:url "https://oss.sonatype.org/content/repositories/snapshots/"}
-
-             ;; Maven Central Google Cloud Storage mirrors
-             ;; Americas
-             ;; "google-maven-central" {:url "https://maven-central.storage-download.googleapis.com/maven2/"}
-             ;; Asia
-             ;; "google-maven-central" {:url "https://maven-central-asia.storage-download.googleapis.com/maven2/"}
-             ;; Europe
-             ;; "google-maven-central" {:url "https://maven-central-eu.storage-download.googleapis.com/maven2/"}
-
-             ;; "clojars-china-mirror" {:url "https://mirrors.tuna.tsinghua.edu.cn/clojars/"}
-
-             ;; Example of local Artifactory repository configuration
-             ;; {"business-area" {:url "https://artifacts.internal-server.com:443/artifactory/business-area-maven-local"}
-
-             #_()} ;; End of Library Repositories
-}
+  #_()}
+ ;; End of alias definitions
+ ;; --------------------------------------------------
+ }
