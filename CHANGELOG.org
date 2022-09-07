@@ -2,6 +2,12 @@
 
 * Unreleased
 
+** Added
+*** add cljstyle configuration to align with Clojure style and cljfmt formatting in Clojure LSP
+*** format deps.edn with cljstyle
+** Changed
+
+
 * 2022-07-09
 ** Added
 *** [[https://github.com/practicalli/clojure-deps-edn/issues/44][#44 Windows and Clojure CLI escape character issues]] - add link to escape quoting section of Clojure CLI documentation
