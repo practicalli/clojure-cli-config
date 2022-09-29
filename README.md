@@ -799,7 +799,7 @@ CLI](https://gitlab.com/clojurians-zulip/feeds/-/blob/master/README.md#announce-
 
 * `:community/zulip-event` create an event on the Clojurians Zulip community
 
-Set an environment variable called ZULIP_AUTH to your account email, followed by the account token (in settings), e.g.
+Set an environment variable called ZULIP_AUTH to your account email, followed by the account token (see [Account & privacy](https://clojurians.zulipchat.com/#settings/account-and-privacy)), e.g.
 
 ```shell
 your@email.com:493u984u3249834uo4u
@@ -808,6 +808,13 @@ your@email.com:493u984u3249834uo4u
 Create an event using the following command
 
 ```shell
+# Show help and options
+clojure -M:community/zulip-event create -h
+
+# Announce an meetup.com event (you'll be asked for confirmation before posting)
+clojure -M:community/zulip-event create --zulip-auth "${ZULIP_AUTH}" --url https://www.meetup.com/some-group/events/123/
+
+# Full example
 clojure -M:community/zulip-event create --zulip-auth "${ZULIP_AUTH}" --title 'Practicalli Live - Exercism.io challenges' --start '2020-11-14T09:00+00:00' --duration 1 --url https://youtu.be/Z5C7X1UN8yo --description 'Walking through solutions to the Exercism.io challenges'
 ```
 
