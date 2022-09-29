@@ -1062,7 +1062,7 @@
   {:replace-paths []
    :replace-deps  {clojurians-zulip/feeds
                    {:git/url "https://gitlab.com/clojurians-zulip/feeds.git"
-                    :sha     "345a756196d68bde6de0eaa22d217a45f87362b7"}}
+                    :sha     "9695c2879d5df23a44afe7cd838f09d7d8ab06a6"}}
    :main-opts     ["-m" "inclined.main"
                    "--ns" "clojurians-zulip.events" "--"]}
 
