@@ -28,7 +28,7 @@
   {:enabled? true,
    :trim-consecutive? true,
    :max-consecutive 2,
-   :insert-padding? false,
+   :insert-padding? true,
    :padding-lines 2},
   :indentation
   {:enabled? true,
