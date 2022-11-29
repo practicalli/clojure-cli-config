@@ -247,7 +247,7 @@ PREPL is a REPL with structured output.  See [Cloure socket prepl cookbook](http
 
 Environment settings and libraries to support REPL driven development
 
-* `:env/dev` - add `dev` directory to class path - e.g. include `dev/user.clj` to [configure REPL starup](https://practical.li/clojure/clojure-cli/projects/configure-repl-startup.html)
+* `:env/dev` - add `dev` directory to class path - e.g. include `dev/user.clj` to [configure REPL startup](https://practical.li/clojure/clojure-cli/projects/configure-repl-startup.html)
 * `:lib/nrepl` include nrepl as a library
 * `:lib/hotload` - include `org.clojure/tools.deps.alpha` add-libs commit to [hotload libraries into a running REPL](https://practical.li/clojure/alternative-tools/clojure-cli/hotload-libraries.html)
 * `:lib/tools-ns` - include `org.clojure/tools.namespace` to refresh the current namespace in a running REPL
