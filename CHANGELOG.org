@@ -6,6 +6,28 @@
 ** Changed
 *** updated versions of GitHub actions used in the GitHub workflows during CI
 *** use GitHub action setup-clojure for clj-kondo, drop lint-with-clj-kondo file
+*** Update library versions using `clojure -T:search/outdated`
+
+  | :name                             |                                 :current |                                  :latest |
+  |-----------------------------------+------------------------------------------+------------------------------------------|
+  | borkdude/carve                    | df552797a198b6701fb2d92390fce7c59205ea77 | 9c11e4727bff22386899f048d1d50b7978d3ac9e |
+  | cider/cider-nrepl                 |                                   0.28.5 |                                   0.28.7 |
+  | clj-kondo/clj-kondo               |                               2022.08.03 |                               2022.11.02 |
+  | clojurians-zulip/feeds            | 9695c2879d5df23a44afe7cd838f09d7d8ab06a6 | 504498974d481ce22b458f942dff2a28f6ced1e5 |
+  | com.github.liquidz/antq           |                                  2.0.895 |                                  2.2.962 |
+  | com.github.seancorfield/next.jdbc |                                  1.2.796 |                                  1.3.847 |
+  | djblue/portal                     |                                   0.30.0 |                                   0.34.2 |
+  | io.aviso/pretty                   |                                    1.1.1 |                                      1.3 |
+  | io.github.babashka/neil           |                                  v0.0.31 |                                  v0.1.47 |
+  | jonase/eastwood                   |                                    1.2.5 |                                    1.3.0 |
+  | lambdaisland/kaocha               |                                1.69.1069 |                                1.71.1119 |
+  | lambdaisland/kaocha-cljs          |                                  1.0.113 |                                  1.4.130 |
+  | mvxcvi/puget                      |                                    1.3.2 |                                    1.3.4 |
+  | nvd-clojure/nvd-clojure           |                                    2.8.0 |                                   2.11.0 |
+  | org.clojure/spec-alpha2           | 99456b1856a6fd934e2c30b17920bd790dd81775 | 3d32b5e571b98e2930a7b2ed1dd9551bb269375a |
+  | org.slf4j/slf4j-nop               |                                    2.0.0 |                                    2.0.5 |
+  | refactor-nrepl/refactor-nrepl     |                                    3.5.5 |                                    3.6.0 |
+  | vlaaad/reveal                     |                                  1.3.275 |                                  1.3.276 |
 
 * 2022-09-07
 ** Added
