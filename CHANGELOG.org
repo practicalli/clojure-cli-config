@@ -2,6 +2,11 @@
 
 * Unreleased
 
+* 2022-11-29
+** Changed
+*** updated versions of GitHub actions used in the GitHub workflows during CI
+*** use GitHub action setup-clojure for clj-kondo, drop lint-with-clj-kondo file
+
 * 2022-09-07
 ** Added
 *** add cljstyle configuration to align with Clojure style and cljfmt formatting in Clojure LSP
