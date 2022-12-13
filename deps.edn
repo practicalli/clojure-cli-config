@@ -96,7 +96,7 @@
  ;; User-level alias definitions
 
  :aliases
- {;; ---------------------------------------------------
+ { ;; ---------------------------------------------------
   ;; Development environment
 
   ;; Include `dev` directory on the class path to auto-load `dev/user.clj` on REPL startup
@@ -422,7 +422,7 @@
    :replace-deps  {com.github.liquidz/antq {:mvn/version "2.2.962"}
                    org.slf4j/slf4j-nop     {:mvn/version "2.0.5"}}
    :exec-fn antq.tool/outdated
-   :exec-args {:directory ["."] ; default
+   :exec-args {:directory ["."]         ; default
                :exclude ["com.cognitect/rebl"
                          "org.openjfx/javafx-base"
                          "org.openjfx/javafx-controls"
@@ -431,7 +431,7 @@
                          "org.openjfx/javafx-web"]
                ;; :focus ["com.github.liquidz/antq"]
                :skip ["boot" "leiningen"]
-               :reporter "table" ; json edn format
+               :reporter "table"        ; json edn format
                :verbose false
                :upgrade false
                :force   false}}
@@ -682,7 +682,7 @@
   ;;               "--middleware" "[cider.nrepl/cider-middleware,vlaaad.reveal.nrepl/middleware]"
   ;;               "-f" "rebel-readline.main/-main"]}
 
-  :inspect/reveal-local ; Hacking the project
+  :inspect/reveal-local                 ; Hacking the project
   {:extra-deps {vlaaad/reveal
                 {:local/root "/home/practicalli/projects/clojure/visualization/reveal/"}}
    :main-opts  ["-m" "vlaaad.reveal" "repl"]}
@@ -725,6 +725,11 @@
    :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[vlaaad.reveal.nrepl/middleware,refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"]}
+
+
+
+  :lib/clerk
+  {:extra-deps {io.github.nextjournal/clerk {:mvn/version "0.12.707"}}}
 
   ;; End of Data inspectors
   ;; ---------------------------------------------------
