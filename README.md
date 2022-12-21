@@ -265,6 +265,7 @@ Environment settings and libraries to support REPL driven development
 ### Create new projects from templates
 
 * `:project/new` - create a new project from a template
+* `:project/deps-new` - simpler alternative to clj-new (good for your own templates)
 
 Create a new project (via clojure.main - classic approach - recommended for Windows to ensure template arguments are parsed correctly)
 

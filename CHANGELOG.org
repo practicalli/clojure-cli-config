@@ -1,6 +1,9 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Added
+*** `:project/deps-new` alias to create projects using [seancorfield/deps-new](https://github.com/seancorfield/deps-new)
+
 
 * 2022-11-29
 ** Changed
