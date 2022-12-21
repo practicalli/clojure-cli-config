@@ -3,7 +3,9 @@
 * Unreleased
 ** Added
 *** `:project/deps-new` alias to create projects using [seancorfield/deps-new](https://github.com/seancorfield/deps-new)
-
+*** update `:project/new` to use app template by default
+*** clarify running projects with clojure.main
+*** update `:src/clojure` to use full path as HOME and `~` are not resolved
 
 * 2022-11-29
 ** Changed
