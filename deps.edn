@@ -610,6 +610,18 @@
   ;; ---------------------------------------------------
 
   ;; ---------------------------------------------------
+  ;; Data Science
+
+  ;; Notebooks for Clojure
+  ;; https://github.com/nextjournal/clerk
+  ;; Alias can be used as an optional library for projects or REPL workflow
+  :lib/clerk
+  {:extra-deps {io.github.nextjournal/clerk {:mvn/version "0.12.707"}}}
+
+  ;; End of Data Science
+  ;; ---------------------------------------------------
+
+  ;; ---------------------------------------------------
   ;; Data inspectors / visualizers
 
   ;; Portal
