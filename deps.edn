@@ -552,7 +552,7 @@
   :src/clojure
   {:extra-paths ["src/jvm"]
    :extra-deps
-   {org.clojure/source {:local/root "~/projects/community/clojure.org/clojure"}}}
+   {org.clojure/clojure-source {:local/root "/home/practicalli/projects/community/clojure.org/clojure"}}}
   ;; End of: Java Sources
   ;; ---------------------------------------------------
 
