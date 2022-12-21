@@ -1,8 +1,12 @@
 #+TITLE: Changelog
 
 * Unreleased
+
+* 2022-12-21
 ** Added
 *** `:project/deps-new` alias to create projects using [seancorfield/deps-new](https://github.com/seancorfield/deps-new)
+*** `:lib/clerk` alias for data science note books [nextjournal/clerk](https://github.com/nextjournal/clerk)
+** Changed
 *** update `:project/new` to use app template by default
 *** clarify running projects with clojure.main
 *** update `:src/clojure` to use full path as HOME and `~` are not resolved
