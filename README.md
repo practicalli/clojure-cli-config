@@ -285,14 +285,14 @@ Create a new project (Edn command line arguments - recommended approach - except
 
 ### Running projects
 
-Run project with or without an alias:
+Run project using clojure.main with or without an alias:
 
 ```shell
-clojure -M:alias -m domain.app-name
+clojure -M:alias-name -m domain.app-name
 clojure -M -m domain.app-name
 ```
 
-> The `-M` flag is required even if an alias is not included in the running of the application.  A warning will be displayed if the `-M` option is missing.
+> The `-M` flag specified running the Clojure code with clojure.main library, so `-M'` is required even if an alias is not included in the running of the application.  A warning will be displayed if the `-M` option is missing.
 
 In the project deps.edn file it could be useful to define an alias to run the project, specifying the main namespace, the function to run and optionally any default arguments that are passed to that function.
 
