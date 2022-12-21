@@ -365,7 +365,7 @@
   :project/new
   {:replace-deps {com.github.seancorfield/clj-new {:mvn/version "1.2.399"}}
    :exec-fn      clj-new/create
-   :exec-args    {:template lib :name practicalli/playground}
+   :exec-args    {:template app :name practicalli/playground}
    :main-opts    ["-m" "clj-new.create"]}
 
   ;; ALPHA status: Add 'something' to existing project (subject to change)
