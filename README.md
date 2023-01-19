@@ -1,4 +1,4 @@
-![Practicalli Clojure deps.edn user wide configuration for Clojure projects](https://raw.githubusercontent.com/practicalli/graphic-design/live/practicalli-clojure-deps.png)
+![Practicalli Clojure deps.edn user wide configuration for Clojure projects](https://raw.githubusercontent.com/practicalli/graphic-design/live/banners/practicalli-clojure-deps-edn-banner.png)
 
 [![License CC By SA 4.0](https://img.shields.io/badge/license-CC%20BY--SA%204.0%20-blueviolet)](http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1)
 [![GitHub Sponsors for practicalli-john](https://img.shields.io/github/sponsors/practicalli-john)](https://github.com/sponsors/practicalli-john)
