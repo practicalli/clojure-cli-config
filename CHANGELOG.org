@@ -3,6 +3,7 @@
 * Unreleased
 ** Added
 *** `project/create` alias as a simpler and easier to remember alias for [seancorfield/deps-new](https://github.com/seancorfield/deps-new)
+*** #46 `lib/scope-capture` [scope-capture](https://github.com/vvvvalvalval/scope-capture) library to save and restore state to support REPL debugging
 
 
 * 2022-12-21
