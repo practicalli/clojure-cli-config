@@ -1,0 +1,410 @@
+;; ---------------------------------------------------------
+;; Clojure CLI Aliased deprecated
+;;
+;; Aliases once included in Practicalli Clojure CLI and
+;; no longer used.
+;; Aliases moved here as examples of how to write those aliases
+;; although they will not be actively maintained
+;; ---------------------------------------------------------
+
+{:aliases
+
+ {;; ---------------------------------------------------
+  ;;  REPL's
+  ;; Run an interactive Clojure REPL with nREPL connection and CIDER libraries
+  ;; clojure -M:repl/cider
+  :repl/cider
+  {:extra-deps {nrepl/nrepl       {:mvn/version "1.0.0"}
+                cider/cider-nrepl {:mvn/version "0.28.7"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[cider.nrepl/cider-middleware]"
+                "--interactive"]}
+
+  ;; End of REPL's
+  ;; ---------------------------------------------------
+
+  ;; ---------------------------------------------------
+  ;; Alternative REPL's
+
+  ;; Requires nashorn in a version of ClojureScript
+  ;; WARNING: stack trace - does not run TO DEPRECATE
+  :repl/rebel-figwheel
+  {:extra-deps {org.clojure/clojurescript       {:mvn/version "1.9.946"} ; version contains cljs.repl.nashorn
+                nrepl/nrepl                     {:mvn/version "1.0.0"}
+                com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}
+                com.bhauman/figwheel-main       {:mvn/version "0.2.18"}
+                cider/cider-nrepl               {:mvn/version "0.28.7"}
+                cider/piggieback                {:mvn/version "0.5.3"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--interactive"
+                "--middleware" "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"
+                "-f" "rebel-readline.cljs.main/-main"]}
+
+  ;; Start a Clojure Socket pREPL on port 40404:
+  ;; clojure -M:repl/prepl
+  :repl/prepl
+  {:jvm-opts ["-Dclojure.server.repl={:port,40404,:accept,clojure.core.server/io-prepl}"]}
+
+  ;; Start a ClojureScript Socket pREPL on port 44444:
+  :repl/prepl-cljs
+  ;; clojure -M:repl/prepl-cljs
+  {:jvm-opts ["-Dclojure.server.repl={:port,44444,:accept,cljs.server.browser/prepl}"]}
+
+  ;; End of Alternative REPL's
+  ;; ---------------------------------------------------
+
+  ;; ---------------------------------------------------
+  ;; Projects and dependencies
+
+  :search/outdated
+  {:replace-paths ["."]
+   :replace-deps  {com.github.liquidz/antq {:mvn/version "2.2.962"}
+                   org.slf4j/slf4j-nop     {:mvn/version "2.0.5"}}
+   :exec-fn antq.tool/outdated
+   :exec-args {:directory ["."] ; default
+               :exclude ["com.cognitect/rebl"
+                         "org.openjfx/javafx-base"
+                         "org.openjfx/javafx-controls"
+                         "org.openjfx/javafx-fxml"
+                         "org.openjfx/javafx-swing"
+                         "org.openjfx/javafx-web"]
+               ;; :focus ["com.github.liquidz/antq"]
+               :skip ["boot" "leiningen"]
+               :reporter "table" ; json edn format
+               :verbose false
+               :upgrade false
+               :force   false}}
+
+  :hack/antq
+  {:replace-deps
+   {antq/antq {:local/root "/home/practicalli/projects/clojure/community-tools/antq"}}
+   :main-opts ["-m" "antq.core"]}
+
+  ;; The classic project for checking maven based dependencies
+  ;; clojure -M:search/outdated-mvn
+  ;; DEPRECATE
+  :search/outdated-mvn
+  {:replace-paths []
+   :replace-deps  {deps-ancient/deps-ancient {:mvn/version "0.0.5"}}
+   :main-opts     ["-m" "deps-ancient.deps-ancient"]}
+
+  ;; End of Projects and dependencies
+  ;; ---------------------------------------------------
+
+  ;; ---------------------------------------------------
+  ;; Format
+
+  :format/cljfmt-check
+  {:extra-deps {cljfmt/cljfmt {:mvn/version "0.9.0"}}
+   :main-opts ["-m" "cljfmt.main" "check"]}
+
+  ;; cljfmt-check - check/report formatting issues
+  :format/cljfmt-fix
+  {:extra-deps {cljfmt/cljfmt {:mvn/version "0.9.0"}}
+   :main-opts ["-m" "cljfmt.main" "fix"]}
+
+  ;; End of Format
+  ;; ---------------------------------------------------
+
+  ;; ---------------------------------------------------
+  ;; Project Packaging
+
+  ;; depstar - build jars, uberjars
+  ;; https://github.com/seancorfield/depstar
+  ;; over-ride the :main-class as the name is unlikely to match your project
+
+  ;; Jar archive of the project
+  ;; clojure -X:project/jar :main-class domain.application
+  ;; clojure -X:project/jar :jar '"project-name.jar"' :main-class domain.application
+  :project/jar
+  {:replace-deps {com.github.seancorfield/depstar {:mvn/version "2.1.303"}}
+   :exec-fn      hf.depstar/jar
+   :exec-args    {:jar "project.jar"
+                  :aot true}}
+
+  ;; Uberjar archive of the project, including Clojure runtime
+  ;; clojure -X:project/uberjar :main-class domain.application
+  ;; clojure -X:project/uberjar :jar '"project-name.jar"' :main-class domain.application
+  :project/uberjar
+  {:replace-deps {com.github.seancorfield/depstar {:mvn/version "2.1.303"}}
+   :exec-fn      hf.depstar/uberjar
+   :exec-args    {:jar "uber.jar"
+                  :aot true}}
+
+  ;; End of project packaging
+  ;; ---------------------------------------------------
+
+;; ---------------------------------------------------
+  ;; Data inspectors / visualizers
+
+  ;; REBL Data browser - TO DEPRECATE
+  ;; https://github.com/practicalli/clojure-deps-edn#cognitect-rebl
+  ;; http://practicalli.github.io/clojure/alternative-tools/clojure-tools/cognitect-rebl.html
+  ;; Requires Clojure 1.10 or greater
+  ;; Requires Cognitect dev-tools https://cognitect.com/dev-tools/index.html
+  ;; :inspect/rebl-java8   (Oracle JDK 8 only)
+  ;; :inspect/rebl         (Any JDK 11 distribution - tested with OpenJDK)
+
+  ;; :inspect/:rebl        ;; for JDK 11+
+  ;;  {:extra-deps {com.cognitect/rebl          {:mvn/version "0.9.245"}
+  ;;                org.openjfx/javafx-fxml     {:mvn/version "15-ea+6"}
+  ;;                org.openjfx/javafx-controls {:mvn/version "15-ea+6"}
+  ;;                org.openjfx/javafx-swing    {:mvn/version "15-ea+6"}
+  ;;                org.openjfx/javafx-base     {:mvn/version "15-ea+6"}
+  ;;                org.openjfx/javafx-web      {:mvn/version "15-ea+6"}}
+  ;;   :main-opts  ["-m" "cognitect.rebl"]}
+
+  ;; :rebl-jdk8   ;; for JDK 8
+  ;;  {:extra-deps {com.cognitect/rebl {:mvn/version "0.9.245"}}
+  ;;   :main-opts  ["-m" "cognitect.rebl"]}}
+
+  ;; Reveal - read evaluate visualize loop
+  ;; A REPL environment with data visualization and exploration
+  ;; http://practicalli.github.io/clojure/clojure-tools/data-browsers/reveal.html
+  ;; clojure -X:inspect/reveal
+  ;; Run with theme / font changes:
+  ;; clojure -X:inspect/reveal-light
+  ;; Use with rebel repl by adding and using tap>
+  ;; clojure -M:inspect/reveal-rebel
+  ;; clojure -M:inspect/reveal:rebel -J-Dvlaaad.reveal.prefs='{:theme :light :font-family "Ubuntu Mono" :font-size 32}'
+
+  ;; rebel readline with reveal data visualization
+  ;; NOTE: :repl/revel-reveal alias is very much a hack and not a good example to follow
+  ;; clojure -M:repl/rebel-reveal
+  :repl/rebel-reveal
+  {:extra-deps
+   {vlaaad/reveal              {:mvn/version "1.3.276"}
+    com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
+   :jvm-opts  ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
+   :main-opts ["-e" "(require,'rebel-readline.core),(require,'rebel-readline.clojure.line-reader),(require,'rebel-readline.clojure.service.local),(require,'rebel-readline.clojure.main),(require,'vlaaad.reveal)(rebel-readline.core/with-line-reader,(rebel-readline.clojure.line-reader/create,(rebel-readline.clojure.service.local/create)),(vlaaad.reveal/repl,:prompt,(fn,[]),:read,(rebel-readline.clojure.main/create-repl-read)))"]}
+
+  ;; clojure -M:repl/reveal-light-rebel
+  :repl/rebel-reveal-light
+  {:extra-deps
+   {vlaaad/reveal              {:mvn/version "1.3.276"}
+    com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
+   :jvm-opts  ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
+   :main-opts ["-e" "(require,'rebel-readline.core),(require,'rebel-readline.clojure.line-reader),(require,'rebel-readline.clojure.service.local),(require,'rebel-readline.clojure.main),(require,'vlaaad.reveal)(rebel-readline.core/with-line-reader,(rebel-readline.clojure.line-reader/create,(rebel-readline.clojure.service.local/create)),(vlaaad.reveal/repl,:prompt,(fn,[]),:read,(rebel-readline.clojure.main/create-repl-read)))"]}
+
+  :inspect/reveal
+  {:extra-deps {vlaaad/reveal {:mvn/version "1.3.276"}}
+   :exec-fn    vlaaad.reveal/repl
+   :main-opts  ["-m" "vlaaad.reveal" "repl"]}
+
+  :inspect/reveal-light
+  {:extra-deps {vlaaad/reveal {:mvn/version "1.3.276"}}
+   :exec-fn    vlaaad.reveal/repl
+   :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
+   :main-opts  ["-m" "vlaaad.reveal" "repl"]}
+
+  ;; Not sending all evaluations to Reveal
+  ;; It does send tap> results to Reveal
+  ;; :repl/reveal-rebel-nrepl
+  ;; {:extra-deps {nrepl/nrepl                {:mvn/version "0.9.0"}
+  ;;               cider/cider-nrepl          {:mvn/version "0.28.7"}
+  ;;               vlaaad/reveal              {:mvn/version "1.3.276"}
+  ;;               com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
+  ;;  :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
+  ;;  :main-opts  ["-m" "nrepl.cmdline"
+  ;;               "--middleware" "[cider.nrepl/cider-middleware,vlaaad.reveal.nrepl/middleware]"
+  ;;               "-f" "rebel-readline.main/-main"]}
+
+  :inspect/reveal-local ; Hacking the project
+  {:extra-deps {vlaaad/reveal
+                {:local/root "/home/practicalli/projects/clojure/visualization/reveal/"}}
+   :main-opts  ["-m" "vlaaad.reveal" "repl"]}
+
+  ;; Reveal with Clojure editors
+  ;; clj -M:inspect/reveal-nrepl
+  ;; add the -i flag for interactive REPL client
+  ;; Reveal REPL with nrepl server, connect to from a Clojure aware editor
+  :inspect/reveal-nrepl
+  {:extra-deps {vlaaad/reveal {:mvn/version "1.3.276"}
+                nrepl/nrepl   {:mvn/version "1.0.0"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[vlaaad.reveal.nrepl/middleware]"]}
+
+  ;; Light version of :inspect/reveal-nrepl
+  :inspect/reveal-light-nrepl
+  {:extra-deps {vlaaad/reveal {:mvn/version "1.3.276"}
+                nrepl/nrepl   {:mvn/version "1.0.0"}}
+   :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[vlaaad.reveal.nrepl/middleware]"]}
+
+  ;; Reveal with headless nrepl server and Emacs CIDER specific middleware
+  ;; Use with `C-u cider-jack-in-clj` or `SPC u , '` on Spacemacs
+  ;; Edit jack-in command: clojure -M:inspect/reveal-nrepl-cider
+  :inspect/reveal-cider
+  {:extra-deps {vlaaad/reveal                 {:mvn/version "1.3.276"}
+                nrepl/nrepl                   {:mvn/version "1.0.0"}
+                cider/cider-nrepl             {:mvn/version "0.28.7"}
+                refactor-nrepl/refactor-nrepl {:mvn/version "3.6.0"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[vlaaad.reveal.nrepl/middleware,refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"]}
+
+  ;; Light version of :inspect/reveal-nrepl-cider
+  :inspect/reveal-light-cider
+  {:extra-deps {vlaaad/reveal                 {:mvn/version "1.3.276"}
+                nrepl/nrepl                   {:mvn/version "1.0.0"}
+                cider/cider-nrepl             {:mvn/version "0.28.7"}
+                refactor-nrepl/refactor-nrepl {:mvn/version "3.6.0"}}
+   :jvm-opts   ["-Dvlaaad.reveal.prefs={:theme,:light,:font-family,\"https://ff.static.1001fonts.net/u/b/ubuntu.mono.ttf\",:font-size,32}"]
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[vlaaad.reveal.nrepl/middleware,refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"]}
+
+  ;; End of Data Inspectors
+  ;; ---------------------------------------------------
+
+  ;; ---------------------------------------------------
+  ;; Middleware
+
+  ;; Run a REPL using nREPL server for access by cider-connect-clj
+  ;; clojure -M:middleware/cider-clj
+  :middleware/cider-clj
+  {:extra-deps {nrepl/nrepl       {:mvn/version "1.0.0"}
+                cider/cider-nrepl {:mvn/version "0.28.7"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[cider.nrepl/cider-middleware]"]}
+
+  :middleware/cider-clj-refactor
+  {:extra-deps {nrepl/nrepl                   {:mvn/version "1.0.0"}
+                refactor-nrepl/refactor-nrepl {:mvn/version "3.6.0"}
+                cider/cider-nrepl             {:mvn/version "0.28.7"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"]}
+
+  ;; Run a REPL using nREPL server for access by cider-connect-cljs
+  ;; clojure -M:middleware/cider-cljs
+  ;; Using figwheel-main template and cider-connect-cljs: clojure -M:middleware/cider-cljs:fig
+  :middleware/cider-cljs
+  {:extra-deps {org.clojure/clojurescript {:mvn/version "1.10.844"}
+                nrepl/nrepl               {:mvn/version "1.0.0"}
+                cider/cider-nrepl         {:mvn/version "0.28.7"}
+                cider/piggieback          {:mvn/version "0.5.3"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}
+
+  ;; nrebl.middleware - REBL with nREPL server
+  ;; visualize evaluations over nREPL in REBL data browser (CIDER, Calva)
+  ;; https://github.com/RickMoynihan/nrebl.middleware
+  ;; Emacs cider `dir-locals.el` configuration
+  ;; ((clojure-mode . ((cider-clojure-cli-global-options . "-M:lib/cider-nrepl:inspect/rebl:middleware/nrebl"))))
+
+  ;; clojure -M:lib/cider-nrepl:inspect/rebl:middleware/nrebl
+  :middleware/nrebl
+  {:extra-deps {rickmoynihan/nrebl.middleware {:mvn/version "0.3.1"}}
+   :main-opts  ["-e" "((requiring-resolve,'cognitect.rebl/ui))"
+                "-m" "nrepl.cmdline"
+                "--interactive"
+                "--middleware" "[nrebl.middleware/wrap-nrebl,cider.nrepl/cider-middleware]"]}
+
+  ;; Supporting aliases for nrebl.middleware
+  :lib/cider-nrepl
+  {:extra-deps {nrepl/nrepl                   {:mvn/version "1.0.0"}
+                cider/cider-nrepl             {:mvn/version "0.28.7"}
+                refactor-nrepl/refactor-nrepl {:mvn/version "3.6.0"}}}
+
+  ;; End of Middleware
+  ;; ---------------------------------------------------
+
+  ;; Testing frameworks
+  ;; ---------------------------------------------------
+
+  ;; Expectations test framework
+  ;; https://github.com/clojure-expectations/clojure-test
+  ;; Example usage:
+  ;; clojure -M:expectations:test/cognitect
+  :lib/expectations
+  {:extra-deps {expectations/clojure-test {:mvn/version "1.2.1"}}}
+
+  ;; Classic version not compatible with clojure.test and tools
+  ;; https://github.com/clojure-expectations/expectations
+  :lib/expectations-classic
+  {:extra-deps {expectations/expectations {:mvn/version "2.1.10"}}}
+
+  ;; End of Testing frameworks
+  ;; ---------------------------------------------------
+
+;; ---------------------------------------------------
+  ;; Test runners
+
+  ;; Experiment: test using alternative configuration
+  :test/kaocha-global
+  {:extra-paths ["test"]
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.71.1119"}}
+   :exec-fn kaocha.runner/exec-fn
+   :exec-args {:config-file ["~/.clojure/kaocha-global-tests.edn"]}}
+
+  ;; clojure -X:test/kaocha
+  :test/kaocha
+  {:extra-paths ["test"]
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.71.1119"}}
+   :main-opts   ["-m" "kaocha.runner"]
+   :exec-fn kaocha.runner/exec-fn
+   :exec-args {}}
+
+  ;; clojure -X:test/kaocha-watch
+  :test/kaocha-watch
+  {:extra-paths ["test"]
+   :extra-deps  {lambdaisland/kaocha {:mvn/version "1.71.1119"}}
+   :main-opts   ["-m" "kaocha.runner" "--watch" "--fail-fast" "--skip-meta" ":slow"]
+   :exec-fn kaocha.runner/exec-fn
+   :exec-args {:watch? true
+               :randomize? false
+               :fail-fast? true}}
+
+  ;; clojure -M:test/kaocha-cljs
+  :test/kaocha-cljs
+  {:extra-paths ["test"]
+   :extra-deps  {lambdaisland/kaocha      {:mvn/version "1.71.1119"}
+                 lambdaisland/kaocha-cljs {:mvn/version "1.4.130"}}
+   :main-opts   ["-m" "kaocha.runner" "unit-cljs"]}
+
+;; End of Test runners
+  ;; ---------------------------------------------------
+
+;; midje-runner
+  ;; https://github.com/miorimmax/midje-runner
+  :test/midje
+  {:extra-paths ["test"]
+   :extra-deps  {midge-runner/midje-runner
+                 {:git/url "https://github.com/miorimmax/midje-runner.git"
+                  :sha     "ee9c2813e150ae6b3ea41b446b09ba40fc89bdc1"}}
+   :main-opts   ["-m" "midje-runner.runner"]}
+
+  ;; uberdeps - https://github.com/tonsky/uberdeps
+  ;; recommend depstar until that is migrated into tools.build
+  :project/uberdeps
+  {:replace-paths []
+   :replace-deps  {uberdeps/uberdeps {:mvn/version "1.1.4"}}
+   :main-opts     ["-m" "uberdeps.uberjar"]}
+
+;; ---------------------------------------------------
+  ;; Hot loading dependencies - EXPERIMENTAL / APLPHA
+  ;; ---------------------------------------------------
+  ;; Hot loading is not officially part of tools.deps and could change in future
+  ;; https://practical.li/clojure/alternative-tools/clojure-tools/hotload-libraries.html
+
+  ;; Add new deps to a running REPL:
+  ;; (require '[clojure.tools.deps.alpha.repl :refer [add-libs]])
+  ;; (add-libs 'domain/library {:mvn/version "1.0.1"})
+  ;; Git deps
+  ;; (require '[clojure.tools.gitlibs :as gitlibs])
+  ;; (defn load-master [lib]
+  ;;   (let [git (str "https://github.com/" lib ".git")]
+  ;;    (add-lib lib {:git/url git :sha (gitlibs/resolve git "master")})))
+  ;; - e.g., using the GitHub path (not the usual Maven group/artifact):
+  ;; (load-master 'clojure/tools.trace)
+
+  :alpha/hotload-socket
+  {:extra-deps {org.clojure/tools.deps.alpha
+                ;; Latest commit on add-lib3 branch, don't update with :search/outdated
+                {:git/url "https://github.com/clojure/tools.deps.alpha"
+                 :sha     "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
+                ;; Set logging implementation to no-operation
+                org.slf4j/slf4j-nop {:mvn/version "2.0.5"}}
+   ;; DynamicClassLoader required when starting other processes via aliases, e.g. socket REPL or Cognitect's REBL
+   :main-opts  ["-e" "(->>(Thread/currentThread)(.getContextClassLoader)(clojure.lang.DynamicClassLoader.)(.setContextClassLoader,(Thread/currentThread)))"]}
+
+  #_()}}
