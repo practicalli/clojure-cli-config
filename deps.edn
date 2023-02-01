@@ -79,13 +79,14 @@
   :env/dev
   {:extra-paths ["dev"]}
 
-  :dev/reloaded
+  :env/reloaded
   {:extra-paths ["dev" "test"]
    :extra-deps  {djblue/portal {:mvn/version "0.34.2"}
                  org.clojure/tools.namespace {:mvn/version "1.3.0"}
                  org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
                                                :git/sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
                  org.slf4j/slf4j-nop {:mvn/version "2.0.5"}
+                 lambdaisland/kaocha {:mvn/version "1.71.1119"}
                  org.clojure/test.check {:mvn/version "1.1.1"}
                  ring/ring-mock         {:mvn/version "0.4.0"}}}
 
@@ -129,17 +130,8 @@
   ;; ---------------------------------------------------
   ;; Running a REPL
 
-  ;; Simple nREPL server REPL, headless
-  ;; call with -i flag to start interactive client
-  :repl/nrepl
-  {:extra-deps {nrepl/nrepl {:mvn/version "1.0.0"}
-                cider/cider-nrepl {:mvn/version "0.28.7"}}
-   :main-opts  ["-m" "nrepl.cmdline"
-                "--middleware" "[cider.nrepl/cider-middleware]"
-                "--interactive"]}
-
   ;; Interactive client REPL with nREPL server for Clojure Editor support
-  :repl/interactive
+  :repl/basic
   {:extra-deps {nrepl/nrepl {:mvn/version "1.0.0"}
                 cider/cider-nrepl {:mvn/version "0.28.7"}}
    :main-opts  ["-m" "nrepl.cmdline"
@@ -161,7 +153,7 @@
                 "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
                 "--interactive"]}
 
-  ;; clojure -M:repl/cider-cljs
+  ;; clojure -M:repl/cljs
   :repl/cljs
   {:extra-deps {org.clojure/clojurescript       {:mvn/version "1.10.773"}
                 nrepl/nrepl                     {:mvn/version "1.0.0"}
@@ -209,6 +201,7 @@
                 org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
                                               :git/sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
                 org.slf4j/slf4j-nop {:mvn/version "2.0.5"}
+                lambdaisland/kaocha {:mvn/version "1.71.1119"}
                 org.clojure/test.check {:mvn/version "1.1.1"}
                 ring/ring-mock         {:mvn/version "0.4.0"}}
    :main-opts  ["-m" "nrepl.cmdline"
@@ -499,20 +492,6 @@
   ;; ---------------------------------------------------
 
   ;; ---------------------------------------------------
-  ;; Middleware
-
-  ;; - start a non-interactive REPL with a headless nREPL server
-  ;; clojure -M:middleware/nrepl
-  :middleware/nrepl
-  {:extra-deps {nrepl/nrepl {:mvn/version "1.0.0"}
-                cider/cider-nrepl {:mvn/version "0.28.7"}}
-   :main-opts  ["-m" "nrepl.cmdline"
-                "--middleware" "[cider.nrepl/cider-middleware]"]}
-
-  ;; End of: Middleware
-  ;; ---------------------------------------------------
-
-  ;; ---------------------------------------------------
   ;; Clojure Specifications
 
   ;; Clojure spec test.check (clojure spec included in Clojure 1.9 onwards)
@@ -561,14 +540,7 @@
    :main-opts   ["-m" "cognitect.test-runner"]
    :exec-fn cognitect.test-runner.api/test}
 
-  ;; ClojureScript test runner
-  ;; https://github.com/Olical/cljs-test-runner
-  :test/cljs
-  {:extra-paths ["test"]
-   :extra-deps  {olical/cljs-test-runner {:mvn/version "3.8.0"}}
-   :main-opts   ["-m" "cljs-test-runner.main"]}
-
-  ;; kaocha - comprehensive test runner for Clojure/Script
+;; kaocha - comprehensive test runner for Clojure/Script
   ;; tests.edn should be created for each project
   ;; https://github.com/lambdaisland/kaocha
 
@@ -593,7 +565,7 @@
                :randomize? false
                :fail-fast? true}}
 
-  :test/test-cljs
+  :test/cljs
   {:extra-paths ["test"]
    :extra-deps  {lambdaisland/kaocha      {:mvn/version "1.71.1119"}
                  lambdaisland/kaocha-cljs {:mvn/version "1.4.130"}}
@@ -785,8 +757,8 @@
   ;; End of Security
   ;; ---------------------------------------------------
 
-;; ---------------------------------------------------
-  ;; Alternative REPLs - not extensively tested
+  ;; ---------------------------------------------------
+  ;; Socket REPL
 
   ;; Clojure Socket REPL on port 55555:
   ;; clojure -X:repl/socket
@@ -828,7 +800,7 @@
    :main-opts  ["-m" "tubular.core"
                 "-p" "55555"]}
 
-;; End of Alternative REPL's
+  ;; End of Socket REPL
   ;; ---------------------------------------------------
 
   ;; ---------------------------------------------------

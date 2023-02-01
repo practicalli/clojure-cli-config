@@ -11,6 +11,16 @@
 
  {;; ---------------------------------------------------
   ;;  REPL's
+
+  ;; Simple nREPL server REPL, headless
+  ;; call with -i flag to start interactive client
+  :repl/nrepl
+  {:extra-deps {nrepl/nrepl {:mvn/version "1.0.0"}
+                cider/cider-nrepl {:mvn/version "0.28.7"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[cider.nrepl/cider-middleware]"
+                "--interactive"]}
+
   ;; Run an interactive Clojure REPL with nREPL connection and CIDER libraries
   ;; clojure -M:repl/cider
   :repl/cider
@@ -89,6 +99,33 @@
    :main-opts     ["-m" "deps-ancient.deps-ancient"]}
 
   ;; End of Projects and dependencies
+  ;; ---------------------------------------------------
+
+;; ---------------------------------------------------
+  ;; Test Runners
+
+  ;; ClojureScript test runner
+  ;; https://github.com/Olical/cljs-test-runner
+  :test/cljs
+  {:extra-paths ["test"]
+   :extra-deps  {olical/cljs-test-runner {:mvn/version "3.8.0"}}
+   :main-opts   ["-m" "cljs-test-runner.main"]}
+
+  ;; End of Test Runners
+  ;; ---------------------------------------------------
+
+  ;; ---------------------------------------------------
+  ;; Middleware
+
+  ;; - start a non-interactive REPL with a headless nREPL server
+  ;; clojure -M:middleware/nrepl
+  :middleware/nrepl
+  {:extra-deps {nrepl/nrepl {:mvn/version "1.0.0"}
+                cider/cider-nrepl {:mvn/version "0.28.7"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[cider.nrepl/cider-middleware]"]}
+
+  ;; End of: Middleware
   ;; ---------------------------------------------------
 
   ;; ---------------------------------------------------
