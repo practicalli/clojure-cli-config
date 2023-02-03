@@ -1,13 +1,14 @@
 #+TITLE: Changelog
 
 * Unreleased
+
+* 2023-02-02
 ** Added
 *** `project/create` alias as a simpler and easier to remember alias for [seancorfield/deps-new](https://github.com/seancorfield/deps-new)
 *** #46 `lib/scope-capture` [scope-capture](https://github.com/vvvvalvalval/scope-capture) library to save and restore state to support REPL debugging
 *** #06 `dev/reloaded` & `:repl/reloaded` aliases - provinding common dev and test libraries and paths
 ** Changed
 *** #61 removed depricated aliases and those not used, moving to `deps-deprecated.edn` for posterity, updated README describing aliases use
-
 
 * 2022-12-21
 ** Added
