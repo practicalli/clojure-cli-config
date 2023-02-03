@@ -101,7 +101,7 @@
   ;; End of Projects and dependencies
   ;; ---------------------------------------------------
 
-;; ---------------------------------------------------
+  ;; ---------------------------------------------------
   ;; Test Runners
 
   ;; ClojureScript test runner
@@ -171,7 +171,7 @@
   ;; End of project packaging
   ;; ---------------------------------------------------
 
-;; ---------------------------------------------------
+  ;; ---------------------------------------------------
   ;; Data inspectors / visualizers
 
   ;; REBL Data browser - TO DEPRECATE
@@ -363,7 +363,7 @@
   ;; End of Testing frameworks
   ;; ---------------------------------------------------
 
-;; ---------------------------------------------------
+  ;; ---------------------------------------------------
   ;; Test runners
 
   ;; Experiment: test using alternative configuration
@@ -398,10 +398,10 @@
                  lambdaisland/kaocha-cljs {:mvn/version "1.4.130"}}
    :main-opts   ["-m" "kaocha.runner" "unit-cljs"]}
 
-;; End of Test runners
+  ;; End of Test runners
   ;; ---------------------------------------------------
 
-;; midje-runner
+  ;; midje-runner
   ;; https://github.com/miorimmax/midje-runner
   :test/midje
   {:extra-paths ["test"]
@@ -417,7 +417,7 @@
    :replace-deps  {uberdeps/uberdeps {:mvn/version "1.1.4"}}
    :main-opts     ["-m" "uberdeps.uberjar"]}
 
-;; ---------------------------------------------------
+  ;; ---------------------------------------------------
   ;; Hot loading dependencies - EXPERIMENTAL / APLPHA
   ;; ---------------------------------------------------
   ;; Hot loading is not officially part of tools.deps and could change in future
