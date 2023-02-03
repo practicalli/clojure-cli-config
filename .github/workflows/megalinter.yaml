@@ -3,13 +3,13 @@
 # All variables described in https://megalinter.github.io/configuration/
 
 name: MegaLinter
-'on':
+"on":
   push: null
   pull_request:
     branches:
       - live
 concurrency:
-  group: '${{ github.ref }}-${{ github.workflow }}'
+  group: "${{ github.ref }}-${{ github.workflow }}"
   cancel-in-progress: true
 jobs:
   build:
@@ -19,13 +19,13 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
         with:
-          token: '${{ secrets.PAT || secrets.GITHUB_TOKEN }}'
+          token: "${{ secrets.PAT || secrets.GITHUB_TOKEN }}"
           fetch-depth: 0
       - name: MegaLinter
         id: ml
         uses: megalinter/megalinter/flavors/java@v6.15.0 ## latest release of major version
         env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}' # report individual linter status
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}" # report individual linter status
           # Validate all source when push on main, else just the git diff with live.
           VALIDATE_ALL_CODEBASE: >-
             ${{ github.event_name == 'push' && github.ref == 'refs/heads/live'}}
@@ -35,8 +35,7 @@ jobs:
           # Specific linters to run
           ENABLE: CREDENTIALS,MARKDOWN,GIT,SPELL,YAML,CLOJURE
           SPELL_CSPELL_DISABLE_ERRORS: true
-          MARKDOWN_MARKDOWNLINT_CONFIG_FILE: ".github/linters/.markdown-lint.yml"
-          CLOJURE_CLJ_KONDO_ARGUMENTS: '--lint deps.edn'
-
+          MARKDOWN_MARKDOWNLINT_CONFIG_FILE: ".github/linters/markdown-lint.yml"
+          CLOJURE_CLJ_KONDO_ARGUMENTS: "--lint deps.edn"
           # ADD CUSTOM ENV VARIABLES OR DEFINE IN A FILE .mega-linter.yml AT ROOT OF REPOSITORY
           # DISABLE: COPYPASTE,SPELL # Uncomment to disable copy-paste and spell checks

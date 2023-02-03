@@ -1,0 +1,65 @@
+---
+# Configuration file for MegaLinter
+#
+# General configuration:
+# https://oxsecurity.github.io/megalinter/configuration/
+#
+# Specfic Linters:
+# https://oxsecurity.github.io/megalinter/latest/supported-linters/
+
+# ------------------------
+# Linters
+
+# ENABLE specific linters, all other linters automatically disabled
+ENABLE:
+  - MAKEFILE
+  - MARKDOWN
+  - YAML
+  # - REPOSITORY
+
+# Linter specific configuration
+
+# MARKDOWN_MARKDOWN_LINK_CHECK_CONFIG_FILE: ".github/linters/markdown-link-check.json"
+MARKDOWN_MARKDOWNLINT_CONFIG_FILE: ".github/linters/markdown-lint.yml"
+# YAML_PRETTIER_FILTER_REGEX_EXCLUDE: (docs/)
+# YAML_YAMLLINT_FILTER_REGEX_EXCLUDE: (docs/)
+
+# Explicitly disable linters to ensure they are never run
+DISABLE:
+  - COPYPASTE # checks for excessive copy-pastes
+  - SPELL # spell checking - often creates many false positives
+  - CSS #
+
+# Disable linter features
+DISABLE_LINTERS:
+  - REPOSITORY_DEVSKIM # unnecessary URL TLS checks
+  - REPOSITORY_CHECKOV # fails on root user in Dockerfile
+  - REPOSITORY_SECRETLINT
+# ------------------------
+
+# ------------------------
+# Fix Errors
+
+# Automatically update files with corrections
+# APPLY_FIXES: all # all, none, or list of linter keys
+# ------------------------
+
+# ------------------------
+# Reporting
+
+# Activate sources reporter
+UPDATED_SOURCES_REPORTER: false
+
+# Show Linter timings in summary table at end of run
+SHOW_ELAPSED_TIME: true
+
+# Upload reports to file.io
+FILEIO_REPORTER: false
+# ------------------------
+
+# ------------------------
+# Over-ride errors
+
+# detect errors but do not block CI passing
+# DISABLE_ERRORS: true
+# ------------------------
