@@ -446,7 +446,7 @@ Run unit tests in a project which are defined under the `test` path. See
 
 `:lib/kaocha` alias adds kaocha as a library to the class path, enabling scripts such as kaocha-runner.el to run Kaocha test runner from Emacs Cider
 
-> A `test.edn` [configuration file](https://cljdoc.org/d/lambdaisland/kaocha/1.0.829/doc/3-configuration) can be used with the :test/run alias instead of using various aliases defined above
+> A `test.edn` [configuration file](https://cljdoc.org/d/lambdaisland/kaocha/1.77.1236/doc/3-configuration) can be used with the :test/run alias instead of using various aliases defined above
 
 
 ## Lint tools
