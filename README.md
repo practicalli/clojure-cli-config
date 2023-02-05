@@ -135,7 +135,7 @@ How to run common tasks for Clojure development.
 | Resolve git coord tags to shas and update deps.edn | `clojure -X:deps git-resolve-tags git-coord-tag`                | Built-in      |
 | Generate image of project dependency graph         | `clojure -T:project/graph-deps`                                 | Practicalli   |
 | Check library dependencies for newer versions      | `clojure -T:search/outdated`                                    | Practicalli   |
-| Run tests / watch for changes                      | `clojure -X:tests/run` / `clojure -X:test/watch`                | Practicalli   |
+| Run tests / watch for changes                      | `clojure -X:test/run` / `clojure -X:test/watch`                 | Practicalli   |
 | Run the project  (clojure.main)                    | `clojure -M -m domain.main-namespace`                           | Built-in      |
 | Deploy library locally (~/.m2/repository)          | `clojure -X:deps mvn-install :jar '"project.jar"'`              | Built-in      |
 
