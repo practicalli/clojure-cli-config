@@ -79,7 +79,7 @@
   :env/dev
   {:extra-paths ["dev"]}
 
-  :env/reloaded
+  :dev/reloaded
   {:extra-paths ["dev" "test"]
    :extra-deps  {djblue/portal {:mvn/version "0.34.2"}
                  org.clojure/tools.namespace {:mvn/version "1.3.0"}

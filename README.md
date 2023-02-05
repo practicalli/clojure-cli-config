@@ -164,7 +164,7 @@ nREPL server is started for all Clojure repl aliases along with the cider-nrepl 
 
 `clojure -M:repl/reloaded` provides [hotloading of libraries in a running REPL process](https://practical.li/clojure/clojure-cli/hotload-libraries/) with the Rebel rich terminal UI.
 
-Or use `clj -M:env/reloaded:repl/basic` for a reloaded workflow with a basic terminal REPL prompt.
+Or use `clj -M:dev/reloaded:repl/basic` for a reloaded workflow with a basic terminal REPL prompt.
 
 
 ### Remote REPL connection
@@ -203,7 +203,7 @@ Clojure 1.10.x onward can [run a Socket Server](https://clojure.org/reference/re
 Environment settings and libraries to support REPL driven development
 
 * `:env/dev` - add `dev` directory to class path - e.g. include `dev/user.clj` to [configure REPL startup](https://practical.li/clojure/clojure-cli/repl-startup/)
-* `env/reloaded` - reloaded workflow, `dev` and `test` paths, testing libraries
+* `:dev/reloaded` - reloaded workflow, `dev` and `test` paths, testing libraries
 * `:lib/hotload` - include `org.clojure/tools.deps.alpha` add-libs commit to [hotload libraries into a running REPL](https://practical.li/clojure/clojure-cli/hotload-libraries/)
 * `:lib/tools-ns` - include `org.clojure/tools.namespace` to refresh the current namespace in a running REPL
 * `:lib/reloaded` - combination of hotload and tools-ns aliases
