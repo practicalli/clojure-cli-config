@@ -343,8 +343,12 @@ clojure -M:search/libraries --format:merge http-kit
 ## Format code
 
 * `:lib/pprint-sorted` - pretty printing with sorted keys and set values
-* `:format/zprint filename` - format clojure code and Edn data structures in the given file using zprint
-* `:format/cljfmt [check|fix] filename` - format clojure code and Edn data structures in the given file(s) using cljfmt
+* `:format/cljstyle` - check format of all Clojure, Edn and ClojureScript files in the project or a given file and show a diff of format changes
+* `:format/cljstyle!` - automatically correct format of all Clojure, Edn and ClojureScript files in the project or a given file
+* `:format/zprint` - check format of Clojure code and Edn data structures in the given file, or use file pattern `**/*.clj **/*.edn`
+* `:format/zprint!` - format Clojure code and Edn data structures in the given file, or use file pattern `**/*.clj **/*.edn`
+* `:format/cljfmt` - check clojure code and Edn data structures in the given file(s) using cljfmt
+* `:format/cljfmt!` - format clojure code and Edn data structures in the given file(s) using cljfmt
 
 ## Java Sources
 

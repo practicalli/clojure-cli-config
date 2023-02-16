@@ -1,6 +1,14 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Added
+*** `:format/zprint` alias to check the format using `:indent-only` style of given file name or file patterns, e.g. `**/*.clj **/*.edn`
+*** `:format/zprint!` alias to format using `:indent-only` style the given file name or file patterns, e.g. `**/*.clj **/*.edn`
+** Changed
+*** `:format/cljstyle` checks the format of all project files (or a given file)
+*** `:format/cljstyle!` automatically formats all the project files (or a given file)
+*** `:format/cljfnt` checks the format of all project files (or a given file)
+*** `:format/cljfnt!` automatically formats all the project files (or a given file)
 
 * 2023-02-02
 ** Added
