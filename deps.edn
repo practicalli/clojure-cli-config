@@ -86,6 +86,7 @@
                  org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
                                                :git/sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
                  org.slf4j/slf4j-nop {:mvn/version "2.0.5"}
+                 com.brunobonacci/mulog {:mvn/version "0.9.0"}
                  lambdaisland/kaocha {:mvn/version "1.71.1119"}
                  org.clojure/test.check {:mvn/version "1.1.1"}
                  ring/ring-mock         {:mvn/version "0.4.0"}}}
@@ -110,7 +111,8 @@
   {:extra-deps {org.clojure/tools.namespace {:mvn/version "1.3.0"}
                 org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
                                               :git/sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
-                org.slf4j/slf4j-nop {:mvn/version "2.0.5"}}}
+                org.slf4j/slf4j-nop {:mvn/version "2.0.5"}
+                com.brunobonacci/mulog {:mvn/version "0.9.0"}}}
 
   ;; Highlight important aspects of error stack trace using ANSI formatting
   ;; https://github.com/AvisoNovate/pretty
@@ -201,6 +203,7 @@
                 org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
                                               :git/sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
                 org.slf4j/slf4j-nop {:mvn/version "2.0.5"}
+                com.brunobonacci/mulog {:mvn/version "0.9.0"}
                 lambdaisland/kaocha {:mvn/version "1.71.1119"}
                 org.clojure/test.check {:mvn/version "1.1.1"}
                 ring/ring-mock         {:mvn/version "0.4.0"}}
