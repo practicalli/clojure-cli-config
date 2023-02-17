@@ -269,6 +269,9 @@ Then the project can be run using `clojure -X:project/run` and arguments can opt
 | `clojure -T:search/outdated`                        | report newer versions for maven and git dependencies      |
 | `clojure -M:search/outdated-mvn`                    | check for newer dependencies (maven only)                 |
 
+> `:search/libraries` will show warnings about unqualified libraries the first time it is used, which can safely be ignored
+
+
 ## Project analysis
 
 [Carve](https://github.com/borkdude/carve) - static analysis of code
