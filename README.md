@@ -204,7 +204,7 @@ Environment settings and libraries to support REPL driven development
 
 * `:env/dev` - add `dev` directory to class path - e.g. include `dev/user.clj` to [configure REPL startup](https://practical.li/clojure/clojure-cli/repl-startup/)
 * `:dev/reloaded` - reloaded workflow, `dev` and `test` paths, testing libraries
-* `:lib/hotload` - include `org.clojure/tools.deps.alpha` add-libs commit to [hotload libraries into a running REPL](https://practical.li/clojure/clojure-cli/hotload-libraries/)
+* `:lib/hotload` - include `org.clojure/tools.deps.alpha` add-libs commit to [hotload libraries into a running REPL](https://practical.li/clojure/clojure-cli/repl-reloaded/)
 * `:lib/tools-ns` - include `org.clojure/tools.namespace` to refresh the current namespace in a running REPL
 * `:lib/reloaded` - combination of hotload and tools-ns aliases
 * `:lib/pretty-errors` - highlight important aspects of error stack trace using ANSI formatting
