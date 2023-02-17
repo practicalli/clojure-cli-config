@@ -162,9 +162,9 @@ nREPL server is started for all Clojure repl aliases along with the cider-nrepl 
 
 ## Hotload Libraries
 
-`clojure -M:repl/reloaded` provides [hotloading of libraries in a running REPL process](https://practical.li/clojure/clojure-cli/hotload-libraries/) with the Rebel rich terminal UI.
+`clojure -M:repl/reloaded` provides common tools to [enhance the REPL workflow](https://practical.li/clojure/clojure-cli/repl-reloaded/) (hotload libraries, refresh code changes, inspect data, advanced test runner, log & trace)
 
-Or use `clj -M:dev/reloaded:repl/basic` for a reloaded workflow with a basic terminal REPL prompt.
+Use `:dev/reloaded` with Editor jack-in commands or other aliases to start a REPL process, e.g. `clj -M:dev/reloaded:repl/basic` for a reloaded REPL workflow with a basic terminal REPL prompt.
 
 
 ### Remote REPL connection
