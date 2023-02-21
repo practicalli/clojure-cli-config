@@ -87,7 +87,7 @@
                                                :git/sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
                  org.slf4j/slf4j-nop {:mvn/version "2.0.6"}
                  com.brunobonacci/mulog {:mvn/version "0.9.0"}
-                 lambdaisland/kaocha {:mvn/version 1.77.1236}
+                 lambdaisland/kaocha {:mvn/version "1.77.1236"}
                  org.clojure/test.check {:mvn/version "1.1.1"}
                  ring/ring-mock         {:mvn/version "0.4.0"}}}
 
@@ -204,7 +204,7 @@
                                               :git/sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
                 org.slf4j/slf4j-nop {:mvn/version "2.0.6"}
                 com.brunobonacci/mulog {:mvn/version "0.9.0"}
-                lambdaisland/kaocha {:mvn/version 1.77.1236}
+                lambdaisland/kaocha {:mvn/version "1.77.1236"}
                 org.clojure/test.check {:mvn/version "1.1.1"}
                 ring/ring-mock         {:mvn/version "0.4.0"}}
    :main-opts  ["-m" "nrepl.cmdline"
@@ -584,7 +584,7 @@
   ;; clojure -X:test/run :fail-fast true
   :test/run
   {:extra-paths ["test"]
-   :extra-deps {lambdaisland/kaocha {:mvn/version 1.77.1236}}
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.77.1236"}}
    :main-opts   ["-m" "kaocha.runner"]
    :exec-fn kaocha.runner/exec-fn
    :exec-args {}}
@@ -593,7 +593,7 @@
   ;; clojure -X:test/watch
   :test/watch
   {:extra-paths ["test"]
-   :extra-deps {lambdaisland/kaocha {:mvn/version 1.77.1236}}
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.77.1236"}}
    :main-opts   ["-m" "kaocha.runner" "--watch" "--fail-fast" "--skip-meta" ":slow"]
    :exec-fn kaocha.runner/exec-fn
    :exec-args {:watch? true
@@ -602,14 +602,14 @@
 
   :test/cljs
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha      {:mvn/version 1.77.1236}
+   :extra-deps  {lambdaisland/kaocha      {:mvn/version "1.77.1236"}
                  lambdaisland/kaocha-cljs {:mvn/version "1.4.130"}}
    :main-opts   ["-m" "kaocha.runner" "unit-cljs"]}
 
   ;; https://github.com/lambdaisland/kaocha-cucumbe
   ;; - used for kaocha-runner.el to run Kaocha test runner in Emacs Cider
   :lib/kaocha
-  {:extra-deps {lambdaisland/kaocha {:mvn/version 1.77.1236}}}
+  {:extra-deps {lambdaisland/kaocha {:mvn/version "1.77.1236"}}}
 
   ;; End of Test runners
   ;; ---------------------------------------------------
