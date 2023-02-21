@@ -1,4 +1,5 @@
-name: 'Quality Checks'
+---
+name: "Quality Checks"
 
 on:
   pull_request:
@@ -8,27 +9,27 @@ on:
 
 jobs:
   tests:
-    name: 'Check Code Quality'
+    name: "Check Code Quality"
     runs-on: ubuntu-latest
     steps:
       - run: echo "🚀 Job automatically triggered by ${{ github.event_name }}"
       - run: echo "🐧 Job running on ${{ runner.os }} server"
       - run: echo "🐙 Using ${{ github.ref }} branch from ${{ github.repository }} repository"
 
-      - name: 'Checkout code'
-        uses: actions/checkout@v3.1.0
+      - name: "Checkout code"
+        uses: actions/checkout@v3.3.0
       - run: echo "🐙 ${{ github.repository }} repository was cloned to the runner."
 
-      - name: 'Install tools'
+      - name: "Install tools"
         uses: DeLaGuardo/setup-clojure@10.1
         with:
           cljstyle: 0.15.0
           clj-kondo: 2022.11.02
 
-      - name: 'Lint Clojure'
+      - name: "Lint Clojure"
         run: clj-kondo --lint deps.edn --config '{:output {:pattern "::{{level}} file={{filename}},line={{row}},col={{col}}::{{message}}"}}'
 
-      - name: 'Check Clojure Style'
+      - name: "Check Clojure Style"
         run: cljstyle check --report
 
       - run: echo "🎨 style and format of Clojure code checked"
