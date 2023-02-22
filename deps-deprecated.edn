@@ -401,6 +401,14 @@
   ;; End of Test runners
   ;; ---------------------------------------------------
 
+  ;; ---------------------------------------------------
+  ;; Debug
+  ;; DEPRECATED - requires middleware to be useful
+  :lib/sayid
+  {:extra-deps {com.billpiel/sayid {:mvn/version "0.1.0"}}}
+
+  ;; ---------------------------------------------------
+
   ;; midje-runner
   ;; https://github.com/miorimmax/midje-runner
   :test/midje

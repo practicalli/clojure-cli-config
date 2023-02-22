@@ -155,6 +155,23 @@
                 "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
                 "--interactive"]}
 
+  :repl/debug
+  {:extra-deps {nrepl/nrepl        {:mvn/version "0.9.0"}
+                com.billpiel/sayid {:mvn/version "0.1.0"}
+                cider/cider-nrepl  {:mvn/version "0.28.5"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[com.billpiel.sayid.nrepl-middleware/wrap-sayid,cider.nrepl/cider-middleware]"
+                "--interactive"]}
+
+  :repl/debug-refactor
+  {:extra-deps {nrepl/nrepl                   {:mvn/version "0.9.0"}
+                cider/cider-nrepl             {:mvn/version "0.28.5"}
+                refactor-nrepl/refactor-nrepl {:mvn/version "3.5.3"}
+                com.billpiel/sayid            {:mvn/version "0.1.0"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[com.billpiel.sayid.nrepl-middleware/wrap-sayid,refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
+                "--interactive"]}
+
   ;; clojure -M:repl/cljs
   :repl/cljs
   {:extra-deps {org.clojure/clojurescript       {:mvn/version "1.10.773"}
@@ -209,6 +226,27 @@
                 ring/ring-mock         {:mvn/version "0.4.0"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware]"
+                "--interactive"
+                "-f" "rebel-readline.main/-main"]}
+
+  :repl/rebel-debug
+  {:extra-deps {nrepl/nrepl                {:mvn/version "0.9.0"}
+                cider/cider-nrepl          {:mvn/version "0.28.5"}
+                com.billpiel/sayid         {:mvn/version "0.1.0"}
+                com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[com.billpiel.sayid.nrepl-middleware/wrap-sayid,cider.nrepl/cider-middleware]"
+                "--interactive"
+                "-f" "rebel-readline.main/-main"]}
+
+  :repl/rebel-debug-refactor
+  {:extra-deps {nrepl/nrepl                   {:mvn/version "0.9.0"}
+                cider/cider-nrepl             {:mvn/version "0.28.5"}
+                refactor-nrepl/refactor-nrepl {:mvn/version "3.5.3"}
+                com.billpiel/sayid            {:mvn/version "0.1.0"}
+                com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[com.billpiel.sayid.nrepl-middleware/wrap-sayid,refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
                 "--interactive"
                 "-f" "rebel-readline.main/-main"]}
 
@@ -514,9 +552,6 @@
 
   ;; ---------------------------------------------------
   ;; Debug Tools
-
-  :lib/sayid
-  {:extra-deps {com.billpiel/sayid {:mvn/version "0.1.0"}}}
 
   ;; https://github.com/vvvvalvalval/scope-capture
   ;; save and restore the local environment

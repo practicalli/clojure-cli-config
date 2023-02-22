@@ -1,6 +1,11 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Changed
+*** Correct libspec for kaocha test runner (change back to strings)
+*** Add sayid related aliases with middleware `:repl/debug`, `:repl/debug-refactor`, `:repl/rebel-debug`, `:repl/rebel-debug-refactor`
+*** Deprecate `:lib/sayid` as middleware should be included for sayid to function correctly with Clojure CLI
+
 
 * 2023-02-21
 ** Added
