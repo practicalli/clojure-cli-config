@@ -556,7 +556,7 @@
   ;; https://github.com/vvvvalvalval/scope-capture
   ;; save and restore the local environment
   :lib/scope-capture
-  {:extra-deps {vvvvalvalval/scope-capture {:mvn/version "0.3.2"}}}
+  {:extra-deps {vvvvalvalval/scope-capture {:mvn/version "0.3.3"}}}
 
   ;; End of Debug Tools
   ;; ---------------------------------------------------
