@@ -81,15 +81,15 @@
 
   :dev/reloaded
   {:extra-paths ["dev" "test"]
-   :extra-deps  {djblue/portal {:mvn/version "0.35.1"}
-                 org.clojure/tools.namespace {:mvn/version "1.4.1"}
+   :extra-deps  {djblue/portal                {:mvn/version "0.35.1"}
+                 org.clojure/tools.namespace  {:mvn/version "1.4.1"}
                  org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
                                                :git/sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
-                 org.slf4j/slf4j-nop {:mvn/version "2.0.6"}
-                 com.brunobonacci/mulog {:mvn/version "0.9.0"}
-                 lambdaisland/kaocha {:mvn/version "1.77.1236"}
-                 org.clojure/test.check {:mvn/version "1.1.1"}
-                 ring/ring-mock         {:mvn/version "0.4.0"}}}
+                 org.slf4j/slf4j-nop          {:mvn/version "2.0.6"}
+                 com.brunobonacci/mulog       {:mvn/version "0.9.0"}
+                 lambdaisland/kaocha          {:mvn/version "1.77.1236"}
+                 org.clojure/test.check       {:mvn/version "1.1.1"}
+                 ring/ring-mock               {:mvn/version "0.4.0"}}}
 
   :lib/nrepl
   {:extra-deps {nrepl/nrepl {:mvn/version "1.0.0"}}}
@@ -99,7 +99,7 @@
   ;; Set logging implementation to no-operation
   :lib/hotload
   {:extra-deps {org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
-                                              :git/sha     "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
+                                              :git/sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
                 org.slf4j/slf4j-nop {:mvn/version "2.0.6"}}}
 
   ;; Refresh the current namespace in a running REPL
@@ -108,11 +108,11 @@
 
   ;; Combination of hotload and tools-ns
   :lib/reloaded
-  {:extra-deps {org.clojure/tools.namespace {:mvn/version "1.4.1"}
+  {:extra-deps {org.clojure/tools.namespace  {:mvn/version "1.4.1"}
                 org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
                                               :git/sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
-                org.slf4j/slf4j-nop {:mvn/version "2.0.6"}
-                com.brunobonacci/mulog {:mvn/version "0.9.0"}}}
+                org.slf4j/slf4j-nop          {:mvn/version "2.0.6"}
+                com.brunobonacci/mulog       {:mvn/version "0.9.0"}}}
 
   ;; Highlight important aspects of error stack trace using ANSI formatting
   ;; https://github.com/AvisoNovate/pretty
@@ -134,7 +134,7 @@
 
   ;; Interactive client REPL with nREPL server for Clojure Editor support
   :repl/basic
-  {:extra-deps {nrepl/nrepl {:mvn/version "1.0.0"}
+  {:extra-deps {nrepl/nrepl       {:mvn/version "1.0.0"}
                 cider/cider-nrepl {:mvn/version "0.30.0"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware]"
@@ -142,7 +142,7 @@
 
   ;; Headless REPL with nREPL server for Clojure Editor support
   :repl/headless
-  {:extra-deps {nrepl/nrepl {:mvn/version "1.0.0"}
+  {:extra-deps {nrepl/nrepl       {:mvn/version "1.0.0"}
                 cider/cider-nrepl {:mvn/version "0.30.0"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware]"]}
@@ -174,20 +174,20 @@
 
   ;; clojure -M:repl/cljs
   :repl/cljs
-  {:extra-deps {org.clojure/clojurescript       {:mvn/version "1.10.773"}
-                nrepl/nrepl                     {:mvn/version "1.0.0"}
-                cider/cider-nrepl               {:mvn/version "0.30.0"}
-                cider/piggieback                {:mvn/version "0.5.3"}}
+  {:extra-deps {org.clojure/clojurescript {:mvn/version "1.10.773"}
+                nrepl/nrepl               {:mvn/version "1.0.0"}
+                cider/cider-nrepl         {:mvn/version "0.30.0"}
+                cider/piggieback          {:mvn/version "0.5.3"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--interactive"
                 "--middleware" "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}
 
   :repl/figwheel
-  {:extra-deps {org.clojure/clojurescript       {:mvn/version "1.10.773"}
-                com.bhauman/figwheel-main       {:mvn/version "0.2.18"}
-                nrepl/nrepl                     {:mvn/version "1.0.0"}
-                cider/cider-nrepl               {:mvn/version "0.30.0"}
-                cider/piggieback                {:mvn/version "0.5.3"}}
+  {:extra-deps {org.clojure/clojurescript {:mvn/version "1.10.773"}
+                com.bhauman/figwheel-main {:mvn/version "0.2.18"}
+                nrepl/nrepl               {:mvn/version "1.0.0"}
+                cider/cider-nrepl         {:mvn/version "0.30.0"}
+                cider/piggieback          {:mvn/version "0.5.3"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--interactive"
                 "--middleware" "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}
@@ -212,18 +212,18 @@
                 "-f" "rebel-readline.main/-main"]}
 
   :repl/reloaded
-  {:extra-deps {nrepl/nrepl                {:mvn/version "1.0.0"}
-                cider/cider-nrepl          {:mvn/version "0.30.0"}
-                com.bhauman/rebel-readline {:mvn/version "0.1.4"}
-                djblue/portal {:mvn/version "0.35.1"}
-                org.clojure/tools.namespace {:mvn/version "1.4.1"}
+  {:extra-deps {nrepl/nrepl                  {:mvn/version "1.0.0"}
+                cider/cider-nrepl            {:mvn/version "0.30.0"}
+                com.bhauman/rebel-readline   {:mvn/version "0.1.4"}
+                djblue/portal                {:mvn/version "0.35.1"}
+                org.clojure/tools.namespace  {:mvn/version "1.4.1"}
                 org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
                                               :git/sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
-                org.slf4j/slf4j-nop {:mvn/version "2.0.6"}
-                com.brunobonacci/mulog {:mvn/version "0.9.0"}
-                lambdaisland/kaocha {:mvn/version "1.77.1236"}
-                org.clojure/test.check {:mvn/version "1.1.1"}
-                ring/ring-mock         {:mvn/version "0.4.0"}}
+                org.slf4j/slf4j-nop          {:mvn/version "2.0.6"}
+                com.brunobonacci/mulog       {:mvn/version "0.9.0"}
+                lambdaisland/kaocha          {:mvn/version "1.77.1236"}
+                org.clojure/test.check       {:mvn/version "1.1.1"}
+                ring/ring-mock               {:mvn/version "0.4.0"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware]"
                 "--interactive"
@@ -244,7 +244,7 @@
                 cider/cider-nrepl             {:mvn/version "0.28.5"}
                 refactor-nrepl/refactor-nrepl {:mvn/version "3.5.3"}
                 com.billpiel/sayid            {:mvn/version "0.1.0"}
-                com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
+                com.bhauman/rebel-readline    {:mvn/version "0.1.4"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[com.billpiel.sayid.nrepl-middleware/wrap-sayid,refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
                 "--interactive"
@@ -342,10 +342,9 @@
   ;; clojure -M:search/libraries http-kit ring compojure # multiple deps
   ;; clojure -M:search/libraries --format:merge http-kit # merge dep into deps.edn file
   :search/libraries
-  {:extra-deps
-   {find-deps/find-deps
-    {:git/url "https://github.com/hagmonk/find-deps"
-     :sha     "9bf23a52cb0a8190c9c2c7ad1d796da802f8ce7a"}}
+  {:extra-deps {find-deps/find-deps
+                {:git/url "https://github.com/hagmonk/find-deps"
+                 :sha     "9bf23a52cb0a8190c9c2c7ad1d796da802f8ce7a"}}
    :main-opts ["-m" "find-deps.core"]}
 
   ;; Dependency version management
@@ -728,7 +727,7 @@
                 {:git/url "https://github.com/benedekfazekas/morpheus.git"
                  :sha     "9d6f2c1ede8be7ab4508065fe6b7e40e0c099ab6"}}
    :main-opts  ["-m" "thomasa.morpheus.main"
-                "-d"  "graphs" "-f" "svg" "src" "test"]}
+                "-d" "graphs" "-f" "svg" "src" "test"]}
 
   ;; Visualize connections between library dependencies and project namespaces
   ;; https://github.com/SevereOverfl0w/vizns
