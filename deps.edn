@@ -81,15 +81,16 @@
 
   :dev/reloaded
   {:extra-paths ["dev" "test"]
-   :extra-deps  {djblue/portal {:mvn/version "0.35.1"}
-                 org.clojure/tools.namespace {:mvn/version "1.4.1"}
+   :extra-deps  {djblue/portal                {:mvn/version "0.35.1"}
+                 org.clojure/tools.namespace  {:mvn/version "1.4.1"}
                  org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
                                                :git/sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
-                 org.slf4j/slf4j-nop {:mvn/version "2.0.6"}
-                 com.brunobonacci/mulog {:mvn/version "0.9.0"}
-                 lambdaisland/kaocha {:mvn/version "1.77.1236"}
-                 org.clojure/test.check {:mvn/version "1.1.1"}
-                 ring/ring-mock         {:mvn/version "0.4.0"}}}
+                 org.slf4j/slf4j-nop          {:mvn/version "2.0.6"}
+                 com.brunobonacci/mulog       {:mvn/version "0.9.0"}
+                 lambdaisland/kaocha          {:mvn/version "1.77.1236"}
+                 org.clojure/test.check       {:mvn/version "1.1.1"}
+                 ring/ring-mock               {:mvn/version "0.4.0"}
+                 criterium/criterium          {:mvn/version "0.4.6"}}}
 
   :lib/nrepl
   {:extra-deps {nrepl/nrepl {:mvn/version "1.0.0"}}}
@@ -106,13 +107,13 @@
   :lib/tools-ns
   {:extra-deps {org.clojure/tools.namespace {:mvn/version "1.4.1"}}}
 
-  ;; Combination of hotload and tools-ns
+  ;; DEPRECATED
   :lib/reloaded
-  {:extra-deps {org.clojure/tools.namespace {:mvn/version "1.4.1"}
+  {:extra-deps {org.clojure/tools.namespace  {:mvn/version "1.4.1"}
                 org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
                                               :git/sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
-                org.slf4j/slf4j-nop {:mvn/version "2.0.6"}
-                com.brunobonacci/mulog {:mvn/version "0.9.0"}}}
+                org.slf4j/slf4j-nop          {:mvn/version "2.0.6"}
+                com.brunobonacci/mulog       {:mvn/version "0.9.0"}}}
 
   ;; Highlight important aspects of error stack trace using ANSI formatting
   ;; https://github.com/AvisoNovate/pretty
@@ -212,20 +213,25 @@
                 "-f" "rebel-readline.main/-main"]}
 
   :repl/reloaded
-  {:extra-deps {nrepl/nrepl                {:mvn/version "1.0.0"}
-                cider/cider-nrepl          {:mvn/version "0.30.0"}
-                com.bhauman/rebel-readline {:mvn/version "0.1.4"}
-                djblue/portal {:mvn/version "0.35.1"}
-                org.clojure/tools.namespace {:mvn/version "1.4.1"}
+  {:extra-paths ["dev" "test"]
+   :extra-deps {nrepl/nrepl                  {:mvn/version "1.0.0"}
+                cider/cider-nrepl            {:mvn/version "0.30.0"}
+                com.bhauman/rebel-readline   {:mvn/version "0.1.4"}
+                djblue/portal                {:mvn/version "0.35.1"}
+                org.clojure/tools.namespace  {:mvn/version "1.4.1"}
                 org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
                                               :git/sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
-                org.slf4j/slf4j-nop {:mvn/version "2.0.6"}
-                com.brunobonacci/mulog {:mvn/version "0.9.0"}
-                lambdaisland/kaocha {:mvn/version "1.77.1236"}
-                org.clojure/test.check {:mvn/version "1.1.1"}
-                ring/ring-mock         {:mvn/version "0.4.0"}}
+                org.slf4j/slf4j-nop          {:mvn/version "2.0.6"}
+                com.brunobonacci/mulog       {:mvn/version "0.9.0"}
+                lambdaisland/kaocha          {:mvn/version "1.77.1236"}
+                org.clojure/test.check       {:mvn/version "1.1.1"}
+                ring/ring-mock               {:mvn/version "0.4.0"}
+                criterium/criterium          {:mvn/version "0.4.6"}}
    :main-opts  ["-m" "nrepl.cmdline"
-                "--middleware" "[cider.nrepl/cider-middleware]"
+                "--middleware" "[cider.nrepl/cider-middleware,portal.nrepl/wrap-portal]"
+                "--interactive"
+                "-f" "rebel-readline.main/-main"]}
+
                 "--interactive"
                 "-f" "rebel-readline.main/-main"]}
 
