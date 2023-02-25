@@ -261,27 +261,6 @@
                 "--interactive"
                 "-f" "rebel-readline.main/-main"]}
 
-  :repl/rebel-debug
-  {:extra-deps {nrepl/nrepl                {:mvn/version "0.9.0"}
-                cider/cider-nrepl          {:mvn/version "0.28.5"}
-                com.billpiel/sayid         {:mvn/version "0.1.0"}
-                com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
-   :main-opts  ["-m" "nrepl.cmdline"
-                "--middleware" "[com.billpiel.sayid.nrepl-middleware/wrap-sayid,cider.nrepl/cider-middleware]"
-                "--interactive"
-                "-f" "rebel-readline.main/-main"]}
-
-  :repl/rebel-debug-refactor
-  {:extra-deps {nrepl/nrepl                   {:mvn/version "0.9.0"}
-                cider/cider-nrepl             {:mvn/version "0.28.5"}
-                refactor-nrepl/refactor-nrepl {:mvn/version "3.5.3"}
-                com.billpiel/sayid            {:mvn/version "0.1.0"}
-                com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
-   :main-opts  ["-m" "nrepl.cmdline"
-                "--middleware" "[com.billpiel.sayid.nrepl-middleware/wrap-sayid,refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
-                "--interactive"
-                "-f" "rebel-readline.main/-main"]}
-
   ;; ClojureScript REPL with rebel readline with nrepl for editor connection
   ;; https://github.com/bhauman/rebel-readline/tree/master/rebel-readline-cljs
   ;; CIDER: run `cider-connect-cljs` and select REPL host and port, figwheel-main and dev build
