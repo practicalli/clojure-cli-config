@@ -101,7 +101,7 @@
   :lib/hotload
   {:extra-deps {org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
                                               :git/sha     "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
-                org.slf4j/slf4j-nop {:mvn/version "2.0.6"}}}
+                org.slf4j/slf4j-nop          {:mvn/version "2.0.6"}}}
 
   ;; Refresh the current namespace in a running REPL
   :lib/tools-ns
@@ -135,7 +135,7 @@
 
   ;; Interactive client REPL with nREPL server for Clojure Editor support
   :repl/basic
-  {:extra-deps {nrepl/nrepl {:mvn/version "1.0.0"}
+  {:extra-deps {nrepl/nrepl       {:mvn/version "1.0.0"}
                 cider/cider-nrepl {:mvn/version "0.30.0"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware]"
@@ -143,7 +143,7 @@
 
   ;; Headless REPL with nREPL server for Clojure Editor support
   :repl/headless
-  {:extra-deps {nrepl/nrepl {:mvn/version "1.0.0"}
+  {:extra-deps {nrepl/nrepl       {:mvn/version "1.0.0"}
                 cider/cider-nrepl {:mvn/version "0.30.0"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware]"]}
@@ -173,22 +173,30 @@
                 "--middleware" "[com.billpiel.sayid.nrepl-middleware/wrap-sayid,refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
                 "--interactive"]}
 
+  :repl/inspect
+  {:extra-deps
+   {cider/cider-nrepl {:mvn/version "0.28.5"}
+    djblue/portal     {:mvn/version "0.33.0"}}
+   :main-opts ["-m" "nrepl.cmdline"
+               "--middleware"
+               "[cider.nrepl/cider-middleware,portal.nrepl/wrap-portal]"]}
+
   ;; clojure -M:repl/cljs
   :repl/cljs
-  {:extra-deps {org.clojure/clojurescript       {:mvn/version "1.10.773"}
-                nrepl/nrepl                     {:mvn/version "1.0.0"}
-                cider/cider-nrepl               {:mvn/version "0.30.0"}
-                cider/piggieback                {:mvn/version "0.5.3"}}
+  {:extra-deps {org.clojure/clojurescript {:mvn/version "1.10.773"}
+                nrepl/nrepl               {:mvn/version "1.0.0"}
+                cider/cider-nrepl         {:mvn/version "0.30.0"}
+                cider/piggieback          {:mvn/version "0.5.3"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--interactive"
                 "--middleware" "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}
 
   :repl/figwheel
-  {:extra-deps {org.clojure/clojurescript       {:mvn/version "1.10.773"}
-                com.bhauman/figwheel-main       {:mvn/version "0.2.18"}
-                nrepl/nrepl                     {:mvn/version "1.0.0"}
-                cider/cider-nrepl               {:mvn/version "0.30.0"}
-                cider/piggieback                {:mvn/version "0.5.3"}}
+  {:extra-deps {org.clojure/clojurescript {:mvn/version "1.10.773"}
+                com.bhauman/figwheel-main {:mvn/version "0.2.18"}
+                nrepl/nrepl               {:mvn/version "1.0.0"}
+                cider/cider-nrepl         {:mvn/version "0.30.0"}
+                cider/piggieback          {:mvn/version "0.5.3"}}
    :main-opts  ["-m" "nrepl.cmdline"
                 "--interactive"
                 "--middleware" "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}
@@ -232,6 +240,24 @@
                 "--interactive"
                 "-f" "rebel-readline.main/-main"]}
 
+  :repl/rebel-debug
+  {:extra-deps {nrepl/nrepl                {:mvn/version "0.9.0"}
+                cider/cider-nrepl          {:mvn/version "0.28.5"}
+                com.billpiel/sayid         {:mvn/version "0.1.0"}
+                com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[com.billpiel.sayid.nrepl-middleware/wrap-sayid,cider.nrepl/cider-middleware]"
+                "--interactive"
+                "-f" "rebel-readline.main/-main"]}
+
+  :repl/rebel-debug-refactor
+  {:extra-deps {nrepl/nrepl                   {:mvn/version "0.9.0"}
+                cider/cider-nrepl             {:mvn/version "0.28.5"}
+                refactor-nrepl/refactor-nrepl {:mvn/version "3.5.3"}
+                com.billpiel/sayid            {:mvn/version "0.1.0"}
+                com.bhauman/rebel-readline    {:mvn/version "0.1.4"}}
+   :main-opts  ["-m" "nrepl.cmdline"
+                "--middleware" "[com.billpiel.sayid.nrepl-middleware/wrap-sayid,refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
                 "--interactive"
                 "-f" "rebel-readline.main/-main"]}
 
@@ -598,7 +624,7 @@
                  org.clojure/test.check {:mvn/version "1.1.1"}}}
 
   :lib/ring-mock
-  {:extra-deps {ring/ring-mock         {:mvn/version "0.4.0"}}}
+  {:extra-deps {ring/ring-mock {:mvn/version "0.4.0"}}}
 
   ;; End of Testing frameworks
   ;; ---------------------------------------------------
