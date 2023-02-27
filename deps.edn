@@ -83,6 +83,7 @@
   {:extra-paths ["dev" "test"]
    :extra-deps  {djblue/portal                {:mvn/version "0.35.1"}
                  org.clojure/tools.namespace  {:mvn/version "1.4.1"}
+                 org.clojure/tools.trace      {:mvn/version "0.7.11"}
                  org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
                                                :git/sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
                  org.slf4j/slf4j-nop          {:mvn/version "2.0.6"}
@@ -227,6 +228,7 @@
                 com.bhauman/rebel-readline   {:mvn/version "0.1.4"}
                 djblue/portal                {:mvn/version "0.35.1"}
                 org.clojure/tools.namespace  {:mvn/version "1.4.1"}
+                org.clojure/tools.trace      {:mvn/version "0.7.11"}
                 org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
                                               :git/sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
                 org.slf4j/slf4j-nop          {:mvn/version "2.0.6"}
