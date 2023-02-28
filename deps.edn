@@ -571,6 +571,11 @@
   :lib/scope-capture
   {:extra-deps {vvvvalvalval/scope-capture {:mvn/version "0.3.2"}}}
 
+  ;; https://github.com/AbhinavOmprakash/snitch
+  ;; Snitch is inline-defs on steroids
+  :lib/snitch
+  {:extra-deps {org.clojars.abhinav/snitch {:mvn/version "0.0.12"}}}
+
   ;; End of Debug Tools
   ;; ---------------------------------------------------
 
