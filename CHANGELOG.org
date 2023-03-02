@@ -1,12 +1,13 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Added
+*** Add sayid related aliases with middleware `:repl/debug`, `:repl/debug-refactor`, `:repl/rebel-debug`, `:repl/rebel-debug-refactor`
 ** Changed
 *** Correct libspec for kaocha test runner (change back to strings)
-*** Add sayid related aliases with middleware `:repl/debug`, `:repl/debug-refactor`, `:repl/rebel-debug`, `:repl/rebel-debug-refactor`
 *** Deprecate `:lib/sayid` as middleware should be included for sayid to function correctly with Clojure CLI
 *** Add `org.clojure/tools.trace` to REPL Reloaded aliases - `:repl/reloaded`, `:dev/reloaded`
-
+*** Update `:test/run` to fail-fast by default, mimimising test runs when there are failed tests
 
 * 2023-02-21
 ** Added
