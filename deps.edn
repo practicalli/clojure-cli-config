@@ -571,6 +571,10 @@
   :lib/scope-capture
   {:extra-deps {vvvvalvalval/scope-capture {:mvn/version "0.3.2"}}}
 
+  :debug/flowstorm
+  {:extra-deps {com.github.jpmonettas/flow-storm-dbg {:mvn/version "RELEASE"}}}
+
+
   ;; End of Debug Tools
   ;; ---------------------------------------------------
 
