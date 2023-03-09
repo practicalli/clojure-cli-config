@@ -573,7 +573,7 @@
 
   ;; Flowstorm, a tracing debugger
   ;; https://github.com/jpmonettas/flow-storm-debugger
-  :debug/flowstorm
+  :lib/flowstorm
   {:extra-deps {com.github.jpmonettas/flow-storm-dbg {:mvn/version "3.3.320"}}}
 
   ;; End of Debug Tools
