@@ -1,13 +1,19 @@
+---
 # MegaLinter GitHub Action configuration file
 # More info at https://megalinter.github.io
 # All variables described in https://megalinter.github.io/configuration/
 
 name: MegaLinter
-"on":
-  push: null
+on:
+  workflow_dispatch:
   pull_request:
     branches:
       - live
+  push:
+    branches:
+      - live
+
+# Cancel running job if new job is triggered
 concurrency:
   group: "${{ github.ref }}-${{ github.workflow }}"
   cancel-in-progress: true
@@ -16,11 +22,18 @@ jobs:
     name: MegaLinter
     runs-on: ubuntu-latest
     steps:
+      - run: echo "🚀 Job automatically triggered by ${{ github.event_name }}"
+      - run: echo "🐧 Job running on ${{ runner.os }} server"
+      - run: echo "🐙 Using ${{ github.ref }} branch from ${{ github.repository }} repository"
+
       - name: Checkout Code
         uses: actions/checkout@v3
         with:
           token: "${{ secrets.PAT || secrets.GITHUB_TOKEN }}"
           fetch-depth: 0
+      - run: echo "🐙 ${{ github.repository }} repository was cloned to the runner."
+
+
       - name: MegaLinter
         id: ml
         uses: megalinter/megalinter/flavors/java@v6.19.0 ## latest release of major version
@@ -39,3 +52,6 @@ jobs:
           CLOJURE_CLJ_KONDO_ARGUMENTS: "--lint deps.edn"
           # ADD CUSTOM ENV VARIABLES OR DEFINE IN A FILE .mega-linter.yml AT ROOT OF REPOSITORY
           # DISABLE: COPYPASTE,SPELL # Uncomment to disable copy-paste and spell checks
+
+      - run: echo "🎨 Credentials, Markdown, Git, Spell, Yaml & Clojure checked"
+      - run: echo "🍏 Job status is ${{ job.status }}."

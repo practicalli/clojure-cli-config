@@ -1,14 +1,12 @@
 ---
 name: "Quality Checks"
-
 on:
   pull_request:
   push:
     branches:
       - live
-
 jobs:
-  tests:
+  check-code-quality:
     name: "Check Code Quality"
     runs-on: ubuntu-latest
     steps:
