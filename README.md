@@ -18,9 +18,8 @@ Common default arguments are included in an alias via `:exec-args` to minimise t
 
 Aliases are used with the `-A`, `-M`, `-T` or `-X` execution options
 
-> [Clojure CLI - Which execution options to use](https://practical.li/blog/posts/clojure-which-execution-option-to-use/)
+> [Clojure CLI - Which execution options to use](https://practical.li/clojure/clojure-cli/execution-options/)
 
-The **[Practicalli Clojure book](https://practical.li/clojure)** uses this configuration extensively to help you develop Clojure projects and learn the Clojure language. Initial inspiration taken from [seancorfield/dot-clojure](https://github.com/seancorfield/dot-clojure).
 
 [![License CC By SA 4.0](https://img.shields.io/badge/license-CC%20BY--SA%204.0%20-blueviolet)](http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1)
 [![GitHub Sponsors for practicalli-john](https://img.shields.io/github/sponsors/practicalli-john)](https://github.com/sponsors/practicalli-john)
