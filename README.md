@@ -1,7 +1,16 @@
+```none
+██████╗ ██████╗  █████╗  ██████╗████████╗██╗ ██████╗ █████╗ ██╗     ██╗     ██╗
+██╔══██╗██╔══██╗██╔══██╗██╔════╝╚══██╔══╝██║██╔════╝██╔══██╗██║     ██║     ██║
+██████╔╝██████╔╝███████║██║        ██║   ██║██║     ███████║██║     ██║     ██║
+██╔═══╝ ██╔══██╗██╔══██║██║        ██║   ██║██║     ██╔══██║██║     ██║     ██║
+██║     ██║  ██║██║  ██║╚██████╗   ██║   ██║╚██████╗██║  ██║███████╗███████╗██║
+╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝
+```
+
+
 ## Practicalli Clojure CLI Config
 
-
-[Practicalli Clojure CLI Config - deps.edn](https://github.com/practicalli/clojure-deps-edn/blob/live/deps.edn) contains alias definitions for a wide range of community libraries and tools to that extend the feautures of Clojure CLI.
+[Practicalli Clojure CLI Config - deps.edn](https://github.com/practicalli/clojure-cli-config/blob/live/deps.edn) contains alias definitions for a wide range of community libraries and tools to that extend the feautures of Clojure CLI.
 
 Aliases use qualified descriptive names to avoid clashes with project specific aliases, ensuring that the user wide aliases remain available in all projects.
 
@@ -15,8 +24,8 @@ The **[Practicalli Clojure book](https://practical.li/clojure)** uses this confi
 
 [![License CC By SA 4.0](https://img.shields.io/badge/license-CC%20BY--SA%204.0%20-blueviolet)](http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1)
 [![GitHub Sponsors for practicalli-john](https://img.shields.io/github/sponsors/practicalli-john)](https://github.com/sponsors/practicalli-john)
-[![Quality Checks](https://github.com/practicalli/clojure-deps-edn/actions/workflows/quality-checks.yaml/badge.svg)](https://github.com/practicalli/clojure-deps-edn/actions/workflows/quality-checks.yaml)
-[![MegaLinter](https://github.com/practicalli/clojure-deps-edn/actions/workflows/megalinter.yaml/badge.svg)](https://github.com/practicalli/clojure-deps-edn/actions/workflows/megalinter.yaml)
+[![Quality Checks](https://github.com/practicalli/clojure-cli-config/actions/workflows/quality-checks.yaml/badge.svg)](https://github.com/practicalli/clojure-cli-config/actions/workflows/quality-checks.yaml)
+[![MegaLinter](https://github.com/practicalli/clojure-cli-config/actions/workflows/megalinter.yaml/badge.svg)](https://github.com/practicalli/clojure-cli-config/actions/workflows/megalinter.yaml)
 
 <div style="width:95%; margin:auto;">
   <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
@@ -26,13 +35,13 @@ The **[Practicalli Clojure book](https://practical.li/clojure)** uses this confi
 
 ## Format Clojure
 
-[cljstyle](https://github.com/greglook/cljstyle) is a format tool for Clojure files that supports the Clojure Style Guide, using the [.cljstyle configuration file](https://github.com/practicalli/clojure-deps-edn/blob/live/.cljstyle)
+[cljstyle](https://github.com/greglook/cljstyle) is a format tool for Clojure files that supports the Clojure Style Guide, using the [.cljstyle configuration file](https://github.com/practicalli/clojure-cli-config/blob/main/.cljstyle)
 
 
 ## Contents
 
 * [Install Practicalli Clojure CLI Config](#install-practicalli-clojure-cli-config)
-* [Updating practicalli/clojure-deps-edn](#update-practicalli-clojure-cli-config)
+* [Updating practicalli/clojure-cli-config](#update-practicalli-clojure-cli-config)
 * [Common development tasks](#common-development-tasks)
 * [REPL Terminal UI](#repl-terminal-ui) I
   * [Hotload dependencies](#hotload-libraries) I [Remote REPL Connection](#remote-repl-connection) I [Socket REPL](#socket-repl)
@@ -68,13 +77,13 @@ When Clojure CLI runs for the first time a configuration directory is created in
 
 Backup or delete the Clojure CLI configuration directory if it exists
 
-Clone [practicalli/clojure-deps-edn](https://github.com/practicalli/clojure-deps-edn) repository (or create a fork and clone that instead)
+Clone [practicalli/clojure-cli-config](https://github.com/practicalli/clojure-cli-config) repository (or create a fork and clone that instead)
 
 ```shell
-git clone git@github.com:practicalli/clojure-deps-edn.git $XDG_CONFIG_HOME/clojure
+git clone git@github.com:practicalli/clojure-cli-config.git $XDG_CONFIG_HOME/clojure
 ```
 
-> If $XDG_CONFIG_HOME not set, then use `git clone git@github.com:practicalli/clojure-deps-edn.git $HOME/.clojure`
+> If $XDG_CONFIG_HOME not set, then use `git clone git@github.com:practicalli/clojure-cli-config.git $HOME/.clojure`
 
 The `deps.edn` file in the Clojure CLI configuration directory contains all the Practicalli aliases, which are available from any Clojure CLI project for the current user account.
 
@@ -573,7 +582,7 @@ Web servers and other standalone services run with Clojure CLI
 ## Security
 
 > DEPRECATED: `:security/nvd`
-> Using clojure-nvd via an alias [checks for security issues in clojure-nvd and its dependencies as they merged into the classpath](https://github.com/practicalli/clojure-deps-edn/pull/31).
+> Using clojure-nvd via an alias [checks for security issues in clojure-nvd and its dependencies as they merged into the classpath](https://github.com/practicalli/clojure-cli-config/pull/31).
 >
 > The maintainer of clojure-nvd [suggested several ways to avoid classpath interference](https://github.com/rm-hull/nvd-clojure#avoiding-classpath-interference)
 
