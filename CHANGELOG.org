@@ -1,13 +1,41 @@
 #+TITLE: Changelog
 
 * Unreleased
+
+* 2023-03-25
 ** Added
 *** Add sayid related aliases with middleware `:repl/debug`, `:repl/debug-refactor`, `:repl/rebel-debug`, `:repl/rebel-debug-refactor`
+*** `:lib/flowstorm` for flowstom debugger use
 ** Changed
 *** Correct libspec for kaocha test runner (change back to strings)
 *** Deprecate `:lib/sayid` as middleware should be included for sayid to function correctly with Clojure CLI
 *** Add `org.clojure/tools.trace` to REPL Reloaded aliases - `:repl/reloaded`, `:dev/reloaded`
 *** Update `:test/run` to fail-fast by default, mimimising test runs when there are failed tests
+*** `practicalli/clojure-cli-config` repository name (changed from clojure-deps-edn)
+*** `main` default branch (changed from live)
+*** ci: MegaLinter Java image 6.20.1
+*** ci: DeLaGuardo/setup-clojure 10.2, actions v3.5.0, clj-kondo v2023.03.17
+*** ci: workflows use `main` branch
+*** Update library versions using `clojure -T:search/outdated`
+
+|                              :name |                                 :current |                                  :latest |
+|------------------------------------+------------------------------------------+------------------------------------------|
+|                     borkdude/carve | f45dc3cb35a8b9c6c11d4681f8c673fa347d54be | 14a3a5db4b372e33d20763a8d1344bddae72c735 |
+|                  cider/cider-nrepl |                                   0.28.5 |                                   0.30.0 |
+|                clj-kondo/clj-kondo |                               2023.02.17 |                               2023.03.17 |
+|             clojurians-zulip/feeds | 13fd3ac7e259c62c6d05d09a1fc9f1f0b4564ab9 | ba8fe2b7f3415334a73c1ccc6077eafb05e43c5b |
+|            com.github.liquidz/antq |                                  2.2.992 |                                 2.2.1017 |
+|  com.github.seancorfield/next.jdbc |                                  1.3.847 |                                  1.3.862 |
+|                      djblue/portal |                                   0.35.1 |                                   0.37.1 |
+|        io.github.nextjournal/clerk |                                 0.12.707 |                                 0.13.842 |
+|                lambdaisland/kaocha |                                1.77.1236 |                                1.80.1274 |
+|                        nrepl/nrepl |                                    0.9.0 |                                    1.0.0 |
+|            nvd-clojure/nvd-clojure |                                    3.0.0 |                                    3.1.0 |
+|        org.clojure/tools.namespace |                                    1.4.1 |                                    1.4.4 |
+|                org.slf4j/slf4j-nop |                                    2.0.6 |                                    2.0.7 |
+|      refactor-nrepl/refactor-nrepl |                                    3.5.3 |                                    3.6.0 |
+|         vvvvalvalval/scope-capture |                                    0.3.2 |                                    0.3.3 |
+
 
 * 2023-02-21
 ** Added
