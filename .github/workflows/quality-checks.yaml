@@ -15,14 +15,14 @@ jobs:
       - run: echo "🐙 Using ${{ github.ref }} branch from ${{ github.repository }} repository"
 
       - name: "Checkout code"
-        uses: actions/checkout@v3.3.0
+        uses: actions/checkout@v3.5.0
       - run: echo "🐙 ${{ github.repository }} repository was cloned to the runner."
 
       - name: "Install tools"
-        uses: DeLaGuardo/setup-clojure@10.1
+        uses: DeLaGuardo/setup-clojure@10.2
         with:
           cljstyle: 0.15.0
-          clj-kondo: 2022.11.02
+          clj-kondo: 2023.03.17
 
       - name: "Lint Clojure"
         run: clj-kondo --lint deps.edn --config '{:output {:pattern "::{{level}} file={{filename}},line={{row}},col={{col}}::{{message}}"}}'
