@@ -8,10 +8,10 @@ on:
   workflow_dispatch:
   pull_request:
     branches:
-      - live
+      - main
   push:
     branches:
-      - live
+      - main
 
 # Cancel running job if new job is triggered
 concurrency:

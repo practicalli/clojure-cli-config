@@ -4,7 +4,7 @@ on:
   pull_request:
   push:
     branches:
-      - live
+      - main
 jobs:
   check-code-quality:
     name: "Check Code Quality"
