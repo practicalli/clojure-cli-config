@@ -10,7 +10,20 @@
 
 ## Practicalli Clojure CLI Config
 
-[Practicalli Clojure CLI Config - deps.edn](https://github.com/practicalli/clojure-cli-config/blob/live/deps.edn) contains alias definitions for a wide range of community libraries and tools to that extend the feautures of Clojure CLI.
+The **[Practicalli Clojure book](https://practical.li/clojure)** uses this configuration extensively to develop Clojure projects.
+
+[Practicalli Clojure CLI Config](https://github.com/practicalli/clojure-cli-config/) contains a `deps.edn` alias definitions for a wide range of community libraries and tools to that extend the feautures of Clojure CLI.
+
+The configuration also contains
+
+* GitHub workflow that runs MegaLinter and Code Quality checks (clj-kondo and cljstyle via the setup-clojure action)
+* cljstyle configuration that follows the Clojure Style Guide
+* Rebel Readline example configuration (supports the Rich Terminal UI used by Practicalli)
+* cspell configuration for linting markdown and other text
+* `deps-deprecated.edn` containing alias examples of tools not used by Practialli, but may be of interest
+
+
+[Practicalli Clojure book discusses Clojure CLI and its use](https://practical.li/clojure/clojure-cli/repl/), along with video walk-through of the key features.
 
 Aliases use qualified descriptive names to avoid clashes with project specific aliases, ensuring that the user wide aliases remain available in all projects.
 
