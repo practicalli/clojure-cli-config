@@ -159,7 +159,7 @@
                 "--interactive"]}
 
   :repl/debug
-  {:extra-deps {nrepl/nrepl        {:mvn/version "0.1.0"}
+  {:extra-deps {nrepl/nrepl        {:mvn/version "1.0.0"}
                 com.billpiel/sayid {:mvn/version "0.1.0"}
                 cider/cider-nrepl  {:mvn/version "0.30.0"}}
    :main-opts  ["-m" "nrepl.cmdline"
@@ -244,7 +244,7 @@
                 "-f" "rebel-readline.main/-main"]}
 
   :repl/rebel-debug
-  {:extra-deps {nrepl/nrepl                {:mvn/version "0.1.0"}
+  {:extra-deps {nrepl/nrepl                {:mvn/version "1.0.0"}
                 cider/cider-nrepl          {:mvn/version "0.30.0"}
                 com.billpiel/sayid         {:mvn/version "0.1.0"}
                 com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
@@ -254,7 +254,7 @@
                 "-f" "rebel-readline.main/-main"]}
 
   :repl/rebel-debug-refactor
-  {:extra-deps {nrepl/nrepl                   {:mvn/version "0.1.0"}
+  {:extra-deps {nrepl/nrepl                   {:mvn/version "1.0.0"}
                 cider/cider-nrepl             {:mvn/version "0.30.0"}
                 refactor-nrepl/refactor-nrepl {:mvn/version "3.6.0"}
                 com.billpiel/sayid            {:mvn/version "0.1.0"}
