@@ -83,6 +83,7 @@
   {:extra-paths ["dev" "test"]
    :extra-deps  {djblue/portal                {:mvn/version "0.35.1"}  ; portal data inspector
                  clj-commons/clj-yaml         {:mvn/version "0.7.0"}   ; portal yaml support (optional)
+                 integrant/repl               {:mvn/version "0.3.2"}
                  org.clojure/tools.namespace  {:mvn/version "1.4.4"}
                  org.clojure/tools.trace      {:mvn/version "0.7.11"}
                  org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
@@ -230,6 +231,7 @@
                 com.bhauman/rebel-readline   {:mvn/version "0.1.4"}
                 djblue/portal                {:mvn/version "0.35.1"}  ; portal data inspector
                 clj-commons/clj-yaml         {:mvn/version "0.7.0"}   ; portal yaml support (optional)
+                integrant/repl               {:mvn/version "0.3.2"}
                 org.clojure/tools.namespace  {:mvn/version "1.4.4"}
                 org.clojure/tools.trace      {:mvn/version "0.7.11"}
                 org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"

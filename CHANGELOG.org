@@ -2,7 +2,8 @@
 
 * Unreleased
 ** Added
-*** yaml support in portal for `:repl/reloaded` and `:dev/reloaded` aliases:
+*** yaml support in portal for `:repl/reloaded` and `:dev/reloaded` aliases
+*** Integrant REPL support in `:repl/reloaded` and `:dev/reloaded` aliases
 
 * 2023-03-25
 ** Added
