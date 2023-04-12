@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Added
+*** yaml support in portal for `:repl/reloaded` and `:dev/reloaded` aliases:
 
 * 2023-03-25
 ** Added
