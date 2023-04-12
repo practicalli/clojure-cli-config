@@ -5,8 +5,11 @@
 *** yaml support in portal for `:repl/reloaded` and `:dev/reloaded` aliases
 *** Integrant REPL support for `:repl/reloaded` and `:dev/reloaded` aliases
 *** nREPL support for `:repl/inspect`
+*** `project/templates` alias for use with deps-new, providing Practialli designed project templates
+*** `project/create-local` to support development of Practialli project templates
 ** Changed
 *** remove find-deps from `:repl/reloaded` and `:dev/reloaded` aliases to avoid reload clash with add-libs dependency
+*** updated `project/create` to include Practialli designed project templates as a dependency
 
 * 2023-03-25
 ** Added

@@ -330,11 +330,28 @@
    :exec-args    {:template app :name practicalli/playground}
    :main-opts    ["-m" "clj-new.create"]}
 
-  ;; clojure -T:project/create ; Create playground project using app template
   :project/create
-  {:replace-deps {io.github.seancorfield/deps-new {:git/tag "v0.5.0" :git/sha "48bf01e"}}
+  {:replace-deps {io.github.seancorfield/deps-new
+                  {:git/tag "v0.5.1" :git/sha "21cede2"}
+                  io.github.practicalli/project-templates
+                  {:git/tag "2023.04.12" :git/sha "3b4e3fa"}}
    :exec-fn      org.corfield.new/create
-   :exec-args    {:template app :name practicalli/playground}}
+   :exec-args    {:template practicalli/service
+                  :name practicalli/gameboard-redux}}
+
+  :project/create-local
+  {:replace-deps {io.github.seancorfield/deps-new
+                  {:git/tag "v0.5.1" :git/sha "21cede2"}
+                  practicalli/project-templates
+                  {:local/root "/home/practicalli/projects/practicalli/project-templates/"}}
+   :exec-fn      org.corfield.new/create
+   :exec-args    {:template practicalli/service
+                  :name practicalli/gameboard.service
+                  :target-dir gameboard-service}}
+
+  :project/templates
+  {:extra-deps {io.github.practicalli/project-templates
+                {:git/tag "2023.04.12" :git/sha "3b4e3fa"}}}
 
   ;; Convert Leiningen projects to Clojure CLI with depify
   ;; Use `lein pprint` when `project.clj` includes quoted variables or paths to resolve
