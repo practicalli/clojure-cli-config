@@ -3,7 +3,9 @@
 * Unreleased
 ** Added
 *** yaml support in portal for `:repl/reloaded` and `:dev/reloaded` aliases
-*** Integrant REPL support in `:repl/reloaded` and `:dev/reloaded` aliases
+*** Integrant REPL support for `:repl/reloaded` and `:dev/reloaded` aliases
+** Changed
+*** remove find-deps from `:repl/reloaded` and `:dev/reloaded` aliases to avoid reload clash with add-libs dependency
 
 * 2023-03-25
 ** Added

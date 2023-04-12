@@ -88,6 +88,8 @@
                  org.clojure/tools.trace      {:mvn/version "0.7.11"}
                  org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
                                                :git/sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
+                 ;; find-deps/find-deps          {:git/url "https://github.com/hagmonk/find-deps"
+                 ;;                               :sha     "9bf23a52cb0a8190c9c2c7ad1d796da802f8ce7a"}
                  org.slf4j/slf4j-nop          {:mvn/version "2.0.7"}
                  com.brunobonacci/mulog       {:mvn/version "0.9.0"}
                  lambdaisland/kaocha          {:mvn/version "1.80.1274"}
@@ -236,6 +238,8 @@
                 org.clojure/tools.trace      {:mvn/version "0.7.11"}
                 org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
                                               :git/sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
+                ;; find-deps/find-deps          {:git/url "https://github.com/hagmonk/find-deps"
+                ;;                               :sha     "9bf23a52cb0a8190c9c2c7ad1d796da802f8ce7a"}
                 org.slf4j/slf4j-nop          {:mvn/version "2.0.7"}
                 com.brunobonacci/mulog       {:mvn/version "0.9.0"}
                 lambdaisland/kaocha          {:mvn/version "1.80.1274"}
