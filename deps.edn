@@ -181,7 +181,8 @@
 
   :repl/inspect
   {:extra-deps
-   {cider/cider-nrepl {:mvn/version "0.30.0"}
+   {nrepl/nrepl       {:mvn/version "1.0.0"}
+    cider/cider-nrepl {:mvn/version "0.30.0"}
     djblue/portal     {:mvn/version "0.37.1"}}
    :main-opts ["-m" "nrepl.cmdline"
                "--middleware"
