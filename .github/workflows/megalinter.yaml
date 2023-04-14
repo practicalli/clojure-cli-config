@@ -36,7 +36,7 @@ jobs:
 
       - name: MegaLinter
         id: ml
-        uses: megalinter/megalinter/flavors/java@v6.20.1 ## latest release of major version
+        uses: megalinter/megalinter/flavors/java@v6.22.2 ## latest release of major version
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}" # report individual linter status
           # Validate all source when push on main, else just the git diff with live.
