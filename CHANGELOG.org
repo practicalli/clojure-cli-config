@@ -13,6 +13,7 @@
 *** Breaking: rename `:env/test` to `:test/env` (drop `:env` as qualifier)
 *** Breaking: rename `:env/dev` to `:dev/env` (drop `:env` as qualifier)
 *** ci: MegaLinter Java Image version v6.22.2
+*** ci: setup-clojure version 10.3
 
 * 2023-03-25
 ** Added

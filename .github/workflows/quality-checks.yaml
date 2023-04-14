@@ -22,7 +22,7 @@ jobs:
         uses: liquidz/antq-action@main
 
       - name: "Install tools"
-        uses: DeLaGuardo/setup-clojure@10.2
+        uses: DeLaGuardo/setup-clojure@10.3
         with:
           cljstyle: 0.15.0
           clj-kondo: 2023.03.17
