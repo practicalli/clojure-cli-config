@@ -10,6 +10,8 @@
 ** Changed
 *** remove find-deps from `:repl/reloaded` and `:dev/reloaded` aliases to avoid reload clash with add-libs dependency
 *** updated `project/create` to include Practialli designed project templates as a dependency
+*** Breaking: rename `:env/test` to `:test/env` (drop `:env` as qualifier)
+*** Breaking: rename `:env/dev` to `:dev/env` (drop `:env` as qualifier)
 
 * 2023-03-25
 ** Added

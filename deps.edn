@@ -75,8 +75,8 @@
   ;; Include `dev` directory on the class path to auto-load `dev/user.clj` on REPL startup
   ;; http://practicalli.github.io/clojure/clojure-tools/configure-repl-startup.html
 
-  ;; clojure -M:env/dev
-  :env/dev
+  ;; clojure -M:dev/env
+  :dev/env
   {:extra-paths ["dev"]}
 
   :dev/reloaded
@@ -631,7 +631,7 @@
 
   ;; Include the test directory on the class path
   ;; Humane test output for pretty printed results
-  :env/test
+  :test/env
   {:extra-paths ["test"]
    :extra-deps  {pjstadig/humane-test-output {:mvn/version "0.11.0"}
                  org.clojure/test.check {:mvn/version "1.1.1"}}}
