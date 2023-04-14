@@ -81,7 +81,7 @@
 
   :dev/reloaded
   {:extra-paths ["dev" "test"]
-   :extra-deps  {djblue/portal                {:mvn/version "0.35.1"}  ; portal data inspector
+   :extra-deps  {djblue/portal                {:mvn/version "0.38.2"}  ; portal data inspector
                  clj-commons/clj-yaml         {:mvn/version "0.7.0"}   ; portal yaml support (optional)
                  integrant/repl               {:mvn/version "0.3.2"}
                  org.clojure/tools.namespace  {:mvn/version "1.4.4"}
@@ -183,7 +183,7 @@
   {:extra-deps
    {nrepl/nrepl       {:mvn/version "1.0.0"}
     cider/cider-nrepl {:mvn/version "0.30.0"}
-    djblue/portal     {:mvn/version "0.37.1"}}
+    djblue/portal     {:mvn/version "0.38.2"}}
    :main-opts ["-m" "nrepl.cmdline"
                "--middleware"
                "[cider.nrepl/cider-middleware,portal.nrepl/wrap-portal]"]}
@@ -232,7 +232,7 @@
    :extra-deps {nrepl/nrepl                  {:mvn/version "1.0.0"}
                 cider/cider-nrepl            {:mvn/version "0.30.0"}
                 com.bhauman/rebel-readline   {:mvn/version "0.1.4"}
-                djblue/portal                {:mvn/version "0.35.1"}  ; portal data inspector
+                djblue/portal                {:mvn/version "0.38.2"}  ; portal data inspector
                 clj-commons/clj-yaml         {:mvn/version "0.7.0"}   ; portal yaml support (optional)
                 integrant/repl               {:mvn/version "0.3.2"}
                 org.clojure/tools.namespace  {:mvn/version "1.4.4"}
@@ -575,15 +575,15 @@
   ;; https://github.com/djblue/portal
 
   :inspect/portal-cli
-  {:extra-deps {djblue/portal {:mvn/version "0.37.1"}}}
+  {:extra-deps {djblue/portal {:mvn/version "0.38.2"}}}
 
   :inspect/portal-web
-  {:extra-deps {djblue/portal             {:mvn/version "0.37.1"}
+  {:extra-deps {djblue/portal             {:mvn/version "0.38.2"}
                 org.clojure/clojurescript {:mvn/version "1.10.844"}}
    :main-opts  ["-m" "cljs.main"]}
 
   :inspect/portal-node
-  {:extra-deps {djblue/portal             {:mvn/version "0.37.1"}
+  {:extra-deps {djblue/portal             {:mvn/version "0.38.2"}
                 org.clojure/clojurescript {:mvn/version "1.10.844"}}
    :main-opts  ["-m" "cljs.main" "-re" "node"]}
 
