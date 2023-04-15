@@ -222,7 +222,8 @@
   {:extra-deps {nrepl/nrepl                {:mvn/version "1.0.0"}
                 cider/cider-nrepl          {:mvn/version "0.30.0"}
                 com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
-   :main-opts  ["-m" "nrepl.cmdline"
+   :main-opts  ["-e" "(apply require clojure.main/repl-requires)"
+                "-m" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware]"
                 "--interactive"
                 "-f" "rebel-readline.main/-main"]}
@@ -247,7 +248,8 @@
                 org.clojure/test.check       {:mvn/version "1.1.1"}
                 ring/ring-mock               {:mvn/version "0.4.0"}
                 criterium/criterium          {:mvn/version "0.4.6"}}
-   :main-opts  ["-m" "nrepl.cmdline"
+   :main-opts  ["-e" "(apply require clojure.main/repl-requires)"
+                "-m" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware,portal.nrepl/wrap-portal]"
                 "--interactive"
                 "-f" "rebel-readline.main/-main"]}
@@ -257,7 +259,8 @@
                 cider/cider-nrepl          {:mvn/version "0.30.0"}
                 com.billpiel/sayid         {:mvn/version "0.1.0"}
                 com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
-   :main-opts  ["-m" "nrepl.cmdline"
+   :main-opts  ["-e" "(apply require clojure.main/repl-requires)"
+                "-m" "nrepl.cmdline"
                 "--middleware" "[com.billpiel.sayid.nrepl-middleware/wrap-sayid,cider.nrepl/cider-middleware]"
                 "--interactive"
                 "-f" "rebel-readline.main/-main"]}
@@ -268,7 +271,8 @@
                 refactor-nrepl/refactor-nrepl {:mvn/version "3.6.0"}
                 com.billpiel/sayid            {:mvn/version "0.1.0"}
                 com.bhauman/rebel-readline    {:mvn/version "0.1.4"}}
-   :main-opts  ["-m" "nrepl.cmdline"
+   :main-opts  ["-e" "(apply require clojure.main/repl-requires)"
+                "-m" "nrepl.cmdline"
                 "--middleware" "[com.billpiel.sayid.nrepl-middleware/wrap-sayid,refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
                 "--interactive"
                 "-f" "rebel-readline.main/-main"]}
@@ -278,7 +282,8 @@
   ;; CIDER: run `cider-connect-cljs` and select REPL host and port, figwheel-main and dev build
   :repl/rebel-cljs
   {:extra-deps {com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}}
-   :main-opts  ["-m" "rebel-readline-cljs.main"]}
+   :main-opts  ["-e" "(apply require clojure.main/repl-requires)"
+                "-m" "rebel-readline-cljs.main"]}
 
   :lib/rebel
   {:extra-deps {com.bhauman/rebel-readline {:mvn/version "0.1.4"}}}

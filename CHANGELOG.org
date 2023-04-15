@@ -16,6 +16,7 @@
 *** ci: MegaLinter Java Image version v6.22.2
 *** ci: setup-clojure version 10.3
 *** inspect: portal version 0.38.2
+*** alias: update rebel readline aliases to load `clojure.main/repl-requires` to include add-lib, add-libs and sync-deps for hotloading libraries on the classpath
 
 * 2023-03-25
 ** Added
