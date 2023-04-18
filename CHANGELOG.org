@@ -10,13 +10,15 @@
 *** ci: antq library versions scheduled GitHub workflow
 ** Changed
 *** remove find-deps from `:repl/reloaded` and `:dev/reloaded` aliases to avoid reload clash with add-libs dependency
-*** updated `project/create` to include Practialli designed project templates as a dependency
 *** Breaking: rename `:env/test` to `:test/env` (drop `:env` as qualifier)
 *** Breaking: rename `:env/dev` to `:dev/env` (drop `:env` as qualifier)
+** Updated
 *** ci: MegaLinter Java Image version v6.22.2
 *** ci: setup-clojure version 10.3
 *** inspect: portal version 0.38.2
 *** alias: update rebel readline aliases to load `clojure.main/repl-requires` to include add-lib, add-libs and sync-deps for hotloading libraries on the classpath
+*** release version of practicalli/project-templates in `project/create` & `project/templates` aliases
+*** `project/create` to include Practialli designed project templates as a dependency
 
 * 2023-03-25
 ** Added
