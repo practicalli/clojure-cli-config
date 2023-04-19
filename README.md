@@ -12,7 +12,7 @@
 
 The **[Practicalli Clojure book](https://practical.li/clojure)** uses this configuration extensively to develop Clojure projects.
 
-[Practicalli Clojure CLI Config](https://github.com/practicalli/clojure-cli-config/) contains a `deps.edn` alias definitions for a wide range of community libraries and tools to that extend the feautures of Clojure CLI.
+[Practicalli Clojure CLI Config](https://github.com/practicalli/clojure-cli-config/) contains a `deps.edn` alias definitions for a wide range of community libraries and tools to that extend the features of Clojure CLI.
 
 The configuration also contains
 
@@ -247,7 +247,7 @@ Default values (can be over-ridden on the command line)
 | `clojure -T:project/create :template practicalli/service`       | Practicalli Service called playground     |
 
 
-> `:project/new` - uses [clj-new](https://github.com/seancorfield/clj-new) which is an archived project, although can still be used to create projects using Leiningen sytle templates.  A Clojure CLI configuration must be manually added if these templates do not provide one.
+> `:project/new` - uses [clj-new](https://github.com/seancorfield/clj-new) which is an archived project, although can still be used to create projects using Leiningen style templates.  A Clojure CLI configuration must be manually added if these templates do not provide one.
 
 
 | `clojure -T:project/new :template app :name practicalli/my-application`                                 | App project with given name                          |
