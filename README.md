@@ -233,24 +233,27 @@ Environment settings and libraries to support REPL driven development
 
 ## Clojure Projects
 
-* Create projects
-* Check and update project dependencies
-* Deploy projects locally and to Clojars
+Create Clojure CLI configured projects, either built-in or [practicalli/project-templates](https://github.com/practicalli/project-templates) to provide [REPL Reloaded tools](https://practical.li/clojure/clojure-cli/repl-reloaded/) and production-level CI workflows.
 
-Create new projects from templates
+Default values (can be over-ridden on the command line)
 
-* `:project/new` - create a new project from deps, leiningen and boot templates with [clj-new](https://github.com/seancorfield/clj-new)
-* `:project/create` - deps-new, a simpler alternative to clj-new (good for your own templates)
+* `:template project/application` template, includes REPL Reloaded workflow, GitHub workflows, Dockerfile & compose.yaml, Makefile tasks
+* `:name practicalli/playground` creates a practicalli domain containing `playground` namespace and example Clojure code
 
-Create a new project (Edn command line arguments - recommended approach - except for Windows)
+| Command                                                         | Description                               |
+|-----------------------------------------------------------------|-------------------------------------------|
+| `clojure -T:project/create :template app :name domain/app-name` | A simple application                      |
+| `clojure -T:project/create`                                     | Practicalli application called playground |
+| `clojure -T:project/create :template practicalli/service`       | Practicalli Service called playground     |
 
-| Command                                                                                                 | Description                                          |
-|---------------------------------------------------------------------------------------------------------|------------------------------------------------------|
-| `clojure -T:project/new`                                                                                | library project called playground                    |
-| `clojure -T:project/new :name practicalli/my-library`                                                   | library project with given name                      |
+
+> `:project/new` - uses [clj-new](https://github.com/seancorfield/clj-new) which is an archived project, although can still be used to create projects using Leiningen sytle templates.  A Clojure CLI configuration must be manually added if these templates do not provide one.
+
+
 | `clojure -T:project/new :template app :name practicalli/my-application`                                 | App project with given name                          |
 | `clojure -T:project/new :template luminus :name practicalli/full-stack-app :args '["+http-kit" "+h2"]'` | Luminus project with given name and template options |
 | `clojure -T:project/new :template figwheel-main :name practicalli/landing-page :args '["--reagent"]'`   | ClojureScript Figwheel-main project with reagent     |
+
 
 ### Running projects
 

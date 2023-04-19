@@ -19,6 +19,7 @@
 *** alias: update rebel readline aliases to load `clojure.main/repl-requires` to include add-lib, add-libs and sync-deps for hotloading libraries on the classpath
 *** release version of practicalli/project-templates in `project/create` & `project/templates` aliases
 *** `project/create` to include Practialli designed project templates as a dependency
+*** readme: Clojure Projects section - example `project/create` commands, de-emphasising project/new alias
 
 * 2023-03-25
 ** Added

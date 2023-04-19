@@ -318,17 +318,6 @@
   ;; ---------------------------------------------------
   ;; Creating projects from templates
 
-  ;; clj-new - https://github.com/seancorfield/clj-new
-
-  ;; Classic command line
-  ;; clojure -M:project/new luminus practicalli/full-stack-app +http-kit +h2 +reagent +auth
-
-  ;; Edn command line arguments
-  ;; clojure -X:project/new  ;; app project called playground
-  ;; clojure -X:project/new :name practicalli/my-library
-  ;; clojure -X:project/new :template app :name practicalli/my-application
-  ;; clojure -X:project/new :template luminus :name practicalli/full-stack-app +http-kit +h2 +reagent +auth
-
   :project/new
   {:replace-deps {com.github.seancorfield/clj-new {:mvn/version "1.2.399"}}
    :exec-fn      clj-new/create
@@ -339,7 +328,7 @@
   {:replace-deps {io.github.seancorfield/deps-new
                   {:git/tag "v0.5.1" :git/sha "21cede2"}
                   io.github.practicalli/project-templates
-                  {:git/tag "2023.04.18" :git/sha "5567a46"}}
+                  {:git/tag "2023.04.19" :git/sha "975e771"}}
    :exec-fn      org.corfield.new/create
    :exec-args    {:template practicalli/application
                   :name practicalli/playground}}
@@ -356,7 +345,7 @@
 
   :project/templates
   {:extra-deps {io.github.practicalli/project-templates
-                {:git/tag "2023.04.18" :git/sha "5567a46"}}}
+                {:git/tag "2023.04.19" :git/sha "975e771"}}}
 
   ;; Convert Leiningen projects to Clojure CLI with depify
   ;; Use `lein pprint` when `project.clj` includes quoted variables or paths to resolve
