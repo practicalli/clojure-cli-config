@@ -12,7 +12,7 @@
 
 The **[Practicalli Clojure book](https://practical.li/clojure)** uses this configuration extensively to develop Clojure projects.
 
-[Practicalli Clojure CLI Config](https://github.com/practicalli/clojure-cli-config/) contains a `deps.edn` alias definitions for a wide range of community libraries and tools to that extend the feautures of Clojure CLI.
+[Practicalli Clojure CLI Config](https://github.com/practicalli/clojure-cli-config/) contains a `deps.edn` alias definitions for a wide range of community libraries and tools to that extend the features of Clojure CLI.
 
 The configuration also contains
 
