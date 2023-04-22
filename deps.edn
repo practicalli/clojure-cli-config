@@ -328,7 +328,7 @@
   {:replace-deps {io.github.seancorfield/deps-new
                   {:git/tag "v0.5.1" :git/sha "21cede2"}
                   io.github.practicalli/project-templates
-                  {:git/tag "2023.04.20" :git/sha "a5f7fc3"}}
+                  {:git/tag "2023.04.22" :git/sha "9d40153"}}
    :exec-fn      org.corfield.new/create
    :exec-args    {:template practicalli/application
                   :name practicalli/playground}}
@@ -340,12 +340,11 @@
                   {:local/root "/home/practicalli/projects/practicalli/project-templates/"}}
    :exec-fn      org.corfield.new/create
    :exec-args    {:template practicalli/service
-                  :name practicalli/gameboard.service
-                  :target-dir gameboard-service}}
+                  :name practicalli/gameboard.service}}
 
   :project/templates
   {:extra-deps {io.github.practicalli/project-templates
-                {:git/tag "2023.04.20" :git/sha "a5f7fc3"}}}
+                {:git/tag "2023.04.22" :git/sha "9d40153"}}}
 
   ;; Convert Leiningen projects to Clojure CLI with depify
   ;; Use `lein pprint` when `project.clj` includes quoted variables or paths to resolve
