@@ -409,6 +409,21 @@
 
   ;; ---------------------------------------------------
 
+  ;; ---------------------------------------------------
+  ;; Security
+
+  ;; DEPRECATED
+  ;; https://github.com/rm-hull/nvd-clojure
+  ;; check all the jars in the classpath for known security vulnerabilities using the
+  ;; National Vulnerability Database
+  ;; clojure -T:security/nvd "" "$(clojure -Spath)"
+  :security/nvd
+  {:extra-deps {nvd-clojure/nvd-clojure {:mvn/version "3.2.0"}}
+   :main-opts ["-m" "nvd.task.check"]}
+
+  ;; End of Security
+  ;; ---------------------------------------------------
+
   ;; midje-runner
   ;; https://github.com/miorimmax/midje-runner
   :test/midje

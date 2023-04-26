@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+
+* 2023-04-26
 ** Added
 *** yaml support in portal for `:repl/reloaded` and `:dev/reloaded` aliases
 *** Integrant REPL support for `:repl/reloaded` and `:dev/reloaded` aliases
@@ -20,6 +22,25 @@
 *** release version of practicalli/project-templates in `project/create` & `project/templates` aliases
 *** `project/create` to include Practialli designed project templates as a dependency
 *** readme: Clojure Projects section - example `project/create` commands, de-emphasising project/new alias
+*** Update library versions using `clojure -T:search/outdated`
+
+  | :name                                  |                                 :current |                                  :latest |
+  |----------------------------------------+------------------------------------------+------------------------------------------|
+  | clj-commons/clj-yaml                   |                                    0.7.0 |                                   1.0.26 |
+  | clj-kondo/clj-kondo                    |                               2023.03.17 |                               2023.04.14 |
+  | com.clojure-goes-fast/clj-memory-meter |                                    0.2.2 |                                    0.2.3 |
+  | com.github.jpmonettas/flow-storm-dbg   |                                  3.3.320 |                                    3.4.1 |
+  | com.github.liquidz/antq                |                                 2.2.1017 |                                 2.3.1043 |
+  | com.github.seancorfield/next.jdbc      |                                  1.3.862 |                                  1.3.874 |
+  | djblue/portal                          |                                   0.38.2 |                                   0.40.0 |
+  | io.aviso/pretty                        |                                      1.3 |                                      1.4 |
+  | jonase/eastwood                        |                                    1.3.0 |                                    1.4.0 |
+  | lambdaisland/kaocha                    |                                1.80.1274 |                                1.82.1306 |
+  | lambdaisland/kaocha-cljs               |                                  1.4.130 |                                  1.5.154 |
+  | org.clojure/clojurescript              |                                 1.10.773 |                                  1.11.60 |
+  | org.clojure/spec-alpha2                | 3d32b5e571b98e2930a7b2ed1dd9551bb269375a | 46b183d19984cafb655647f212bfa286b4d0dc63 |
+  | slipset/deps-deploy                    |                                    0.2.0 |                                    0.2.1 |
+
 
 * 2023-03-25
 ** Added
