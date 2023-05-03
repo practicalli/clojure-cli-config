@@ -100,9 +100,6 @@
                  ring/ring-mock               {:mvn/version "0.4.0"}
                  criterium/criterium          {:mvn/version "0.4.6"}}}
 
-  :lib/nrepl
-  {:extra-deps {nrepl/nrepl {:mvn/version "1.0.0"}}}
-
   ;; alpha state software as API has not been finalized however the code works reliably
   ;; Latest commit on add-lib3 branch, don't update with :search/outdated
   ;; Set logging implementation to no-operation

@@ -28,6 +28,10 @@
   ;; ---------------------------------------------------
   ;;  REPL's
 
+  ;; DEPRECATED - limited use without `:main-opts` configuration to start nREPL server
+  :lib/nrepl
+  {:extra-deps {nrepl/nrepl {:mvn/version "1.0.0"}}}
+
   ;; Simple nREPL server REPL, headless
   ;; call with -i flag to start interactive client
   :repl/nrepl
