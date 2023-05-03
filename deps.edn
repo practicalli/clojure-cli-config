@@ -10,20 +10,23 @@
 ;; --------------------------------------------------
 ;; Top-level keys for Clojure CLI deps.edn
 
-;; :mvn/repositories - Maven & Clojars repositories, examples of other repositories
-;; :mvn/local-repo   - example of setting a local repository path
-;; :aliases          - tools to enhance a development workflow
-;; :paths            - not included in this configuration
-;; :deps             - not included in this configuration
+;; `:mvn/repositories` - Maven & Clojars repositories, examples of other repositories
+;; `:mvn/local-repo`   - set local repository path - defaults to $HOME/.m2/repository
+;; `:aliases`          - tools to enhance a development workflow
+;; `:paths`            - directory paths to add to the class path
+;; `:deps`             - library dependencies to add to the class path
+
+;; `:paths` and `:deps` are typically used in the project `deps.edn`
+;; rather than a user `deps.edn` configuration
 
 ;; Keys used within :aliases
-;;  resolve-deps aliases (-R) affect dependency resolution, options:
-;;    :extra-deps - specifies extra deps to add to :deps
-;;    :override-deps - specifies a coordinate to use instead of that in :deps
-;;    :default-deps - specifies a coordinate to use for a lib if one isn't found
-;;  make-classpath aliases (-C) affect the classpath generation, options:
-;;    :extra-paths - vector of additional paths to add to the classpath
-;;    :classpath-overrides - map of lib to path that overrides the result of resolving deps
+;;  resolve-deps aliases affect dependency resolution, options:
+;;    `:extra-deps` - specifies extra deps to add to :deps
+;;    `:override-deps` - specifies a coordinate to use instead of that in :deps
+;;    `:default-deps` - specifies a coordinate to use for a lib if one isn't found
+;;  make-classpath aliases affect the classpath generation, options:
+;;    `:extra-paths` - vector of additional paths to add to the classpath
+;;    `:classpath-overrides` - map of lib to path that overrides the result of resolving deps
 ;; ---------------------------------------------------
 
 
@@ -32,7 +35,7 @@
 
  ;; Specify a local repository for maven - default `$HOME/.m2/repository`
  ;; FreeDesktop.org XDG_CACHE_HOME is the recommended location
- ;; Full path should be used, otherwise directory relative command is used
+ ;; Full path should be used, otherwise a relative directory path will be created
  ;; :mvn/local-repo "/home/practicalli/.cache/maven/repository"
 
  ;; `clojure -Spath` will show the current class path which will include the path to the local maven repository for the library dependencies.
@@ -876,7 +879,6 @@
                  :sha     "b1a7fd310b6511048fbacb8e496f574c8ccfa291"}}
    :main-opts  ["-m" "closh.zero.frontend.rebel"]}
 
-  #_()}
- ;; End of alias definitions
+  #_()} ; End of alias definitions
  ;; --------------------------------------------------
  }
