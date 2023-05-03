@@ -3,6 +3,7 @@
 * Unreleased
 ** Changed
 *** DEPRECATED: `:lib/reloaded` & `:lib/tools-ns` - use `:dev/reloaded`
+*** DEPRECATED: `:repl/rebel-cljs`, `:repl/figwheel`, `:repl/rebel-cljs` requires JVM with Nashorn, i.e. Java 8 - use figwheel-main template and [[https://practical.li/spacemacs/clojure-repl/clojurescript-repl/][Practicalli ClojureScript project workflow]]
 
 * 2023-04-26
 ** Added

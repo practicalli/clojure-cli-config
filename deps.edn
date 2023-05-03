@@ -176,26 +176,6 @@
                "--middleware"
                "[cider.nrepl/cider-middleware,portal.nrepl/wrap-portal]"]}
 
-  ;; clojure -M:repl/cljs
-  :repl/cljs
-  {:extra-deps {org.clojure/clojurescript {:mvn/version "1.11.60"}
-                nrepl/nrepl               {:mvn/version "1.0.0"}
-                cider/cider-nrepl         {:mvn/version "0.30.0"}
-                cider/piggieback          {:mvn/version "0.5.3"}}
-   :main-opts  ["-m" "nrepl.cmdline"
-                "--interactive"
-                "--middleware" "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}
-
-  :repl/figwheel
-  {:extra-deps {org.clojure/clojurescript {:mvn/version "1.11.60"}
-                com.bhauman/figwheel-main {:mvn/version "0.2.18"}
-                nrepl/nrepl               {:mvn/version "1.0.0"}
-                cider/cider-nrepl         {:mvn/version "0.30.0"}
-                cider/piggieback          {:mvn/version "0.5.3"}}
-   :main-opts  ["-m" "nrepl.cmdline"
-                "--interactive"
-                "--middleware" "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}
-
   ;; Rebel Readline enhanced REPL UI
   ;; REPL UI with syntax highlighting, built in docs and a quit command `:repl/quit`
 
@@ -264,14 +244,6 @@
                 "--middleware" "[com.billpiel.sayid.nrepl-middleware/wrap-sayid,refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
                 "--interactive"
                 "-f" "rebel-readline.main/-main"]}
-
-  ;; ClojureScript REPL with rebel readline with nrepl for editor connection
-  ;; https://github.com/bhauman/rebel-readline/tree/master/rebel-readline-cljs
-  ;; CIDER: run `cider-connect-cljs` and select REPL host and port, figwheel-main and dev build
-  :repl/rebel-cljs
-  {:extra-deps {com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}}
-   :main-opts  ["-e" "(apply require clojure.main/repl-requires)"
-                "-m" "rebel-readline-cljs.main"]}
 
   :lib/rebel
   {:extra-deps {com.bhauman/rebel-readline {:mvn/version "0.1.4"}}}

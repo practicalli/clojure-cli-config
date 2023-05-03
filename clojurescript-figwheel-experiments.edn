@@ -1,0 +1,108 @@
+;; ---------------------------------------------------------
+;; Figwheel experiments
+;;
+;; Attemps to run a ClojureScript terminal REPL with nREPL
+;; to connect an Editor e.g. Emacs/Spacemacs, Neovim/Conjure
+;;
+;; Abandoned approach
+
+;; Recommend either
+;; Run figwheel-main project aliases for Rebel realine and use Emacs as an editor (file save triggers reload)
+;; Run cider-jack-in-cljs and do everything in the editor
+;; ---------------------------------------------------------
+
+
+
+
+{:aliases
+ {;;
+  ;;
+  ;; Rebel Readline, ClojureScript and Figwheel experiements
+
+
+
+  ;; ClojureScript REPL with basic UI (rlwrap)
+  ;; clojure -M:repl/cljs
+  ;; - use with figwheel alias in figwheel-main template project
+  :repl/cljs
+  {:extra-deps {org.clojure/clojurescript {:mvn/version "1.11.60"}
+                nrepl/nrepl               {:mvn/version "1.0.0"}
+                cider/cider-nrepl         {:mvn/version "0.30.0"}
+                cider/piggieback          {:mvn/version "0.5.3"}}
+   :main-opts  ["--main" "nrepl.cmdline"
+                "--middleware" "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"
+                "--interactive"]}
+
+  ;; Derived from Cider Jack-in command
+  ;; clojure -M:repl/figwheel-headless
+  ;; - check cider will connect to a terminal repl
+  ;; `cider-jack-in-cljs` to start figwheel
+  :repl/figwheel-headless
+  {:extra-deps
+   {nrepl/nrepl       {:mvn/version "1.0.0"}
+    cider/cider-nrepl {:mvn/version "0.30.0"}
+    cider/piggieback  {:mvn/version "0.5.3"}
+    com.bhauman/figwheel-main {:mvn/version "0.2.18"}}
+   :main-opts
+   ["-m" "nrepl.cmdline"
+    "--middleware" "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"]}
+
+
+
+
+
+
+
+  ;; Start Rebel and then start nREPL via custom `user` namespace
+  ;; https://figwheel.org/docs/vim.html
+
+  ;; partially works with older version of cider-nrepl and piggieback, but fails with newer versions
+  ;; - figwheel-main commands mostly work, although not reliably
+  ;; clojure-connect-cljs and select figwheel-main | dev build tries to start the dev build
+  ;; so should not start the figwheel build in the `user` namespace (or write a custom connect type for cider)
+
+  :repl/figwheel
+  {:extra-paths ["src" "resources" "test" "target"]
+   :extra-deps
+   {;; org.clojure/clojure {:mvn/version "1.11.1"}
+    ;; org.clojure/clojurescript {:mvn/version "1.10.773"}
+    com.bhauman/figwheel-main {:mvn/version "0.2.18"}
+    com.bhauman/rebel-readline {:mvn/version "0.1.4"}
+    com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}
+    org.clojure/tools.nrepl {:mvn/version "0.2.13"}
+    cider/cider-nrepl {:mvn/version "0.30.0"}
+    cider/piggieback {:mvn/version "0.5.3"}}
+   :main-opts ["-m" "rebel-readline.main"]}
+
+  :repl/cljs-figwheel
+  {:extra-deps {org.clojure/clojurescript {:mvn/version "1.11.60"}
+                nrepl/nrepl               {:mvn/version "1.0.0"}
+                cider/cider-nrepl         {:mvn/version "0.30.0"}
+                cider/piggieback          {:mvn/version "0.5.3"}}
+   :main-opts  ["--main" "nrepl.cmdline"
+                "--middleware" "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"
+                "--interactive"
+                "-f"  "figwheel.main/-main" "-b" "dev" "-r"]}
+
+;; Connects to clojurescript repl, evaluation updates app,
+  ;; Java 11 or earlier - requires Nashorn JavaScript engine in JVM
+  :repl/nrepl-figwheel
+  {:extra-deps
+   {org.clojure/clojurescript {:mvn/version "1.9.946"}
+    nrepl/nrepl               {:mvn/version "0.8.3"}
+    cider/cider-nrepl         {:mvn/version "0.30.0"}
+    cider/piggieback          {:mvn/version "0.5.3"}
+    org.slf4j/slf4j-nop       {:mvn/version "2.0.7"}
+    ;; org.openjdk.nashorn/nashorn-core {:mvn/version "15.4"}
+    jakarta.xml.bind/jakarta.xml.bind-api {:mvn/version "2.3.2"}
+    cljs-tooling/cljs-tooling {:mvn/version "0.3.1"}
+    com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}
+    com.bhauman/figwheel-main {:mvn/version "0.2.18"}}
+   :extra-paths ["target" "test"]
+   :main-opts
+   ["--main" "nrepl.cmdline"
+    "--middleware" "[cider.nrepl/cider-middleware,cider.piggieback/wrap-cljs-repl]"
+    "--interactive"
+    "-f" "rebel-readline.cljs.main/-main"]}
+
+  #_()}}

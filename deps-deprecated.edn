@@ -46,7 +46,21 @@
                 "--middleware" "[cider.nrepl/cider-middleware]"
                 "--interactive"]}
 
-  ;; End of REPL's
+  ;; DEPRECATED
+  ;;- requires Nashorn which was removed from Java 11 onward
+  ;; ClojureScript REPL with rebel readline with nrepl for editor connection
+  ;; https://github.com/bhauman/rebel-readline/tree/master/rebel-readline-cljs
+  ;; CIDER: run `cider-connect-cljs` and select REPL host and port, figwheel-main and dev build
+  ;; Requires Nashorn ClojureScript REPL
+  :repl/rebel-cljs
+  {:extra-deps {org.clojure/clojurescript {:mvn/version "1.11.60"}
+                org.openjdk.nashorn/nashorn-core {:mvn/version "15.4"}
+                com.bhauman/figwheel-main {:mvn/version "0.2.18"}
+                com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}}
+   :main-opts  ["--main" "rebel-readline.cljs.main"
+                "-f" "rebel-readline.cljs.main/-main"]}
+
+;; End of REPL's
   ;; ---------------------------------------------------
 
   ;; ---------------------------------------------------
@@ -327,6 +341,7 @@
    :main-opts  ["-m" "nrepl.cmdline"
                 "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"]}
 
+  ;; REPLACED: `:repl/cljs`
   ;; Run a REPL using nREPL server for access by cider-connect-cljs
   ;; clojure -M:middleware/cider-cljs
   ;; Using figwheel-main template and cider-connect-cljs: clojure -M:middleware/cider-cljs:fig
