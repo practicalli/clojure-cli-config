@@ -1,6 +1,9 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Added
+*** alias: `:lib/component-repl` REPL workflow for Component library
+*** alias: `:lib/integrant-repl` REPL workflow for Integrant library
 ** Changed
 *** DEPRECATED: `:lib/reloaded` & `:lib/tools-ns` - use `:dev/reloaded`
 *** DEPRECATED: `lib/nrepl` little value without a `:main-opts` configuration

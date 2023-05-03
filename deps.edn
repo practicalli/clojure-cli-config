@@ -199,7 +199,6 @@
                 com.bhauman/rebel-readline   {:mvn/version "0.1.4"}
                 djblue/portal                {:mvn/version "0.40.0"}   ; portal data inspector
                 clj-commons/clj-yaml         {:mvn/version "1.0.26"}   ; portal yaml support (optional)
-                integrant/repl               {:mvn/version "0.3.2"}
                 org.clojure/tools.namespace  {:mvn/version "1.4.4"}
                 org.clojure/tools.trace      {:mvn/version "0.7.11"}
                 org.slf4j/slf4j-nop          {:mvn/version "2.0.7"}
@@ -264,6 +263,13 @@
                 "--middleware" "[cider.nrepl/cider-middleware]"
                 "--interactive"
                 "-f" "rebel-readline.main/-main"]}
+
+  ;; Component REPL libraries
+  :lib/integrant-repl
+  {:extra-deps {integrant/repl {:mvn/version "0.3.2"}}}
+
+  :lib/component-repl
+  {:extra-deps {com.stuartsierra/component.repl {:mvn/version "1.0.0"}}}
 
   ;; End of remote REPL connections
   ;; ---------------------------------------------------
