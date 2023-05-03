@@ -108,18 +108,6 @@
                                               :git/sha     "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
                 org.slf4j/slf4j-nop          {:mvn/version "2.0.7"}}}
 
-  ;; Refresh the current namespace in a running REPL
-  :lib/tools-ns
-  {:extra-deps {org.clojure/tools.namespace {:mvn/version "1.4.4"}}}
-
-  ;; DEPRECATED
-  :lib/reloaded
-  {:extra-deps {org.clojure/tools.namespace  {:mvn/version "1.4.4"}
-                org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
-                                              :git/sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
-                org.slf4j/slf4j-nop          {:mvn/version "2.0.7"}
-                com.brunobonacci/mulog       {:mvn/version "0.9.0"}}}
-
   ;; Highlight important aspects of error stack trace using ANSI formatting
   ;; https://github.com/AvisoNovate/pretty
   :lib/pretty-errors

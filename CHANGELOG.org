@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Changed
+*** DEPRECATED: `:lib/reloaded` & `:lib/tools-ns` - use `:dev/reloaded`
 
 * 2023-04-26
 ** Added
