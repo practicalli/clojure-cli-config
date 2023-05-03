@@ -1,8 +1,13 @@
 ---
 # ------------------------------------------
 # Scheduled check of versions
-# - insight as to when to push version updates
-# to Practialli Clojure CLI Config
+# - use as non-urgent report on versions
+# - Uses POSIX Cron syntax
+#   - Minute [0,59]
+#   - Hour [0,23]
+#   - Day of the month [1,31]
+#   - Month of the year [1,12]
+#   - Day of the week ([0,6] with 0=Sunday)
 #
 # Using liquidz/anta to check:
 # - GitHub workflows
@@ -12,8 +17,10 @@
 name: "Scheduled Version Check"
 on:
   schedule:
-    - cron: '0 4 * * *'  # at 04:04:04 ever day
-  workflow_dispatch:     # Run manually via GitHub Actions Workflow page
+    - cron: "0 4 * * *" # at 04:04:04 ever day
+    # - cron: "0 4 * * 5" # at 04:04:04 ever Friday
+    # - cron: "0 4 1 * *" # at 04:04:04 on first day of month
+  workflow_dispatch: # Run manually via GitHub Actions Workflow page
 
 jobs:
   scheduled-version-check:
