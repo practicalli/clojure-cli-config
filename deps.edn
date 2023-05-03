@@ -539,6 +539,10 @@
                 org.clojure/clojurescript {:mvn/version "1.11.60"}}
    :main-opts  ["--main" "cljs.main" "-re" "node"]}
 
+  ;; Morse - https://github.com/nubank/morse
+  :inspect/morse
+  {:extra-deps {io.github.nubank/morse {:git/tag "v2023.04.30.01" :git/sha "d99b09c"}}}
+
   ;; End of Data inspectors
   ;; ---------------------------------------------------
 
