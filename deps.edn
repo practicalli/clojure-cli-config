@@ -350,7 +350,7 @@
   ;; cd $XDG_CONFIG_HOME/clojure && clojure -T:search/outdated
   :search/outdated
   {:replace-paths ["."]
-   :replace-deps  {com.github.liquidz/antq {:mvn/version "2.3.1043"}
+   :replace-deps  {com.github.liquidz/antq {:mvn/version "2.4.1062"}
                    org.slf4j/slf4j-nop     {:mvn/version "2.0.7"}}
    :exec-fn antq.tool/outdated
    :exec-args {:directory ["."] ; default
@@ -557,7 +557,7 @@
   ;; Flowstorm, a tracing debugger
   ;; https://github.com/jpmonettas/flow-storm-debugger
   :lib/flowstorm
-  {:extra-deps {com.github.jpmonettas/flow-storm-dbg {:mvn/version "3.4.1"}}}
+  {:extra-deps {com.github.jpmonettas/flow-storm-dbg {:mvn/version "3.5.1"}}}
 
   ;; End of Debug Tools
   ;; ---------------------------------------------------
@@ -794,7 +794,7 @@
   {:replace-paths []
    :replace-deps  {clojurians-zulip/feeds
                    {:git/url "https://gitlab.com/clojurians-zulip/feeds.git"
-                    :sha     "ba8fe2b7f3415334a73c1ccc6077eafb05e43c5b"}}
+                    :sha     "dc0ed3f14bcc2f6344492782220313427bc5c8bf"}}
    :main-opts     ["--main" "inclined.main"
                    "--ns" "clojurians-zulip.events" "--"]}
 
