@@ -1,3 +1,5 @@
+# Practicalli Clojure CLI Config
+
 ```none
 ██████╗ ██████╗  █████╗  ██████╗████████╗██╗ ██████╗ █████╗ ██╗     ██╗     ██╗
 ██╔══██╗██╔══██╗██╔══██╗██╔════╝╚══██╔══╝██║██╔════╝██╔══██╗██║     ██║     ██║
@@ -7,10 +9,7 @@
 ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝
 ```
 
-
-## Practicalli Clojure CLI Config
-
-The **[Practicalli Clojure book](https://practical.li/clojure)** uses this configuration extensively to develop Clojure projects.
+[Practicalli books](https://practical.li/#books) use the configuration extensively to develop Clojure projects.
 
 [Practicalli Clojure CLI Config](https://github.com/practicalli/clojure-cli-config/) contains a `deps.edn` alias definitions for a wide range of community libraries and tools to that extend the features of Clojure CLI.
 
@@ -625,21 +624,33 @@ your@email.com:493u984u3249834uo4u
 
 Create an event using the following command
 
+Show help and options
+
 ```shell
-# Show help and options
 clojure -M:community/zulip-event create -h
+```
 
-# Announce an meetup.com event (you'll be asked for confirmation before posting)
+Announce an meetup.com event (you'll be asked for confirmation before posting)
+
+```shell
 clojure -M:community/zulip-event create --zulip-auth "${ZULIP_AUTH}" --url https://www.meetup.com/some-group/events/123/
+```
 
-# Full example
-clojure -M:community/zulip-event create --zulip-auth "${ZULIP_AUTH}" --title 'Practicalli Live - Exercism.io challenges' --start '2020-11-14T09:00+00:00' --duration 1 --url https://youtu.be/Z5C7X1UN8yo --description 'Walking through solutions to the Exercism.io challenges'
+Full example
+
+```shell
+clojure -M:community/zulip-event create --zulip-auth "${ZULIP_AUTH}" \
+--title 'Practicalli Live - Exercism.io challenges' \
+--start '2020-11-14T09:00+00:00' \
+--duration 1 \
+--url https://youtu.be/Z5C7X1UN8yo \
+--description 'Walking through solutions to the Exercism.io challenges'
 ```
 
 Take care to get the timezone notation correct.
 
 
-# Library Hosting Services
+## Library Hosting Services
 
 Repositories that host libraries for Clojure.
 
@@ -651,12 +662,12 @@ The order of additional repositories consulted is not guaranteed, so may cause u
 
 Maven supports [explicit mirror definition](https://maven.apache.org/guides/mini/guide-mirror-settings.html) in `~/.m2/settings.xml` and Clojure CLI  supports this configuration.  Adding Maven Central or a mirror to  `~/.m2/settings.xml` negates the need for its entry in deps.edn configuration.
 
-## Recommended repositories
+### Recommended repositories
 
 * `central` - Maven Central, the canonical repository for JVM libraries, including Clojure releases
 * `clojars` - [clojars.org](https://repo.clojars.org/), the canonical repositories for Clojure community libraries fronted by a contend delivery network service
 
-## Optional repositories
+### Optional repositories
 
 * `sonatype` - [snapshots of Clojure development releases](https://oss.sonatype.org/), useful for testing against before new stable releases.
 * `business-area` - example of adding a local Artifactory server for your team or business area.
@@ -667,6 +678,7 @@ Maven supports [explicit mirror definition](https://maven.apache.org/guides/mini
 ### Business area
 
 Example of local Artifactory repository configuration
+
 ```clojure
  :mvn/repos
  {"business-area" {:url "https://artifacts.internal-server.com:443/artifactory/business-area-maven-local"}

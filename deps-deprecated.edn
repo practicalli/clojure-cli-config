@@ -51,7 +51,7 @@
                 "--interactive"]}
 
   ;; DEPRECATED
-  ;;- requires Nashorn which was removed from Java 11 onward
+  ;; - requires Nashorn which was removed from Java 11 onward
   ;; ClojureScript REPL with rebel readline with nrepl for editor connection
   ;; https://github.com/bhauman/rebel-readline/tree/master/rebel-readline-cljs
   ;; CIDER: run `cider-connect-cljs` and select REPL host and port, figwheel-main and dev build
@@ -64,7 +64,7 @@
    :main-opts  ["--main" "rebel-readline.cljs.main"
                 "-f" "rebel-readline.cljs.main/-main"]}
 
-;; End of REPL's
+  ;; End of REPL's
   ;; ---------------------------------------------------
 
   ;; ---------------------------------------------------

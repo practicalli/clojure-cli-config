@@ -1,7 +1,7 @@
 ;; ---------------------------------------------------------
 ;; Figwheel experiments
 ;;
-;; Attemps to run a ClojureScript terminal REPL with nREPL
+;; Attempts to run a ClojureScript terminal REPL with nREPL
 ;; to connect an Editor e.g. Emacs/Spacemacs, Neovim/Conjure
 ;;
 ;; Abandoned approach
@@ -84,7 +84,7 @@
                 "--interactive"
                 "-f"  "figwheel.main/-main" "-b" "dev" "-r"]}
 
-;; Connects to clojurescript repl, evaluation updates app,
+  ;; Connects to clojurescript repl, evaluation updates app,
   ;; Java 11 or earlier - requires Nashorn JavaScript engine in JVM
   :repl/nrepl-figwheel
   {:extra-deps
