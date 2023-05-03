@@ -1,0 +1,101 @@
+;; ---------------------------------------------------------
+;; Clojure Linter - clj-kondo configuration for Continuous Integration
+;;
+;; Essential linter checks during CI workflows
+;; disabling non-essential checks to optimise workflow feedback
+;; ---------------------------------------------------------
+
+
+{;; Ignore code in comment blocks
+ :skip-comments true
+
+ :linters {:invalid-arity                 {:level :error
+                                           :skip-args [#_riemann.test/test-stream]}
+           :not-a-function                {:level :error
+                                           :skip-args [#_user/foo]}
+           :private-call                  {:level :error}
+           :inline-def                    {:level :error}
+           :redundant-do                  {:level :off}
+           :redundant-let                 {:level :warning}
+           :cond-else                     {:level :off}
+           :syntax                        {:level :warning}
+           :file                          {:level :error}
+           :missing-test-assertion        {:level :warning}
+           :conflicting-alias             {:level :error}
+           :duplicate-map-key             {:level :error}
+           :duplicate-set-key             {:level :error}
+           :missing-map-value             {:level :error}
+           :redefined-var                 {:level :off}
+           :unreachable-code              {:level :warning}
+           :datalog-syntax                {:level :off}
+           :unbound-destructuring-default {:level :warning}
+           :unused-binding                {:level :off
+                                           ;; :exclude-destructured-keys-in-fn-args false
+                                           ;; :exclude-destructured-as false
+                                           ;; :exclude-unused-as true
+                                           }
+
+           :unsorted-required-namespaces  {:level :off}
+           :unused-namespace              {:level :off
+                                           ;; don't warn about these namespaces:
+                                           :exclude [#_clj-kondo.impl.var-info-gen]}
+           ;; :simple-libspec true
+
+           :unresolved-symbol    {:level :error
+                                  :exclude  [;; ignore globally:
+                                             #_js*
+                                             ;; ignore occurrences of service and event in call to riemann.streams/where:
+                                             #_(riemann.streams/where [service event])
+                                             ;; ignore all unresolved symbols in one-of:
+                                             #_(clj-kondo.impl.utils/one-of)
+                                             #_(user/defproject) ; ignore project.clj's defproject
+                                             #_(clojure.test/are [thrown? thrown-with-msg?])
+                                             #_(cljs.test/are [thrown? thrown-with-msg?])
+                                             #_(clojure.test/is [thrown? thrown-with-msg?])
+                                             #_(cljs.test/is [thrown? thrown-with-msg?])]}
+           :unresolved-var       {:level :warning}
+           :unresolved-namespace {:level :warning
+                                  :exclude [#_foo.bar]}
+           ;; for example: foo.bar is always loaded in a user profile
+
+           :misplaced-docstring       {:level :warning}
+           :not-empty?                {:level :off}
+           :deprecated-var            {:level :off
+                                       #_:exclude
+                                       #_{foo.foo/deprecated-fn
+                                          ;; suppress warnings in the following namespaces
+                                          {:namespaces [foo.bar "bar\\.*"]
+                                           ;; or in these definitions:
+                                           :defs [foo.baz/allowed "foo.baz/ign\\.*"]}}}
+           :unused-referred-var       {:level :off
+                                       :exclude {#_#_taoensso.timbre [debug]}}
+           :unused-private-var        {:level :off}
+           :duplicate-require         {:level :warning}
+           :refer                     {:level :off}
+           :refer-all                 {:level :warning
+                                       :exclude #{}}
+           :use                       {:level :error}
+           :missing-else-branch       {:level :warning}
+           :type-mismatch             {:level :error}
+           :missing-docstring         {:level :warning}
+           :consistent-alias          {:level :off
+                                       ;; warn when alias for clojure.string is
+                                       ;; different from str
+                                       :aliases {#_clojure.string #_str}}
+           :unused-import             {:level :off}
+           :single-operand-comparison {:level :off}
+           :single-logical-operand    {:level :off}
+           :single-key-in             {:level :off}
+           :missing-clause-in-try     {:level :off}
+           :missing-body-in-when      {:level :off}
+           :hook                      {:level :error}
+           :format                    {:level :error}
+           :shadowed-var              {:level :off
+                                       #_#_:suggestions {clojure.core/type tajpu
+                                                         clojure.core/name nomspaco}
+                                       #_#_:exclude [frequencies]
+                                       #_#_:include [name]}
+           :deps.edn                  {:level :warning}}
+
+ ;; Format the output of clj-kondo for GitHub actions
+ :output {:pattern "::{{level}} file={{filename}},line={{row}},col={{col}}::{{message}}"}}

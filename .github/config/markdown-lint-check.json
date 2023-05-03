@@ -1,0 +1,9 @@
+{
+  "projectBaseUrl": "https://practical.li/clojure-web-services",
+  "replacementPatterns": [
+    {
+    "pattern": "^/",
+    "replacement": "/github/workspace/"
+    }
+  ]
+}

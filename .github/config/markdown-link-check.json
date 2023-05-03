@@ -1,0 +1,24 @@
+{
+    "ignorePatterns": [
+        {
+            "pattern": "^http://localhost"
+        },
+        {
+            "pattern": "^mailto:*"
+        },
+        {
+            "pattern": "^#*"
+        },
+        {
+            "pattern": "^https://127.0.0.0/"
+        }
+    ],
+    "timeout": "20s",
+    "retryOn429": true,
+    "retryCount": 5,
+    "fallbackRetryDelay": "30s",
+    "aliveStatusCodes": [
+        200,
+        206
+    ]
+}

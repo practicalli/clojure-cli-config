@@ -7,18 +7,18 @@ name: MegaLinter
 on:
   workflow_dispatch:
   pull_request:
-    branches:
-      - main
+    branches: [main]
   push:
-    branches:
-      - main
+    branches: [main]
 
+# Run Linters in parallel
 # Cancel running job if new job is triggered
 concurrency:
   group: "${{ github.ref }}-${{ github.workflow }}"
   cancel-in-progress: true
+
 jobs:
-  build:
+  megalinter:
     name: MegaLinter
     runs-on: ubuntu-latest
     steps:
@@ -26,6 +26,7 @@ jobs:
       - run: echo "🐧 Job running on ${{ runner.os }} server"
       - run: echo "🐙 Using ${{ github.ref }} branch from ${{ github.repository }} repository"
 
+      # Git Checkout
       - name: Checkout Code
         uses: actions/checkout@v3
         with:
@@ -33,25 +34,30 @@ jobs:
           fetch-depth: 0
       - run: echo "🐙 ${{ github.repository }} repository was cloned to the runner."
 
-
-      - name: MegaLinter
+      # MegaLinter Configuration
+      - name: MegaLinter Run
         id: ml
-        uses: megalinter/megalinter/flavors/java@v6.22.2 ## latest release of major version
+        ## latest release of major version
+        uses: oxsecurity/megalinter/flavors/java@v6
         env:
+          # ADD CUSTOM ENV VARIABLES OR DEFINE IN MEGALINTER_CONFIG file
+          MEGALINTER_CONFIG: .github/config/megalinter.yaml
+
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}" # report individual linter status
           # Validate all source when push on main, else just the git diff with live.
           VALIDATE_ALL_CODEBASE: >-
-            ${{ github.event_name == 'push' && github.ref == 'refs/heads/live'}}
+            ${{ github.event_name == 'push' && github.ref == 'refs/heads/main'}}
 
-          PARALLEL: true
+      # Upload MegaLinter artifacts
+      - name: Archive production artifacts
+        if: ${{ success() }} || ${{ failure() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: MegaLinter reports
+          path: |
+            megalinter-reports
+            mega-linter.log
 
-          # Specific linters to run
-          ENABLE: CREDENTIALS,MARKDOWN,GIT,SPELL,YAML,CLOJURE
-          SPELL_CSPELL_DISABLE_ERRORS: true
-          MARKDOWN_MARKDOWNLINT_CONFIG_FILE: ".github/linters/markdown-lint.yml"
-          CLOJURE_CLJ_KONDO_ARGUMENTS: "--lint deps.edn"
-          # ADD CUSTOM ENV VARIABLES OR DEFINE IN A FILE .mega-linter.yml AT ROOT OF REPOSITORY
-          # DISABLE: COPYPASTE,SPELL # Uncomment to disable copy-paste and spell checks
-
-      - run: echo "🎨 Credentials, Markdown, Git, Spell, Yaml & Clojure checked"
+      # Summary and status
+      - run: echo "🎨 MegaLinter quality checks completed"
       - run: echo "🍏 Job status is ${{ job.status }}."
