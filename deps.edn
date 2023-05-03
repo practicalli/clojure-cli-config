@@ -100,13 +100,12 @@
                  ring/ring-mock               {:mvn/version "0.4.0"}
                  criterium/criterium          {:mvn/version "0.4.6"}}}
 
-  ;; alpha state software as API has not been finalized however the code works reliably
+  ;; DEPRECATED
+  ;; - only useful for Clojure 1.11.x, not required for Clojure 1.12 onward
+  ;; - alpha state software
   ;; Latest commit on add-lib3 branch, don't update with :search/outdated
-  ;; Set logging implementation to no-operation
   :lib/hotload
   {:extra-deps {org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
-                                              :git/sha     "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
-                org.slf4j/slf4j-nop          {:mvn/version "2.0.7"}}}
 
   ;; Highlight important aspects of error stack trace using ANSI formatting
   ;; https://github.com/AvisoNovate/pretty
@@ -120,6 +119,7 @@
   {:extra-deps {io.github.babashka/neil {:git/tag "v0.1.47"
                                          :git/sha "77288d4"}}
    :main-opts ["-m" "babashka.neil"]}
+                                              :git/sha     "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}}}
 
   ;; End of Development environment
   ;; ---------------------------------------------------

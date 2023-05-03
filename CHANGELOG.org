@@ -5,6 +5,7 @@
 *** DEPRECATED: `:lib/reloaded` & `:lib/tools-ns` - use `:dev/reloaded`
 *** DEPRECATED: `lib/nrepl` little value without a `:main-opts` configuration
 *** DEPRECATED: `:repl/rebel-cljs`, `:repl/figwheel`, `:repl/rebel-cljs` requires JVM with Nashorn, i.e. Java 8 - use figwheel-main template and [[https://practical.li/spacemacs/clojure-repl/clojurescript-repl/][Practicalli ClojureScript project workflow]]
+*** docs: `lib/hotload` for Clojure 1.11 and uses [[https://github.com/clojure/tools.deps.alpha/tree/add-lib3][clojure/tools.deps.alpha]] which has been replaced for Clojure 1.12
 *** docs: update introduction and remove outdated content
 *** aliases: use `--main` option in alias `:main-opts` definitions for greater clarity
 
