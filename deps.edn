@@ -258,7 +258,7 @@
   {:extra-deps {nrepl/nrepl                {:mvn/version "1.0.0"}
                 cider/cider-nrepl          {:mvn/version "0.30.0"}
                 com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
-   :main-opts  ["-m" "nrepl.cmdline"
+   :main-opts  ["-e" "(apply require clojure.main/repl-requires)"
                 "--main" "nrepl.cmdline"
                 "--connect"
                 "--middleware" "[cider.nrepl/cider-middleware]"

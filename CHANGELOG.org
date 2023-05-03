@@ -10,6 +10,7 @@
 *** alias: remove find-deps from `:repl/reloaded` & `:dev/reloaded` as no longer required - use add-lib instead
 *** docs: update introduction and remove outdated content
 *** aliases: use `--main` option in alias `:main-opts` definitions for greater clarity
+*** alias: `:repl/rebel` load Clojure 1.12 hotload functions during REPL startup
 
 * 2023-04-26
 ** Added
