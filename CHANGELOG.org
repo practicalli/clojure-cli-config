@@ -6,6 +6,16 @@
 * 2023-05-09
 ** Updated
 *** ci: weekly schedule version check, exclude tools deps alpha
+*** Update library versions using `clojure -T:search/outdated`
+
+  | :name                           |  :current |   :latest |
+  |---------------------------------+-----------+-----------|
+  | com.github.liquidz/antq         |  2.4.1062 |  2.4.1070 |
+  | io.aviso/pretty                 |       1.4 |     1.4.2 |
+  | io.github.seancorfield/deps-new |    v0.5.1 |    v0.5.2 |
+  | lambdaisland/kaocha             | 1.82.1306 | 1.83.1314 |
+
+* 2023-05-03
 ** Added
 *** alias: `:lib/component-repl` REPL workflow for Component library
 *** alias: `:lib/integrant-repl` REPL workflow for Integrant library
@@ -29,6 +39,7 @@
   | clojurians-zulip/feeds               | ba8fe2b7f3415334a73c1ccc6077eafb05e43c5b | dc0ed3f14bcc2f6344492782220313427bc5c8bf |
   | com.github.jpmonettas/flow-storm-dbg | 3.4.1                                    | 3.5.1                                    |
   | com.github.liquidz/antq              | 2.3.1043                                 | 2.4.1062                                 |
+
 
 * 2023-04-26
 ** Added

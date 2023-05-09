@@ -91,7 +91,7 @@
                  org.clojure/tools.trace      {:mvn/version "0.7.11"}
                  org.slf4j/slf4j-nop          {:mvn/version "2.0.7"}
                  com.brunobonacci/mulog       {:mvn/version "0.9.0"}
-                 lambdaisland/kaocha          {:mvn/version "1.82.1306"}
+                 lambdaisland/kaocha          {:mvn/version "1.83.1314"}
                  org.clojure/test.check       {:mvn/version "1.1.1"}
                  ring/ring-mock               {:mvn/version "0.4.0"}
                  criterium/criterium          {:mvn/version "0.4.6"}}}
@@ -108,7 +108,7 @@
   ;; Highlight important aspects of error stack trace using ANSI formatting
   ;; https://github.com/AvisoNovate/pretty
   :lib/pretty-errors
-  {:extra-deps {io.aviso/pretty {:mvn/version "1.4"}}}
+  {:extra-deps {io.aviso/pretty {:mvn/version "1.4.2"}}}
 
   ;; A CLI to add common aliases and features to deps.edn-based projects.
   ;; DEPRECATED
@@ -204,7 +204,7 @@
                 org.clojure/tools.trace      {:mvn/version "0.7.11"}
                 org.slf4j/slf4j-nop          {:mvn/version "2.0.7"}
                 com.brunobonacci/mulog       {:mvn/version "0.9.0"}
-                lambdaisland/kaocha          {:mvn/version "1.82.1306"}
+                lambdaisland/kaocha          {:mvn/version "1.83.1314"}
                 org.clojure/test.check       {:mvn/version "1.1.1"}
                 ring/ring-mock               {:mvn/version "0.4.0"}
                 criterium/criterium          {:mvn/version "0.4.6"}}
@@ -286,7 +286,7 @@
 
   :project/create
   {:replace-deps {io.github.seancorfield/deps-new
-                  {:git/tag "v0.5.1" :git/sha "21cede2"}
+                  {:git/tag "v0.5.2" :git/sha "253f32a"}
                   io.github.practicalli/project-templates
                   {:git/tag "2023.04.25" :git/sha "66713b9"}}
    :exec-fn      org.corfield.new/create
@@ -295,7 +295,7 @@
 
   :project/create-local
   {:replace-deps {io.github.seancorfield/deps-new
-                  {:git/tag "v0.5.1" :git/sha "21cede2"}
+                  {:git/tag "v0.5.2" :git/sha "253f32a"}
                   practicalli/project-templates
                   {:local/root "/home/practicalli/projects/practicalli/project-templates/"}}
    :exec-fn      org.corfield.new/create
@@ -351,7 +351,7 @@
   ;; cd $XDG_CONFIG_HOME/clojure && clojure -T:search/outdated
   :search/outdated
   {:replace-paths ["."]
-   :replace-deps  {com.github.liquidz/antq {:mvn/version "2.4.1062"}
+   :replace-deps  {com.github.liquidz/antq {:mvn/version "2.4.1070"}
                    org.slf4j/slf4j-nop     {:mvn/version "2.0.7"}}
    :exec-fn antq.tool/outdated
    :exec-args {:directory ["."] ; default
@@ -621,7 +621,7 @@
   ;; clojure -X:test/run :fail-fast true
   :test/run
   {:extra-paths ["test"]
-   :extra-deps {lambdaisland/kaocha {:mvn/version "1.82.1306"}}
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.83.1314"}}
    :main-opts   ["--main" "kaocha.runner"]
    :exec-fn kaocha.runner/exec-fn
    :exec-args {:randomize? false
@@ -631,7 +631,7 @@
   ;; clojure -X:test/watch
   :test/watch
   {:extra-paths ["test"]
-   :extra-deps {lambdaisland/kaocha {:mvn/version "1.82.1306"}}
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.83.1314"}}
    :main-opts   ["--main" "kaocha.runner" "--watch" "--fail-fast" "--skip-meta" ":slow"]
    :exec-fn kaocha.runner/exec-fn
    :exec-args {:watch? true
@@ -640,14 +640,14 @@
 
   :test/cljs
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha      {:mvn/version "1.82.1306"}
+   :extra-deps  {lambdaisland/kaocha      {:mvn/version "1.83.1314"}
                  lambdaisland/kaocha-cljs {:mvn/version "1.5.154"}}
    :main-opts   ["--main" "kaocha.runner" "unit-cljs"]}
 
   ;; https://github.com/lambdaisland/kaocha-cucumbe
   ;; - used for kaocha-runner.el to run Kaocha test runner in Emacs Cider
   :lib/kaocha
-  {:extra-deps {lambdaisland/kaocha {:mvn/version "1.82.1306"}}}
+  {:extra-deps {lambdaisland/kaocha {:mvn/version "1.83.1314"}}}
 
   ;; End of Test runners
   ;; ---------------------------------------------------
