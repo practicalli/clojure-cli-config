@@ -17,8 +17,8 @@
 name: "Scheduled Version Check"
 on:
   schedule:
-    - cron: "0 4 * * *" # at 04:04:04 ever day
-    # - cron: "0 4 * * 5" # at 04:04:04 ever Friday
+    # - cron: "0 4 * * *" # at 04:04:04 ever day
+    - cron: "0 4 * * 5" # at 04:04:04 ever Friday
     # - cron: "0 4 1 * *" # at 04:04:04 on first day of month
   workflow_dispatch: # Run manually via GitHub Actions Workflow page
 
@@ -38,8 +38,8 @@ jobs:
       - name: "Antq Check versions"
         uses: liquidz/antq-action@main
         with:
-          excludes: "io.github.babashka/neil org.clojure/tools.deps.alpha "
+          excludes: "io.github.babashka/neil org.clojure/tools.deps.alpha"
 
+      # Summary
       - run: echo "🎨 library versions checked with liquidz/antq"
-
       - run: echo "🍏 Job status is ${{ job.status }}."

@@ -1,6 +1,11 @@
 #+TITLE: Changelog
 
 * Unreleased
+
+
+* 2023-05-09
+** Updated
+*** ci: weekly schedule version check, exclude tools deps alpha
 ** Added
 *** alias: `:lib/component-repl` REPL workflow for Component library
 *** alias: `:lib/integrant-repl` REPL workflow for Integrant library
