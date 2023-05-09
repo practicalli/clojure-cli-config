@@ -6,6 +6,7 @@
 * 2023-05-09
 ** Updated
 *** ci: weekly schedule version check, exclude tools deps alpha
+*** alias: exclude tools.deps.alpha library in :search/outdated
 *** Update library versions using `clojure -T:search/outdated`
 
   | :name                           |  :current |   :latest |

@@ -355,7 +355,7 @@
                    org.slf4j/slf4j-nop     {:mvn/version "2.0.7"}}
    :exec-fn antq.tool/outdated
    :exec-args {:directory ["."] ; default
-               ;; :exclude ["com.cognitect/rebl"]
+               :exclude ["org.clojure/tools.deps.alpha"]
                ;; :focus ["com.github.liquidz/antq"]
                :skip ["boot" "leiningen"]
                :reporter "table" ; json edn format
