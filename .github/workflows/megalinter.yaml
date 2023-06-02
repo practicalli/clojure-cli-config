@@ -7,9 +7,9 @@ name: MegaLinter
 on:
   workflow_dispatch:
   pull_request:
-    branches: [main]
+    branches: [ main ]
   push:
-    branches: [main]
+    branches: [ main ]
 
 # Run Linters in parallel
 # Cancel running job if new job is triggered
@@ -38,7 +38,7 @@ jobs:
       - name: MegaLinter Run
         id: ml
         ## latest release of major version
-        uses: oxsecurity/megalinter/flavors/java@v6
+        uses: oxsecurity/megalinter/flavors/java@v7
         env:
           # ADD CUSTOM ENV VARIABLES OR DEFINE IN MEGALINTER_CONFIG file
           MEGALINTER_CONFIG: .github/config/megalinter.yaml
