@@ -2,6 +2,25 @@
 
 * Unreleased
 
+* 2023-06-02
+** Updated
+*** ci: setup-clojure action version 11
+*** ci: megalinter@java action version 7
+*** ci: clj-kondo action version 2023.05.26
+*** Update library versions using `clojure -T:search/outdated`
+
+    |                                  :name |                                 :current |                                  :latest |
+    +----------------------------------------+------------------------------------------+------------------------------------------|
+    |                         borkdude/carve | 14a3a5db4b372e33d20763a8d1344bddae72c735 | cb621317ae1582869c8bd8f1a47cf57a3598d803 |
+    |                    clj-kondo/clj-kondo |                               2023.04.14 |                               2023.05.26 |
+    |                 clojurians-zulip/feeds | dc0ed3f14bcc2f6344492782220313427bc5c8bf | 4bf8109afc5cd5ab2f409151d4dd583644028b4a |
+    | com.clojure-goes-fast/clj-memory-meter |                                    0.2.3 |                                    0.3.0 |
+    |   com.github.jpmonettas/flow-storm-dbg |                                    3.5.1 |                                    3.6.2 |
+    |                          djblue/portal |                                   0.40.0 |                                   0.41.0 |
+    |                        io.aviso/pretty |                                    1.4.2 |                                    1.4.3 |
+    |                    lambdaisland/kaocha |                                1.83.1314 |                                1.84.1335 |
+    |                org.clojure/spec-alpha2 | 46b183d19984cafb655647f212bfa286b4d0dc63 | 4cbfa677c4cd66339f18e1c122222c05c69e0d8e |
+    |                          zprint/zprint |                                    1.2.5 |                                    1.2.6 |
 
 * 2023-05-09
 ** Updated
