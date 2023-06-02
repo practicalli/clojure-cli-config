@@ -84,7 +84,7 @@
 
   :dev/reloaded
   {:extra-paths ["dev" "test"]
-   :extra-deps  {djblue/portal                {:mvn/version "0.40.0"}   ; portal data inspector
+   :extra-deps  {djblue/portal                {:mvn/version "0.41.0"}   ; portal data inspector
                  clj-commons/clj-yaml         {:mvn/version "1.0.26"}   ; portal yaml support (optional)
                  org.clojure/tools.namespace  {:mvn/version "1.4.4"}
                  org.clojure/tools.trace      {:mvn/version "0.7.11"}
@@ -112,7 +112,7 @@
   ;; Highlight important aspects of error stack trace using ANSI formatting
   ;; https://github.com/AvisoNovate/pretty
   :lib/pretty-errors
-  {:extra-deps {io.aviso/pretty {:mvn/version "1.4.2"}}}
+  {:extra-deps {io.aviso/pretty {:mvn/version "1.4.3"}}}
 
   ;; A CLI to add common aliases and features to deps.edn-based projects.
   ;; DEPRECATED
@@ -172,7 +172,7 @@
   {:extra-deps
    {nrepl/nrepl       {:mvn/version "1.0.0"}
     cider/cider-nrepl {:mvn/version "0.30.0"}
-    djblue/portal     {:mvn/version "0.40.0"}}
+    djblue/portal     {:mvn/version "0.41.0"}}
    :main-opts ["--main" "nrepl.cmdline"
                "--middleware"
                "[cider.nrepl/cider-middleware,portal.nrepl/wrap-portal]"]}
@@ -202,13 +202,13 @@
    :extra-deps {nrepl/nrepl                  {:mvn/version "1.0.0"}
                 cider/cider-nrepl            {:mvn/version "0.30.0"}
                 com.bhauman/rebel-readline   {:mvn/version "0.1.4"}
-                djblue/portal                {:mvn/version "0.40.0"}   ; portal data inspector
+                djblue/portal                {:mvn/version "0.41.0"}   ; portal data inspector
                 clj-commons/clj-yaml         {:mvn/version "1.0.26"}   ; portal yaml support (optional)
                 org.clojure/tools.namespace  {:mvn/version "1.4.4"}
                 org.clojure/tools.trace      {:mvn/version "0.7.11"}
                 org.slf4j/slf4j-nop          {:mvn/version "2.0.7"}
                 com.brunobonacci/mulog       {:mvn/version "0.9.0"}
-                lambdaisland/kaocha          {:mvn/version "1.83.1314"}
+                lambdaisland/kaocha          {:mvn/version "1.84.1335"}
                 org.clojure/test.check       {:mvn/version "1.1.1"}
                 ring/ring-mock               {:mvn/version "0.4.0"}
                 criterium/criterium          {:mvn/version "0.4.6"}}
@@ -372,7 +372,7 @@
   :search/unused-vars
   {:extra-deps {borkdude/carve
                 {:git/url "https://github.com/borkdude/carve"
-                 :sha     "14a3a5db4b372e33d20763a8d1344bddae72c735"}}
+                 :sha     "cb621317ae1582869c8bd8f1a47cf57a3598d803"}}
    :main-opts  ["--main" "carve.main"]}
 
   ;; End of Projects and dependencies
@@ -446,25 +446,25 @@
   ;; advanced for Clojure code and EDN
   ;; clojure -M:data/zprint filename-or-pattern
   :format/zprint
-  {:extra-deps {zprint/zprint {:mvn/version "1.2.5"}}
+  {:extra-deps {zprint/zprint {:mvn/version "1.2.6"}}
    :main-opts  ["--main" "zprint.main"
                 "{:style :indent-only}"
                 "--list-formatted-summary-check"]}
 
   :format/zprint!
-  {:extra-deps {zprint/zprint {:mvn/version "1.2.5"}}
+  {:extra-deps {zprint/zprint {:mvn/version "1.2.6"}}
    :main-opts  ["--main" "zprint.main"
                 "{:style :indent-only}"
                 "--list-formatted-summary-write"]}
 
   :format/community
-  {:extra-deps {zprint/zprint {:mvn/version "1.2.5"}}
+  {:extra-deps {zprint/zprint {:mvn/version "1.2.6"}}
    :main-opts  ["--main" "zprint.main"
                 "{:style :community}"
                 "--list-formatted-summary-check"]}
 
   :format/community!
-  {:extra-deps {zprint/zprint {:mvn/version "1.2.5"}}
+  {:extra-deps {zprint/zprint {:mvn/version "1.2.6"}}
    :main-opts  ["--main" "zprint.main"
                 "{:style :community}"
                 "--list-formatted-summary-write"]}
@@ -532,15 +532,15 @@
   ;; https://github.com/djblue/portal
 
   :inspect/portal-cli
-  {:extra-deps {djblue/portal {:mvn/version "0.40.0"}}}
+  {:extra-deps {djblue/portal {:mvn/version "0.41.0"}}}
 
   :inspect/portal-web
-  {:extra-deps {djblue/portal             {:mvn/version "0.40.0"}
+  {:extra-deps {djblue/portal             {:mvn/version "0.41.0"}
                 org.clojure/clojurescript {:mvn/version "1.11.60"}}
    :main-opts  ["--main" "cljs.main"]}
 
   :inspect/portal-node
-  {:extra-deps {djblue/portal             {:mvn/version "0.40.0"}
+  {:extra-deps {djblue/portal             {:mvn/version "0.41.0"}
                 org.clojure/clojurescript {:mvn/version "1.11.60"}}
    :main-opts  ["--main" "cljs.main" "-re" "node"]}
 
@@ -562,7 +562,7 @@
   ;; Flowstorm, a tracing debugger
   ;; https://github.com/jpmonettas/flow-storm-debugger
   :lib/flowstorm
-  {:extra-deps {com.github.jpmonettas/flow-storm-dbg {:mvn/version "3.5.1"}}}
+  {:extra-deps {com.github.jpmonettas/flow-storm-dbg {:mvn/version "3.6.2"}}}
 
   ;; End of Debug Tools
   ;; ---------------------------------------------------
@@ -582,7 +582,7 @@
   :lib/spec2
   {:extra-deps {org.clojure/spec-alpha2
                 {:git/url "https://github.com/clojure/spec-alpha2"
-                 :sha     "46b183d19984cafb655647f212bfa286b4d0dc63"}}}
+                 :sha     "4cbfa677c4cd66339f18e1c122222c05c69e0d8e"}}}
 
   ;; End of Clojure Specifications
   ;; ---------------------------------------------------
@@ -625,7 +625,7 @@
   ;; clojure -X:test/run :fail-fast true
   :test/run
   {:extra-paths ["test"]
-   :extra-deps {lambdaisland/kaocha {:mvn/version "1.83.1314"}}
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.84.1335"}}
    :main-opts   ["--main" "kaocha.runner"]
    :exec-fn kaocha.runner/exec-fn
    :exec-args {:randomize? false
@@ -635,7 +635,7 @@
   ;; clojure -X:test/watch
   :test/watch
   {:extra-paths ["test"]
-   :extra-deps {lambdaisland/kaocha {:mvn/version "1.83.1314"}}
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.84.1335"}}
    :main-opts   ["--main" "kaocha.runner" "--watch" "--fail-fast" "--skip-meta" ":slow"]
    :exec-fn kaocha.runner/exec-fn
    :exec-args {:watch? true
@@ -644,14 +644,14 @@
 
   :test/cljs
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha      {:mvn/version "1.83.1314"}
+   :extra-deps  {lambdaisland/kaocha      {:mvn/version "1.84.1335"}
                  lambdaisland/kaocha-cljs {:mvn/version "1.5.154"}}
    :main-opts   ["--main" "kaocha.runner" "unit-cljs"]}
 
   ;; https://github.com/lambdaisland/kaocha-cucumbe
   ;; - used for kaocha-runner.el to run Kaocha test runner in Emacs Cider
   :lib/kaocha
-  {:extra-deps {lambdaisland/kaocha {:mvn/version "1.83.1314"}}}
+  {:extra-deps {lambdaisland/kaocha {:mvn/version "1.84.1335"}}}
 
   ;; End of Test runners
   ;; ---------------------------------------------------
@@ -684,7 +684,7 @@
   ;; clj-kondo - comprehensive and fast linter
   ;; https://github.com/borkdude/clj-kondo/
   :lint/clj-kondo
-  {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2023.04.14"}}
+  {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2023.05.26"}}
    :main-opts  ["--main" "clj-kondo.main" "--lint" "src"]}
 
   ;; DEPRECATED - not used
@@ -787,7 +787,7 @@
   ;; - (require '[clj-memory-meter.core :as memory-meter])
   ;; - (memory-meter/measure (your-expression))
   :performance/memory-meter
-  {:extra-deps {com.clojure-goes-fast/clj-memory-meter {:mvn/version "0.2.3"}}
+  {:extra-deps {com.clojure-goes-fast/clj-memory-meter {:mvn/version "0.3.0"}}
    :jvm-opts   ["-Djdk.attach.allowAttachSelf"]}
 
   ;; End of Performance testing
@@ -799,7 +799,7 @@
   {:replace-paths []
    :replace-deps  {clojurians-zulip/feeds
                    {:git/url "https://gitlab.com/clojurians-zulip/feeds.git"
-                    :sha     "dc0ed3f14bcc2f6344492782220313427bc5c8bf"}}
+                    :sha     "4bf8109afc5cd5ab2f409151d4dd583644028b4a"}}
    :main-opts     ["--main" "inclined.main"
                    "--ns" "clojurians-zulip.events" "--"]}
 
