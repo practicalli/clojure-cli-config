@@ -29,8 +29,9 @@ ENABLE:
 
 CLOJURE_CLJ_KONDO_CONFIG_FILE: ".github/config/clj-kondo-ci-config.edn"
 CLOJURE_CLJ_KONDO_ARGUMENTS: "--lint deps.edn"
-# CLOJURE_CLJ_KONDO_FILTER_REGEX_EXCLUDE: "dev|develop"
 CLOJURE_CLJ_KONDO_FILTER_REGEX_EXCLUDE: "resources"
+CLOJURE_CLJSTYLE_FILE_NAMES_REGEX: "deps.edn"
+# CLOJURE_CLJSTYLE_FILTER_REGEX_EXCLUDE: "deps-deprecated.edn|clojurescript-figwheel-experiments.edn"
 
 # CREDENTIALS_SECRETLINT_DISABLE_ERRORS: true
 CREDENTIALS_SECRETLINT_CONFIG_FILE: ".github/config/secretlintrc.json"
