@@ -1,2 +1,30 @@
-{:key-map     :viins
- :color-theme :light-screen-theme}
+;; ---------------------------------------------------------
+    ;; Rebel Readline Configuration
+    ;;
+    ;; Customise use and appearance
+;; ---------------------------------------------------------
+
+{;; Vi or Emacs style key-map
+ ;; :viins or :emacs. Default :emacs
+ :key-map     :viins
+
+ ;; Color theme - light or dark
+ ;; :color-theme :light-screen-theme
+ :color-theme :dark-screen-theme
+
+ ;; Enable syntax highlight. Default true}
+ :hihighlight true
+
+ ;; Enable complete on tab. Default true}
+ :completion  true
+
+ ;; Enable function documentation Default true
+ :eldoc  true
+ ;; auto indent code on newline. Default true}
+ :indent true
+
+ ;; rebind root *out* during read to protect linereader, Default true}
+ :redirect-output true
+
+ ;; Custom key-bindings applied after all other 
+ :key-bindings {}}
