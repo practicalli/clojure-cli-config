@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Added
+*** `:test/run-all` kaocha runner with `:fail-fast false` to run all tests regardless of failing tests
 
 * 2023-06-11
 ** Updated

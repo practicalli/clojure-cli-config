@@ -631,6 +631,14 @@
    :exec-args {:randomize? false
                :fail-fast? true}}
 
+  :test/run-all
+  {:extra-paths ["test"]
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.84.1335"}}
+   :main-opts   ["--main" "kaocha.runner"]
+   :exec-fn kaocha.runner/exec-fn
+   :exec-args {:randomize? false
+               :fail-fast? false}}
+
   ;; Kaocha test runner in watch mode
   ;; clojure -X:test/watch
   :test/watch
