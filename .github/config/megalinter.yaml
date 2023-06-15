@@ -70,7 +70,6 @@ DISABLE_LINTERS:
 
 # Ignore all errors and return without error status
 # DISABLE_ERRORS: true
-
 # ------------------------
 
 # ------------------------
@@ -84,6 +83,7 @@ SHOW_ELAPSED_TIME: true
 
 # Upload reports to file.io
 FILEIO_REPORTER: false
+
 # ------------------------
 
 # ------------------------
