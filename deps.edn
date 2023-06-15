@@ -100,6 +100,7 @@
                  org.clojure/clojurescript {:mvn/version "1.10.844"}
                  lambdaisland/kaocha-cljs  {:mvn/version "1.5.154"}
                  org.clojure/test.check    {:mvn/version "1.1.1"}}}
+
   ;; DEPRECATED
   ;; - only useful for Clojure 1.11.x, not required for Clojure 1.12 onward
   ;; - alpha state software
@@ -894,7 +895,7 @@
                  :tag     "v0.5.0"
                  :sha     "b1a7fd310b6511048fbacb8e496f574c8ccfa291"}}
    :main-opts  ["--main" "closh.zero.frontend.rebel"]}
+  ;; --------------------------------------------------
 
   #_()} ; End of alias definitions
- ;; --------------------------------------------------
  }
