@@ -1,7 +1,7 @@
 ;; ---------------------------------------------------------
-    ;; Rebel Readline Configuration
-    ;;
-    ;; Customise use and appearance
+;; Rebel Readline Configuration
+;;
+;; Customise use and appearance
 ;; ---------------------------------------------------------
 
 {;; Vi or Emacs style key-map
