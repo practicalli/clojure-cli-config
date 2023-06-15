@@ -16,42 +16,33 @@
 # - mega-linter-runner
 #
 # ------------------------------------------
-
-
-
 # .PHONY: ensures target used rather than matching file name
 # https://makefiletutorial.com/#phony
 .PHONY: all lint deps dist pre-commit-check repl test clean
 
-
 # ------- Makefile Variables --------- #
-
 # run help if no target specified
 .DEFAULT_GOAL := help
 
 # Column the target description is printed from
 HELP-DESCRIPTION-SPACING := 24
 
+MEGALINTER_RUNNER = npx mega-linter-runner --flavor java --release beta --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'" --remove-container
+
 # Makefile file and directory name wildcard
 # EDN-FILES := $(wildcard *.edn)
-
 # ------------------------------------ #
 
-
 # ------- Help ----------------------- #
-
 # Source: https://nedbatchelder.com/blog/201804/makefile_help_target.html
 
 help:  ## Describe available tasks in Makefile
 	@grep '^[a-zA-Z]' $(MAKEFILE_LIST) | \
 	sort | \
 	awk -F ':.*?## ' 'NF==2 {printf "\033[36m  %-$(HELP-DESCRIPTION-SPACING)s\033[0m %s\n", $$1, $$2}'
-
 # ------------------------------------ #
 
-
 # ------- Clojure Development -------- #
-
 repl:  ## Run Clojure REPL with rich terminal UI (Rebel Readline)
 	$(info --------- Run Rebel REPL ---------)
 	clojure -M:test/env:repl/reloaded
@@ -60,27 +51,21 @@ outdated: ## Check deps.edn & GitHub actions for new versions
 	$(info --------- Search for outdated libraries ---------)
 	clojure -T:search/outdated > outdated-$(date +"%y-%m-%d-%T").org
 
-
 # deps: deps.edn  ## Prepare dependencies for test and dist targets
 #		$(info --------- Download test and service libraries ---------)
 #		clojure -P -X:build
 
-
 # dist: deps build-uberjar ## Build and package Clojure service
 #		$(info --------- Build and Package Clojure service ---------)
-
 
 # Remove files and directories after build tasks
 # `-` before the command ignores any errors returned
 clean:  ## Clean build temporary files
 	$(info --------- Clean Clojure classpath cache ---------)
 	- rm -rf ./.cpcache
-
 # ------------------------------------ #
 
-
 # ------- Testing -------------------- #
-
 # test-config:  ## Print Kaocha test runner configuration
 #			$(info --------- Runner Configuration ---------)
 #			clojure -M:test/env:test/run --print-config
@@ -93,7 +78,6 @@ clean:  ## Clean build temporary files
 #			$(info --------- Runner for unit tests ---------)
 #			clojure -X:test/env:test/run
 
-
 # test-all:  ## Run all unit tests regardless of failing tests
 #			$(info --------- Runner for all unit tests ---------)
 #			clojure -X:test/env:test/run :fail-fast? false
@@ -105,9 +89,7 @@ clean:  ## Clean build temporary files
 # test-watch-all:  ## Run all tests when changes saved, regardless of failing tests
 #			$(info --------- Watcher for unit tests ---------)
 #			clojure -X:test/env:test/run :fail-fast? false :watch? true
-
 # ------------------------------------ #
-
 
 # -------- Build tasks --------------- #
 # build-config: ## Pretty print build configuration
@@ -125,18 +107,14 @@ clean:  ## Clean build temporary files
 # build-clean: ## Clean build assets or given directory
 #		$(info --------- Clean Build  ---------)
 #		clojure -T:build clean
-
 # ------------------------------------ #
 
 # ------- Code Quality --------------- #
-
 pre-commit-check: format-check lint test  ## Run format, lint and test targets
-
 
 format-check: ## Run cljstyle to check the formatting of Clojure code
 	$(info --------- cljstyle Runner ---------)
 	cljstyle check
-
 
 format-fix:  ## Run cljstyle and fix the formatting of Clojure code
 	$(info --------- cljstyle Runner ---------)
@@ -144,26 +122,18 @@ format-fix:  ## Run cljstyle and fix the formatting of Clojure code
 
 lint:  ## Run MegaLinter with custom configuration (node.js required)
 	$(info --------- MegaLinter Runner ---------)
-	npx mega-linter-runner --flavor java --release v7 --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'" --remove-container
+	$(MEGALINTER_RUNNER)
 
-lint-full:  ## Run MegaLinter full image with custom configuration (node.js required)
+lint-fix:  ## Run MegaLinter with custom configuration (node.js required)
 	$(info --------- MegaLinter Runner ---------)
-	npx mega-linter-runner --release v7 --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'" --remove-container
-
-lint-beta:  ## Run MegaLinter beta release with custom configuration (node.js required)
-	$(info --------- MegaLinter Runner ---------)
-	npx mega-linter-runner --flavor java --release beta --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'" --remove-container
-
+	$(MEGALINTER_RUNNER) --fix
 
 lint-clean:  ## Clean MegaLinter report information
 	$(info --------- MegaLinter Clean Reports ---------)
 	- rm -rf ./megalinter-reports
-
 # ------------------------------------ #
 
-
 # ------- Docker Containers ---------- #
-
 # docker-build:  ## Build Clojure Service with docker compose
 #		$(info --------- Docker Compose Build ---------)
 #		docker compose up --build
@@ -176,7 +146,6 @@ lint-clean:  ## Clean MegaLinter report information
 #		$(info --------- Docker Compose Down ---------)
 #		docker-compose down
 
-
 # swagger-editor:  ## Start Swagger Editor in Docker
 #		$(info --------- Run Swagger Editor at locahost:8282 ---------)
 #		docker compose -f swagger-editor.yml up -d swagger-editor
@@ -184,25 +153,19 @@ lint-clean:  ## Clean MegaLinter report information
 # swagger-editor-down:  ## Stop Swagger Editor in Docker
 #		$(info --------- Run Swagger Editor at locahost:8282 ---------)
 #		docker compose -f swagger-editor.yml down
-
 # ------------------------------------ #
 
-
 # ------ Continuous Integration ------ #
-
 # .DELETE_ON_ERROR: halts if command returns non-zero exit status
 # https://makefiletutorial.com/#delete_on_error
-
 
 # TODO: focus runner on ^:integration` tests
 # test-ci: deps  ## Test runner for integration tests
 #		$(info --------- Runner for integration tests ---------)
 #		clojure -P -X:test/env:test/run
 
-
 # Run tests, build & package the Clojure code and clean up afterward
 # `make all` used in Docker builder stage
 # .DELETE_ON_ERROR:
 # all: test-ci dist clean  ## Call test-ci dist and clean targets, used for CI
-
 # ------------------------------------ #
