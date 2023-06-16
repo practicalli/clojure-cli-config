@@ -24,6 +24,8 @@
 # run help if no target specified
 .DEFAULT_GOAL := help
 
+OUTDATED_FILE := outdated-$(shell date +%y-%m-%d-%T).org
+
 # Column the target description is printed from
 HELP-DESCRIPTION-SPACING := 24
 
@@ -49,7 +51,7 @@ repl:  ## Run Clojure REPL with rich terminal UI (Rebel Readline)
 
 outdated: ## Check deps.edn & GitHub actions for new versions
 	$(info --------- Search for outdated libraries ---------)
-	clojure -T:search/outdated > outdated-$(date +"%y-%m-%d-%T").org
+	- clojure -T:search/outdated > $(OUTDATED_FILE)
 
 # deps: deps.edn  ## Prepare dependencies for test and dist targets
 #		$(info --------- Download test and service libraries ---------)
