@@ -84,19 +84,19 @@
 
   :dev/reloaded
   {:extra-paths ["dev" "test"]
-   :extra-deps  {djblue/portal                {:mvn/version "0.41.0"}   ; portal data inspector
+   :extra-deps  {djblue/portal                {:mvn/version "0.42.0"}   ; portal data inspector
                  clj-commons/clj-yaml         {:mvn/version "1.0.26"}   ; portal yaml support (optional)
                  org.clojure/tools.namespace  {:mvn/version "1.4.4"}
                  org.clojure/tools.trace      {:mvn/version "0.7.11"}
                  org.slf4j/slf4j-nop          {:mvn/version "2.0.7"}
                  com.brunobonacci/mulog       {:mvn/version "0.9.0"}
-                 lambdaisland/kaocha          {:mvn/version "1.83.1314"}
+                 lambdaisland/kaocha          {:mvn/version "1.85.1342"}
                  org.clojure/test.check       {:mvn/version "1.1.1"}
                  criterium/criterium          {:mvn/version "0.4.6"}}}
 
   :dev/reloaded-cljs
   {:extra-paths ["dev" "test"]
-   :extra-deps  {djblue/portal             {:mvn/version "0.41.0"}   ; portal data inspector
+   :extra-deps  {djblue/portal             {:mvn/version "0.42.0"}   ; portal data inspector
                  org.clojure/clojurescript {:mvn/version "1.10.844"}
                  lambdaisland/kaocha-cljs  {:mvn/version "1.5.154"}
                  org.clojure/test.check    {:mvn/version "1.1.1"}}}
@@ -173,7 +173,7 @@
   {:extra-deps
    {nrepl/nrepl       {:mvn/version "1.0.0"}
     cider/cider-nrepl {:mvn/version "0.30.0"}
-    djblue/portal     {:mvn/version "0.41.0"}}
+    djblue/portal     {:mvn/version "0.42.0"}}
    :main-opts ["--main" "nrepl.cmdline"
                "--middleware"
                "[cider.nrepl/cider-middleware,portal.nrepl/wrap-portal]"]}
@@ -203,13 +203,13 @@
    :extra-deps {nrepl/nrepl                  {:mvn/version "1.0.0"}
                 cider/cider-nrepl            {:mvn/version "0.30.0"}
                 com.bhauman/rebel-readline   {:mvn/version "0.1.4"}
-                djblue/portal                {:mvn/version "0.41.0"}   ; portal data inspector
+                djblue/portal                {:mvn/version "0.42.0"}   ; portal data inspector
                 clj-commons/clj-yaml         {:mvn/version "1.0.26"}   ; portal yaml support (optional)
                 org.clojure/tools.namespace  {:mvn/version "1.4.4"}
                 org.clojure/tools.trace      {:mvn/version "0.7.11"}
                 org.slf4j/slf4j-nop          {:mvn/version "2.0.7"}
                 com.brunobonacci/mulog       {:mvn/version "0.9.0"}
-                lambdaisland/kaocha          {:mvn/version "1.84.1335"}
+                lambdaisland/kaocha          {:mvn/version "1.85.1342"}
                 org.clojure/test.check       {:mvn/version "1.1.1"}
                 ring/ring-mock               {:mvn/version "0.4.0"}
                 criterium/criterium          {:mvn/version "0.4.6"}}
@@ -356,7 +356,7 @@
   ;; cd $XDG_CONFIG_HOME/clojure && clojure -T:search/outdated
   :search/outdated
   {:replace-paths ["."]
-   :replace-deps  {com.github.liquidz/antq {:mvn/version "2.4.1070"}
+   :replace-deps  {com.github.liquidz/antq {:mvn/version "2.5.1089"}
                    org.slf4j/slf4j-nop     {:mvn/version "2.0.7"}}
    :exec-fn antq.tool/outdated
    :exec-args {:directory ["."] ; default
@@ -447,25 +447,25 @@
   ;; advanced for Clojure code and EDN
   ;; clojure -M:data/zprint filename-or-pattern
   :format/zprint
-  {:extra-deps {zprint/zprint {:mvn/version "1.2.6"}}
+  {:extra-deps {zprint/zprint {:mvn/version "1.2.7"}}
    :main-opts  ["--main" "zprint.main"
                 "{:style :indent-only}"
                 "--list-formatted-summary-check"]}
 
   :format/zprint!
-  {:extra-deps {zprint/zprint {:mvn/version "1.2.6"}}
+  {:extra-deps {zprint/zprint {:mvn/version "1.2.7"}}
    :main-opts  ["--main" "zprint.main"
                 "{:style :indent-only}"
                 "--list-formatted-summary-write"]}
 
   :format/community
-  {:extra-deps {zprint/zprint {:mvn/version "1.2.6"}}
+  {:extra-deps {zprint/zprint {:mvn/version "1.2.7"}}
    :main-opts  ["--main" "zprint.main"
                 "{:style :community}"
                 "--list-formatted-summary-check"]}
 
   :format/community!
-  {:extra-deps {zprint/zprint {:mvn/version "1.2.6"}}
+  {:extra-deps {zprint/zprint {:mvn/version "1.2.7"}}
    :main-opts  ["--main" "zprint.main"
                 "{:style :community}"
                 "--list-formatted-summary-write"]}
@@ -520,7 +520,7 @@
   ;; https://github.com/nextjournal/clerk
   ;; Alias can be used as an optional library for projects or REPL workflow
   :lib/clerk
-  {:extra-deps {io.github.nextjournal/clerk {:mvn/version "0.13.842"}}}
+  {:extra-deps {io.github.nextjournal/clerk {:mvn/version "0.14.919"}}}
 
   ;; End of Data Science
   ;; ---------------------------------------------------
@@ -533,15 +533,15 @@
   ;; https://github.com/djblue/portal
 
   :inspect/portal-cli
-  {:extra-deps {djblue/portal {:mvn/version "0.41.0"}}}
+  {:extra-deps {djblue/portal {:mvn/version "0.42.0"}}}
 
   :inspect/portal-web
-  {:extra-deps {djblue/portal             {:mvn/version "0.41.0"}
+  {:extra-deps {djblue/portal             {:mvn/version "0.42.0"}
                 org.clojure/clojurescript {:mvn/version "1.11.60"}}
    :main-opts  ["--main" "cljs.main"]}
 
   :inspect/portal-node
-  {:extra-deps {djblue/portal             {:mvn/version "0.41.0"}
+  {:extra-deps {djblue/portal             {:mvn/version "0.42.0"}
                 org.clojure/clojurescript {:mvn/version "1.11.60"}}
    :main-opts  ["--main" "cljs.main" "-re" "node"]}
 
@@ -563,7 +563,7 @@
   ;; Flowstorm, a tracing debugger
   ;; https://github.com/jpmonettas/flow-storm-debugger
   :lib/flowstorm
-  {:extra-deps {com.github.jpmonettas/flow-storm-dbg {:mvn/version "3.6.2"}}}
+  {:extra-deps {com.github.jpmonettas/flow-storm-dbg {:mvn/version "3.6.5"}}}
 
   ;; End of Debug Tools
   ;; ---------------------------------------------------
@@ -626,7 +626,7 @@
   ;; clojure -X:test/run :fail-fast true
   :test/run
   {:extra-paths ["test"]
-   :extra-deps {lambdaisland/kaocha {:mvn/version "1.84.1335"}}
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.85.1342"}}
    :main-opts   ["--main" "kaocha.runner"]
    :exec-fn kaocha.runner/exec-fn
    :exec-args {:randomize? false
@@ -634,7 +634,7 @@
 
   :test/run-all
   {:extra-paths ["test"]
-   :extra-deps {lambdaisland/kaocha {:mvn/version "1.84.1335"}}
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.85.1342"}}
    :main-opts   ["--main" "kaocha.runner"]
    :exec-fn kaocha.runner/exec-fn
    :exec-args {:randomize? false
@@ -644,7 +644,7 @@
   ;; clojure -X:test/watch
   :test/watch
   {:extra-paths ["test"]
-   :extra-deps {lambdaisland/kaocha {:mvn/version "1.84.1335"}}
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.85.1342"}}
    :main-opts   ["--main" "kaocha.runner" "--watch" "--fail-fast" "--skip-meta" ":slow"]
    :exec-fn kaocha.runner/exec-fn
    :exec-args {:watch? true
@@ -653,14 +653,14 @@
 
   :test/cljs
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha      {:mvn/version "1.84.1335"}
+   :extra-deps  {lambdaisland/kaocha      {:mvn/version "1.85.1342"}
                  lambdaisland/kaocha-cljs {:mvn/version "1.5.154"}}
    :main-opts   ["--main" "kaocha.runner" "unit-cljs"]}
 
   ;; https://github.com/lambdaisland/kaocha-cucumbe
   ;; - used for kaocha-runner.el to run Kaocha test runner in Emacs Cider
   :lib/kaocha
-  {:extra-deps {lambdaisland/kaocha {:mvn/version "1.84.1335"}}}
+  {:extra-deps {lambdaisland/kaocha {:mvn/version "1.85.1342"}}}
 
   ;; End of Test runners
   ;; ---------------------------------------------------
