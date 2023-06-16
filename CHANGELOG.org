@@ -3,6 +3,7 @@
 * Unreleased
 ** Added
 *** `:test/run-all` kaocha runner with `:fail-fast false` to run all tests regardless of failing tests
+*** ci: megalinter GitHub action version java@7 in megalinter.yaml workflow
 
 * 2023-06-11
 ** Updated
