@@ -29,7 +29,7 @@ OUTDATED_FILE := outdated-$(shell date +%y-%m-%d-%T).org
 # Column the target description is printed from
 HELP-DESCRIPTION-SPACING := 24
 
-MEGALINTER_RUNNER = npx mega-linter-runner --flavor java --release beta --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'" --remove-container
+MEGALINTER_RUNNER = npx mega-linter-runner --flavor java --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'" --remove-container
 
 # Makefile file and directory name wildcard
 # EDN-FILES := $(wildcard *.edn)
