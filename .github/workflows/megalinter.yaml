@@ -7,9 +7,9 @@ name: MegaLinter
 on:
   workflow_dispatch:
   pull_request:
-    branches: [ main ]
+    branches: [main]
   push:
-    branches: [ main ]
+    branches: [main]
 
 # Run Linters in parallel
 # Cancel running job if new job is triggered
