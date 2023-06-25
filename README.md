@@ -9,28 +9,33 @@
 ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝
 ```
 
-[Practicalli books](https://practical.li/#books) use the configuration extensively to develop Clojure projects.
-
 [Practicalli Clojure CLI Config](https://github.com/practicalli/clojure-cli-config/) contains a `deps.edn` alias definitions for a wide range of community libraries and tools to that extend the features of Clojure CLI.
 
-The configuration also contains
+Aliases are qualified keywords using descriptive names to clearly convey purpose and provide a level of consistency to minimise cognitive load.
+
+Common arguments are included in alias definitions via `main-opts` and `:exec-args` to provide a default behaviour and simplify the use aliases.
+
+Alias  used with the `-A`, `-M`, `-T` or `-X` execution options
+
+Aliases are defined to be used with all execution options `-A`, `-M`, `-P`, `-T` or `-X` where possible, otherwise use the following execution options:
+
+- `-M` for `:main-opts` configuration
+- `-X` for `:exec-opts` configuration
+- `-T` for `:exec-opts`, ignoring project dependencies
+
+> [Clojure CLI - Which execution options to use](https://practical.li/clojure/clojure-cli/execution-options/)
+
+The project also contains
 
 * GitHub workflow that runs MegaLinter and Code Quality checks (clj-kondo and cljstyle via the setup-clojure action)
 * cljstyle configuration that follows the Clojure Style Guide
 * Rebel Readline example configuration (supports the Rich Terminal UI used by Practicalli)
 * cspell configuration for linting markdown and other text
-* `deps-deprecated.edn` containing alias examples of tools not used by Practialli, but may be of interest
+* `deps-deprecated.edn` containing alias examples of tools not currently used by Practialli which may still be of interest to the wider community
 
+[Practicalli books](https://practical.li/#books) uses the Clojure CLI Config extensively to support a [REPL Reloaded workflow](https://practical.li/clojure/clojure-cli/repl-reloaded/) for Clojure projects.
 
 [Practicalli Clojure book discusses Clojure CLI and its use](https://practical.li/clojure/clojure-cli/repl/), along with video walk-through of the key features.
-
-Aliases use qualified descriptive names to avoid clashes with project specific aliases, ensuring that the user wide aliases remain available in all projects.
-
-Common default arguments are included in an alias via `:exec-args` to minimise the cognitive load required to use aliases.
-
-Aliases are used with the `-A`, `-M`, `-T` or `-X` execution options
-
-> [Clojure CLI - Which execution options to use](https://practical.li/clojure/clojure-cli/execution-options/)
 
 
 [![License CC By SA 4.0](https://img.shields.io/badge/license-CC%20BY--SA%204.0%20-blueviolet)](http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1)
