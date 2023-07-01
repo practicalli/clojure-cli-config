@@ -4,6 +4,7 @@
 ** Added
 *** alias: `:test/run-all` kaocha runner with `:fail-fast false` to run all tests regardless of failing tests
 *** ci: megalinter GitHub action version java@7 in megalinter.yaml workflow
+*** ci: scheduled monthly version check
 
 ** Updated
 *** Update library versions using `make outdated`
@@ -17,6 +18,17 @@
     | lambdaisland/kaocha                  | 1.84.1335 | 1.85.1342 |
     | zprint/zprint                        |     1.2.6 |     1.2.7 |
 
+*** Monthly version update using `make outdated`
+
+    | :name                                | :current |  :latest |
+    |--------------------------------------+----------+----------|
+    | cider/cider-nrepl                    |   0.30.0 |   0.31.0 |
+    | com.github.jpmonettas/flow-storm-dbg |    3.6.5 |    3.6.7 |
+    | com.github.liquidz/antq              | 2.5.1089 | 2.5.1095 |
+    | com.github.seancorfield/next.jdbc    |  1.3.874 |  1.3.883 |
+    | djblue/portal                        |   0.42.0 |   0.42.1 |
+    | integrant/repl                       |    0.3.2 |    0.3.3 |
+    | io.aviso/pretty                      |    1.4.3 |    1.4.4 |
 
 * 2023-06-11
 ** Updated
