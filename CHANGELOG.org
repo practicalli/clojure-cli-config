@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+
+* 2023-07-01
 ** Added
 *** alias: `:test/run-all` kaocha runner with `:fail-fast false` to run all tests regardless of failing tests
 *** ci: megalinter GitHub action version java@7 in megalinter.yaml workflow
