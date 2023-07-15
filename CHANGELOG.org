@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Added
+   - ~:project/create~ version 2023-07-14 of practicalli/project-templatess
 
 * 2023-07-01
 ** Added
