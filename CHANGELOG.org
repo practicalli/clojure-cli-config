@@ -1,8 +1,11 @@
 #+TITLE: Changelog
 
 * Unreleased
+
+* 2023-07-26
 ** Added
-   - ~:project/create~ version 2023-07-14 of practicalli/project-templatess
+   - ~:project/create~ version 2023-07-14 of practicalli/project-templates
+   - ~:project/create~ version 2023-07-26 of practicalli/project-templates
 
 * 2023-07-01
 ** Added
