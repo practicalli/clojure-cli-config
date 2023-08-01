@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Changed
+   - ci: exclude clojurescript from antq version check
 
 * 2023-07-26
 ** Added
