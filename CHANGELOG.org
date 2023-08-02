@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+
+* 2023-08-02
 ** Changed
    - ci: exclude clojurescript from antq version check
    - ~:project/create~ version 2023-08-01 of practicalli/project-templates
