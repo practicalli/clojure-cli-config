@@ -5,6 +5,7 @@
    - ci: exclude clojurescript from antq version check
    - ~:project/create~ version 2023-08-01 of practicalli/project-templates
    - ci: spell lychee & repository trufflehog linters warn only (false positives) 
+   - ~:project/create~ version 2023-08-01 of practicalli/project-templates
 
 * 2023-07-26
 ** Added
