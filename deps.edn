@@ -76,7 +76,7 @@
   ;; Development environment
 
   ;; Include `dev` directory on the class path to auto-load `dev/user.clj` on REPL startup
-  ;; http://practicalli.github.io/clojure/clojure-tools/configure-repl-startup.html
+  ;; https://practical.li/clojure/clojure-cli/repl-startup/
 
   ;; clojure -M:dev/env
   :dev/env
