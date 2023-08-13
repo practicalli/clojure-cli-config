@@ -75,13 +75,17 @@
  {;; ---------------------------------------------------
   ;; Development environment
 
-  ;; Include `dev` directory on the class path to auto-load `dev/user.clj` on REPL startup
-  ;; http://practicalli.github.io/clojure/clojure-tools/configure-repl-startup.html
+  ;; Custom REPL startup
+  ;; A `user` namespace is loaded during REPL startup if found on the class path  
+  ;; `:dev` aliases include the `dev` directory on the class path
+  ;; `dev/user.clj` can define tools and code that runs when starting the REPL
+  ;; https://practical.li/clojure/clojure-cli/repl-startup/
 
-  ;; clojure -M:dev/env
+  ;; -M -X or -T execution options
   :dev/env
   {:extra-paths ["dev"]}
 
+  ;; clojure -M:dev/reloaded
   :dev/reloaded
   {:extra-paths ["dev" "test"]
    :extra-deps  {djblue/portal                {:mvn/version "0.42.1"}   ; portal data inspector
@@ -94,6 +98,7 @@
                  org.clojure/test.check       {:mvn/version "1.1.1"}
                  criterium/criterium          {:mvn/version "0.4.6"}}}
 
+  ;; clojure -M:dev/reloaded-cljs
   :dev/reloaded-cljs
   {:extra-paths ["dev" "test"]
    :extra-deps  {djblue/portal             {:mvn/version "0.42.1"}   ; portal data inspector
