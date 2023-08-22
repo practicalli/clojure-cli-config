@@ -449,6 +449,7 @@ Emacs CIDER has a built in debug tool that requires no dependencies (other than 
 * `:repl/debug-refactor` run basic REPL prompt with sayid, clj-refactor and cider-nrepl middleware
 * `:repl/rebel-debug` run Rebel rich UI REPL prompt with sayid, and cider-nrepl middleware
 * `:repl/rebel-debug-refactor` run Rebel rich UI REPL prompt with sayid, clj-refactor and cider-nrepl middleware
+* `:repl/rebel-debug-refactor-reloaded` run Rebel rich UI REPL prompt with sayid, clj-refactor and cider-nrepl middleware; plus `dev` path, library hotload, namespace reload, and Portal data
 
 [Practicalli Spacemacs - Sayid debug and profile tool](https://practical.li/spacemacs/debug-clojure/sayid-debug/) covers the use of these aliases in more detail
 
