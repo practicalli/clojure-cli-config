@@ -76,7 +76,7 @@
   ;; Development environment
 
   ;; Custom REPL startup
-  ;; A `user` namespace is loaded during REPL startup if found on the class path  
+  ;; A `user` namespace is loaded during REPL startup if found on the class path
   ;; `:dev` aliases include the `dev` directory on the class path
   ;; `dev/user.clj` can define tools and code that runs when starting the REPL
   ;; https://practical.li/clojure/clojure-cli/repl-startup/
