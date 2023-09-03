@@ -6,11 +6,28 @@
    - alias: `:test/cloverage` corrected to `:test/coverage`
    - ci: action/checkout@v4 in all GitHub workflows
 
+** Updated
+*** Update library versions using `make outdated`
+   | :name                                |   :current |    :latest |
+   |--------------------------------------+------------+------------|
+   | cider/cider-nrepl                    |     0.31.0 |     0.37.0 |
+   | clj-commons/clj-yaml                 |     1.0.26 |     1.0.27 |
+   | clj-kondo/clj-kondo                  | 2023.05.26 | 2023.07.13 |
+   | com.github.jpmonettas/flow-storm-dbg |      3.6.7 |      3.7.1 |
+   | com.github.liquidz/antq              |   2.5.1095 |   2.5.1109 |
+   | com.github.seancorfield/clj-new      |    1.2.399 |    1.2.404 |
+   | com.h2database/h2                    |    2.1.214 |    2.2.222 |
+   | djblue/portal                        |     0.42.1 |     0.46.0 |
+   | lambdaisland/kaocha                  |  1.85.1342 |  1.86.1355 |
+   | org.clojure/tools.deps.graph         |     1.1.76 |     1.1.84 |
+   | org.slf4j/slf4j-nop                  |      2.0.7 |      2.0.9 |
+   | refactor-nrepl/refactor-nrepl        |      3.6.0 |      3.9.0 |
+
 * 2023-08-02
 ** Changed
    - ci: exclude clojurescript from antq version check
    - ~:project/create~ version 2023-08-01 of practicalli/project-templates
-   - ci: spell lychee & repository trufflehog linters warn only (false positives) 
+   - ci: spell lychee & repository trufflehog linters warn only (false positives)
    - ~:project/create~ version 2023-08-01 of practicalli/project-templates
 
 * 2023-07-26
