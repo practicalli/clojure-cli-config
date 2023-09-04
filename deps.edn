@@ -247,7 +247,7 @@
                 "--interactive"
                 "-f" "rebel-readline.main/-main"]}
 
-  :repl/rebel-debug-refactor-reloaded
+  :repl/reloaded-debug
   {:extra-paths ["dev" "test"]
    :extra-deps {nrepl/nrepl                  {:mvn/version "1.0.0"}
                 cider/cider-nrepl            {:mvn/version "0.31.0"}
