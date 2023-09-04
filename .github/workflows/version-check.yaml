@@ -33,7 +33,7 @@ jobs:
       - run: echo "🐙 Using ${{ github.ref }} branch from ${{ github.repository }} repository"
 
       - name: "Checkout code"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - run: echo "🐙 ${{ github.repository }} repository was cloned to the runner."
 
       - name: "Antq Check versions"

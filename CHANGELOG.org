@@ -4,6 +4,7 @@
 ** Changed
    - docs: rewrite `:dev` aliases introduction
    - alias: `:test/cloverage` corrected to `:test/coverage`
+   - ci: action/checkout@v4 in all GitHub workflows
 
 * 2023-08-02
 ** Changed
