@@ -2,7 +2,8 @@
 
 * Unreleased
 ** Changed
-   - docs: rewrite `:dev` aliases introduction 
+   - docs: rewrite `:dev` aliases introduction
+   - alias: `:test/cloverage` corrected to `:test/coverage`
 
 * 2023-08-02
 ** Changed

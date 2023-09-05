@@ -678,7 +678,7 @@
   ;; In the root of your Clojure project, run the command:
   ;; clojure -M:test/coverage
   ;; clojure -X:test/coverage
-  :test/cloverage
+  :test/coverage
   {:extra-paths ["test"]
    :extra-deps  {cloverage/cloverage {:mvn/version "1.2.4"}}
    :main-opts   ["--main" "cloverage.coverage"
