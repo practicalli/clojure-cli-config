@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Added
+   - alias: `:repl/clerk` alpha design alias to run REPL and start clerk listening to evaluations
 ** Changed
    - docs: rewrite `:dev` aliases introduction
    - alias: `:test/cloverage` corrected to `:test/coverage`

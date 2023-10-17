@@ -224,6 +224,19 @@
                 "--interactive"
                 "-f" "rebel-readline.main/-main"]}
 
+
+  ;; Start REPL with Clerk notebook receiving evaluation results
+  ;; Alpha stage alias design - may change
+  :repl/clerk
+  {:extra-deps {io.github.nextjournal/clerk   {:mvn/version "0.15.957"}
+                nrepl/nrepl                   {:mvn/version "1.0.0"}
+                cider/cider-nrepl             {:mvn/version "0.40.0"}
+                refactor-nrepl/refactor-nrepl {:mvn/version "3.6.0"}}
+   :main-opts  ["-e" "(require '[nextjournal.clerk])(nextjournal.clerk/show! 'nextjournal.clerk.tap)(nextjournal.clerk/serve! {:browse? true})"
+                "-m" "nrepl.cmdline"
+                "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
+                "--interactive"]}
+
   :repl/rebel-debug
   {:extra-deps {nrepl/nrepl                {:mvn/version "1.0.0"}
                 cider/cider-nrepl          {:mvn/version "0.40.0"}
