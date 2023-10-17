@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+
+* 2023-10-17
 ** Added
    - alias: `:repl/clerk` alpha design alias to run REPL and start clerk listening to evaluations
 ** Changed
