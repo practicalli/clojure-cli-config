@@ -24,6 +24,22 @@
    | org.slf4j/slf4j-nop                  |      2.0.7 |      2.0.9 |
    | refactor-nrepl/refactor-nrepl        |      3.6.0 |      3.9.0 |
 
+*** Update library versions using `make outdated` - 2023-10-17
+   | :name                                |       :current |        :latest |
+   |--------------------------------------+----------------+----------------|
+   | cider/cider-nrepl                    |         0.37.0 |         0.40.0 |
+   | clj-kondo/clj-kondo                  |     2023.07.13 |     2023.09.07 |
+   | com.github.jpmonettas/flow-storm-dbg |          3.7.1 |          3.7.5 |
+   | com.github.liquidz/antq              |       2.5.1109 |       2.7.1133 |
+   | com.github.seancorfield/next.jdbc    |        1.3.883 |        1.3.894 |
+   | com.h2database/h2                    |        2.2.222 |        2.2.224 |
+   | djblue/portal                        |         0.46.0 |         0.48.0 |
+   | io.github.nextjournal/clerk          |       0.14.919 |       0.15.957 |
+   | io.github.seancorfield/deps-new      |         v0.5.2 |         v0.5.3 |
+   | lambdaisland/kaocha                  |      1.86.1355 |      1.87.1366 |
+   | zprint/zprint                        |          1.2.7 |          1.2.8 |
+
+
 * 2023-08-02
 ** Changed
    - ci: exclude clojurescript from antq version check
