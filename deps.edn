@@ -917,5 +917,4 @@
    :main-opts  ["--main" "closh.zero.frontend.rebel"]}
   ;; --------------------------------------------------
 
-  #_()} ; End of alias definitions
- }
+  #_()}}}
