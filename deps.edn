@@ -76,7 +76,7 @@
   ;; Development environment
 
   ;; Custom REPL startup
-  ;; A `user` namespace is loaded during REPL startup if found on the class path  
+  ;; A `user` namespace is loaded during REPL startup if found on the class path
   ;; `:dev` aliases include the `dev` directory on the class path
   ;; `dev/user.clj` can define tools and code that runs when starting the REPL
   ;; https://practical.li/clojure/clojure-cli/repl-startup/
@@ -569,352 +569,352 @@
   :inspect/morse
   {:extra-deps {io.github.nubank/morse {:git/tag "v2023.04.30.01" :git/sha "d99b09c"}}
 
-  ;; End of Data inspectors
-  ;; ---------------------------------------------------
+   ;; End of Data inspectors
+   ;; ---------------------------------------------------
 
-  ;; ---------------------------------------------------
-  ;; Debug Tools
+   ;; ---------------------------------------------------
+   ;; Debug Tools
 
-  ;; https://github.com/vvvvalvalval/scope-capture
-  ;; save and restore the local environment
-  :lib/scope-capture
-  {:extra-deps {vvvvalvalval/scope-capture {:mvn/version "0.3.3"}}}
+   ;; https://github.com/vvvvalvalval/scope-capture
+   ;; save and restore the local environment
+   :lib/scope-capture
+   {:extra-deps {vvvvalvalval/scope-capture {:mvn/version "0.3.3"}}}
 
-  ;; Flowstorm, a tracing debugger
-  ;; https://github.com/jpmonettas/flow-storm-debugger
-  :lib/flowstorm
-  {:extra-deps {com.github.jpmonettas/flow-storm-dbg {:mvn/version "3.7.5"}}}
+   ;; Flowstorm, a tracing debugger
+   ;; https://github.com/jpmonettas/flow-storm-debugger
+   :lib/flowstorm
+   {:extra-deps {com.github.jpmonettas/flow-storm-dbg {:mvn/version "3.7.5"}}}
 
-  ;; End of Debug Tools
-  ;; ---------------------------------------------------
+   ;; End of Debug Tools
+   ;; ---------------------------------------------------
 
-  ;; ---------------------------------------------------
-  ;; Clojure Specifications
+   ;; ---------------------------------------------------
+   ;; Clojure Specifications
 
-  ;; Clojure spec test.check (clojure spec included in Clojure 1.9 onwards)
-  :lib/spec-test
-  {:extra-deps
-   {org.clojure/test.check {:mvn/version "1.1.1"}}}
+   ;; Clojure spec test.check (clojure spec included in Clojure 1.9 onwards)
+   :lib/spec-test
+   {:extra-deps
+    {org.clojure/test.check {:mvn/version "1.1.1"}}}
 
-  ;; Clojure spec 2 - under active development
-  ;; https://github.com/clojure/spec-alpha2
-  ;; latest commit SHA is returned by the command
-  ;; git ls-remote https://github.com/clojure/spec-alpha2.git refs/heads/master
-  :lib/spec2
-  {:extra-deps {org.clojure/spec-alpha2
-                {:git/url "https://github.com/clojure/spec-alpha2"
-                 :sha     "4cbfa677c4cd66339f18e1c122222c05c69e0d8e"}}}
+   ;; Clojure spec 2 - under active development
+   ;; https://github.com/clojure/spec-alpha2
+   ;; latest commit SHA is returned by the command
+   ;; git ls-remote https://github.com/clojure/spec-alpha2.git refs/heads/master
+   :lib/spec2
+   {:extra-deps {org.clojure/spec-alpha2
+                 {:git/url "https://github.com/clojure/spec-alpha2"
+                  :sha     "4cbfa677c4cd66339f18e1c122222c05c69e0d8e"}}}
 
-  ;; End of Clojure Specifications
-  ;; ---------------------------------------------------
+   ;; End of Clojure Specifications
+   ;; ---------------------------------------------------
 
-  ;; ---------------------------------------------------
-  ;; Testing Environment / Libraries
+   ;; ---------------------------------------------------
+   ;; Testing Environment / Libraries
 
-  ;; Include the test directory on the class path
-  ;; Humane test output for pretty printed results
-  :test/env
-  {:extra-paths ["test"]
-   :extra-deps  {pjstadig/humane-test-output {:mvn/version "0.11.0"}
-                 org.clojure/test.check {:mvn/version "1.1.1"}}}
+   ;; Include the test directory on the class path
+   ;; Humane test output for pretty printed results
+   :test/env
+   {:extra-paths ["test"]
+    :extra-deps  {pjstadig/humane-test-output {:mvn/version "0.11.0"}
+                  org.clojure/test.check {:mvn/version "1.1.1"}}}
 
-  :lib/ring-mock
-  {:extra-deps {ring/ring-mock {:mvn/version "0.4.0"}}}
+   :lib/ring-mock
+   {:extra-deps {ring/ring-mock {:mvn/version "0.4.0"}}}
 
-  ;; End of Testing frameworks
-  ;; ---------------------------------------------------
+   ;; End of Testing frameworks
+   ;; ---------------------------------------------------
 
-  ;; ---------------------------------------------------
-  ;; Test runners
+   ;; ---------------------------------------------------
+   ;; Test runners
 
-  ;; Cognitect test-runner
-  ;; https://github.com/cognitect-labs/test-runner
-  ;; clojure -X:test/cognitect
-  :test/cognitect
-  {:extra-paths ["test"]
-   :extra-deps  {io.github.cognitect-labs/test-runner
-                 {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
-   :main-opts   ["--main" "cognitect.test-runner"]
-   :exec-fn cognitect.test-runner.api/test}
+   ;; Cognitect test-runner
+   ;; https://github.com/cognitect-labs/test-runner
+   ;; clojure -X:test/cognitect
+   :test/cognitect
+   {:extra-paths ["test"]
+    :extra-deps  {io.github.cognitect-labs/test-runner
+                  {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
+    :main-opts   ["--main" "cognitect.test-runner"]
+    :exec-fn cognitect.test-runner.api/test}
 
-  ;; kaocha - comprehensive test runner for Clojure/Script
-  ;; tests.edn should be created for each project
-  ;; https://github.com/lambdaisland/kaocha
+   ;; kaocha - comprehensive test runner for Clojure/Script
+   ;; tests.edn should be created for each project
+   ;; https://github.com/lambdaisland/kaocha
 
-  ;; Default test runner using kaocha (change to your own preference)
-  ;; clojure -X:test/run
-  ;; clojure -X:test/run :fail-fast true
-  :test/run
-  {:extra-paths ["test"]
-   :extra-deps {lambdaisland/kaocha {:mvn/version "1.87.1366"}}
-   :main-opts   ["--main" "kaocha.runner"]
-   :exec-fn kaocha.runner/exec-fn
-   :exec-args {:randomize? false
-               :fail-fast? true}}
+   ;; Default test runner using kaocha (change to your own preference)
+   ;; clojure -X:test/run
+   ;; clojure -X:test/run :fail-fast true
+   :test/run
+   {:extra-paths ["test"]
+    :extra-deps {lambdaisland/kaocha {:mvn/version "1.87.1366"}}
+    :main-opts   ["--main" "kaocha.runner"]
+    :exec-fn kaocha.runner/exec-fn
+    :exec-args {:randomize? false
+                :fail-fast? true}}
 
-  :test/run-all
-  {:extra-paths ["test"]
-   :extra-deps {lambdaisland/kaocha {:mvn/version "1.87.1366"}}
-   :main-opts   ["--main" "kaocha.runner"]
-   :exec-fn kaocha.runner/exec-fn
-   :exec-args {:randomize? false
-               :fail-fast? false}}
+   :test/run-all
+   {:extra-paths ["test"]
+    :extra-deps {lambdaisland/kaocha {:mvn/version "1.87.1366"}}
+    :main-opts   ["--main" "kaocha.runner"]
+    :exec-fn kaocha.runner/exec-fn
+    :exec-args {:randomize? false
+                :fail-fast? false}}
 
-  ;; Kaocha test runner in watch mode
-  ;; clojure -X:test/watch
-  :test/watch
-  {:extra-paths ["test"]
-   :extra-deps {lambdaisland/kaocha {:mvn/version "1.87.1366"}}
-   :main-opts   ["--main" "kaocha.runner" "--watch" "--fail-fast" "--skip-meta" ":slow"]
-   :exec-fn kaocha.runner/exec-fn
-   :exec-args {:watch? true
-               :randomize? false
-               :fail-fast? true}}
+   ;; Kaocha test runner in watch mode
+   ;; clojure -X:test/watch
+   :test/watch
+   {:extra-paths ["test"]
+    :extra-deps {lambdaisland/kaocha {:mvn/version "1.87.1366"}}
+    :main-opts   ["--main" "kaocha.runner" "--watch" "--fail-fast" "--skip-meta" ":slow"]
+    :exec-fn kaocha.runner/exec-fn
+    :exec-args {:watch? true
+                :randomize? false
+                :fail-fast? true}}
 
-  :test/cljs
-  {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha      {:mvn/version "1.87.1366"}
-                 lambdaisland/kaocha-cljs {:mvn/version "1.5.154"}}
-   :main-opts   ["--main" "kaocha.runner" "unit-cljs"]}
+   :test/cljs
+   {:extra-paths ["test"]
+    :extra-deps  {lambdaisland/kaocha      {:mvn/version "1.87.1366"}
+                  lambdaisland/kaocha-cljs {:mvn/version "1.5.154"}}
+    :main-opts   ["--main" "kaocha.runner" "unit-cljs"]}
 
-  ;; https://github.com/lambdaisland/kaocha-cucumbe
-  ;; - used for kaocha-runner.el to run Kaocha test runner in Emacs Cider
-  :lib/kaocha
-  {:extra-deps {lambdaisland/kaocha {:mvn/version "1.87.1366"}}}
+   ;; https://github.com/lambdaisland/kaocha-cucumbe
+   ;; - used for kaocha-runner.el to run Kaocha test runner in Emacs Cider
+   :lib/kaocha
+   {:extra-deps {lambdaisland/kaocha {:mvn/version "1.87.1366"}}}
 
-  ;; End of Test runners
-  ;; ---------------------------------------------------
+   ;; End of Test runners
+   ;; ---------------------------------------------------
 
-  ;; ---------------------------------------------------
-  ;; Test Coverage tools
+   ;; ---------------------------------------------------
+   ;; Test Coverage tools
 
-  ;; Cloverage - Simple clojure coverage tool
-  ;; https://github.com/cloverage/cloverage
-  ;; In the root of your Clojure project, run the command:
-  ;; clojure -M:test/coverage
-  ;; clojure -X:test/coverage
-  :test/coverage
-  {:extra-paths ["test"]
-   :extra-deps  {cloverage/cloverage {:mvn/version "1.2.4"}}
-   :main-opts   ["--main" "cloverage.coverage"
-                 "--src-ns-path" "src"
-                 "--test-ns-path" "test"]
-   :exec-fn     cloverage.coverage/run-project
-   :exec-args   {:src-ns-path  ["src"]
-                 :test-ns-path ["test"]}}
+   ;; Cloverage - Simple clojure coverage tool
+   ;; https://github.com/cloverage/cloverage
+   ;; In the root of your Clojure project, run the command:
+   ;; clojure -M:test/coverage
+   ;; clojure -X:test/coverage
+   :test/coverage
+   {:extra-paths ["test"]
+    :extra-deps  {cloverage/cloverage {:mvn/version "1.2.4"}}
+    :main-opts   ["--main" "cloverage.coverage"
+                  "--src-ns-path" "src"
+                  "--test-ns-path" "test"]
+    :exec-fn     cloverage.coverage/run-project
+    :exec-args   {:src-ns-path  ["src"]
+                  :test-ns-path ["test"]}}
 
-  ;; End of Test Coverage tools
-  ;; ---------------------------------------------------
+   ;; End of Test Coverage tools
+   ;; ---------------------------------------------------
 
-  ;; ---------------------------------------------------
-  ;; Linting/ static analysis
+   ;; ---------------------------------------------------
+   ;; Linting/ static analysis
 
-  ;; DEPRECATED - use as a tool
-  ;; clj-kondo - comprehensive and fast linter
-  ;; https://github.com/borkdude/clj-kondo/
-  :lint/clj-kondo
-  {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2023.09.07"}}
-   :main-opts  ["--main" "clj-kondo.main" "--lint" "src"]}
+   ;; DEPRECATED - use as a tool
+   ;; clj-kondo - comprehensive and fast linter
+   ;; https://github.com/borkdude/clj-kondo/
+   :lint/clj-kondo
+   {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2023.09.07"}}
+    :main-opts  ["--main" "clj-kondo.main" "--lint" "src"]}
 
-  ;; DEPRECATED - not used
-  ;; Eastwood - lint tool based on tools.analyzer.jvm
-  :lint/eastwood
-  {:extra-deps {jonase/eastwood {:mvn/version "1.4.0"}}
-   ;; Eastwood accurately infers source/test paths, so they are best left unspecified:
-   :main-opts  ["--main" "eastwood.lint"]}
+   ;; DEPRECATED - not used
+   ;; Eastwood - lint tool based on tools.analyzer.jvm
+   :lint/eastwood
+   {:extra-deps {jonase/eastwood {:mvn/version "1.4.0"}}
+    ;; Eastwood accurately infers source/test paths, so they are best left unspecified:
+    :main-opts  ["--main" "eastwood.lint"]}
 
-  ;; DEPRECATED - not used
-  ;; kibit - suggest idiomatic use of Clojure
-  ;; https://github.com/jonase/kibit/issues/221
-  :lint/idiom
-  {:replace-paths []
-   :replace-deps  {tvaughan/kibit-runner {:mvn/version "1.0.1"}}
-   :main-opts     ["--main" "kibit-runner.cmdline"]}
+   ;; DEPRECATED - not used
+   ;; kibit - suggest idiomatic use of Clojure
+   ;; https://github.com/jonase/kibit/issues/221
+   :lint/idiom
+   {:replace-paths []
+    :replace-deps  {tvaughan/kibit-runner {:mvn/version "1.0.1"}}
+    :main-opts     ["--main" "kibit-runner.cmdline"]}
 
-  ;; End of Linting/ static analysis
-  ;; ---------------------------------------------------
+   ;; End of Linting/ static analysis
+   ;; ---------------------------------------------------
 
-  ;; ---------------------------------------------------
-  ;; Visualizing dependencies
+   ;; ---------------------------------------------------
+   ;; Visualizing dependencies
 
-  ;; Morpheus - visualize project var relationships
-  ;; https://github.com/benedekfazekas/morpheus
-  ;; Options:
-  ;; -d to specify output directory (this must exist)
-  ;; -f to specify image format, dot (default), png or svg
-  ;; Options are followed by list of paths to analyze.
+   ;; Morpheus - visualize project var relationships
+   ;; https://github.com/benedekfazekas/morpheus
+   ;; Options:
+   ;; -d to specify output directory (this must exist)
+   ;; -f to specify image format, dot (default), png or svg
+   ;; Options are followed by list of paths to analyze.
 
-  ;; clojure -M:graph/vars -d graphs -f png src test
-  :graph/vars
-  {:extra-deps {thomasa/morpheus
-                {:git/url "https://github.com/benedekfazekas/morpheus.git"
-                 :sha     "9d6f2c1ede8be7ab4508065fe6b7e40e0c099ab6"}}
-   :main-opts  ["--main" "thomasa.morpheus.main"]}
+   ;; clojure -M:graph/vars -d graphs -f png src test
+   :graph/vars
+   {:extra-deps {thomasa/morpheus
+                 {:git/url "https://github.com/benedekfazekas/morpheus.git"
+                  :sha     "9d6f2c1ede8be7ab4508065fe6b7e40e0c099ab6"}}
+    :main-opts  ["--main" "thomasa.morpheus.main"]}
 
-  ;; Generate PNG image of dependency graph in directory called `graphs`
-  ;; clojure -M:graph/vars-png
-  :graph/vars-png
-  {:extra-deps {thomasa/morpheus
-                {:git/url "https://github.com/benedekfazekas/morpheus.git"
-                 :sha     "9d6f2c1ede8be7ab4508065fe6b7e40e0c099ab6"}}
-   :main-opts  ["--main" "thomasa.morpheus.main"
-                "-d" "graphs" "-f" "png" "src" "test"]}
+   ;; Generate PNG image of dependency graph in directory called `graphs`
+   ;; clojure -M:graph/vars-png
+   :graph/vars-png
+   {:extra-deps {thomasa/morpheus
+                 {:git/url "https://github.com/benedekfazekas/morpheus.git"
+                  :sha     "9d6f2c1ede8be7ab4508065fe6b7e40e0c099ab6"}}
+    :main-opts  ["--main" "thomasa.morpheus.main"
+                 "-d" "graphs" "-f" "png" "src" "test"]}
 
-  ;; Generate SVG image of dependency graph in directory called `graphs`
-  ;; clojure -M:graph/vars-svg
-  :graph/vars-svg
-  {:extra-deps {thomasa/morpheus
-                {:git/url "https://github.com/benedekfazekas/morpheus.git"
-                 :sha     "9d6f2c1ede8be7ab4508065fe6b7e40e0c099ab6"}}
-   :main-opts  ["--main" "thomasa.morpheus.main"
-                "-d"  "graphs" "-f" "svg" "src" "test"]}
+   ;; Generate SVG image of dependency graph in directory called `graphs`
+   ;; clojure -M:graph/vars-svg
+   :graph/vars-svg
+   {:extra-deps {thomasa/morpheus
+                 {:git/url "https://github.com/benedekfazekas/morpheus.git"
+                  :sha     "9d6f2c1ede8be7ab4508065fe6b7e40e0c099ab6"}}
+    :main-opts  ["--main" "thomasa.morpheus.main"
+                 "-d"  "graphs" "-f" "svg" "src" "test"]}
 
-  ;; Visualize connections between library dependencies and project namespaces
-  ;; https://github.com/SevereOverfl0w/vizns
-  ;; clojure -M:graph/ns-deps
-  :graph/ns-deps
-  {:extra-deps {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
-                                  :sha     "69774e8c29e1c1c691f9922d5c5a6d764374ada3"}}
-   :main-opts  ["--main" "io.dominic.vizns.core"]}
+   ;; Visualize connections between library dependencies and project namespaces
+   ;; https://github.com/SevereOverfl0w/vizns
+   ;; clojure -M:graph/ns-deps
+   :graph/ns-deps
+   {:extra-deps {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
+                                   :sha     "69774e8c29e1c1c691f9922d5c5a6d764374ada3"}}
+    :main-opts  ["--main" "io.dominic.vizns.core"]}
 
-  ;; Generate single PNG image of library dependencies
-  :graph/ns-deps-png
-  {:extra-deps {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
-                                  :sha     "69774e8c29e1c1c691f9922d5c5a6d764374ada3"}}
-   :main-opts  ["--main" "io.dominic.vizns.core" "single" "-o" "deps-graph.png" "-f" "png"]}
+   ;; Generate single PNG image of library dependencies
+   :graph/ns-deps-png
+   {:extra-deps {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
+                                   :sha     "69774e8c29e1c1c691f9922d5c5a6d764374ada3"}}
+    :main-opts  ["--main" "io.dominic.vizns.core" "single" "-o" "deps-graph.png" "-f" "png"]}
 
-  ;; GraphViz of project dependencies
-  ;; https://github.com/clojure/tools.deps.graph
-  ;; clojure -T:graph/deps
-  :graph/deps
-  {:replace-paths []
-   :replace-deps  {org.clojure/tools.deps.graph {:mvn/version "1.1.84"}}
-   :ns-default    clojure.tools.deps.graph
-   :exec-fn       graph
-   :exec-args     {:output "project-dependencies-graph.png"
-                   :size   true}}
+   ;; GraphViz of project dependencies
+   ;; https://github.com/clojure/tools.deps.graph
+   ;; clojure -T:graph/deps
+   :graph/deps
+   {:replace-paths []
+    :replace-deps  {org.clojure/tools.deps.graph {:mvn/version "1.1.84"}}
+    :ns-default    clojure.tools.deps.graph
+    :exec-fn       graph
+    :exec-args     {:output "project-dependencies-graph.png"
+                    :size   true}}
 
-  ;; Visualizing dependencies
-  ;; ---------------------------------------------------
+   ;; Visualizing dependencies
+   ;; ---------------------------------------------------
 
-  ;; ---------------------------------------------------
-  ;; Performance testing
+   ;; ---------------------------------------------------
+   ;; Performance testing
 
-  ;; Benchmarking library for Clojure
-  ;; https://github.com/hugoduncan/criterium/
-  ;; (require '[criterium.core :refer [bench quick-bench]]) ; require criterium
-  ;; (bench (adhoc-expression)) ; timing of a self contained expression
-  ;;
-  ;; (require '[practicalli/namespace-name]) ; require project source code
-  ;; (in-ns 'practicalli/namespace-name)
-  ;; (quick-bench (project-function args))
-  :performance/benchmark
-  {:extra-deps {criterium/criterium {:mvn/version "0.4.6"}}}
+   ;; Benchmarking library for Clojure
+   ;; https://github.com/hugoduncan/criterium/
+   ;; (require '[criterium.core :refer [bench quick-bench]]) ; require criterium
+   ;; (bench (adhoc-expression)) ; timing of a self contained expression
+   ;;
+   ;; (require '[practicalli/namespace-name]) ; require project source code
+   ;; (in-ns 'practicalli/namespace-name)
+   ;; (quick-bench (project-function args))
+   :performance/benchmark
+   {:extra-deps {criterium/criterium {:mvn/version "0.4.6"}}}
 
-  ;; clj-memory-meter
-  ;; - see https://github.com/clojure-goes-fast/clj-memory-meter
-  ;; - (require '[clj-memory-meter.core :as memory-meter])
-  ;; - (memory-meter/measure (your-expression))
-  :performance/memory-meter
-  {:extra-deps {com.clojure-goes-fast/clj-memory-meter {:mvn/version "0.3.0"}}
-   :jvm-opts   ["-Djdk.attach.allowAttachSelf"]}
+   ;; clj-memory-meter
+   ;; - see https://github.com/clojure-goes-fast/clj-memory-meter
+   ;; - (require '[clj-memory-meter.core :as memory-meter])
+   ;; - (memory-meter/measure (your-expression))
+   :performance/memory-meter
+   {:extra-deps {com.clojure-goes-fast/clj-memory-meter {:mvn/version "0.3.0"}}
+    :jvm-opts   ["-Djdk.attach.allowAttachSelf"]}
 
-  ;; End of Performance testing
-  ;; ---------------------------------------------------
+   ;; End of Performance testing
+   ;; ---------------------------------------------------
 
-  ;; ---------------------------------------------------
-  ;; Zulip Event announcement
-  :community/zulip-event
-  {:replace-paths []
-   :replace-deps  {clojurians-zulip/feeds
-                   {:git/url "https://gitlab.com/clojurians-zulip/feeds.git"
-                    :sha     "4bf8109afc5cd5ab2f409151d4dd583644028b4a"}}
-   :main-opts     ["--main" "inclined.main"
-                   "--ns" "clojurians-zulip.events" "--"]}
+   ;; ---------------------------------------------------
+   ;; Zulip Event announcement
+   :community/zulip-event
+   {:replace-paths []
+    :replace-deps  {clojurians-zulip/feeds
+                    {:git/url "https://gitlab.com/clojurians-zulip/feeds.git"
+                     :sha     "4bf8109afc5cd5ab2f409151d4dd583644028b4a"}}
+    :main-opts     ["--main" "inclined.main"
+                    "--ns" "clojurians-zulip.events" "--"]}
 
-  ;; End of Zulip Event announcement
-  ;; ---------------------------------------------------
+   ;; End of Zulip Event announcement
+   ;; ---------------------------------------------------
 
-  ;; ---------------------------------------------------
-  ;; Services
+   ;; ---------------------------------------------------
+   ;; Services
 
-  ;; https://github.com/kachayev/nasus
-  ;; simple zero-configuration command-line HTTP files server. Like Python's SimpleHTTPServer but scalable
-  :service/webserver
-  {:replace-deps {nasus/nasus {:mvn/version "0.1.7"}}
-   :main-opts    ["--main" "http.server"]}
+   ;; https://github.com/kachayev/nasus
+   ;; simple zero-configuration command-line HTTP files server. Like Python's SimpleHTTPServer but scalable
+   :service/webserver
+   {:replace-deps {nasus/nasus {:mvn/version "0.1.7"}}
+    :main-opts    ["--main" "http.server"]}
 
-  :service/http
-  {:replace-deps {nasus/nasus {:mvn/version "0.1.7"}}
-   :main-opts    ["--main" "http.server"]}
+   :service/http
+   {:replace-deps {nasus/nasus {:mvn/version "0.1.7"}}
+    :main-opts    ["--main" "http.server"]}
 
-  ;; End of Services
-  ;; ---------------------------------------------------
+   ;; End of Services
+   ;; ---------------------------------------------------
 
-  ;; ---------------------------------------------------
-  ;; Socket REPL
+   ;; ---------------------------------------------------
+   ;; Socket REPL
 
-  ;; Clojure Socket REPL on port 55555:
-  ;; clojure -X:repl/socket
-  :repl/socket
-  {:exec-fn clojure.core.server/start-server
-   :exec-args {:name "repl-server"
-               :port 55555
-               :accept clojure.core.server/repl
-               :server-daemon false}}
+   ;; Clojure Socket REPL on port 55555:
+   ;; clojure -X:repl/socket
+   :repl/socket
+   {:exec-fn clojure.core.server/start-server
+    :exec-args {:name "repl-server"
+                :port 55555
+                :accept clojure.core.server/repl
+                :server-daemon false}}
 
-  ;; Older Socket REPL approaches to review:
+   ;; Older Socket REPL approaches to review:
 
-  ;; clojure -M:repl/socket-jvm-opts (lesser used approach)
-  :repl/socket-jvm-opts
-  {:jvm-opts ["-Dclojure.server.repl={:port,50505,:accept,clojure.core.server/repl}"]}
+   ;; clojure -M:repl/socket-jvm-opts (lesser used approach)
+   :repl/socket-jvm-opts
+   {:jvm-opts ["-Dclojure.server.repl={:port,50505,:accept,clojure.core.server/repl}"]}
 
-  ;; Clojure Socket REPL on an available port, displaying port number (container/cloud environments)
-  ;; - specify -r to start a repl
-  :repl/socket-zero
-  {:jvm-opts  ["-Dclojure.server.repl={:port,0,:accept,clojure.core.server/repl}"]
-   :main-opts ["-e" "(.getLocalPort,(get-in,@#'clojure.core.server/servers,[\"repl\",:socket]))"]}
+   ;; Clojure Socket REPL on an available port, displaying port number (container/cloud environments)
+   ;; - specify -r to start a repl
+   :repl/socket-zero
+   {:jvm-opts  ["-Dclojure.server.repl={:port,0,:accept,clojure.core.server/repl}"]
+    :main-opts ["-e" "(.getLocalPort,(get-in,@#'clojure.core.server/servers,[\"repl\",:socket]))"]}
 
-  ;; ClojureScript (node) Socket REPL on port 55555:
-  ;; clojure -M:repl/socket-cljs
-  :repl/socket-node
-  {:jvm-opts ["-Dclojure.server.repl={:port,55555,:accept,cljs.server.node/repl}"]}
+   ;; ClojureScript (node) Socket REPL on port 55555:
+   ;; clojure -M:repl/socket-cljs
+   :repl/socket-node
+   {:jvm-opts ["-Dclojure.server.repl={:port,55555,:accept,cljs.server.node/repl}"]}
 
-  ;; ClojureScript (browser) Socket REPL on port 58585:
-  ;; clojure -M:repl/socket-cljs
-  :repl/socket-browser
-  {:jvm-opts ["-Dclojure.server.repl={:port,58585,:accept,cljs.server.browser/repl}"]}
+   ;; ClojureScript (browser) Socket REPL on port 58585:
+   ;; clojure -M:repl/socket-cljs
+   :repl/socket-browser
+   {:jvm-opts ["-Dclojure.server.repl={:port,58585,:accept,cljs.server.browser/repl}"]}
 
-  ;; tubular - socket repl client
-  ;; https://github.com/mfikes/tubular
-  ;; Connect to a socket repl, e.g. :repl/socket
-  ;; clojure -M:repl/socket-client
-  :repl/socket-client
-  {:extra-deps {tubular/tubular {:mvn/version "1.4.0"}}
-   :main-opts  ["--main" "tubular.core"
-                "-p" "55555"]}
+   ;; tubular - socket repl client
+   ;; https://github.com/mfikes/tubular
+   ;; Connect to a socket repl, e.g. :repl/socket
+   ;; clojure -M:repl/socket-client
+   :repl/socket-client
+   {:extra-deps {tubular/tubular {:mvn/version "1.4.0"}}
+    :main-opts  ["--main" "tubular.core"
+                 "-p" "55555"]}
 
-  ;; End of Socket REPL
-  ;; ---------------------------------------------------
+   ;; End of Socket REPL
+   ;; ---------------------------------------------------
 
-  ;; ---------------------------------------------------
-  ;; Aliases to evaluate
+   ;; ---------------------------------------------------
+   ;; Aliases to evaluate
 
-  ;; Reflector - datafy and nav
-  ;; https://github.com/stuarthalloway/reflector
+   ;; Reflector - datafy and nav
+   ;; https://github.com/stuarthalloway/reflector
 
-  :alpha/reflect
-  {:extra-deps {com.stuarthalloway/reflector
-                {:git/url "https://github.com/stuarthalloway/reflector"
-                 :sha     "93a0c19b4526c1180959e940202928d35e5c3cef"}}}
+   :alpha/reflect
+   {:extra-deps {com.stuarthalloway/reflector
+                 {:git/url "https://github.com/stuarthalloway/reflector"
+                  :sha     "93a0c19b4526c1180959e940202928d35e5c3cef"}}}
 
-  ;; closh - bash shell with Clojure
-  :alpha/closh
-  {:extra-deps {closh/closh
-                {:git/url "https://github.com/dundalek/closh.git"
-                 :tag     "v0.5.0"
-                 :sha     "b1a7fd310b6511048fbacb8e496f574c8ccfa291"}}
-   :main-opts  ["--main" "closh.zero.frontend.rebel"]}
-  ;; --------------------------------------------------
+   ;; closh - bash shell with Clojure
+   :alpha/closh
+   {:extra-deps {closh/closh
+                 {:git/url "https://github.com/dundalek/closh.git"
+                  :tag     "v0.5.0"
+                  :sha     "b1a7fd310b6511048fbacb8e496f574c8ccfa291"}}
+    :main-opts  ["--main" "closh.zero.frontend.rebel"]}
+   ;; --------------------------------------------------
 
-  #_()}}}
+   #_()}}}
