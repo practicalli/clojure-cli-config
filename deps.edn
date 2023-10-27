@@ -485,31 +485,6 @@
 
   ;; Morse - https://github.com/nubank/morse
   :inspect/morse
-   ;; DEPRECATED - use as a tool
-   ;; clj-kondo - comprehensive and fast linter
-   ;; https://github.com/borkdude/clj-kondo/
-  :lint/clj-kondo
-  {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2023.09.07"}}
-   :main-opts  ["--main" "clj-kondo.main" "--lint" "src"]}
-
-   ;; DEPRECATED - not used
-   ;; Eastwood - lint tool based on tools.analyzer.jvm
-  :lint/eastwood
-  {:extra-deps {jonase/eastwood {:mvn/version "1.4.0"}}
-   ;; Eastwood accurately infers source/test paths, so they are best left unspecified:
-   :main-opts  ["--main" "eastwood.lint"]}
-
-   ;; DEPRECATED - not used
-   ;; kibit - suggest idiomatic use of Clojure
-   ;; https://github.com/jonase/kibit/issues/221
-  :lint/idiom
-  {:replace-paths []
-   :replace-deps  {tvaughan/kibit-runner {:mvn/version "1.0.1"}}
-   :main-opts     ["--main" "kibit-runner.cmdline"]}
-
-   ;; End of Linting/ static analysis
-   ;; ---------------------------------------------------
-
   {:extra-deps {io.github.nubank/morse
                 {:git/tag "v2023.04.30.01" :git/sha "d99b09c"}}}
   ;; ---------------------------------------------------
