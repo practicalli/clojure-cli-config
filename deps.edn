@@ -10,82 +10,57 @@
 ;; --------------------------------------------------
 ;; Top-level keys for Clojure CLI deps.edn
 
-;; `:mvn/repositories` - Maven & Clojars repositories, examples of other repositories
-;; `:mvn/local-repo`   - set local repository path - defaults to $HOME/.m2/repository
-;; `:aliases`          - tools to enhance a development workflow
-;; `:paths`            - directory paths to add to the class path
-;; `:deps`             - library dependencies to add to the class path
+;; Practicalli Clojure CLI Config only defines aliases
 
-;; `:paths` and `:deps` are typically used in the project `deps.edn`
-;; rather than a user `deps.edn` configuration
+;; `:aliases` - tools to enhance a development workflow
+
+;; Other top-level keys that could be used in a user or project `deps.edn` configuration:
+
+;; `:mvn/repos` - Maven & Clojars repositories, examples of other repositories
+;; `:mvn/local-repo` - set local repository path - defaults to $HOME/.m2/repository
+;; `:paths` - directory paths to add to the class path
+;; `:deps` - library dependencies to add to the class path
 
 ;; Keys used within :aliases
-;;  resolve-deps aliases affect dependency resolution, options:
-;;    `:extra-deps` - specifies extra deps to add to :deps
-;;    `:override-deps` - specifies a coordinate to use instead of that in :deps
-;;    `:default-deps` - specifies a coordinate to use for a lib if one isn't found
-;;  make-classpath aliases affect the classpath generation, options:
-;;    `:extra-paths` - vector of additional paths to add to the classpath
-;;    `:classpath-overrides` - map of lib to path that overrides the result of resolving deps
+
+;; resolve-deps aliases affect dependency resolution:
+;;   `:extra-deps` - libraries merged into the top-level :deps dependencies
+;;   `:replace-deps` - libraries replacing all those in the top-level :deps dependencies
+;;   `:override-deps` - library version overriding a matching library in the top-level :deps
+;;   `:default-deps` - library version if no version is otherwide defined, used across a set of shared projects acting as a dependency management system
+
+;; make-classpath aliases affect the classpath generation: 
+;;   `:extra-paths` - additional paths to those defined in the top-level :path key
+;;   `:replace-paths` - paths replacing all those defined in the top-level :path key
+;;   `:override-paths` - alternate location to resolve a dependancy (overrides resolve-deps location)
+
+;; Configuration to run Clojure
+;;   `:main-opts` - clojure.main configuration options (vector of strings), e.g. `["--main" "fully.qualified.namespace"]` to set main namespace
+;;   `:exec-fn` - clojure.exec fully qualified function name to call (symbol)
+;;   `:exec-args` - clojure.exec arguments (hash-map) passed to `:exec-fn`
 ;; ---------------------------------------------------
 
-
 {;; ---------------------------------------------------
- ;; Library Repositories (maven)
-
- ;; Specify a local repository for maven - default `$HOME/.m2/repository`
- ;; FreeDesktop.org XDG_CACHE_HOME is the recommended location
- ;; Full path should be used, otherwise a relative directory path will be created
- ;; :mvn/local-repo "/home/practicalli/.cache/maven/repository"
-
- ;; `clojure -Spath` will show the current class path which will include the path to the local maven repository for the library dependencies.
-
- ;; Order in which repositories are consulted is not guaranteed, so only add essential repositories
- ;; Maven Central and Clojars are the canonical repositories for library dependencies
- ;; JCenter is large and fast mirror often accessible behind corporate firewalls
-
- :mvn/repos {"central" {:url "https://repo1.maven.org/maven2/"}
-             "clojars" {:url "https://repo.clojars.org/"}
-
-             ;; Clojure snapshots
-             ;; "sonatype" {:url "https://oss.sonatype.org/content/repositories/snapshots/"}
-
-             ;; Maven Central Google Cloud Storage mirrors
-             ;; Americas
-             ;; "google-maven-central" {:url "https://maven-central.storage-download.googleapis.com/maven2/"}
-             ;; Asia
-             ;; "google-maven-central" {:url "https://maven-central-asia.storage-download.googleapis.com/maven2/"}
-             ;; Europe
-             ;; "google-maven-central" {:url "https://maven-central-eu.storage-download.googleapis.com/maven2/"}
-
-             ;; "clojars-china-mirror" {:url "https://mirrors.tuna.tsinghua.edu.cn/clojars/"}
-
-             ;; Example of local Artifactory repository configuration
-             ;; {"business-area" {:url "https://artifacts.internal-server.com:443/artifactory/business-area-maven-local"}
-
-             #_()}
-
- ;; End of Library Repositories
- ;; ---------------------------------------------------
-
- ;; ---------------------------------------------------
- ;; User alias definitions
+ ;; Alias definitions
 
  :aliases
  {;; ---------------------------------------------------
   ;; Development environment
+  ;; Aliases work with Clojure CLI -M -X or -T execution options
 
   ;; Custom REPL startup
   ;; A `user` namespace is loaded during REPL startup if found on the class path
-  ;; `:dev` aliases include the `dev` directory on the class path
-  ;; `dev/user.clj` can define tools and code that runs when starting the REPL
+  ;; `dev/user.clj` defines a custom `user` namespace, requring libraries and
+  ;; including code to start tools as the REPL starts
+  ;; Development environment aliases include the `dev` directory on the class path
   ;; https://practical.li/clojure/clojure-cli/repl-startup/
 
-  ;; -M -X or -T execution options
   :dev/env
   {:extra-paths ["dev"]}
 
-  ;; clojure -M:dev/reloaded
+  ;; Practicalli REPL Reloaded workflow
+  ;; https://practical.li/clojure/clojure-cli/repl-reloaded/
+  ;; Use with command to start a REPL to include REPL Reloaded tools
   :dev/reloaded
   {:extra-paths ["dev" "test"]
    :extra-deps  {djblue/portal                {:mvn/version "0.48.0"}   ; portal data inspector
@@ -98,7 +73,7 @@
                  org.clojure/test.check       {:mvn/version "1.1.1"}
                  criterium/criterium          {:mvn/version "0.4.6"}}}
 
-  ;; clojure -M:dev/reloaded-cljs
+  ;; ClojureScript tools during REPl startup
   :dev/reloaded-cljs
   {:extra-paths ["dev" "test"]
    :extra-deps  {djblue/portal             {:mvn/version "0.48.0"}   ; portal data inspector
@@ -120,14 +95,19 @@
   :lib/pretty-errors
   {:extra-deps {io.aviso/pretty {:mvn/version "1.4.4"}}}
 
+  ;; Component REPL libraries
+  :lib/integrant-repl
+  {:extra-deps {integrant/repl {:mvn/version "0.3.3"}}}
 
-  ;; End of Development environment
+  :lib/component-repl
+  {:extra-deps {com.stuartsierra/component.repl {:mvn/version "1.0.0"}}}
+
   ;; ---------------------------------------------------
 
   ;; ---------------------------------------------------
   ;; Running a REPL
 
-  ;; Interactive client REPL with nREPL server for Clojure Editor support
+  ;; Basic REPL UI with nREPL server for Clojure Editor support
   :repl/basic
   {:extra-deps {nrepl/nrepl       {:mvn/version "1.0.0"}
                 cider/cider-nrepl {:mvn/version "0.40.0"}}
@@ -142,6 +122,7 @@
    :main-opts  ["--main" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware]"]}
 
+  ;; Basic REPL UI, nREPL server and Portal data inspector
   :repl/inspect
   {:extra-deps
    {nrepl/nrepl       {:mvn/version "1.0.0"}
@@ -151,11 +132,25 @@
                "--middleware"
                "[cider.nrepl/cider-middleware,portal.nrepl/wrap-portal]"]}
 
+  ;; Start REPL with Clerk notebook receiving evaluation results as a tap> source
+  ;; Recommend using custom `user` namespace to start Clerk as tap> source
+  ;; Alpha stage alias design - may change
+  ;; clojure -M:repl/clerk
+  :repl/clerk
+  {:extra-deps {io.github.nextjournal/clerk   {:mvn/version "0.15.957"}
+                nrepl/nrepl                   {:mvn/version "1.0.0"}
+                cider/cider-nrepl             {:mvn/version "0.40.0"}
+                refactor-nrepl/refactor-nrepl {:mvn/version "3.6.0"}}
+   :main-opts  ["-e" "(require '[nextjournal.clerk])(nextjournal.clerk/show! 'nextjournal.clerk.tap)(nextjournal.clerk/serve! {:browse? true})"
+                "-m" "nrepl.cmdline"
+                "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
+                "--interactive"]}
+
   ;; Rebel Readline enhanced REPL UI
+  ;; https://github.com/bhauman/rebel-readline
   ;; REPL UI with syntax highlighting, built in docs and a quit command `:repl/quit`
 
   ;; Clojure REPL with rebel readline with nrepl for editor connection
-  ;; https://github.com/bhauman/rebel-readline
   ;; Conjure: opening a Clojure file will automatically connect to the REPL process
   ;; CIDER: run `cider-connect-clj` and select REPL host and port
   ;; Calva: connect to REPL command and select build tool, REPL host and port
@@ -171,6 +166,9 @@
                 "--interactive"
                 "-f" "rebel-readline.main/-main"]}
 
+  ;; Practicalli REPL Reloaded workflow
+  ;; https://practical.li/clojure/clojure-cli/repl-reloaded/
+  ;; clojure -M:repl/rebel
   :repl/reloaded
   {:extra-paths ["dev" "test"]
    :extra-deps {nrepl/nrepl                  {:mvn/version "1.0.0"}
@@ -192,22 +190,9 @@
                 "--interactive"
                 "-f" "rebel-readline.main/-main"]}
 
-
-  ;; Start REPL with Clerk notebook receiving evaluation results
-  ;; Alpha stage alias design - may change
-  :repl/clerk
-  {:extra-deps {io.github.nextjournal/clerk   {:mvn/version "0.15.957"}
-                nrepl/nrepl                   {:mvn/version "1.0.0"}
-                cider/cider-nrepl             {:mvn/version "0.40.0"}
-                refactor-nrepl/refactor-nrepl {:mvn/version "3.6.0"}}
-   :main-opts  ["-e" "(require '[nextjournal.clerk])(nextjournal.clerk/show! 'nextjournal.clerk.tap)(nextjournal.clerk/serve! {:browse? true})"
-                "-m" "nrepl.cmdline"
-                "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
-                "--interactive"]}
+  ;; Include Rebel Readline library
   :lib/rebel
   {:extra-deps {com.bhauman/rebel-readline {:mvn/version "0.1.4"}}}
-
-  ;; End of REPL and nREPL connections
   ;; ---------------------------------------------------
 
   ;; ---------------------------------------------------
@@ -231,19 +216,14 @@
                 "--middleware" "[cider.nrepl/cider-middleware]"
                 "--interactive"
                 "-f" "rebel-readline.main/-main"]}
-
-  ;; Component REPL libraries
-  :lib/integrant-repl
-  {:extra-deps {integrant/repl {:mvn/version "0.3.3"}}}
-
-  :lib/component-repl
-  {:extra-deps {com.stuartsierra/component.repl {:mvn/version "1.0.0"}}}
-
-  ;; End of remote REPL connections
   ;; ---------------------------------------------------
 
   ;; ---------------------------------------------------
   ;; Creating projects from templates
+  ;; clj-new can use a wide range of Leiningen style templates
+  ;; deps-new creates Clojure CLI projects
+  ;; - deps-new is used by Practicalli Project Templates
+  ;; https://practical.li/clojure/clojure-cli/projects/templates/practicalli/
 
   :project/new
   {:replace-deps {com.github.seancorfield/clj-new {:mvn/version "1.2.404"}}
@@ -251,7 +231,8 @@
    :exec-args    {:template app :name practicalli/playground}
    :main-opts    ["--main" "clj-new.create"]}
 
-
+  ;; deps-new and Practicalli Project Teamplates
+  ;; clojure -T:project/create :template template/name :name project/name
   :project/create
   {:replace-deps {io.github.seancorfield/deps-new
                   {:git/tag "v0.5.3" :git/sha "c899135"}
@@ -261,6 +242,7 @@
    :exec-args    {:template practicalli/minimal
                   :name practicalli/playground}}
 
+  ;; Local testing of Practicalli Project Templates
   :project/create-local
   {:replace-deps {io.github.seancorfield/deps-new
                   {:git/tag "v0.5.3" :git/sha "c899135"}
@@ -273,7 +255,6 @@
   :project/templates
   {:extra-deps {io.github.practicalli/project-templates
                 {:git/tag "2023-08-02" :git/sha "eaa11fa"}}}
-  ;; End of: Creating projects from templates
   ;; ---------------------------------------------------
 
   ;; ---------------------------------------------------
@@ -330,8 +311,6 @@
                 {:git/url "https://github.com/borkdude/carve"
                  :sha     "cb621317ae1582869c8bd8f1a47cf57a3598d803"}}
    :main-opts  ["--main" "carve.main"]}
-
-  ;; End of Projects and dependencies
   ;; ---------------------------------------------------
 
   ;; ---------------------------------------------------
@@ -339,8 +318,6 @@
   ;; - use Clojure CLI tools.build approach
   ;; https://practical.li/clojure/clojure-cli/projects/tools-build/
   ;; https://clojure.org/guides/tools_build
-
-  ;; End of project packaging
   ;; ---------------------------------------------------
 
   ;; ---------------------------------------------------
@@ -366,8 +343,6 @@
   {:replace-paths []
    :replace-deps  {slipset/deps-deploy {:mvn/version "0.2.1"}}
    :main-opts     ["--main" "deps-deploy.deps-deploy" "deploy" :true]}
-
-  ;; End of Project Deployment
   ;; ---------------------------------------------------
 
   ;; ---------------------------------------------------
@@ -387,8 +362,6 @@
   {:extra-paths ["src/jvm"]
    :extra-deps
    {org.clojure/clojure-source {:local/root "/home/practicalli/projects/community/clojure.org/clojure"}}}
-
-  ;; End of: Java Sources
   ;; ---------------------------------------------------
 
   ;; ---------------------------------------------------
@@ -399,33 +372,45 @@
   :lib/pprint-sorted
   {:extra-deps {mvxcvi/puget {:mvn/version "1.3.4"}}}
 
-  ;; advanced for Clojure code and EDN
-  ;; clojure -M:data/zprint filename-or-pattern
+  ;; ----------
+  ;; zprint: advanced format tool for Clojure code and EDN
+
+  ;; Report indentation format issues
+  ;; clojure -M:format/zprint filename-or-pattern
   :format/zprint
   {:extra-deps {zprint/zprint {:mvn/version "1.2.8"}}
    :main-opts  ["--main" "zprint.main"
                 "{:style :indent-only}"
                 "--list-formatted-summary-check"]}
 
+  ;; Fix indentation format issues
+  ;; clojure -M:format/zprint!
   :format/zprint!
   {:extra-deps {zprint/zprint {:mvn/version "1.2.8"}}
    :main-opts  ["--main" "zprint.main"
                 "{:style :indent-only}"
                 "--list-formatted-summary-write"]}
 
+  ;; Report issues using community style guide
+  ;; clojure -M:format/community filename-or-pattern
   :format/community
   {:extra-deps {zprint/zprint {:mvn/version "1.2.8"}}
    :main-opts  ["--main" "zprint.main"
                 "{:style :community}"
                 "--list-formatted-summary-check"]}
 
+  ;; Fix issues using community style guide
+  ;; clojure -M:format/community filename-or-pattern
   :format/community!
   {:extra-deps {zprint/zprint {:mvn/version "1.2.8"}}
    :main-opts  ["--main" "zprint.main"
                 "{:style :community}"
                 "--list-formatted-summary-write"]}
 
+  ;; ----------
   ;; Cljstyle is a rewrite of cljfmt, designed to be easier to configure
+
+  ;; Report format issues for current project code
   ;; clojure -M:format/cljstyle
   :format/cljstyle
   {:extra-deps
@@ -434,6 +419,8 @@
    :main-opts ["--main" "cljstyle.main"
                "check"]}
 
+  ;; Fix format issues for current project code
+  ;; clojure -M:format/cljstyle
   :format/cljstyle!
   {:extra-deps
    {mvxcvi/cljstyle {:git/url "https://github.com/greglook/cljstyle.git"
@@ -441,6 +428,8 @@
    :main-opts ["--main" "cljstyle.main"
                "fix"]}
 
+  ;; ----------
+  ;; cljfmt
   ;; clojure -M:format/cljfmt check | fix
   :format/cljfmt
   {:extra-deps {cljfmt/cljfmt {:mvn/version "0.9.2"}}
@@ -449,8 +438,6 @@
   :format/cljfmt!
   {:extra-deps {cljfmt/cljfmt {:mvn/version "0.9.2"}}
    :main-opts ["--main" "cljfmt.main" "fix"]}
-
-  ;; End of: Formatting tools
   ;; ---------------------------------------------------
 
   ;; ---------------------------------------------------
@@ -464,8 +451,6 @@
   {:extra-deps
    {com.h2database/h2                 {:mvn/version "2.2.224"}
     com.github.seancorfield/next.jdbc {:mvn/version "1.3.894"}}}
-
-  ;; End of Databases and drivers uses only during development
   ;; ---------------------------------------------------
 
   ;; ---------------------------------------------------
@@ -476,8 +461,6 @@
   ;; Alias can be used as an optional library for projects or REPL workflow
   :lib/clerk
   {:extra-deps {io.github.nextjournal/clerk {:mvn/version "0.15.957"}}}
-
-  ;; End of Data Science
   ;; ---------------------------------------------------
 
   ;; ---------------------------------------------------
@@ -502,304 +485,286 @@
 
   ;; Morse - https://github.com/nubank/morse
   :inspect/morse
-  {:extra-deps {io.github.nubank/morse {:git/tag "v2023.04.30.01" :git/sha "d99b09c"}}
-
-   ;; End of Data inspectors
-   ;; ---------------------------------------------------
-
-   ;; ---------------------------------------------------
-   ;; Debug Tools
-
-   ;; Flowstorm, a tracing debugger
-   ;; https://github.com/jpmonettas/flow-storm-debugger
-   :lib/flowstorm
-   {:extra-deps {com.github.jpmonettas/flow-storm-dbg {:mvn/version "3.7.5"}}}
-
-   ;; End of Debug Tools
-   ;; ---------------------------------------------------
-
-   ;; ---------------------------------------------------
-   ;; Clojure Specifications
-
-   ;; Clojure spec test.check (clojure spec included in Clojure 1.9 onwards)
-   :lib/spec-test
-   {:extra-deps
-    {org.clojure/test.check {:mvn/version "1.1.1"}}}
-
-   ;; Clojure spec 2 - under active development
-   ;; https://github.com/clojure/spec-alpha2
-   ;; latest commit SHA is returned by the command
-   ;; git ls-remote https://github.com/clojure/spec-alpha2.git refs/heads/master
-   :lib/spec2
-   {:extra-deps {org.clojure/spec-alpha2
-                 {:git/url "https://github.com/clojure/spec-alpha2"
-                  :sha     "4cbfa677c4cd66339f18e1c122222c05c69e0d8e"}}}
-
-   ;; End of Clojure Specifications
-   ;; ---------------------------------------------------
-
-   ;; ---------------------------------------------------
-   ;; Testing Environment / Libraries
-
-
-   :lib/ring-mock
-   {:extra-deps {ring/ring-mock {:mvn/version "0.4.0"}}}
-
-   ;; End of Testing frameworks
-   ;; ---------------------------------------------------
-
-   ;; ---------------------------------------------------
-   ;; Test runners
-
-   ;; Cognitect test-runner
-   ;; https://github.com/cognitect-labs/test-runner
-   ;; clojure -X:test/cognitect
-   :test/cognitect
-   {:extra-paths ["test"]
-    :extra-deps  {io.github.cognitect-labs/test-runner
-                  {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
-    :main-opts   ["--main" "cognitect.test-runner"]
-    :exec-fn cognitect.test-runner.api/test}
-
-   ;; kaocha - comprehensive test runner for Clojure/Script
-   ;; tests.edn should be created for each project
-   ;; https://github.com/lambdaisland/kaocha
-
-   ;; Default test runner using kaocha (change to your own preference)
-   ;; clojure -X:test/run
-   ;; clojure -X:test/run :fail-fast true
-   :test/run
-   {:extra-paths ["test"]
-    :extra-deps {lambdaisland/kaocha {:mvn/version "1.87.1366"}}
-    :main-opts   ["--main" "kaocha.runner"]
-    :exec-fn kaocha.runner/exec-fn
-    :exec-args {:randomize? false
-                :fail-fast? true}}
-
-   :test/run-all
-   {:extra-paths ["test"]
-    :extra-deps {lambdaisland/kaocha {:mvn/version "1.87.1366"}}
-    :main-opts   ["--main" "kaocha.runner"]
-    :exec-fn kaocha.runner/exec-fn
-    :exec-args {:randomize? false
-                :fail-fast? false}}
-
-   ;; Kaocha test runner in watch mode
-   ;; clojure -X:test/watch
-   :test/watch
-   {:extra-paths ["test"]
-    :extra-deps {lambdaisland/kaocha {:mvn/version "1.87.1366"}}
-    :main-opts   ["--main" "kaocha.runner" "--watch" "--fail-fast" "--skip-meta" ":slow"]
-    :exec-fn kaocha.runner/exec-fn
-    :exec-args {:watch? true
-                :randomize? false
-                :fail-fast? true}}
-
-   :test/cljs
-   {:extra-paths ["test"]
-    :extra-deps  {lambdaisland/kaocha      {:mvn/version "1.87.1366"}
-                  lambdaisland/kaocha-cljs {:mvn/version "1.5.154"}}
-    :main-opts   ["--main" "kaocha.runner" "unit-cljs"]}
-
-   ;; https://github.com/lambdaisland/kaocha-cucumbe
-   ;; - used for kaocha-runner.el to run Kaocha test runner in Emacs Cider
-   :lib/kaocha
-   {:extra-deps {lambdaisland/kaocha {:mvn/version "1.87.1366"}}}
-
-   ;; End of Test runners
-   ;; ---------------------------------------------------
-
-   ;; ---------------------------------------------------
-   ;; Test Coverage tools
-
-   ;; Cloverage - Simple clojure coverage tool
-   ;; https://github.com/cloverage/cloverage
-   ;; In the root of your Clojure project, run the command:
-   ;; clojure -M:test/coverage
-   ;; clojure -X:test/coverage
-   :test/coverage
-   {:extra-paths ["test"]
-    :extra-deps  {cloverage/cloverage {:mvn/version "1.2.4"}}
-    :main-opts   ["--main" "cloverage.coverage"
-                  "--src-ns-path" "src"
-                  "--test-ns-path" "test"]
-    :exec-fn     cloverage.coverage/run-project
-    :exec-args   {:src-ns-path  ["src"]
-                  :test-ns-path ["test"]}}
-
-   ;; End of Test Coverage tools
-   ;; ---------------------------------------------------
-
    ;; DEPRECATED - use as a tool
    ;; clj-kondo - comprehensive and fast linter
    ;; https://github.com/borkdude/clj-kondo/
-   :lint/clj-kondo
-   {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2023.09.07"}}
-    :main-opts  ["--main" "clj-kondo.main" "--lint" "src"]}
+  :lint/clj-kondo
+  {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2023.09.07"}}
+   :main-opts  ["--main" "clj-kondo.main" "--lint" "src"]}
 
    ;; DEPRECATED - not used
    ;; Eastwood - lint tool based on tools.analyzer.jvm
-   :lint/eastwood
-   {:extra-deps {jonase/eastwood {:mvn/version "1.4.0"}}
-    ;; Eastwood accurately infers source/test paths, so they are best left unspecified:
-    :main-opts  ["--main" "eastwood.lint"]}
+  :lint/eastwood
+  {:extra-deps {jonase/eastwood {:mvn/version "1.4.0"}}
+   ;; Eastwood accurately infers source/test paths, so they are best left unspecified:
+   :main-opts  ["--main" "eastwood.lint"]}
 
    ;; DEPRECATED - not used
    ;; kibit - suggest idiomatic use of Clojure
    ;; https://github.com/jonase/kibit/issues/221
-   :lint/idiom
-   {:replace-paths []
-    :replace-deps  {tvaughan/kibit-runner {:mvn/version "1.0.1"}}
-    :main-opts     ["--main" "kibit-runner.cmdline"]}
+  :lint/idiom
+  {:replace-paths []
+   :replace-deps  {tvaughan/kibit-runner {:mvn/version "1.0.1"}}
+   :main-opts     ["--main" "kibit-runner.cmdline"]}
 
    ;; End of Linting/ static analysis
    ;; ---------------------------------------------------
 
-   ;; ---------------------------------------------------
-   ;; Visualizing dependencies
+  {:extra-deps {io.github.nubank/morse
+                {:git/tag "v2023.04.30.01" :git/sha "d99b09c"}}}
+  ;; ---------------------------------------------------
 
-   ;; Morpheus - visualize project var relationships
-   ;; https://github.com/benedekfazekas/morpheus
-   ;; Options:
-   ;; -d to specify output directory (this must exist)
-   ;; -f to specify image format, dot (default), png or svg
-   ;; Options are followed by list of paths to analyze.
+  ;; ---------------------------------------------------
+  ;; Debug Tools
 
-   ;; clojure -M:graph/vars -d graphs -f png src test
-   :graph/vars
-   {:extra-deps {thomasa/morpheus
-                 {:git/url "https://github.com/benedekfazekas/morpheus.git"
-                  :sha     "9d6f2c1ede8be7ab4508065fe6b7e40e0c099ab6"}}
-    :main-opts  ["--main" "thomasa.morpheus.main"]}
+  ;; Flowstorm, a tracing debugger
+  ;; https://github.com/jpmonettas/flow-storm-debugger
+  :lib/flowstorm
+  {:extra-deps {com.github.jpmonettas/flow-storm-dbg {:mvn/version "3.7.5"}}}
 
-   ;; Generate PNG image of dependency graph in directory called `graphs`
-   ;; clojure -M:graph/vars-png
-   :graph/vars-png
-   {:extra-deps {thomasa/morpheus
-                 {:git/url "https://github.com/benedekfazekas/morpheus.git"
-                  :sha     "9d6f2c1ede8be7ab4508065fe6b7e40e0c099ab6"}}
-    :main-opts  ["--main" "thomasa.morpheus.main"
-                 "-d" "graphs" "-f" "png" "src" "test"]}
+  ;; End of Debug Tools
+  ;; ---------------------------------------------------
 
-   ;; Generate SVG image of dependency graph in directory called `graphs`
-   ;; clojure -M:graph/vars-svg
-   :graph/vars-svg
-   {:extra-deps {thomasa/morpheus
-                 {:git/url "https://github.com/benedekfazekas/morpheus.git"
-                  :sha     "9d6f2c1ede8be7ab4508065fe6b7e40e0c099ab6"}}
-    :main-opts  ["--main" "thomasa.morpheus.main"
-                 "-d"  "graphs" "-f" "svg" "src" "test"]}
+  ;; ---------------------------------------------------
+  ;; Clojure Specifications
 
-   ;; Visualize connections between library dependencies and project namespaces
-   ;; https://github.com/SevereOverfl0w/vizns
-   ;; clojure -M:graph/ns-deps
-   :graph/ns-deps
-   {:extra-deps {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
-                                   :sha     "69774e8c29e1c1c691f9922d5c5a6d764374ada3"}}
-    :main-opts  ["--main" "io.dominic.vizns.core"]}
+  ;; Clojure spec test.check (clojure spec included in Clojure 1.9 onwards)
+  :lib/spec-test
+  {:extra-deps
+   {org.clojure/test.check {:mvn/version "1.1.1"}}}
 
-   ;; Generate single PNG image of library dependencies
-   :graph/ns-deps-png
-   {:extra-deps {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
-                                   :sha     "69774e8c29e1c1c691f9922d5c5a6d764374ada3"}}
-    :main-opts  ["--main" "io.dominic.vizns.core" "single" "-o" "deps-graph.png" "-f" "png"]}
+  ;; Clojure spec 2 - under active development
+  ;; https://github.com/clojure/spec-alpha2
+  ;; latest commit SHA is returned by the command
+  ;; git ls-remote https://github.com/clojure/spec-alpha2.git refs/heads/master
+  :lib/spec2
+  {:extra-deps {org.clojure/spec-alpha2
+                {:git/url "https://github.com/clojure/spec-alpha2"
+                 :sha     "4cbfa677c4cd66339f18e1c122222c05c69e0d8e"}}}
+  ;; ---------------------------------------------------
 
-   ;; GraphViz of project dependencies
-   ;; https://github.com/clojure/tools.deps.graph
-   ;; clojure -T:graph/deps
-   :graph/deps
-   {:replace-paths []
-    :replace-deps  {org.clojure/tools.deps.graph {:mvn/version "1.1.84"}}
-    :ns-default    clojure.tools.deps.graph
-    :exec-fn       graph
-    :exec-args     {:output "project-dependencies-graph.png"
-                    :size   true}}
+  ;; ---------------------------------------------------
+  ;; Testing Environment / Libraries
 
-   ;; Visualizing dependencies
-   ;; ---------------------------------------------------
-
-   ;; ---------------------------------------------------
-   ;; Performance testing
-
-   ;; Benchmarking library for Clojure
-   ;; https://github.com/hugoduncan/criterium/
-   ;; (require '[criterium.core :refer [bench quick-bench]]) ; require criterium
-   ;; (bench (adhoc-expression)) ; timing of a self contained expression
-   ;;
-   ;; (require '[practicalli/namespace-name]) ; require project source code
-   ;; (in-ns 'practicalli/namespace-name)
-   ;; (quick-bench (project-function args))
-   :performance/benchmark
-   {:extra-deps {criterium/criterium {:mvn/version "0.4.6"}}}
-
-   ;; clj-memory-meter
-   ;; - see https://github.com/clojure-goes-fast/clj-memory-meter
-   ;; - (require '[clj-memory-meter.core :as memory-meter])
-   ;; - (memory-meter/measure (your-expression))
-   :performance/memory-meter
-   {:extra-deps {com.clojure-goes-fast/clj-memory-meter {:mvn/version "0.3.0"}}
-    :jvm-opts   ["-Djdk.attach.allowAttachSelf"]}
-
-   ;; End of Performance testing
-   ;; ---------------------------------------------------
-
-   ;; ---------------------------------------------------
-   ;; Zulip Event announcement
-   :community/zulip-event
-   {:replace-paths []
-    :replace-deps  {clojurians-zulip/feeds
-                    {:git/url "https://gitlab.com/clojurians-zulip/feeds.git"
-                     :sha     "4bf8109afc5cd5ab2f409151d4dd583644028b4a"}}
-    :main-opts     ["--main" "inclined.main"
-                    "--ns" "clojurians-zulip.events" "--"]}
-
-   ;; End of Zulip Event announcement
-   ;; ---------------------------------------------------
-
-   ;; ---------------------------------------------------
-   ;; Services
-
-   ;; https://github.com/kachayev/nasus
-   ;; simple zero-configuration command-line HTTP files server. Like Python's SimpleHTTPServer but scalable
-   :service/webserver
-   {:replace-deps {nasus/nasus {:mvn/version "0.1.7"}}
-    :main-opts    ["--main" "http.server"]}
-
-   :service/http
-   {:replace-deps {nasus/nasus {:mvn/version "0.1.7"}}
-    :main-opts    ["--main" "http.server"]}
-
-   ;; End of Services
-   ;; ---------------------------------------------------
-
-   ;; ---------------------------------------------------
-   ;; Socket REPL
-
-   ;; Clojure Socket REPL on port 55555:
-   ;; clojure -X:repl/socket
-   :repl/socket
-   {:exec-fn clojure.core.server/start-server
-    :exec-args {:name "repl-server"
-                :port 55555
-                :accept clojure.core.server/repl
-                :server-daemon false}}
-
-   ;; tubular - socket repl client
-   ;; https://github.com/mfikes/tubular
-   ;; Connect to a socket repl, e.g. :repl/socket
-   ;; clojure -M:repl/socket-client
-   :repl/socket-client
-   {:extra-deps {tubular/tubular {:mvn/version "1.4.0"}}
-    :main-opts  ["--main" "tubular.core"
-                 "-p" "55555"]}
-
-   ;; End of Socket REPL
-   ;; ---------------------------------------------------
   ;; Include the test directory on the class path
   :test/env
   {:extra-paths ["test"]
    :extra-deps  {org.clojure/test.check {:mvn/version "1.1.1"}}}
 
+  :lib/ring-mock
+  {:extra-deps {ring/ring-mock {:mvn/version "0.4.0"}}}
+  ;; ---------------------------------------------------
+
+  ;; ---------------------------------------------------
+  ;; Test runners
+
+  ;; Cognitect test-runner
+  ;; https://github.com/cognitect-labs/test-runner
+  ;; clojure -X:test/cognitect
+  :test/cognitect
+  {:extra-paths ["test"]
+   :extra-deps  {io.github.cognitect-labs/test-runner
+                 {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
+   :main-opts   ["--main" "cognitect.test-runner"]
+   :exec-fn cognitect.test-runner.api/test}
+
+  ;; kaocha - comprehensive test runner for Clojure/Script
+  ;; tests.edn should be created for each project
+  ;; https://github.com/lambdaisland/kaocha
+
+  ;; Default test runner using kaocha (change to your own preference)
+  ;; clojure -X:test/run
+  ;; - `:fail-fast? false` argument to run all tests
+  :test/run
+  {:extra-paths ["test"]
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.87.1366"}}
+   :main-opts   ["--main" "kaocha.runner"]
+   :exec-fn kaocha.runner/exec-fn
+   :exec-args {:randomize? false
+               :fail-fast? true}}
+
+  :test/run-all
+  {:extra-paths ["test"]
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.87.1366"}}
+   :main-opts   ["--main" "kaocha.runner"]
+   :exec-fn kaocha.runner/exec-fn
+   :exec-args {:randomize? false
+               :fail-fast? false}}
+
+  ;; Kaocha test runner in watch mode
+  ;; clojure -X:test/watch
+  ;; - `:fail-fast? false` argument to run all tests
+  :test/watch
+  {:extra-paths ["test"]
+   :extra-deps {lambdaisland/kaocha {:mvn/version "1.87.1366"}}
+   :main-opts   ["--main" "kaocha.runner" "--watch" "--fail-fast" "--skip-meta" ":slow"]
+   :exec-fn kaocha.runner/exec-fn
+   :exec-args {:watch? true
+               :randomize? false
+               :fail-fast? true}}
+
+  :test/cljs
+  {:extra-paths ["test"]
+   :extra-deps  {lambdaisland/kaocha      {:mvn/version "1.87.1366"}
+                 lambdaisland/kaocha-cljs {:mvn/version "1.5.154"}}
+   :main-opts   ["--main" "kaocha.runner" "unit-cljs"]}
+
+  ;; https://github.com/lambdaisland/kaocha-cucumbe
+  ;; - used for kaocha-runner.el to run Kaocha test runner in Emacs Cider
+  :lib/kaocha
+  {:extra-deps {lambdaisland/kaocha {:mvn/version "1.87.1366"}}}
+  ;; ---------------------------------------------------
+
+  ;; ---------------------------------------------------
+  ;; Test Coverage tools
+
+  ;; Cloverage - Simple clojure coverage tool
+  ;; https://github.com/cloverage/cloverage
+  ;; In the root of your Clojure project, run the command:
+  ;; clojure -M:test/coverage
+  ;; clojure -X:test/coverage
+  :test/coverage
+  {:extra-paths ["test"]
+   :extra-deps  {cloverage/cloverage {:mvn/version "1.2.4"}}
+   :main-opts   ["--main" "cloverage.coverage"
+                 "--src-ns-path" "src"
+                 "--test-ns-path" "test"]
+   :exec-fn     cloverage.coverage/run-project
+   :exec-args   {:src-ns-path  ["src"]
+                 :test-ns-path ["test"]}}
+  ;; ---------------------------------------------------
+
+  ;; ---------------------------------------------------
+  ;; Visualizing dependencies
+
+  ;; Morpheus - visualize project var relationships
+  ;; https://github.com/benedekfazekas/morpheus
+  ;; Options:
+  ;; -d to specify output directory (this must exist)
+  ;; -f to specify image format, dot (default), png or svg
+  ;; Options are followed by list of paths to analyze.
+
+  ;; clojure -M:graph/vars -d graphs -f png src test
+  :graph/vars
+  {:extra-deps {thomasa/morpheus
+                {:git/url "https://github.com/benedekfazekas/morpheus.git"
+                 :sha     "9d6f2c1ede8be7ab4508065fe6b7e40e0c099ab6"}}
+   :main-opts  ["--main" "thomasa.morpheus.main"]}
+
+  ;; Generate PNG image of dependency graph in directory called `graphs`
+  ;; clojure -M:graph/vars-png
+  :graph/vars-png
+  {:extra-deps {thomasa/morpheus
+                {:git/url "https://github.com/benedekfazekas/morpheus.git"
+                 :sha     "9d6f2c1ede8be7ab4508065fe6b7e40e0c099ab6"}}
+   :main-opts  ["--main" "thomasa.morpheus.main"
+                "-d" "graphs" "-f" "png" "src" "test"]}
+
+  ;; Generate SVG image of dependency graph in directory called `graphs`
+  ;; clojure -M:graph/vars-svg
+  :graph/vars-svg
+  {:extra-deps {thomasa/morpheus
+                {:git/url "https://github.com/benedekfazekas/morpheus.git"
+                 :sha     "9d6f2c1ede8be7ab4508065fe6b7e40e0c099ab6"}}
+   :main-opts  ["--main" "thomasa.morpheus.main"
+                "-d"  "graphs" "-f" "svg" "src" "test"]}
+
+  ;; Visualize connections between library dependencies and project namespaces
+  ;; https://github.com/SevereOverfl0w/vizns
+  ;; clojure -M:graph/ns-deps
+  :graph/ns-deps
+  {:extra-deps {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
+                                  :sha     "69774e8c29e1c1c691f9922d5c5a6d764374ada3"}}
+   :main-opts  ["--main" "io.dominic.vizns.core"]}
+
+  ;; Generate single PNG image of library dependencies
+  :graph/ns-deps-png
+  {:extra-deps {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
+                                  :sha     "69774e8c29e1c1c691f9922d5c5a6d764374ada3"}}
+   :main-opts  ["--main" "io.dominic.vizns.core" "single" "-o" "deps-graph.png" "-f" "png"]}
+
+  ;; GraphViz of project dependencies
+  ;; https://github.com/clojure/tools.deps.graph
+  ;; clojure -T:graph/deps
+  :graph/deps
+  {:replace-paths []
+   :replace-deps  {org.clojure/tools.deps.graph {:mvn/version "1.1.84"}}
+   :ns-default    clojure.tools.deps.graph
+   :exec-fn       graph
+   :exec-args     {:output "project-dependencies-graph.png"
+                   :size   true}}
+  ;; ---------------------------------------------------
+
+  ;; ---------------------------------------------------
+  ;; Performance testing
+
+  ;; Benchmarking library for Clojure
+  ;; https://github.com/hugoduncan/criterium/
+  ;; (require '[criterium.core :refer [bench quick-bench]]) ; require criterium
+  ;; (bench (adhoc-expression)) ; timing of a self contained expression
+  ;;
+  ;; (require '[practicalli/namespace-name]) ; require project source code
+  ;; (in-ns 'practicalli/namespace-name)
+  ;; (quick-bench (project-function args))
+  :performance/benchmark
+  {:extra-deps {criterium/criterium {:mvn/version "0.4.6"}}}
+
+  ;; clj-memory-meter
+  ;; - see https://github.com/clojure-goes-fast/clj-memory-meter
+  ;; - (require '[clj-memory-meter.core :as memory-meter])
+  ;; - (memory-meter/measure (your-expression))
+  :performance/memory-meter
+  {:extra-deps {com.clojure-goes-fast/clj-memory-meter {:mvn/version "0.3.0"}}
+   :jvm-opts   ["-Djdk.attach.allowAttachSelf"]}
+  ;; ---------------------------------------------------
+
+  ;; ---------------------------------------------------
+  ;; Zulip Event announcement
+  :community/zulip-event
+  {:replace-paths []
+   :replace-deps  {clojurians-zulip/feeds
+                   {:git/url "https://gitlab.com/clojurians-zulip/feeds.git"
+                    :sha     "4bf8109afc5cd5ab2f409151d4dd583644028b4a"}}
+   :main-opts     ["--main" "inclined.main"
+                   "--ns" "clojurians-zulip.events" "--"]}
+  ;; ---------------------------------------------------
+
+  ;; ---------------------------------------------------
+  ;; Services
+
+  ;; https://github.com/kachayev/nasus
+  ;; simple zero-configuration command-line HTTP files server 
+  :service/webserver
+  {:replace-deps {nasus/nasus {:mvn/version "0.1.7"}}
+   :main-opts    ["--main" "http.server"]}
+
+  ;; alternative name for webserver alias
+  :service/http
+  {:replace-deps {nasus/nasus {:mvn/version "0.1.7"}}
+   :main-opts    ["--main" "http.server"]}
+  ;; ---------------------------------------------------
+
+  ;; ---------------------------------------------------
+  ;; Socket REPL
+
+  ;; Clojure Socket REPL on port 55555:
+  ;; clojure -X:repl/socket
+  :repl/socket
+  {:exec-fn clojure.core.server/start-server
+   :exec-args {:name "socket-repl-server"
+               :port 55555
+               :accept clojure.core.server/repl
+               :server-daemon false}}
+
+  ;; tubular - socket repl client
+  ;; https://github.com/mfikes/tubular
+  ;; Connect to a socket repl, e.g. :repl/socket
+  ;; clojure -M:repl/socket-client
+  :repl/socket-client
+  {:extra-deps {tubular/tubular {:mvn/version "1.4.0"}}
+   :main-opts  ["--main" "tubular.core"
+                "-p" "55555"]}
+  ;; ---------------------------------------------------
 
  ;; Format tool friendly way to highlight end of configuration sections
   :end/aliases {}}
