@@ -1,14 +1,43 @@
-pom.xml
-pom.xml.asc
-*.jar
-*.class
-/lib/
-/classes/
-/target/
-/checkouts/
-.lein-deps-sum
-.lein-repl-history
-.lein-plugins/
-.lein-failures
-.nrepl-port
-.cpcache/
+# ------------------------
+# Clojure Project Git Ignore file patterns
+# 
+# Ignore all except patterns starting with !
+# Add comments on separate lines, not same line as pattern
+# ------------------------
+
+# ------------------------
+# Ignore everthing in root directory
+/*
+
+# ------------------------
+# Common project files
+!CHANGELOG.md
+!README.md
+
+# ------------------------
+# Include Clojure project & config
+!build.clj
+!deps.edn
+!pom.xml
+!dev/
+!docs/
+!resources/
+!src/
+!test/
+
+# ------------------------
+# Include Clojure tools
+!.cljstyle
+!.dir-locals.el
+!compose.yaml
+!Dockerfile
+!.dockerignore
+!Makefile
+!tests.edn
+
+# ------------------------
+# Include Git & CI workflow
+!.gitattributes
+!.gitignore
+!.github/
+
