@@ -23,6 +23,15 @@
                 org.clojure/tools.deps.alpha {:git/url "https://github.com/clojure/tools.deps.alpha"
                                               :git/sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}
                 com.brunobonacci/mulog       {:mvn/version "0.9.0"}}}
+
+  ;; DEPRECATED
+  ;; https://github.com/babashka/neil
+  ;; Neil should be installed as a native binary
+  :lib/neil
+  {:extra-deps {io.github.babashka/neil {:git/tag "v0.1.47"
+                                         :git/sha "77288d4"}}
+   :main-opts ["-m" "babashka.neil"]}
+
   ;; ---------------------------------------------------
 
   ;; ---------------------------------------------------
@@ -64,13 +73,59 @@
    :main-opts  ["--main" "rebel-readline.cljs.main"
                 "-f" "rebel-readline.cljs.main/-main"]}
 
+  ;; DEPRECATED
+  :repl/rebel-debug
+  {:extra-deps {nrepl/nrepl                {:mvn/version "1.0.0"}
+                cider/cider-nrepl          {:mvn/version "0.40.0"}
+                com.billpiel/sayid         {:mvn/version "0.1.0"}
+                com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
+   :main-opts  ["-e" "(apply require clojure.main/repl-requires)"
+                "--main" "nrepl.cmdline"
+                "--middleware" "[com.billpiel.sayid.nrepl-middleware/wrap-sayid,cider.nrepl/cider-middleware]"
+                "--interactive"
+                "-f" "rebel-readline.main/-main"]}
+
+  ;; DEPRECATED
+  :repl/rebel-debug-refactor
+  {:extra-deps {nrepl/nrepl                   {:mvn/version "1.0.0"}
+                cider/cider-nrepl             {:mvn/version "0.40.0"}
+                refactor-nrepl/refactor-nrepl {:mvn/version "3.9.0"}
+                com.billpiel/sayid            {:mvn/version "0.1.0"}
+                com.bhauman/rebel-readline    {:mvn/version "0.1.4"}}
+   :main-opts  ["-e" "(apply require clojure.main/repl-requires)"
+                "--main" "nrepl.cmdline"
+                "--middleware" "[com.billpiel.sayid.nrepl-middleware/wrap-sayid,refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
+                "--interactive"
+                "-f" "rebel-readline.main/-main"]}
+
   ;; End of REPL's
   ;; ---------------------------------------------------
 
   ;; ---------------------------------------------------
   ;; Alternative REPL's
 
-  ;; Requires nashorn in a version of ClojureScript
+  ;; Older Socket REPL approaches to review:
+  ;; clojure -M:repl/socket-jvm-opts (lesser used approach)
+  :repl/socket-jvm-opts
+  {:jvm-opts ["-Dclojure.server.repl={:port,50505,:accept,clojure.core.server/repl}"]}
+
+  ;; Clojure Socket REPL on an available port, displaying port number (container/cloud environments)
+  ;; - specify -r to start a repl
+  :repl/socket-zero
+  {:jvm-opts  ["-Dclojure.server.repl={:port,0,:accept,clojure.core.server/repl}"]
+   :main-opts ["-e" "(.getLocalPort,(get-in,@#'clojure.core.server/servers,[\"repl\",:socket]))"]}
+
+  ;; ClojureScript (node) Socket REPL on port 55555:
+  ;; clojure -M:repl/socket-cljs
+  :repl/socket-node
+  {:jvm-opts ["-Dclojure.server.repl={:port,55555,:accept,cljs.server.node/repl}"]}
+
+  ;; ClojureScript (browser) Socket REPL on port 58585:
+  ;; clojure -M:repl/socket-cljs
+  :repl/socket-browser
+  {:jvm-opts ["-Dclojure.server.repl={:port,58585,:accept,cljs.server.browser/repl}"]}
+
+;; Requires nashorn in a version of ClojureScript
   ;; WARNING: stack trace - does not run TO DEPRECATE
   :repl/rebel-figwheel
   {:extra-deps {org.clojure/clojurescript       {:mvn/version "1.9.946"} ; version contains cljs.repl.nashorn
@@ -99,6 +154,14 @@
 
   ;; ---------------------------------------------------
   ;; Projects and dependencies
+
+  ;; Convert Leiningen projects to Clojure CLI with depify
+  ;; Use `lein pprint` when `project.clj` includes quoted variables or paths to resolve
+  ;; `lein pprint | clojure -M:project/depify`
+  :project/depify
+  {:extra-deps {depify/depify {:git/url "https://github.com/hagmonk/depify"
+                               :git/sha "b3f61517c860518c1990133aa6eb54caf1e4d591"}}
+   :main-opts  ["--main" "depify.project"]}
 
   :search/outdated
   {:replace-paths ["."]
@@ -434,6 +497,34 @@
    :main-opts   ["-m" "kaocha.runner" "unit-cljs"]}
 
   ;; End of Test runners
+  ;; ---------------------------------------------------
+
+  ;; ---------------------------------------------------
+  ;; Linting/ static analysis
+
+  ;; DEPRECATED - use as a tool
+  ;; clj-kondo - comprehensive and fast linter
+  ;; https://github.com/borkdude/clj-kondo/
+  :lint/clj-kondo
+  {:extra-deps {clj-kondo/clj-kondo {:mvn/version "2023.09.07"}}
+   :main-opts  ["--main" "clj-kondo.main" "--lint" "src"]}
+
+  ;; DEPRECATED - not used
+  ;; Eastwood - lint tool based on tools.analyzer.jvm
+  :lint/eastwood
+  {:extra-deps {jonase/eastwood {:mvn/version "1.4.0"}}
+   ;; Eastwood accurately infers source/test paths, so they are best left unspecified:
+   :main-opts  ["--main" "eastwood.lint"]}
+
+  ;; DEPRECATED - not used
+  ;; kibit - suggest idiomatic use of Clojure
+  ;; https://github.com/jonase/kibit/issues/221
+  :lint/idiom
+  {:replace-paths []
+   :replace-deps  {tvaughan/kibit-runner {:mvn/version "1.0.1"}}
+   :main-opts     ["--main" "kibit-runner.cmdline"]}
+
+  ;; End of Linting/ static analysis
   ;; ---------------------------------------------------
 
   ;; ---------------------------------------------------

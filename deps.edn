@@ -120,13 +120,6 @@
   :lib/pretty-errors
   {:extra-deps {io.aviso/pretty {:mvn/version "1.4.4"}}}
 
-  ;; A CLI to add common aliases and features to deps.edn-based projects.
-  ;; DEPRECATED
-  ;; https://github.com/babashka/neil
-  :lib/neil
-  {:extra-deps {io.github.babashka/neil {:git/tag "v0.1.47"
-                                         :git/sha "77288d4"}}
-   :main-opts ["-m" "babashka.neil"]}
 
   ;; End of Development environment
   ;; ---------------------------------------------------
@@ -148,31 +141,6 @@
                 cider/cider-nrepl {:mvn/version "0.40.0"}}
    :main-opts  ["--main" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware]"]}
-
-  :repl/refactor
-  {:extra-deps {nrepl/nrepl                   {:mvn/version "1.0.0"}
-                cider/cider-nrepl             {:mvn/version "0.40.0"}
-                refactor-nrepl/refactor-nrepl {:mvn/version "3.9.0"}}
-   :main-opts  ["--main" "nrepl.cmdline"
-                "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
-                "--interactive"]}
-
-  :repl/debug
-  {:extra-deps {nrepl/nrepl        {:mvn/version "1.0.0"}
-                com.billpiel/sayid {:mvn/version "0.1.0"}
-                cider/cider-nrepl  {:mvn/version "0.40.0"}}
-   :main-opts  ["--main" "nrepl.cmdline"
-                "--middleware" "[com.billpiel.sayid.nrepl-middleware/wrap-sayid,cider.nrepl/cider-middleware]"
-                "--interactive"]}
-
-  :repl/debug-refactor
-  {:extra-deps {nrepl/nrepl                   {:mvn/version "1.0.0"}
-                cider/cider-nrepl             {:mvn/version "0.40.0"}
-                refactor-nrepl/refactor-nrepl {:mvn/version "3.9.0"}
-                com.billpiel/sayid            {:mvn/version "0.1.0"}}
-   :main-opts  ["--main" "nrepl.cmdline"
-                "--middleware" "[com.billpiel.sayid.nrepl-middleware/wrap-sayid,refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
-                "--interactive"]}
 
   :repl/inspect
   {:extra-deps
@@ -236,30 +204,6 @@
                 "-m" "nrepl.cmdline"
                 "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
                 "--interactive"]}
-
-  :repl/rebel-debug
-  {:extra-deps {nrepl/nrepl                {:mvn/version "1.0.0"}
-                cider/cider-nrepl          {:mvn/version "0.40.0"}
-                com.billpiel/sayid         {:mvn/version "0.1.0"}
-                com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
-   :main-opts  ["-e" "(apply require clojure.main/repl-requires)"
-                "--main" "nrepl.cmdline"
-                "--middleware" "[com.billpiel.sayid.nrepl-middleware/wrap-sayid,cider.nrepl/cider-middleware]"
-                "--interactive"
-                "-f" "rebel-readline.main/-main"]}
-
-  :repl/rebel-debug-refactor
-  {:extra-deps {nrepl/nrepl                   {:mvn/version "1.0.0"}
-                cider/cider-nrepl             {:mvn/version "0.40.0"}
-                refactor-nrepl/refactor-nrepl {:mvn/version "3.9.0"}
-                com.billpiel/sayid            {:mvn/version "0.1.0"}
-                com.bhauman/rebel-readline    {:mvn/version "0.1.4"}}
-   :main-opts  ["-e" "(apply require clojure.main/repl-requires)"
-                "--main" "nrepl.cmdline"
-                "--middleware" "[com.billpiel.sayid.nrepl-middleware/wrap-sayid,refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
-                "--interactive"
-                "-f" "rebel-readline.main/-main"]}
-
   :lib/rebel
   {:extra-deps {com.bhauman/rebel-readline {:mvn/version "0.1.4"}}}
 
@@ -329,15 +273,6 @@
   :project/templates
   {:extra-deps {io.github.practicalli/project-templates
                 {:git/tag "2023-08-02" :git/sha "eaa11fa"}}}
-
-  ;; Convert Leiningen projects to Clojure CLI with depify
-  ;; Use `lein pprint` when `project.clj` includes quoted variables or paths to resolve
-  ;; `lein pprint | clojure -M:project/depify`
-  :project/depify
-  {:extra-deps {depify/depify {:git/url "https://github.com/hagmonk/depify"
-                               :git/sha "b3f61517c860518c1990133aa6eb54caf1e4d591"}}
-   :main-opts  ["--main" "depify.project"]}
-
   ;; End of: Creating projects from templates
   ;; ---------------------------------------------------
 
@@ -575,11 +510,6 @@
    ;; ---------------------------------------------------
    ;; Debug Tools
 
-   ;; https://github.com/vvvvalvalval/scope-capture
-   ;; save and restore the local environment
-   :lib/scope-capture
-   {:extra-deps {vvvvalvalval/scope-capture {:mvn/version "0.3.3"}}}
-
    ;; Flowstorm, a tracing debugger
    ;; https://github.com/jpmonettas/flow-storm-debugger
    :lib/flowstorm
@@ -705,9 +635,6 @@
 
    ;; End of Test Coverage tools
    ;; ---------------------------------------------------
-
-   ;; ---------------------------------------------------
-   ;; Linting/ static analysis
 
    ;; DEPRECATED - use as a tool
    ;; clj-kondo - comprehensive and fast linter
@@ -863,28 +790,6 @@
                 :accept clojure.core.server/repl
                 :server-daemon false}}
 
-   ;; Older Socket REPL approaches to review:
-
-   ;; clojure -M:repl/socket-jvm-opts (lesser used approach)
-   :repl/socket-jvm-opts
-   {:jvm-opts ["-Dclojure.server.repl={:port,50505,:accept,clojure.core.server/repl}"]}
-
-   ;; Clojure Socket REPL on an available port, displaying port number (container/cloud environments)
-   ;; - specify -r to start a repl
-   :repl/socket-zero
-   {:jvm-opts  ["-Dclojure.server.repl={:port,0,:accept,clojure.core.server/repl}"]
-    :main-opts ["-e" "(.getLocalPort,(get-in,@#'clojure.core.server/servers,[\"repl\",:socket]))"]}
-
-   ;; ClojureScript (node) Socket REPL on port 55555:
-   ;; clojure -M:repl/socket-cljs
-   :repl/socket-node
-   {:jvm-opts ["-Dclojure.server.repl={:port,55555,:accept,cljs.server.node/repl}"]}
-
-   ;; ClojureScript (browser) Socket REPL on port 58585:
-   ;; clojure -M:repl/socket-cljs
-   :repl/socket-browser
-   {:jvm-opts ["-Dclojure.server.repl={:port,58585,:accept,cljs.server.browser/repl}"]}
-
    ;; tubular - socket repl client
    ;; https://github.com/mfikes/tubular
    ;; Connect to a socket repl, e.g. :repl/socket
@@ -897,27 +802,6 @@
    ;; End of Socket REPL
    ;; ---------------------------------------------------
 
-   ;; ---------------------------------------------------
-   ;; Aliases to evaluate
-
-   ;; Reflector - datafy and nav
-   ;; https://github.com/stuarthalloway/reflector
-
-   :alpha/reflect
-   {:extra-deps {com.stuarthalloway/reflector
-                 {:git/url "https://github.com/stuarthalloway/reflector"
-                  :sha     "93a0c19b4526c1180959e940202928d35e5c3cef"}}}
-
-   ;; closh - bash shell with Clojure
-   :alpha/closh
-   {:extra-deps {closh/closh
-                 {:git/url "https://github.com/dundalek/closh.git"
-                  :tag     "v0.5.0"
-                  :sha     "b1a7fd310b6511048fbacb8e496f574c8ccfa291"}}
-    :main-opts  ["--main" "closh.zero.frontend.rebel"]}
-   ;; --------------------------------------------------
-
-   #_()}}}
 
  ;; Format tool friendly way to highlight end of configuration sections
   :end/aliases {}}
