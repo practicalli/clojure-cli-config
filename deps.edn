@@ -29,7 +29,7 @@
 ;;   `:override-deps` - library version overriding a matching library in the top-level :deps
 ;;   `:default-deps` - library version if no version is otherwide defined, used across a set of shared projects acting as a dependency management system
 
-;; make-classpath aliases affect the classpath generation: 
+;; make-classpath aliases affect the classpath generation:
 ;;   `:extra-paths` - additional paths to those defined in the top-level :path key
 ;;   `:replace-paths` - paths replacing all those defined in the top-level :path key
 ;;   `:override-paths` - alternate location to resolve a dependancy (overrides resolve-deps location)
@@ -733,7 +733,7 @@
   ;; Services
 
   ;; https://github.com/kachayev/nasus
-  ;; simple zero-configuration command-line HTTP files server 
+  ;; simple zero-configuration command-line HTTP files server
   :service/webserver
   {:replace-deps {nasus/nasus {:mvn/version "0.1.7"}}
    :main-opts    ["--main" "http.server"]}
@@ -766,6 +766,6 @@
                 "-p" "55555"]}
   ;; ---------------------------------------------------
 
- ;; Format tool friendly way to highlight end of configuration sections
+  ;; Format tool friendly way to highlight end of configuration sections
   :end/aliases {}}
  :end/config {}}

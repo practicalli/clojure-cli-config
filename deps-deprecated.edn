@@ -125,7 +125,7 @@
   :repl/socket-browser
   {:jvm-opts ["-Dclojure.server.repl={:port,58585,:accept,cljs.server.browser/repl}"]}
 
-;; Requires nashorn in a version of ClojureScript
+  ;; Requires nashorn in a version of ClojureScript
   ;; WARNING: stack trace - does not run TO DEPRECATE
   :repl/rebel-figwheel
   {:extra-deps {org.clojure/clojurescript       {:mvn/version "1.9.946"} ; version contains cljs.repl.nashorn
