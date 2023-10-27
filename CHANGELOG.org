@@ -13,6 +13,7 @@
    - Deprecated: `:lint/idiom` - use clj-kondo binary instead 
    - Removed: `:lib/scope-capture` - use cider-debug or `:lib/flowstorm` or Portal data inspector
    - Removed: `:alpha/closh` - project only proof of concept
+   - `:test/env` - remove `pjstadig/humane-test-output` library as it requires activation
 
 * 2023-10-17
 ** Added
