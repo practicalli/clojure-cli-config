@@ -1,7 +1,7 @@
 ;; cljstyle configuration
 {:files
  {:extensions #{"cljc" "cljs" "clj" "cljx" "edn"},
-  :ignore #{"checkouts" "develop" ".hg" "target" ".git"}},
+  :ignore #{".git" ".cljstyle" ".clj-kondo"}},
  :rules
  {:namespaces
   {:enabled? false,
