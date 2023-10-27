@@ -6,18 +6,18 @@
 ** Added
    - `:end/aliases {}` and `:end/config {}` as format tool friendly indicators of config section end
 ** Changed
-   - Deprecated: `:project/depify` - manually convert and refactor 
+   - Deprecated: `:project/depify` - manually convert and refactor
    - Deprecated: `:repl/rebel-debug` - use `:repl/rebel` or `:repl/reloaded`
-   - Deprecated: `:repl/rebel-debug-refactor` - use `:repl/rebel` or `:repl/reloaded` 
-   - Deprecated: `:lib/neil` - use native binary instead 
-   - Deprecated: `:lint/clj-kondo` - use native binary instead 
+   - Deprecated: `:repl/rebel-debug-refactor` - use `:repl/rebel` or `:repl/reloaded`
+   - Deprecated: `:lib/neil` - use native binary instead
+   - Deprecated: `:lint/clj-kondo` - use native binary instead
    - Deprecated: `:lint/eastwood` - use clj-kondo binary instead
-   - Deprecated: `:lint/idiom` - use clj-kondo binary instead 
+   - Deprecated: `:lint/idiom` - use clj-kondo binary instead
    - Removed: `:lib/scope-capture` - use cider-debug or `:lib/flowstorm` or Portal data inspector
    - Removed: `:alpha/closh` - project only proof of concept
    - `:test/env` - remove `pjstadig/humane-test-output` library as it requires activation
    - update documentation and formatting
-   - dev: `.clj-kondo` & `.lsp` directories removed via `clean` Makefile task 
+   - dev: `.clj-kondo` & `.lsp` directories removed via `clean` Makefile task
 
 * 2023-10-17
 ** Added
