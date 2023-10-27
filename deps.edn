@@ -918,3 +918,7 @@
    ;; --------------------------------------------------
 
    #_()}}}
+
+ ;; Format tool friendly way to highlight end of configuration sections
+  :end/aliases {}}
+ :end/config {}}

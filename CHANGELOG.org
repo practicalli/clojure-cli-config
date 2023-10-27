@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Added
+   - `:end/aliases {}` and `:end/config {}` as format tool friendly indicators of config section end
 
 * 2023-10-17
 ** Added
