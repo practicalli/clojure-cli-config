@@ -64,7 +64,7 @@ outdated: ## Check deps.edn & GitHub actions for new versions
 # `-` before the command ignores any errors returned
 clean:  ## Clean build temporary files
 	$(info --------- Clean Clojure classpath cache ---------)
-	- rm -rf ./.cpcache
+	- rm -rf ./.cpcache .clj-kondo .lsp
 # ------------------------------------ #
 
 # ------- Testing -------------------- #
