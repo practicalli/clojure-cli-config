@@ -1,6 +1,21 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Changed
+   - aliases: use `--eval` human readable flag, rather than `-e`
+
+** Updated
+*** Update library versions using `make outdated`
+
+| :name                                   | :current       | :latest        |
+| ---                                     | ---            | ---            |
+| cider/cider-nrepl                       | 0.40.0         | 0.42.1         |
+| djblue/portal                           | 0.48.0         | 0.49.0         |
+| io.github.practicalli/project-templates | 2023-08-02     | 2023-11-03     |
+| io.github.nubank/morse                  | v2023.04.30.01 | v2023.10.06.02 |
+| nrepl/nrepl                             | 1.0.0          | 1.1.0          |
+| slipset/deps-deploy                     | 0.2.1          | 0.2.2          |
+
 
 * 2023-10-27
 ** Added
