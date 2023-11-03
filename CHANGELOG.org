@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+
+* 2023-11-03
 ** Changed
    - aliases: use `--eval` human readable flag, rather than `-e`
 
