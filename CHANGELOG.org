@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Changed
+   - alias: `:search/libraries` use `-F:save` to save found libspec to project deps.edn
 
 * 2023-11-03
 ** Changed

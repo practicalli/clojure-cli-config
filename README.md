@@ -293,7 +293,7 @@ Then the project can be run using `clojure -X:project/run` and arguments can opt
 |-----------------------------------------------------|-----------------------------------------------------------|
 | `clojure -M:project/check`                          | detailed report of compilation errors for a project       |
 | `clojure -M:search/libraries library-name`          | fuzzy search Maven & Clojars                              |
-| `clojure -M:search/libraries -F:merge library-name` | fuzzy search Maven & Clojars and save to project deps.edn |
+| `clojure -M:search/libraries -F:save library-name` | fuzzy search Maven & Clojars and save to project deps.edn |
 | `clojure -T:search/outdated`                        | report newer versions for maven and git dependencies      |
 | `clojure -M:search/outdated-mvn`                    | check for newer dependencies (maven only)                 |
 

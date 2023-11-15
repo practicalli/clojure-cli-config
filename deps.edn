@@ -273,7 +273,7 @@
   ;; https://github.com/hagmonk/find-deps
   ;; clojure -M:search/libraries http-kit  # fuzzy search for dependency
   ;; clojure -M:search/libraries http-kit ring compojure # multiple deps
-  ;; clojure -M:search/libraries --format:merge http-kit # merge dep into deps.edn file
+  ;; clojure -M:search/libraries --format:save http-kit #  save into deps.edn file
   :search/libraries
   {:extra-deps
    {find-deps/find-deps
