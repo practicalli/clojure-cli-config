@@ -63,7 +63,7 @@
   ;; Use with command to start a REPL to include REPL Reloaded tools
   :dev/reloaded
   {:extra-paths ["dev" "test"]
-   :extra-deps  {djblue/portal                {:mvn/version "0.49.0"}   ; portal data inspector
+   :extra-deps  {djblue/portal                {:mvn/version "0.49.1"}   ; portal data inspector
                  clj-commons/clj-yaml         {:mvn/version "1.0.27"}   ; portal yaml support (optional)
                  org.clojure/tools.namespace  {:mvn/version "1.4.4"}
                  org.clojure/tools.trace      {:mvn/version "0.7.11"}
@@ -76,7 +76,7 @@
   ;; ClojureScript tools during REPl startup
   :dev/reloaded-cljs
   {:extra-paths ["dev" "test"]
-   :extra-deps  {djblue/portal             {:mvn/version "0.49.0"}   ; portal data inspector
+   :extra-deps  {djblue/portal             {:mvn/version "0.49.1"}   ; portal data inspector
                  org.clojure/clojurescript {:mvn/version "1.10.844"}
                  lambdaisland/kaocha-cljs  {:mvn/version "1.5.154"}
                  org.clojure/test.check    {:mvn/version "1.1.1"}}}
@@ -110,7 +110,7 @@
   ;; Basic REPL UI with nREPL server for Clojure Editor support
   :repl/basic
   {:extra-deps {nrepl/nrepl       {:mvn/version "1.1.0"}
-                cider/cider-nrepl {:mvn/version "0.42.1"}}
+                cider/cider-nrepl {:mvn/version "0.44.0"}}
    :main-opts  ["--main" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware]"
                 "--interactive"]}
@@ -118,7 +118,7 @@
   ;; Headless REPL with nREPL server for Clojure Editor support
   :repl/headless
   {:extra-deps {nrepl/nrepl       {:mvn/version "1.1.0"}
-                cider/cider-nrepl {:mvn/version "0.42.1"}}
+                cider/cider-nrepl {:mvn/version "0.44.0"}}
    :main-opts  ["--main" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware]"]}
 
@@ -126,8 +126,8 @@
   :repl/inspect
   {:extra-deps
    {nrepl/nrepl       {:mvn/version "1.1.0"}
-    cider/cider-nrepl {:mvn/version "0.42.1"}
-    djblue/portal     {:mvn/version "0.49.0"}}
+    cider/cider-nrepl {:mvn/version "0.44.0"}
+    djblue/portal     {:mvn/version "0.49.1"}}
    :main-opts ["--main" "nrepl.cmdline"
                "--middleware"
                "[cider.nrepl/cider-middleware,portal.nrepl/wrap-portal]"]}
@@ -139,8 +139,8 @@
   :repl/clerk
   {:extra-deps {io.github.nextjournal/clerk   {:mvn/version "0.15.957"}
                 nrepl/nrepl                   {:mvn/version "1.1.0"}
-                cider/cider-nrepl             {:mvn/version "0.42.1"}
-                refactor-nrepl/refactor-nrepl {:mvn/version "3.6.0"}}
+                cider/cider-nrepl             {:mvn/version "0.44.0"}
+                refactor-nrepl/refactor-nrepl {:mvn/version "3.9.0"}}
    :main-opts  ["--eval" "(require '[nextjournal.clerk])(nextjournal.clerk/show! 'nextjournal.clerk.tap)(nextjournal.clerk/serve! {:browse? true})"
                 "-m" "nrepl.cmdline"
                 "--middleware" "[refactor-nrepl.middleware/wrap-refactor,cider.nrepl/cider-middleware]"
@@ -158,7 +158,7 @@
   ;; clojure -M:repl/rebel
   :repl/rebel
   {:extra-deps {nrepl/nrepl                {:mvn/version "1.1.0"}
-                cider/cider-nrepl          {:mvn/version "0.42.1"}
+                cider/cider-nrepl          {:mvn/version "0.44.0"}
                 com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
    :main-opts  ["--eval" "(apply require clojure.main/repl-requires)"
                 "--main" "nrepl.cmdline"
@@ -172,9 +172,9 @@
   :repl/reloaded
   {:extra-paths ["dev" "test"]
    :extra-deps {nrepl/nrepl                  {:mvn/version "1.1.0"}
-                cider/cider-nrepl            {:mvn/version "0.42.1"}
+                cider/cider-nrepl            {:mvn/version "0.44.0"}
                 com.bhauman/rebel-readline   {:mvn/version "0.1.4"}
-                djblue/portal                {:mvn/version "0.49.0"}   ; portal data inspector
+                djblue/portal                {:mvn/version "0.49.1"}   ; portal data inspector
                 clj-commons/clj-yaml         {:mvn/version "1.0.27"}   ; portal yaml support (optional)
                 org.clojure/tools.namespace  {:mvn/version "1.4.4"}
                 org.clojure/tools.trace      {:mvn/version "0.7.11"}
@@ -208,7 +208,7 @@
   ;; clojure -M:repl/rebel-remote --host hostname --port 12345
   :repl/rebel-remote
   {:extra-deps {nrepl/nrepl                {:mvn/version "1.1.0"}
-                cider/cider-nrepl          {:mvn/version "0.42.1"}
+                cider/cider-nrepl          {:mvn/version "0.44.0"}
                 com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
    :main-opts  ["--eval" "(apply require clojure.main/repl-requires)"
                 "--main" "nrepl.cmdline"
@@ -334,14 +334,14 @@
   ;; `clojure -M:project/clojars project.jar`
   :project/clojars
   {:replace-paths []
-   :replace-deps  {slipset/deps-deploy {:mvn/version "0.2.1"}}
+   :replace-deps  {slipset/deps-deploy {:mvn/version "0.2.2"}}
    :main-opts     ["--main" "deps-deploy.deps-deploy" "deploy"]}
 
   ;; Deploy to Clojars signed
   ;; `clojure -M:project/clojars-signed project.jar`
   :project/clojars-signed
   {:replace-paths []
-   :replace-deps  {slipset/deps-deploy {:mvn/version "0.2.1"}}
+   :replace-deps  {slipset/deps-deploy {:mvn/version "0.2.2"}}
    :main-opts     ["--main" "deps-deploy.deps-deploy" "deploy" :true]}
   ;; ---------------------------------------------------
 
@@ -471,15 +471,15 @@
   ;; https://github.com/djblue/portal
 
   :inspect/portal-cli
-  {:extra-deps {djblue/portal {:mvn/version "0.49.0"}}}
+  {:extra-deps {djblue/portal {:mvn/version "0.49.1"}}}
 
   :inspect/portal-web
-  {:extra-deps {djblue/portal             {:mvn/version "0.49.0"}
+  {:extra-deps {djblue/portal             {:mvn/version "0.49.1"}
                 org.clojure/clojurescript {:mvn/version "1.11.60"}}
    :main-opts  ["--main" "cljs.main"]}
 
   :inspect/portal-node
-  {:extra-deps {djblue/portal             {:mvn/version "0.49.0"}
+  {:extra-deps {djblue/portal             {:mvn/version "0.49.1"}
                 org.clojure/clojurescript {:mvn/version "1.11.60"}}
    :main-opts  ["--main" "cljs.main" "-re" "node"]}
 
@@ -649,13 +649,13 @@
   ;; clojure -M:graph/ns-deps
   :graph/ns-deps
   {:extra-deps {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
-                                  :sha     "69774e8c29e1c1c691f9922d5c5a6d764374ada3"}}
+                                  :sha     "34706190d41cb243f6270fe5a7324601a8404d30"}}
    :main-opts  ["--main" "io.dominic.vizns.core"]}
 
   ;; Generate single PNG image of library dependencies
   :graph/ns-deps-png
   {:extra-deps {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
-                                  :sha     "69774e8c29e1c1c691f9922d5c5a6d764374ada3"}}
+                                  :sha     "34706190d41cb243f6270fe5a7324601a8404d30"}}
    :main-opts  ["--main" "io.dominic.vizns.core" "single" "-o" "deps-graph.png" "-f" "png"]}
 
   ;; GraphViz of project dependencies
