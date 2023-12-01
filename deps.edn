@@ -274,11 +274,24 @@
   ;; clojure -M:search/libraries http-kit  # fuzzy search for dependency
   ;; clojure -M:search/libraries http-kit ring compojure # multiple deps
   ;; clojure -M:search/libraries --format:save http-kit #  save into deps.edn file
+  ;; :search/libraries
+  ;; {:extra-deps
+  ;;  {find-deps/find-deps
+  ;;   {:git/url "https://github.com/hagmonk/find-deps"
+  ;;    :sha     "9bf23a52cb0a8190c9c2c7ad1d796da802f8ce7a"}}
+  ;;  :main-opts ["--main" "find-deps.core"]}
+
   :search/libraries
   {:extra-deps
-   {find-deps/find-deps
-    {:git/url "https://github.com/hagmonk/find-deps"
-     :sha     "9bf23a52cb0a8190c9c2c7ad1d796da802f8ce7a"}}
+   {practicalli/clj-find-libraries
+    {:git/url "https://github.com/practicalli-johnny/clj-find-library"
+     :sha     "a814519ed9921fcad4515e0e4446dc34af783d28"}}
+   :main-opts ["--main" "find-deps.core"]}
+
+  :search/libraries-local
+  {:extra-deps
+   {practicalli/clj-find-libraries
+    {:local/root "/home/practicalli/projects/practicalli/clj-find-library/"}}
    :main-opts ["--main" "find-deps.core"]}
 
   ;; Dependency version management

@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Changed
+   - `:search/libraries` updated to use practicalli/clj-find-libraries fork
 
 * 2023-11-03
 ** Changed
