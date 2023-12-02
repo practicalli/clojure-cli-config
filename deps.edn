@@ -344,18 +344,22 @@
   ;; Requires: fully qualified artifact-name and version in project `pom.xml` file
 
   ;; Deploy to Clojars
-  ;; `clojure -M:project/clojars project.jar`
-  :project/clojars
-  {:replace-paths []
-   :replace-deps  {slipset/deps-deploy {:mvn/version "0.2.2"}}
-   :main-opts     ["--main" "deps-deploy.deps-deploy" "deploy"]}
+  ;; `clojure -T:deploy/clojars :artifact '"project.jar"'`
+  :deploy/clojars
+  {:replace-deps {slipset/deps-deploy {:mvn/version "0.2.2"}}
+   :exec-fn deps-deploy.deps-deploy/deploy
+   :exec-args {:installer :remote
+               :sign-releases? true
+               :artifact "deps-deploy.jar"}}
 
-  ;; Deploy to Clojars signed
-  ;; `clojure -M:project/clojars-signed project.jar`
-  :project/clojars-signed
-  {:replace-paths []
-   :replace-deps  {slipset/deps-deploy {:mvn/version "0.2.2"}}
-   :main-opts     ["--main" "deps-deploy.deps-deploy" "deploy" :true]}
+  ;; AWS S3 Example deploy
+  ;; :deploy/aws-s3
+  ;; {:replace-deps {slipset/deps-deploy {:mvn/version "0.2.2"}}
+  ;;  :exec-fn deps-deploy.deps-deploy/deploy
+  ;;  :exec-args {:installer :remote
+  ;;              :artifact "deps-deploy.jar"
+  ;;              :repository {"releases" {:url "s3p://my/bucket/"}}}}
+
   ;; ---------------------------------------------------
 
   ;; ---------------------------------------------------

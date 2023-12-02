@@ -2,7 +2,9 @@
 
 * Unreleased
 ** Changed
-   - `:search/libraries` updated to use practicalli/clj-find-libraries fork
+   - aliases: `:search/libraries` updated to use practicalli/clj-find-libraries fork
+   - aliases: remove `:project/clojars-signed`
+   - aliases: rename `:project/clojars` to `:deploy/clojars` and enable signing by default (required for Clojars libraries)
 
 * 2023-11-03
 ** Changed
