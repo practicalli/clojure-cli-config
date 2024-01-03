@@ -8,6 +8,19 @@
 
 ** Updated
    - dev: upload-artifact v4 in megalinter workflow
+   - Update library versions using `make outdated`
+
+   | :name                             | :current                                 | :latest                                  |
+   | ---                               | ---                                      | ---                                      |
+   | com.github.liquidz/antq           | 2.7.1133                                 | 2.8.1165                                 |
+   | com.github.seancorfield/next.jdbc | 1.3.894                                  | 1.3.909                                  |
+   | djblue/portal                     | 0.49.1                                   | 0.51.0                                   |
+   | io.github.seancorfield/deps-new   | v0.5.3                                   | v0.6.0                                   |
+   | mvxcvi/cljstyle                   | 14c18e5b593c39bc59f10df1b894c31a0020dc49 | e625c17619236949c0f899c66503c408f943fa8f |
+   | org.slf4j/slf4j-nop               | 2.0.9                                    | 2.0.10                                   |
+   | refactor-nrepl/refactor-nrepl     | 3.9.0                                    | 3.9.1                                    |
+
+
 * 2023-11-03
 ** Changed
    - alias: `:search/libraries` use `-F:save` to save found libspec to project deps.edn
