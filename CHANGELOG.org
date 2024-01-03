@@ -6,6 +6,8 @@
    - aliases: remove `:project/clojars-signed`
    - aliases: rename `:project/clojars` to `:deploy/clojars` and enable signing by default (required for Clojars libraries)
 
+** Updated
+   - dev: upload-artifact v4 in megalinter workflow
 * 2023-11-03
 ** Changed
    - alias: `:search/libraries` use `-F:save` to save found libspec to project deps.edn
