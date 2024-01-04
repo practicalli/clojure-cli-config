@@ -236,7 +236,7 @@
   ;; clojure -T:project/create :template template/name :name project/name
   :project/create
   {:replace-deps {io.github.seancorfield/deps-new
-                  {:git/tag "0.6.0" :git/sha "64e79d1"}
+                  {:git/tag "v0.6.0" :git/sha "64e79d1"}
                   io.github.practicalli/project-templates
                   {:git/tag "2023-11-03" :git/sha "684d2f6"}}
    :exec-fn      org.corfield.new/create
@@ -246,7 +246,7 @@
   ;; Local testing of Practicalli Project Templates
   :project/create-local
   {:replace-deps {io.github.seancorfield/deps-new
-                  {:git/tag "0.6.0" :git/sha "64e79d1"}
+                  {:git/tag "v0.6.0" :git/sha "64e79d1"}
                   practicalli/project-templates
                   {:local/root "/home/practicalli/projects/practicalli/project-templates/"}}
    :exec-fn      org.corfield.new/create
