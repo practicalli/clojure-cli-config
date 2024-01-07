@@ -1,6 +1,10 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Changed
+   - health: remove FUNDING.yaml and use Practicalli Org file
+
+
 
 * 2024-01-03
 ** Changed
