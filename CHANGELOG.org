@@ -3,6 +3,7 @@
 * Unreleased
 ** Changed
    - health: remove FUNDING.yaml and use Practicalli Org file
+   - readme: update sponsorship link to practicalli-johnny account
 
 
 
