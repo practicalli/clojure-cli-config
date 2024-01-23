@@ -5,7 +5,8 @@
    - health: remove FUNDING.yaml and use Practicalli Org file
    - readme: update sponsorship link to practicalli-johnny account
 
-
+** Updated
+   - alias: project/create latest practicalli project-template release
 
 * 2024-01-03
 ** Changed

@@ -238,7 +238,7 @@
   {:replace-deps {io.github.seancorfield/deps-new
                   {:git/tag "v0.6.0" :git/sha "64e79d1"}
                   io.github.practicalli/project-templates
-                  {:git/tag "2023-11-03" :git/sha "684d2f6"}}
+                  {:git/tag "2024-01-23" :git/sha "68154df"}}
    :exec-fn      org.corfield.new/create
    :exec-args    {:template practicalli/minimal
                   :name practicalli/playground}}
@@ -255,7 +255,7 @@
 
   :project/templates
   {:extra-deps {io.github.practicalli/project-templates
-                {:git/tag "2023-11-03" :git/sha "684d2f6"}}}
+                {:git/tag "2024-01-23" :git/sha "68154df"}}}
   ;; ---------------------------------------------------
 
   ;; ---------------------------------------------------
