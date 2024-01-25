@@ -151,7 +151,7 @@ How to run common tasks for Clojure development.
 
 | Task                                               | Command                                                                                 | Configuration |
 |----------------------------------------------------|-----------------------------------------------------------------------------------------|---------------|
-| Create project (clojure exec)                      | `clojure -T:project/create :template practicalli/appplication :name practicalli/my-app` | Practicalli   |
+| Create project (clojure exec)                      | `clojure -T:project/create :template practicalli/application :name practicalli/my-app` | Practicalli   |
 | Run REPL (rebel readline with nrepl server)        | `clojure -M:repl/rebel`                                                                 | Practicalli   |
 | Run ClojureScript REPL with nREPL (editor support) | `clojure -M:repl/cljs`                                                                  | Practicalli   |
 | Download dependencies                              | `clojure -P`  (followed by optional aliases)                                            | Built-in      |
