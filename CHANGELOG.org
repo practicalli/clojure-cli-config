@@ -4,6 +4,7 @@
 ** Changed
    - health: remove FUNDING.yaml and use Practicalli Org file
    - readme: update sponsorship link to practicalli-johnny account
+   - readme: update common tasks table
 
 ** Updated
    - alias: project/create latest practicalli project-template release

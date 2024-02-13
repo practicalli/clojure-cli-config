@@ -144,25 +144,23 @@ See the rest of this readme for examples of how to use each alias this configura
 
 How to run common tasks for Clojure development.
 
-* Built-in tasks require no additional configuration.
-* User aliases should be added to `~/.clojure/deps.edn`.
-* Project aliases should be added to the individual project `deps.edn` file (or may be part of a template).
-* User/Project alias can be defined in both user and project `deps.edn` files (add to project `deps.edn` for Continuous Integration)
+* Built-in: tasks provided by Clojure CLI 
+* Practicalli: aliases provided by Practicalli Clojure CLI Config
 
-| Task                                               | Command                                                                                 | Configuration |
-|----------------------------------------------------|-----------------------------------------------------------------------------------------|---------------|
-| Create project (clojure exec)                      | `clojure -T:project/create :template practicalli/appplication :name practicalli/my-app` | Practicalli   |
-| Run REPL (rebel readline with nrepl server)        | `clojure -M:repl/rebel`                                                                 | Practicalli   |
-| Run ClojureScript REPL with nREPL (editor support) | `clojure -M:repl/cljs`                                                                  | Practicalli   |
-| Download dependencies                              | `clojure -P`  (followed by optional aliases)                                            | Built-in      |
-| Find libraries (Clojars & Maven Central)           | `clojure -M:search/libraries qualified-library-name(s)`                                 | Practicalli   |
-| Find available versions of a library               | `clojure -X:deps find-versions :lib domain/library-name`                                | Built-in      |
-| Resolve git coord tags to shas and update deps.edn | `clojure -X:deps git-resolve-tags git-coord-tag`                                        | Built-in      |
-| Generate image of project dependency graph         | `clojure -T:project/graph-deps`                                                         | Practicalli   |
-| Check library dependencies for newer versions      | `clojure -T:search/outdated`                                                            | Practicalli   |
-| Run tests / watch for changes                      | `clojure -X:test/run` / `clojure -X:test/watch`                                         | Practicalli   |
-| Run the project  (clojure.main)                    | `clojure -M -m domain.main-namespace`                                                   | Built-in      |
-| Deploy library locally (~/.m2/repository)          | `clojure -X:deps mvn-install :jar '"project.jar"'`                                      | Built-in      |
+| Task                                               | Command                                                   | Configuration   |
+| -------------------------------------------------- | --------------------------------------------------------- | --------------- |
+| Create minimal playground project                  | `clojure -T:project/create`                               | Practicalli     |
+| Clojure REPL - rebel readline & nrepl server       | `clojure -M:repl/rebel`                                   | Practicalli     |
+| ClojureScript REPL with nREPL server               | `clojure -M:repl/cljs`                                    | Practicalli     |
+| Run tests / watch for changes                      | `clojure -X:test/run` / `clojure -X:test/watch`           | Practicalli     |
+| Run the project  (clojure.main)                    | `clojure -M -m domain.main-namespace`                     | Built-in        |
+| Check library dependencies for newer versions      | `clojure -T:search/outdated`                              | Practicalli     |
+| Download dependencies                              | `clojure -P`  (followed by optional aliases)              | Built-in        |
+| Generate image of project dependency graph         | `clojure -T:project/graph-deps`                           | Practicalli     |
+| Deploy library locally (~/.m2/repository)          | `clojure -X:deps mvn-install :jar '"project.jar"'`        | Built-in        |
+| Find library names (Clojars & Maven Central)       | `clojure -M:search/libraries qualified-library-names`     | Practicalli     |
+| Find available versions of a library               | `clojure -X:deps find-versions :lib domain/library-name`  | Built-in        |
+| Resolve git coord tags to shas and update deps.edn | `clojure -X:deps git-resolve-tags git-coord-tag`          | Built-in        |
 
 
 ## REPL terminal UI
