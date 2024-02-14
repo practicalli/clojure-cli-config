@@ -5,6 +5,7 @@
    - health: remove FUNDING.yaml and use Practicalli Org file
    - readme: update sponsorship link to practicalli-johnny account
    - readme: update common tasks table
+   - deprecated: :repl/rebel-remote no longer connecting to remote repl state
 
 ** Updated
    - alias: project/create latest practicalli project-template release

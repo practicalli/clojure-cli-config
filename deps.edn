@@ -205,6 +205,7 @@
   {:extra-deps {nrepl/nrepl {:mvn/version "1.1.0"}}
    :main-opts ["--main" "nrepl.cmdline" "--connect"]}
 
+  ;; DEPRECATED - not connecting to remote repl state
   ;; clojure -M:repl/rebel-remote --host hostname --port 12345
   :repl/rebel-remote
   {:extra-deps {nrepl/nrepl                {:mvn/version "1.1.0"}
