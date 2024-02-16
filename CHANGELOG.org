@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+
+* 2024-02-16
 ** Changed
    - health: remove FUNDING.yaml and use Practicalli Org file
    - readme: update sponsorship link to practicalli-johnny account
