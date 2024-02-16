@@ -9,6 +9,7 @@
 
 ** Updated
    - alias: project/create latest practicalli project-template release
+   - dev: DeLaGuardo/setup-clojure action version 12.5 in github/workflows/quality-checks.yaml
 
 * 2024-01-03
 ** Changed

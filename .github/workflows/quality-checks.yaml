@@ -19,10 +19,10 @@ jobs:
       - run: echo "🐙 ${{ github.repository }} repository was cloned to the runner."
 
       - name: "Install tools"
-        uses: DeLaGuardo/setup-clojure@12.1
+        uses: DeLaGuardo/setup-clojure@12.5
         with:
           cljstyle: 0.15.0
-          clj-kondo: 2023.03.17
+          clj-kondo: 2024.02.12
 
       - name: "Lint Clojure"
         run: clj-kondo --lint deps.edn --config '{:output {:pattern "::{{level}} file={{filename}},line={{row}},col={{col}}::{{message}}"}}'
