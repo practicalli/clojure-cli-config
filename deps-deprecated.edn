@@ -98,6 +98,19 @@
                 "--interactive"
                 "-f" "rebel-readline.main/-main"]}
 
+;; DEPRECATED - not connecting to remote repl state
+  ;; clojure -M:repl/rebel-remote --host hostname --port 12345
+  :repl/rebel-remote
+  {:extra-deps {nrepl/nrepl                {:mvn/version "1.1.0"}
+                cider/cider-nrepl          {:mvn/version "0.44.0"}
+                com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
+   :main-opts  ["--eval" "(apply require clojure.main/repl-requires)"
+                "--main" "nrepl.cmdline"
+                "--connect"
+                "--middleware" "[cider.nrepl/cider-middleware]"
+                "--interactive"
+                "-f" "rebel-readline.main/-main"]}
+
   ;; End of REPL's
   ;; ---------------------------------------------------
 
