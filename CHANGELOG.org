@@ -2,6 +2,10 @@
 
 * Unreleased
 
+* 2024-04-20
+** Updated
+   - alias: project/create latest practicalli project-template release
+
 * 2024-02-16
 ** Changed
    - health: remove FUNDING.yaml and use Practicalli Org file
