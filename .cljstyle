@@ -1,7 +1,7 @@
 ;; cljstyle configuration
 {:files
  {:extensions #{"cljc" "cljs" "clj" "cljx" "edn"},
-  :ignore #{".git" ".cljstyle" ".clj-kondo"}},
+  :ignore #{".git" ".cljstyle" ".clj-kondo" "deps-deprecated.edn"}},
  :rules
  {:namespaces
   {:enabled? false,
