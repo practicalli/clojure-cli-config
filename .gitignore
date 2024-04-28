@@ -11,7 +11,7 @@
 
 # ------------------------
 # Common project files
-!CHANGELOG.md
+!CHANGELOG.org
 !README.md
 
 # ------------------------

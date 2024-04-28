@@ -3,6 +3,7 @@
 * Unreleased
 ** Added
    - dev: add `deps-deprecated.edn` to cljstyle `:ignore` rule
+   - dev: add `CHANGELOG.org` to Git ignore inclusive patterns
 
 * 2024-04-20
 ** Updated
