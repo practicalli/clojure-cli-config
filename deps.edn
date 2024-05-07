@@ -60,7 +60,7 @@
 
   ;; Practicalli REPL Reloaded workflow
   ;; https://practical.li/clojure/clojure-cli/repl-reloaded/
-  ;; Use with command to start a REPL to include REPL Reloaded tools
+  ;; Use with editor command to start a REPL (Jack-in) to include REPL Reloaded tools
   :dev/reloaded
   {:extra-paths ["dev" "test"]
    :extra-deps  {djblue/portal                {:mvn/version "0.55.1"}   ; portal data inspector
@@ -166,9 +166,11 @@
                 "--interactive"
                 "-f" "rebel-readline.main/-main"]}
 
+  ;; ------------
   ;; Practicalli REPL Reloaded workflow
+  ;; Rich Terminal REPL Prompt with nREPL and Portal connections
   ;; https://practical.li/clojure/clojure-cli/repl-reloaded/
-  ;; clojure -M:repl/rebel
+  ;; clojure -M:repl/reloaded
   :repl/reloaded
   {:extra-paths ["dev" "test"]
    :extra-deps {nrepl/nrepl                  {:mvn/version "1.1.1"}
