@@ -4,6 +4,7 @@
 ** Added
    - dev: add `deps-deprecated.edn` to cljstyle `:ignore` rule
    - dev: add `CHANGELOG.org` to Git ignore inclusive patterns
+   - alias: add `:lib/clojurestorm` to run Flowstorm debugger with ClojureStorm compiler
 
 ** Updated
    - Update library versions using `make outdated`
