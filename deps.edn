@@ -506,6 +506,17 @@
   :lib/flowstorm
   {:extra-deps {com.github.flow-storm/flow-storm-dbg {:mvn/version "3.15.5"}}}
 
+  ;; This is the simplest way to use FlowStorm.
+  ;; It replaces the Clojure compiler with a patched one that instruments everything. 
+  ;; https://flow-storm.github.io/flow-storm-debugger/user_guide.html#_clojurestorm
+  :lib/clojurestorm
+  {:classpath-overrides {org.clojure/clojure nil}
+   :extra-deps {com.github.flow-storm/clojure {:mvn/version "1.11.3-1"}
+                com.github.flow-storm/flow-storm-dbg {:mvn/version "3.15.5"}}
+   ;; You can optionally add another jvm-opt to restrict the instrumentation:
+   ;; -Dclojure.storm.instrumentOnlyPrefixes=YOUR_INSTRUMENTATION_STRING"
+   :jvm-opts ["-Dclojure.storm.instrumentEnable=true"]}
+
   ;; End of Debug Tools
   ;; ---------------------------------------------------
 
