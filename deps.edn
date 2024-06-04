@@ -504,7 +504,7 @@
   ;; Flowstorm, a tracing debugger
   ;; https://github.com/jpmonettas/flow-storm-debugger
   :lib/flowstorm
-  {:extra-deps {com.github.jpmonettas/flow-storm-dbg {:mvn/version "3.7.5"}}}
+  {:extra-deps {com.github.flow-storm/flow-storm-dbg {:mvn/version "3.15.5"}}}
 
   ;; End of Debug Tools
   ;; ---------------------------------------------------
