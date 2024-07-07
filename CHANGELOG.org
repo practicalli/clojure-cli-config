@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+
+2024-05-07
 ** Added
    - dev: add `deps-deprecated.edn` to cljstyle `:ignore` rule
    - dev: add `CHANGELOG.org` to Git ignore inclusive patterns
