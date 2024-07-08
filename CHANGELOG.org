@@ -1,5 +1,9 @@
 #+TITLE: Changelog
 
+   - dev: clj-kondo & cljstyle versions in quality-checks workflow
+
+
+
 * Unreleased
 
 
