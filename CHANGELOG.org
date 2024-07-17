@@ -22,18 +22,6 @@
    | lambdaisland/kaocha                  | 1.89.1380                                | 1.91.1392                                |
    | nrepl/nrepl                          | 1.1.1                                    | 1.2.0                                    |
 
-   Available changes:
-   - https://github.com/clj-kondo/clj-kondo/blob/v2024.05.24/CHANGELOG.md
-   - https://github.com/greglook/cljstyle/blob/0.16.626/CHANGELOG.md
-   - https://github.com/clojure-emacs/cider-nrepl/blob/v0.49.1/CHANGELOG.md
-   - https://github.com/seancorfield/next-jdbc/blob/v1.3.939/CHANGELOG.md
-   - https://github.com/djblue/portal/blob/0.56.0/CHANGELOG.md
-   - https://github.com/nextjournal/clerk/blob/v0.16.1016/CHANGELOG.md
-   - https://github.com/seancorfield/deps-new/blob/v0.7.1/CHANGELOG.md
-   - https://github.com/lambdaisland/kaocha/blob/v1.91.1392/CHANGELOG.md
-   - https://github.com/nrepl/nrepl/blob/v1.2.0/CHANGELOG.md
-
-
 
 2024-05-07
 ** Added
