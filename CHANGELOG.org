@@ -6,8 +6,9 @@
 
 * Unreleased
 
-
+* 2024-07-17
 ** Updated
+   - alias: project templates update to clojure 1.10.3
    - Update library versions using `make outdated`
    | :name                                | :current                                 | :latest                                  |
    +--------------------------------------+------------------------------------------+------------------------------------------|
