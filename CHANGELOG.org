@@ -1,10 +1,9 @@
 #+TITLE: Changelog
 
-   - dev: clj-kondo & cljstyle versions in quality-checks workflow
-
-
-
 * Unreleased
+
+** Updated
+   - dev: quality check library update clj-kondo/clj-kondo 2024.08.01
 
 * 2024-07-17
 ** Updated
