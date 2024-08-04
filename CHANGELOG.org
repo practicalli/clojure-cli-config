@@ -4,6 +4,17 @@
 
 ** Updated
    - dev: quality check library update clj-kondo/clj-kondo 2024.08.01
+   - Update library versions using `make outdated`
+
+   | :name                                    | :current                                 | :latest                                  |
+   +------------------------------------------+------------------------------------------+------------------------------------------|
+   | cider/cider-nrepl                        | 0.49.1                                   | 0.49.2                                   |
+   | com.github.flow-storm/clojure            | 1.11.3-1                                 | 1.11.4                                   |
+   | com.github.flow-storm/flow-storm-dbg     | 3.16.0                                   | 3.17.1                                   |
+   | com.github.liquidz/antq                  | 2.8.1201                                 | 2.8.1206                                 |
+   | com.h2database/h2                        | 2.2.224                                  | 2.3.230                                  |
+   | djblue/portal                            | 0.56.0                                   | 0.57.1                                   |
+   | org.clojure/tools.deps.graph             | 1.1.84                                   | 1.1.90                                   |
 
 * 2024-07-17
 ** Updated
