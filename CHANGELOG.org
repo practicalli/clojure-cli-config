@@ -2,6 +2,7 @@
 
 * Unreleased
 
+* 2024-08-04
 ** Updated
    - dev: quality check library update clj-kondo/clj-kondo 2024.08.01
    - Update library versions using `make outdated`
