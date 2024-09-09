@@ -1,7 +1,7 @@
 ---
 # MegaLinter GitHub Action configuration file
-# More info at https://megalinter.github.io
-# All variables described in https://megalinter.github.io/configuration/
+# More info at https://megalinter.io
+# All variables described in https://megalinter.io/latest/config-file/
 
 name: MegaLinter
 on:
@@ -38,7 +38,7 @@ jobs:
       - name: MegaLinter Run
         id: ml
         ## latest release of major version
-        uses: oxsecurity/megalinter/flavors/java@v7
+        uses: oxsecurity/megalinter/flavors/java@v8
         env:
           # ADD CUSTOM ENV VARIABLES OR DEFINE IN MEGALINTER_CONFIG file
           MEGALINTER_CONFIG: .github/config/megalinter.yaml

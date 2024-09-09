@@ -2,10 +2,10 @@
 # Configuration file for MegaLinter
 #
 # General configuration:
-# https://oxsecurity.github.io/megalinter/configuration/
+# https://megalinter.io/latest/config-file/
 #
 # Specific Linters:
-# https://oxsecurity.github.io/megalinter/latest/supported-linters/
+# https://megalinter.io/latest/supported-linters/
 
 # ------------------------
 # Linters

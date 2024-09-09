@@ -3,6 +3,7 @@
 * Unreleased
 ** Added
 - dev: megalinter-update task to upgrade config
+- dev: update megalinter config to version 8
 
 ** Updated
    - Update library versions using `make outdated`
