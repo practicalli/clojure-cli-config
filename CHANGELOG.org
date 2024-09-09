@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Added
+- dev: megalinter-update task to upgrade config
 
 ** Updated
    - Update library versions using `make outdated`

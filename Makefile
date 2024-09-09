@@ -133,6 +133,10 @@ lint-fix:  ## Run MegaLinter with custom configuration (node.js required)
 lint-clean:  ## Clean MegaLinter report information
 	$(info --------- MegaLinter Clean Reports ---------)
 	- rm -rf ./megalinter-reports
+
+megalinter-update:  ## Update MegaLinter config to latest version
+	$(info --------- MegaLinter Upgrade Config ---------)
+	npx mega-linter-runner@latest --upgrade
 # ------------------------------------ #
 
 # ------- Docker Containers ---------- #
