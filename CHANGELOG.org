@@ -4,6 +4,7 @@
 ** Added
 - dev: megalinter-update task to upgrade config
 - dev: update megalinter config to version 8
+- dev: update to clj-kondo 2024.08.29 in quality-checks workflow
 
 ** Updated
    - Update library versions using `make outdated`
