@@ -3,10 +3,11 @@
 * Unreleased
 ** Added
 - dev: megalinter-upgrade task to upgrade config
-- dev: update megalinter config to version 8
-- dev: update to clj-kondo 2024.08.29 in quality-checks workflow
 
 ** Updated
+   - dev: update megalinter config to version 8
+   - dev: update to clj-kondo 2024.08.29 in quality-checks workflow
+   - lib: practicalli project templates release 2024-09-09
    - Update library versions using `make outdated`
 
    | :name                                   | :current  | :latest |
