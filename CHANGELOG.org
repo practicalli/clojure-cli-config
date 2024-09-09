@@ -9,13 +9,19 @@
 ** Updated
    - Update library versions using `make outdated`
 
-   | :name                                 | :current  | :latest |
-   |----------------------------------------|-----------|---------|
-   | cider/cider-nrepl                     | 0.49.2    | 0.49.3  |
-   | com.github.flow-storm/flow-storm-dbg  | 3.16.0    | 3.17.2  |
-   | com.h2database/h2                     | 2.3.230   | 2.3.232 |
-   | djblue/portal                         | 0.57.1    | 0.57.2  |
-   | nrepl/nrepl                           | 1.2.0     | 1.3.0   |
+   | :name                                   | :current  | :latest |
+   |----------------------------------------|-----------|-----------|
+   | cider/cider-nrepl                       | 0.49.2     | 0.50.2   |
+   | com.github.flow-storm/clojure           | 1.11.4     | 1.12.0   |
+   | com.github.flow-storm/flow-storm-dbg    | 3.16.0     | 3.17.3   |
+   | com.github.liquidz/antq                 | 2.8.1206   | 2.9.1227 |
+   | com.github.seancorfield/clj-new         | 1.2.404    | 1.3.415  |
+   | com.h2database/h2                       | 2.3.230    | 2.3.232  |
+   | djblue/portal                           | 0.57.1     | 0.57.3   |
+   | io.github.seancorfield/deps-new         | v0.7.1     | v0.8.0   |
+   | nrepl/nrepl                             | 1.2.0      | 1.3.0    |
+   | org.slf4j/slf4j-nop                     | 2.0.13     | 2.0.16   |
+
 
 
 * 2024-08-04
