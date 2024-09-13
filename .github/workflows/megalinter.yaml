@@ -21,16 +21,6 @@ jobs:
   megalinter:
     name: MegaLinter
     runs-on: ubuntu-latest
-    env:
-      # Grafana Dashboard Connections - GitHub Organization secrets
-      API_REPORTER: true
-      API_REPORTER_URL: ${{ secrets.API_REPORTER_URL }}
-      API_REPORTER_BASIC_AUTH_USERNAME: ${{ secrets.API_REPORTER_BASIC_AUTH_USERNAME }}
-      API_REPORTER_BASIC_AUTH_PASSWORD: ${{ secrets.API_REPORTER_BASIC_AUTH_PASSWORD }}
-      API_REPORTER_METRICS_URL: ${{ secrets.API_REPORTER_METRICS_URL }}
-      API_REPORTER_METRICS_BASIC_AUTH_USERNAME: ${{ secrets.API_REPORTER_METRICS_BASIC_AUTH_USERNAME }}
-      API_REPORTER_METRICS_BASIC_AUTH_PASSWORD: ${{ secrets.API_REPORTER_METRICS_BASIC_AUTH_PASSWORD }}
-      API_REPORTER_DEBUG: false
     steps:
       - run: echo "🚀 Job automatically triggered by ${{ github.event_name }}"
       - run: echo "🐧 Job running on ${{ runner.os }} server"
