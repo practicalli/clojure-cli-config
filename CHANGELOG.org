@@ -5,6 +5,7 @@
 * 2024-09-09
 ** Added
 - dev: megalinter-upgrade task to upgrade config
+- dev: megalinter grafana dashboard connections via github organization secrets
 
 ** Updated
    - dev: update megalinter config to version 8

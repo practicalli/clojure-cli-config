@@ -15,6 +15,7 @@ PARALLEL: true
 
 # ENABLE specific linters, all other linters automatically disabled
 ENABLE:
+  - API_REPORTER
   - CLOJURE
   - CREDENTIALS
   - DOCKERFILE
