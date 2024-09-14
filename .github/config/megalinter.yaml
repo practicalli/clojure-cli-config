@@ -89,7 +89,7 @@ SHOW_ELAPSED_TIME: true
 FILEIO_REPORTER: false
 
 # Grafana Dashboard Connections - GitHub Organization secrets
-API_REPORTER_DEBUG: true
+# API_REPORTER_DEBUG: true
 
 # ------------------------
 
