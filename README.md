@@ -9,7 +9,7 @@
 ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝
 ```
 
-[Practicalli Clojure CLI Config](https://github.com/practicalli/clojure-cli-config/) contains a `deps.edn` alias definitions for a wide range of community libraries and tools to that extend the features of Clojure CLI.
+[Practicalli Clojure CLI Config](https://github.com/practicalli/clojure-cli-config/) provides a user scope `deps.edn` file containing alias definitions for a wide range of community libraries and tools to that extend the features of Clojure CLI.
 
 Aliases are qualified keywords using descriptive names to clearly convey purpose and provide a level of consistency to minimise cognitive load.
 
@@ -144,7 +144,7 @@ See the rest of this readme for examples of how to use each alias this configura
 
 How to run common tasks for Clojure development.
 
-* Built-in: tasks provided by Clojure CLI 
+* Built-in: tasks provided by Clojure CLI
 * Practicalli: aliases provided by Practicalli Clojure CLI Config
 
 | Task                                               | Command                                                   | Configuration   |
@@ -668,10 +668,10 @@ Clojure libraries are packaged as Java Archive (JAR) files and distributed by Ma
   "clojars" {:url "https://repo.clojars.org/"}}
 ```
 
-`central` and `clojars` repos can be removed by setting their configuration  to `nil` in the user or project `deps.edn` configuration. 
+`central` and `clojars` repos can be removed by setting their configuration  to `nil` in the user or project `deps.edn` configuration.
 
 ```clojure
-`:mvn/repos 
+`:mvn/repos
  {"central" nil
   "clojars" nil}
 ```
