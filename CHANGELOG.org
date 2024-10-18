@@ -2,6 +2,10 @@
 
 * Unreleased
 
+
+** Updated
+- dev: megalinter v8.1.0 supports Grafana dashboards in flavors
+
 * 2024-09-09
 ** Added
 - dev: megalinter-upgrade task to upgrade config
