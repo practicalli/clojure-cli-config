@@ -147,20 +147,20 @@ How to run common tasks for Clojure development.
 * Built-in: tasks provided by Clojure CLI
 * Practicalli: aliases provided by Practicalli Clojure CLI Config
 
-| Task                                               | Command                                                   | Configuration   |
-| -------------------------------------------------- | --------------------------------------------------------- | --------------- |
-| Create minimal playground project                  | `clojure -T:project/create`                               | Practicalli     |
-| Clojure REPL - rebel readline & nrepl server       | `clojure -M:repl/rebel`                                   | Practicalli     |
-| ClojureScript REPL with nREPL server               | `clojure -M:repl/cljs`                                    | Practicalli     |
-| Run tests / watch for changes                      | `clojure -X:test/run` / `clojure -X:test/watch`           | Practicalli     |
-| Run the project  (clojure.main)                    | `clojure -M -m domain.main-namespace`                     | Built-in        |
-| Check library dependencies for newer versions      | `clojure -T:search/outdated`                              | Practicalli     |
-| Download dependencies                              | `clojure -P`  (followed by optional aliases)              | Built-in        |
-| Generate image of project dependency graph         | `clojure -T:project/graph-deps`                           | Practicalli     |
-| Deploy library locally (~/.m2/repository)          | `clojure -X:deps mvn-install :jar '"project.jar"'`        | Built-in        |
-| Find library names (Clojars & Maven Central)       | `clojure -M:search/libraries qualified-library-names`     | Practicalli     |
-| Find available versions of a library               | `clojure -X:deps find-versions :lib domain/library-name`  | Built-in        |
-| Resolve git coord tags to shas and update deps.edn | `clojure -X:deps git-resolve-tags git-coord-tag`          | Built-in        |
+| Task                                               | Command                                                  | Configuration |
+|----------------------------------------------------|----------------------------------------------------------|---------------|
+| Create minimal playground project                  | `clojure -T:project/create`                              | Practicalli   |
+| Clojure REPL - rebel readline & nrepl server       | `clojure -M:repl/rebel`                                  | Practicalli   |
+| ClojureScript REPL with nREPL server               | `clojure -M:repl/cljs`                                   | Practicalli   |
+| Run tests / watch for changes                      | `clojure -X:test/run` / `clojure -X:test/watch`          | Practicalli   |
+| Run the project  (clojure.main)                    | `clojure -M -m domain.main-namespace`                    | Built-in      |
+| Check library dependencies for newer versions      | `clojure -T:search/outdated`                             | Practicalli   |
+| Download dependencies                              | `clojure -P`  (followed by optional aliases)             | Built-in      |
+| Generate image of project dependency graph         | `clojure -T:project/graph-deps`                          | Practicalli   |
+| Deploy library locally (~/.m2/repository)          | `clojure -X:deps mvn-install :jar '"project.jar"'`       | Built-in      |
+| Find library names (Clojars & Maven Central)       | `clojure -M:search/libraries qualified-library-names`    | Practicalli   |
+| Find available versions of a library               | `clojure -X:deps find-versions :lib domain/library-name` | Built-in      |
+| Resolve git coord tags to shas and update deps.edn | `clojure -X:deps git-resolve-tags git-coord-tag`         | Built-in      |
 
 
 ## REPL terminal UI
@@ -170,7 +170,7 @@ Run an interactive REPL on the command line with the basic built-in REPL UI or [
 nREPL server is started for all Clojure repl aliases along with the cider-nrepl middleware, so Clojure editors can connect to the REPL process started on the command line.
 
 | Command                        | Description                                                                        |
-|------------------------------- | ---------------------------------------------------------------------------------- |
+|--------------------------------|------------------------------------------------------------------------------------|
 | `clojure -M:repl/rebel`        | Rebel Rich terminal UI Clojure REPL with nREPL for connecting editors              |
 | `clojure -M:repl/basic`        | Basic terminal UI Clojure REPL with nREPL for connecting editors                   |
 | `clojure -M:repl/reloaded`     | As above with `dev` path, library hotload, namespace reload, Portal data inspector |
@@ -212,7 +212,7 @@ Clojure 1.10.x onward can [run a Socket Server](https://clojure.org/reference/re
 [tubular](https://github.com/mfikes/tubular) is a Socket Server client for Clojure and Clojurescript REPL processes.
 
 | Command                          | Description                                                                     |
-| -------------------------------- | ------------------------------------------------------------------------------- |
+|----------------------------------|---------------------------------------------------------------------------------|
 | `clojure -M:repl/socket`         | Clojure REPL using Socket Server on port 50505                                  |
 | `clojure -M:repl/socket-zero`    | As above but on first available port (container, cloud environment)             |
 | `clojure -M:repl/socket-zero -r` | As above but and run a REPL                                                     |
@@ -243,17 +243,16 @@ Default values (can be over-ridden on the command line)
 * `:name practicalli/playground` creates a practicalli domain containing `playground` namespace and example Clojure code
 
 | Command                                                         | Description                               |
-| --------------------------------------------------------------- | ----------------------------------------- |
+|-----------------------------------------------------------------|-------------------------------------------|
 | `clojure -T:project/create :template app :name domain/app-name` | A simple application                      |
 | `clojure -T:project/create`                                     | Practicalli application called playground |
 | `clojure -T:project/create :template practicalli/service`       | Practicalli Service called playground     |
 
 
-> `:project/new` - uses [clj-new](https://github.com/seancorfield/clj-new) which is an archived project, although can still be used to create projects using Leiningen style templates.  A Clojure CLI configuration must be manually added if these templates do not provide one.
-
+> `:project/new` uses [clj-new](https://github.com/seancorfield/clj-new) which is an archived project, although can still be used to create projects using Leiningen style templates.  A Clojure CLI configuration must be manually added if these templates do not provide one.
 
 | Command                                                                                                 | Description                                          |
-| --------------------------------------------------------------------------------------------------------| ---------------------------------------------------- |
+|---------------------------------------------------------------------------------------------------------|------------------------------------------------------|
 | `clojure -T:project/new :template app :name practicalli/my-application`                                 | App project with given name                          |
 | `clojure -T:project/new :template luminus :name practicalli/full-stack-app :args '["+http-kit" "+h2"]'` | Luminus project with given name and template options |
 | `clojure -T:project/new :template figwheel-main :name practicalli/landing-page :args '["--reagent"]'`   | ClojureScript Figwheel-main project with reagent     |
@@ -289,13 +288,13 @@ Then the project can be run using `clojure -X:project/run` and arguments can opt
 * [`:search/outdated`](https://github.com/liquidz/antq) - report newer versions for maven and git dependencies
 * [`:search/outdated-mvn`](https://github.com/slipset/deps-ancient) - check for newer dependencies (maven only)
 
-| Command                                             | Description                                               |
-|-----------------------------------------------------|-----------------------------------------------------------|
-| `clojure -M:project/check`                          | detailed report of compilation errors for a project       |
-| `clojure -M:search/libraries library-name`          | fuzzy search Maven & Clojars                              |
+| Command                                            | Description                                               |
+|----------------------------------------------------|-----------------------------------------------------------|
+| `clojure -M:project/check`                         | detailed report of compilation errors for a project       |
+| `clojure -M:search/libraries library-name`         | fuzzy search Maven & Clojars                              |
 | `clojure -M:search/libraries -F:save library-name` | fuzzy search Maven & Clojars and save to project deps.edn |
-| `clojure -T:search/outdated`                        | report newer versions for maven and git dependencies      |
-| `clojure -M:search/outdated-mvn`                    | check for newer dependencies (maven only)                 |
+| `clojure -T:search/outdated`                       | report newer versions for maven and git dependencies      |
+| `clojure -M:search/outdated-mvn`                   | check for newer dependencies (maven only)                 |
 
 > `:search/libraries` will show warnings about unqualified libraries the first time it is used, which can safely be ignored
 
@@ -309,10 +308,10 @@ Then the project can be run using `clojure -X:project/run` and arguments can opt
 * [`:project/unused`](https://github.com/borkdude/carve.git) - alternative alias name for :project/carve
 * [`:project/unused-vars`](https://github.com/borkdude/carve.git) - alternative alias name for :project/carve
 
-| Command                                                                               | Description                                    |
-|---------------------------------------------------------------------------------------|------------------------------------------------|
-| `clojure -M:project/unused --opts '{:paths ["src" "test"]}'`                          | remove unused vars from the src and test paths |
-| `clojure -M:project/unused --opts '{:paths ["src" "test"] :report {:format :text}} '` | report unused vars from the src and test paths |
+| Command                                                                              | Description                                    |
+|--------------------------------------------------------------------------------------|------------------------------------------------|
+| `clojure -M:project/unused --opts '{:paths ["src" "test"]}'`                         | remove unused vars from the src and test paths |
+| `clojure -M:project/unused --opts '{:paths ["src" "test"] :report {:format :text}}'` | report unused vars from the src and test paths |
 
 Generate report in a file:
 
