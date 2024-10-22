@@ -6,7 +6,6 @@ on:
   pull_request:
     paths-ignore:
       - "README.md"
-      - "CHANGELOG.md"
     types: [opened, synchronize, reopened, ready_for_review, labeled, unlabeled]
 
 jobs:
@@ -22,8 +21,13 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
         with:
-          token: "${{ secrets.PAT || secrets.GITHUB_TOKEN }}"
-      - run: echo "🐙 ${{ github.repository }} repository was cloned to the runner."
+          fetch-depth: 0
+          sparse-checkout: |
+            docs
+            overrides
+            .github
+            CHANGELOG.md
+      - run: echo "🐙 Sparse Checkout of ${{ github.repository }} repository to the CI runner."
 
       # Changelog Enforcer
       - name: Changelog Enforcer

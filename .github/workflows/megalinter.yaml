@@ -1,7 +1,7 @@
 ---
 # MegaLinter GitHub Action configuration file
 # More info at https://megalinter.io
-# All variables described in https://megalinter.io/latest/config-file/
+# All variables described in https://megalinter.io/latest/configuration/
 
 name: MegaLinter
 on:
@@ -21,16 +21,14 @@ jobs:
   megalinter:
     name: MegaLinter
     runs-on: ubuntu-latest
-    env:
-      # Grafana Dashboard Connections - GitHub Organization secrets
-      API_REPORTER: true
-      API_REPORTER_URL: ${{ secrets.API_REPORTER_URL }}
-      API_REPORTER_BASIC_AUTH_USERNAME: ${{ secrets.API_REPORTER_BASIC_AUTH_USERNAME }}
-      API_REPORTER_BASIC_AUTH_PASSWORD: ${{ secrets.API_REPORTER_BASIC_AUTH_PASSWORD }}
-      API_REPORTER_METRICS_URL: ${{ secrets.API_REPORTER_METRICS_URL }}
-      API_REPORTER_METRICS_BASIC_AUTH_USERNAME: ${{ secrets.API_REPORTER_METRICS_BASIC_AUTH_USERNAME }}
-      API_REPORTER_METRICS_BASIC_AUTH_PASSWORD: ${{ secrets.API_REPORTER_METRICS_BASIC_AUTH_PASSWORD }}
-      API_REPORTER_DEBUG: true
+
+    # Give the default GITHUB_TOKEN write permission to commit and push, comment
+    # issues, and post new Pull Requests; remove the ones you do not need
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+
     steps:
       - run: echo "🚀 Job automatically triggered by ${{ github.event_name }}"
       - run: echo "🐧 Job running on ${{ runner.os }} server"
@@ -40,27 +38,46 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
         with:
-          token: "${{ secrets.PAT || secrets.GITHUB_TOKEN }}"
           fetch-depth: 0
-      - run: echo "🐙 ${{ github.repository }} repository was cloned to the runner."
+          sparse-checkout: |
+            docs
+            overrides
+            .github
+      - run: echo "🐙 Sparse Checkout of ${{ github.repository }} repository to the CI runner."
 
       # MegaLinter Configuration
       - name: MegaLinter Run
-        id: ml
-        ## latest release of major version
         uses: oxsecurity/megalinter/flavors/java@v8.1.0
+        id: ml
         env:
-          # ADD CUSTOM ENV VARIABLES OR DEFINE IN MEGALINTER_CONFIG file
-          MEGALINTER_CONFIG: .github/config/megalinter.yaml
 
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}" # report individual linter status
-          # Validate all source when push on main, else just the git diff with live.
+          # Validate the git diff against default branch.
           VALIDATE_ALL_CODEBASE: >-
             ${{ github.event_name == 'push' && github.ref == 'refs/heads/main'}}
 
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}" # report individual linter status
+
+          # ADD CUSTOM ENV VARIABLES OR DEFINE IN MEGALINTER_CONFIG file
+          MEGALINTER_CONFIG: .github/config/megalinter.yaml
+
+          # Grafana Dashboard Connections - GitHub Organization secrets
+          API_REPORTER: true
+          API_REPORTER_URL: ${{ secrets.API_REPORTER_URL }}
+          API_REPORTER_BASIC_AUTH_USERNAME: ${{ secrets.API_REPORTER_BASIC_AUTH_USERNAME }}
+          API_REPORTER_BASIC_AUTH_PASSWORD: ${{ secrets.API_REPORTER_BASIC_AUTH_PASSWORD }}
+          API_REPORTER_BEARER_TOKEN: ${{ secrets.API_REPORTER_BEARER_PASSWORD }}
+          API_REPORTER_METRICS_URL: ${{ secrets.API_REPORTER_METRICS_URL }}
+          API_REPORTER_METRICS_BASIC_AUTH_USERNAME: ${{ secrets.API_REPORTER_METRICS_BASIC_AUTH_USERNAME }}
+          API_REPORTER_METRICS_BASIC_AUTH_PASSWORD: ${{ secrets.API_REPORTER_METRICS_BASIC_AUTH_PASSWORD }}
+          API_REPORTER_METRICS_BEARER_TOKEN: ${{ secrets.API_REPORTER_METRICS_BEARER_PASSWORD }}
+          API_REPORTER_DEBUG: false
+
+          # Logging
+          # LOG_LEVEL: DEBUG
+
       # Upload MegaLinter artifacts
       - name: Archive production artifacts
-        if: ${{ success() }} || ${{ failure() }}
+        if: success() || failure()
         uses: actions/upload-artifact@v4
         with:
           name: MegaLinter reports
