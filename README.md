@@ -252,6 +252,8 @@ Default values (can be over-ridden on the command line)
 > `:project/new` - uses [clj-new](https://github.com/seancorfield/clj-new) which is an archived project, although can still be used to create projects using Leiningen style templates.  A Clojure CLI configuration must be manually added if these templates do not provide one.
 
 
+| Command                                                                                                 | Description                                          |
+| --------------------------------------------------------------------------------------------------------| ---------------------------------------------------- |
 | `clojure -T:project/new :template app :name practicalli/my-application`                                 | App project with given name                          |
 | `clojure -T:project/new :template luminus :name practicalli/full-stack-app :args '["+http-kit" "+h2"]'` | Luminus project with given name and template options |
 | `clojure -T:project/new :template figwheel-main :name practicalli/landing-page :args '["--reagent"]'`   | ClojureScript Figwheel-main project with reagent     |
