@@ -20,8 +20,7 @@ on:
     # - cron: "0 4 * * *" # at 04:04:04 ever day
     # - cron: "0 4 * * 5" # at 04:04:04 ever Friday
     - cron: "0 4 1 * *" # at 04:04:04 on first day of month
-  workflow_dispatch:
-    # Run manually via GitHub Actions Workflow page
+  workflow_dispatch: # Run manually via GitHub Actions Workflow page
 
 jobs:
   scheduled-version-check:
@@ -32,10 +31,13 @@ jobs:
       - run: echo "🐧 Job running on ${{ runner.os }} server"
       - run: echo "🐙 Using ${{ github.ref }} branch from ${{ github.repository }} repository"
 
-      - name: "Checkout code"
+      - name: Checkout Code
         uses: actions/checkout@v4
-      - run: echo "🐙 ${{ github.repository }} repository was cloned to the runner."
-
+        with:
+          fetch-depth: 0
+          sparse-checkout: |
+            .github
+      - run: echo "🐙 ${{ github.repository }} repository sparse-checkout to the CI runner."
       - name: "Antq Check versions"
         uses: liquidz/antq-action@main
         with:

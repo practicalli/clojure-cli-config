@@ -134,7 +134,7 @@ lint-clean:  ## Clean MegaLinter report information
 	$(info --------- MegaLinter Clean Reports ---------)
 	- rm -rf ./megalinter-reports
 
-megalinter-upgrade:  ## Update MegaLinter config to latest version
+megalinter-upgrade:  ## Upgrade MegaLinter config to latest version
 	$(info --------- MegaLinter Upgrade Config ---------)
 	npx mega-linter-runner@latest --upgrade
 # ------------------------------------ #

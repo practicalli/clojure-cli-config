@@ -1,0 +1,23 @@
+title = "gitleaks config"
+
+[allowlist]
+description = "global allow lists"
+paths = [
+    '''gitleaks.toml''',
+    '''(.*?)(jpg|gif|doc|docx|zip|xls|pdf|bin|svg|socket)$''',
+    '''(go.mod|go.sum)$''',
+    '''gradle.lockfile''',
+    '''node_modules''',
+    '''package-lock.json''',
+    '''pnpm-lock.yaml''',
+    '''Database.refactorlog''',
+    '''vendor''',
+]
+
+[[rules]]
+description = "AWS Example API Key"
+id = "aws-example-api-key"
+regex = '''AKIAIOSFODNN7EXAMPLE'''
+keywords = [
+    "awstoken",
+]
