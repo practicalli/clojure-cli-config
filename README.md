@@ -19,9 +19,9 @@ Alias  used with the `-A`, `-M`, `-T` or `-X` execution options
 
 Aliases are defined to be used with all execution options `-A`, `-M`, `-P`, `-T` or `-X` where possible, otherwise use the following execution options:
 
-- `-M` for `:main-opts` configuration
-- `-X` for `:exec-opts` configuration
-- `-T` for `:exec-opts`, ignoring project dependencies
+* `-M` for `:main-opts` configuration
+* `-X` for `:exec-opts` configuration
+* `-T` for `:exec-opts`, ignoring project dependencies
 
 > [Clojure CLI - Which execution options to use](https://practical.li/clojure/clojure-cli/execution-options/)
 
