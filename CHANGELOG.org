@@ -5,6 +5,7 @@
 
 ** Updated
 - dev: megalinter v8.1.0 supports Grafana dashboards in flavors
+- dev: lychee spell config file for megalinter workflow
 
 * 2024-09-09
 ** Added
