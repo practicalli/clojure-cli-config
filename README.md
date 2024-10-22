@@ -170,7 +170,7 @@ Run an interactive REPL on the command line with the basic built-in REPL UI or [
 nREPL server is started for all Clojure repl aliases along with the cider-nrepl middleware, so Clojure editors can connect to the REPL process started on the command line.
 
 | Command                        | Description                                                                        |
-|--------------------------------|------------------------------------------------------------------------------------|
+|------------------------------- | ---------------------------------------------------------------------------------- |
 | `clojure -M:repl/rebel`        | Rebel Rich terminal UI Clojure REPL with nREPL for connecting editors              |
 | `clojure -M:repl/basic`        | Basic terminal UI Clojure REPL with nREPL for connecting editors                   |
 | `clojure -M:repl/reloaded`     | As above with `dev` path, library hotload, namespace reload, Portal data inspector |
@@ -212,7 +212,7 @@ Clojure 1.10.x onward can [run a Socket Server](https://clojure.org/reference/re
 [tubular](https://github.com/mfikes/tubular) is a Socket Server client for Clojure and Clojurescript REPL processes.
 
 | Command                          | Description                                                                     |
-|----------------------------------|---------------------------------------------------------------------------------|
+| -------------------------------- | ------------------------------------------------------------------------------- |
 | `clojure -M:repl/socket`         | Clojure REPL using Socket Server on port 50505                                  |
 | `clojure -M:repl/socket-zero`    | As above but on first available port (container, cloud environment)             |
 | `clojure -M:repl/socket-zero -r` | As above but and run a REPL                                                     |
@@ -243,7 +243,7 @@ Default values (can be over-ridden on the command line)
 * `:name practicalli/playground` creates a practicalli domain containing `playground` namespace and example Clojure code
 
 | Command                                                         | Description                               |
-|-----------------------------------------------------------------|-------------------------------------------|
+| --------------------------------------------------------------- | ----------------------------------------- |
 | `clojure -T:project/create :template app :name domain/app-name` | A simple application                      |
 | `clojure -T:project/create`                                     | Practicalli application called playground |
 | `clojure -T:project/create :template practicalli/service`       | Practicalli Service called playground     |
