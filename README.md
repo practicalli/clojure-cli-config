@@ -744,3 +744,8 @@ FreeDesktop.org `XDG_CACHE_HOME` is the recommended location for an alternative 
 `clojure -Spath` will show the current class path which will include the path to the local maven repository for the library dependencies.
 
 > NOTE: using `clojure -Sforce` forces a classpath recompute, deleting the contents of .cpcache
+
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=practicalli/clojure-cli-config&type=Date)](https://star-history.com/#practicalli/clojure-cli-config&Date)
