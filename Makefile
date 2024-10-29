@@ -44,14 +44,36 @@ help:  ## Describe available tasks in Makefile
 	awk -F ':.*?## ' 'NF==2 {printf "\033[36m  %-$(HELP-DESCRIPTION-SPACING)s\033[0m %s\n", $$1, $$2}'
 # ------------------------------------ #
 
-# ------- Clojure Development -------- #
-repl:  ## Run Clojure REPL with rich terminal UI (Rebel Readline)
+# ------- Clojure Projects -------- #
+project-service:  ## New project with practicalli/service template
+	$(info --------- Create Service Project ---------)
+	clojure -T:project/create :template practicalli/service :name practicalli/gameboard
+
+project-service-donut:  ## New project with practicalli/service template & Donut
+	$(info --------- Create Service Project with Donut ---------)
+	clojure -T:project/create :template practicalli/service :name practicalli/gameboard :target-dir gameboard-donut
+
+project-service-integrant:  ## New project with practicalli/service template & Integrant
+	$(info --------- Create Service Project with Integrant ---------)
+	clojure -T:project/create :template practicalli/service :name practicalli/gameboard :target-dir gameboard-integrant
+
+landing-page-local:  ## New project with practicalli/landing-page template local
 	$(info --------- Run Rebel REPL ---------)
-	clojure -M:test/env:repl/reloaded
+	clojure -T:project/create-local :template practicalli/landing-page :name practicalli/landing-page-local
+
+landing-page:  ## New project with practicalli/landing-page template local
+	$(info --------- Run Rebel REPL ---------)
+	clojure -T:project/create :template practicalli/landing-page :name practicalli/landing-page
 
 outdated: ## Check deps.edn & GitHub actions for new versions
 	$(info --------- Search for outdated libraries ---------)
 	- clojure -T:search/outdated > $(OUTDATED_FILE)
+
+# ------- Clojure Workflow -------- #
+repl:  ## Run Clojure REPL with rich terminal UI (Rebel Readline)
+	$(info --------- Run Rebel REPL ---------)
+	clojure -M:test/env:repl/reloaded
+
 
 # deps: deps.edn  ## Prepare dependencies for test and dist targets
 #		$(info --------- Download test and service libraries ---------)
