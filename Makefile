@@ -86,7 +86,7 @@ repl:  ## Run Clojure REPL with rich terminal UI (Rebel Readline)
 # `-` before the command ignores any errors returned
 clean:  ## Clean build temporary files
 	$(info --------- Clean Clojure classpath cache ---------)
-	- rm -rf ./.cpcache .clj-kondo .lsp
+	- rm -rf ./.cpcache ./.clj-kondo ./.lsp
 # ------------------------------------ #
 
 # ------- Testing -------------------- #
