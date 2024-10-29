@@ -92,35 +92,36 @@ clean:  ## Clean build temporary files
 # ------------------------------------ #
 
 # ------- Testing -------------------- #
-# test-config:  ## Print Kaocha test runner configuration
-#			$(info --------- Runner Configuration ---------)
-#			clojure -M:test/env:test/run --print-config
+test-config:  ## Print Kaocha test runner configuration
+		$(info --------- Runner Configuration ---------)
+		clojure -M:test/env:test/run --print-config
 
-# test-profile:  ## Profile unit test speed, showing 3 slowest tests
-#			$(info --------- Runner Profile Tests ---------)
-#			clojure -M:test/env:test/run --plugin  kaocha.plugin/profiling
+test-profile:  ## Profile unit test speed, showing 3 slowest tests
+		$(info --------- Runner Profile Tests ---------)
+		clojure -M:test/env:test/run --plugin  kaocha.plugin/profiling
 
-# test:  ## Run unit tests - stoping on first error
-#			$(info --------- Runner for unit tests ---------)
-#			clojure -X:test/env:test/run
+test:  ## Run unit tests - stoping on first error
+		$(info --------- Runner for unit tests ---------)
+		clojure -X:test/env:test/run
 
-# test-all:  ## Run all unit tests regardless of failing tests
-#			$(info --------- Runner for all unit tests ---------)
-#			clojure -X:test/env:test/run :fail-fast? false
+test-all:  ## Run all unit tests regardless of failing tests
+		$(info --------- Runner for all unit tests ---------)
+		clojure -X:test/env:test/run :fail-fast? false
 
-# test-watch:  ## Run tests when changes saved, stopping test run on first error
-#			$(info --------- Watcher for unit tests ---------)
-#			clojure -X:test/env:test/run :watch? true
+test-watch:  ## Run tests when changes saved, stopping test run on first error
+		$(info --------- Watcher for unit tests ---------)
+		clojure -X:test/env:test/run :watch? true
 
-# test-watch-all:  ## Run all tests when changes saved, regardless of failing tests
-#			$(info --------- Watcher for unit tests ---------)
-#			clojure -X:test/env:test/run :fail-fast? false :watch? true
+test-watch-all:  ## Run all tests when changes saved, regardless of failing tests
+		$(info --------- Watcher for unit tests ---------)
+		clojure -X:test/env:test/run :fail-fast? false :watch? true
+
 # ------------------------------------ #
 
 # -------- Build tasks --------------- #
-# build-config: ## Pretty print build configuration
-#		$(info --------- View current build config ---------)
-#		clojure -T:build config
+build-config: ## Pretty print build configuration
+	$(info --------- View current build config ---------)
+	clojure -T:build config
 
 # build-jar: ## Build a jar archive of Clojure project
 #		$(info --------- Build library jar ---------)
@@ -130,9 +131,10 @@ clean:  ## Clean build temporary files
 #		$(info --------- Build service Uberjar  ---------)
 #		clojure -T:build uberjar
 
-# build-clean: ## Clean build assets or given directory
-#		$(info --------- Clean Build  ---------)
-#		clojure -T:build clean
+build-clean: ## Clean build assets or given directory
+	$(info --------- Clean Build  ---------)
+	clojure -T:build clean
+
 # ------------------------------------ #
 
 # ------- Code Quality --------------- #
@@ -164,17 +166,18 @@ megalinter-upgrade:  ## Upgrade MegaLinter config to latest version
 # ------------------------------------ #
 
 # ------- Docker Containers ---------- #
-# docker-build:  ## Build Clojure Service with docker compose
+# docker-build:  ## Build Clojure project and run with docker compose
 #		$(info --------- Docker Compose Build ---------)
-#		docker compose up --build
+#		docker compose up --build --detach
 
-# docker-build-clean:  ## Build Clojure Service with docker compose, removing orphans
+# docker-build-clean:  ## Build Clojure project and run with docker compose, removing orphans
 #		$(info --------- Docker Compose Build - remove orphans ---------)
-#		docker compose up --build --remove-orphans
+#		docker compose up --build --remove-orphans --detach
 
-# docker-down:  ## Shut down Clojure service using docker compose
+# docker-down:  ## Shut down containers in docker compose
 #		$(info --------- Docker Compose Down ---------)
-#		docker-compose down
+#		docker compose down
+
 
 # swagger-editor:  ## Start Swagger Editor in Docker
 #		$(info --------- Run Swagger Editor at locahost:8282 ---------)
