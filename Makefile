@@ -29,10 +29,12 @@ OUTDATED_FILE := outdated-$(shell date +%y-%m-%d-%T).org
 # Column the target description is printed from
 HELP-DESCRIPTION-SPACING := 24
 
-MEGALINTER_RUNNER = npx mega-linter-runner --flavor java --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'" --remove-container
-
 # Makefile file and directory name wildcard
 # EDN-FILES := $(wildcard *.edn)
+
+# Tool variables
+# MEGALINTER_RUNNER = npx mega-linter-runner --flavor documentation --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'" --remove-container
+MEGALINTER_RUNNER = npx mega-linter-runner --flavor java --env "'MEGALINTER_CONFIG=.github/config/megalinter.yaml'" --remove-container
 # ------------------------------------ #
 
 # ------- Help ----------------------- #
@@ -148,7 +150,7 @@ lint:  ## Run MegaLinter with custom configuration (node.js required)
 	$(info --------- MegaLinter Runner ---------)
 	$(MEGALINTER_RUNNER)
 
-lint-fix:  ## Run MegaLinter with custom configuration (node.js required)
+lint-fix:  ## Run MegaLinter with applied fixes and custom configuration (node.js required)
 	$(info --------- MegaLinter Runner ---------)
 	$(MEGALINTER_RUNNER) --fix
 
