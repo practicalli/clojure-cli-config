@@ -326,6 +326,23 @@
   ;; ---------------------------------------------------
 
   ;; ---------------------------------------------------
+  ;; Security
+
+  ;; clj-holmes/clj-watson/
+  ;; Request an API key from: https://nvd.nist.gov/developers/request-an-api-key
+  ;; `CLJ_WATSON_NVD_API_KEY` set to API key value
+  :security/nvd-scan
+  {:replace-deps
+   {io.github.clj-holmes/clj-watson {:git/tag "v6.0.0" :git/sha "cb02879"}}
+   :main-opts ["-m" "clj-watson.cli" "scan" "-p" "./deps.edn"]}
+
+  :security/nvd-fix
+  {:replace-deps
+   {io.github.clj-holmes/clj-watson {:git/tag "v6.0.0" :git/sha "cb02879"}}
+   :main-opts ["-m" "clj-watson.cli" "scan" "-s" "-p" "deps.edn"]}
+  ;; ---------------------------------------------------
+
+  ;; ---------------------------------------------------
   ;; Project Deployment
 
   ;; Clojure CLI built-in alias to deploy locally (e.g. `~/.m2/`)

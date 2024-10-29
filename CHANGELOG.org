@@ -11,6 +11,7 @@
 ** Added
 - dev: megalinter-upgrade task to upgrade config
 - dev: megalinter grafana dashboard connections via github organization secrets
+- alias: `:security/nvd-scan` and `:security/nvd-fix` library vulnerabilities scan and fix
 
 ** Updated
    - dev: update megalinter config to version 8
