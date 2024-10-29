@@ -199,6 +199,7 @@ megalinter-upgrade:  ## Upgrade MegaLinter config to latest version
 
 # Run tests, build & package the Clojure code and clean up afterward
 # `make all` used in Docker builder stage
-# .DELETE_ON_ERROR:
-# all: test-ci dist clean  ## Call test-ci dist and clean targets, used for CI
+.DELETE_ON_ERROR:
+all: test-ci dist clean  ## Call test-ci dist and clean targets, used for CI
+
 # ------------------------------------ #
