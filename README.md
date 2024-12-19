@@ -37,6 +37,8 @@ The project also contains
 
 [Practicalli Clojure book discusses Clojure CLI and its use](https://practical.li/clojure/clojure-cli/repl/), along with video walk-through of the key features.
 
+[Practicalli Clojure CLI logo](https://github.com/practicalli/graphic-design/blob/live/logos/practicalli-clojure-cli-logo.png?raw=true)
+
 
 [![License CC By SA 4.0](https://img.shields.io/badge/license-CC%20BY--SA%204.0%20-blueviolet)](http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1)
 [![GitHub Sponsors for practicalli-john](https://img.shields.io/github/sponsors/practicalli-johnny)](https://github.com/sponsors/practicalli-johnny)
