@@ -3,6 +3,12 @@
 * Unreleased
 
 ** Added
+
+** Updated
+   - dev: clojure-lint-action v3 in lint-review workflow
+
+* 2024-11-03
+** Added
    - alias: `:security/nvd-scan` and `:security/nvd-fix` library vulnerabilities scan and fix
 
 ** Updated
