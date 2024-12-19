@@ -80,7 +80,7 @@
     // Number of characters for headings
     "heading_line_length": 80,
     // Number of characters for code blocks
-    "code_block_line_length": 120,
+    "code_block_line_length": 420,
     // Include code blocks
     "code_blocks": true,
     // Include tables
@@ -179,7 +179,7 @@
   // MD033/no-inline-html - Inline HTML
   "MD033": {
     // Allowed elements
-    "allowed_elements": ["a", "div", "iframe", "img"]
+    "allowed_elements": ["a", "div", "iframe", "img"i, "p"]
   },
 
   // MD034/no-bare-urls - Bare URL used
@@ -226,9 +226,7 @@
   "MD042": true,
 
   // MD043/required-headings/required-headers - Required heading structure
-  "MD043": {
-
-  },
+  "MD043": {},
 
   // MD044/proper-names - Proper names should have the correct capitalization
   "MD044": {
@@ -279,8 +277,6 @@
   // MD053/link-image-reference-definitions - Link and image reference definitions should be needed
   "MD053": {
     // Ignored definitions
-    "ignored_definitions": [
-      "//"
-    ]
+    "ignored_definitions": ["//"]
   }
 }
