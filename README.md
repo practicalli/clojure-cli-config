@@ -158,7 +158,7 @@ How to run common tasks for Clojure development.
 | Run the project  (clojure.main)                    | `clojure -M -m domain.main-namespace`                    | Built-in      |
 | Check library dependencies for newer versions      | `clojure -T:search/outdated`                             | Practicalli   |
 | Download dependencies                              | `clojure -P`  (followed by optional aliases)             | Built-in      |
-| Generate image of project dependency graph         | `clojure -T:project/graph-deps`                          | Practicalli   |
+| Generate image of project dependency graph         | `clojure -T:graph/deps`                                  | Practicalli   |
 | Deploy library locally (~/.m2/repository)          | `clojure -X:deps mvn-install :jar '"project.jar"'`       | Built-in      |
 | Find library names (Clojars & Maven Central)       | `clojure -M:search/libraries qualified-library-names`    | Practicalli   |
 | Find available versions of a library               | `clojure -X:deps find-versions :lib domain/library-name` | Built-in      |
