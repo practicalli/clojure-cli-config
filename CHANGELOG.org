@@ -6,6 +6,7 @@
    - dev: standard makefile tasks for Practicalli projects
    - dev: lint-review v4 github action
    - dev: megalinter v8 (uses latest minor version) github action
+   - dev: clj-kondo 2025.02.20 in quality check github action
    - aliases: outdated skip git diff between current and new dependency
 * 2024-12-19
 ** Added
