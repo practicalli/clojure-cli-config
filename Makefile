@@ -9,8 +9,8 @@
 # Requirements
 # - cljstyle
 # - Clojure CLI aliases from practicalli/clojure-cli-config
-#   - `:env/dev` to include `dev` directory on class path
-#   - `:env/test` to include `test` directory and libraries to support testing
+#   - `:dev/env` to include `dev` directory on class path
+#   - `:test/env` to include `test` directory and libraries to support testing
 #   - `:test/run` to run kaocha kaocha test runner and supporting paths and dependencies
 #   - `:repl/rebel` to start a Rebel terminal UI
 #   - `:package/uberjar` to create an uberjar for the service
@@ -20,7 +20,7 @@
 # ------------------------------------------
 # .PHONY: ensures target used rather than matching file name
 # https://makefiletutorial.com/#phony
-.PHONY: all clean  deps dist lint pre-commit-check repl test test-ci test-watch 
+.PHONY: all clean  deps dist lint pre-commit-check repl test test-ci test-watch
 
 # ------- Makefile Variables --------- #
 # run help if no target specified
@@ -75,9 +75,11 @@ outdated: ## Check deps.edn & GitHub actions for new versions
 # ------------------------------------ #
 
 # ------- Clojure Workflow -------- #
+repl: rebel  ## Run Clojure REPL
+
 rebel:  ## Run Clojure REPL with rich terminal UI (Rebel Readline)
 	$(info --------- Run Rebel REPL ---------)
-	clojure -M:dev/env:test/env:repl/rebel
+	clojure -M:test/env:repl/rebel
 
 reloaded:  ## Run Clojure REPL with rich terminal UI (Rebel Readline)
 	$(info --------- Run Rebel REPL ---------)

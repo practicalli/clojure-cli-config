@@ -7,6 +7,7 @@
    - dev: lint-review v4 github action
    - dev: megalinter v8 (uses latest minor version) github action
    - dev: clj-kondo 2025.02.20 in quality check github action
+   - dev: update repl task and clojure alias docs
    - aliases: outdated skip git diff between current and new dependency
    - aliases: update library versions using `make outdated`
 
