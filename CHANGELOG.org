@@ -4,6 +4,7 @@
 
 ** Updated
    - dev: standard makefile tasks for Practicalli projects
+   - dev: lint-review v4 github action
 * 2024-12-19
 ** Added
 
