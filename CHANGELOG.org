@@ -2,6 +2,7 @@
 
 * Unreleased
 
+* 2025-03-01
 ** Updated
    - dev: standard makefile tasks for Practicalli projects
    - dev: lint-review v4 github action
