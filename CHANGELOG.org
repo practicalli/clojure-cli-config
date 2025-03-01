@@ -2,6 +2,8 @@
 
 * Unreleased
 
+** Updated
+   - dev: standard makefile tasks for Practicalli projects
 * 2024-12-19
 ** Added
 
