@@ -307,7 +307,8 @@
                :reporter "table" ; json edn format
                :verbose false
                :upgrade false
-               :force   false}}
+               :force   false
+               :no-changes true}}
 
   ;; Carve - search through code for unused vars and remove them
   ;; clojure -M:search/unused-vars --opts '{:paths ["src" "test"]}'
