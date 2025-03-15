@@ -11,6 +11,8 @@
 
 [Practicalli Clojure CLI Config](https://github.com/practicalli/clojure-cli-config/) provides a user scope `deps.edn` file containing alias definitions for a wide range of community libraries and tools to that extend the features of Clojure CLI.
 
+`clojure -X:deps aliases` will list all the alias names at the project and user level.
+
 Aliases are qualified keywords using descriptive names to clearly convey purpose and provide a level of consistency to minimise cognitive load.
 
 Common arguments are included in alias definitions via `main-opts` and `:exec-args` to provide a default behaviour and simplify the use aliases.

@@ -2,6 +2,9 @@
 
 * Unreleased
 
+** Added
+   - readme: list aliases with `clojure -X:deps aliases`
+
 * 2025-03-01
 ** Updated
    - dev: standard makefile tasks for Practicalli projects
