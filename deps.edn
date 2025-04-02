@@ -384,6 +384,11 @@
   {:extra-deps
    {openjdk/java-sources {:local/root "/usr/lib/jvm/openjdk-17/lib/src.zip"}}}
 
+  ;; clojure -M:lib/java21-source
+  :src/java21
+  {:extra-deps
+   {openjdk/java-sources {:local/root "/usr/lib/jvm/openjdk-21/lib/src.zip"}}}
+
   ;; Clojure core Java source code in src/jvm/clojure/lang/
   :src/clojure
   {:extra-paths ["src/jvm"]
