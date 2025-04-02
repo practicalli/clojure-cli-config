@@ -6,6 +6,8 @@
    - readme: list aliases with `clojure -X:deps aliases`
    - aliases: `:src/java21` to include local java sources for java 21
 
+** Updated
+   - readme: simplify introduction, highlight common aliases
 
 * 2025-03-01
 ** Updated

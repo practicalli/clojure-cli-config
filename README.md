@@ -9,37 +9,53 @@
 ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝
 ```
 
-[Practicalli Clojure CLI Config](https://github.com/practicalli/clojure-cli-config/) provides a user scope `deps.edn` file containing alias definitions for a wide range of community libraries and tools to that extend the features of Clojure CLI.
+[Practicalli Clojure CLI Config](https://github.com/practicalli/clojure-cli-config/) provides a wide range of community tools that extend the features of the Clojure CLI, for use across all Clojure deps.edn projects.
 
 `clojure -X:deps aliases` will list all the alias names at the project and user level.
 
 Aliases are qualified keywords using descriptive names to clearly convey purpose and provide a level of consistency to minimise cognitive load.
 
-Common arguments are included in alias definitions via `main-opts` and `:exec-args` to provide a default behaviour and simplify the use aliases.
+## Common development tasks
 
-Alias  used with the `-A`, `-M`, `-T` or `-X` execution options
+* Built-in: tasks provided by Clojure CLI
+* Practicalli: aliases provided by Practicalli Clojure CLI Config
 
-Aliases are defined to be used with all execution options `-A`, `-M`, `-P`, `-T` or `-X` where possible, otherwise use the following execution options:
+| Task                                               | Command                                                  | Configuration |
+|----------------------------------------------------|----------------------------------------------------------|---------------|
+| Create minimal playground project                  | `clojure -T:project/create`                              | Practicalli   |
+| Clojure REPL - rebel readline & nrepl server       | `clojure -M:repl/rebel`                                  | Practicalli   |
+| ClojureScript REPL with nREPL server               | `clojure -M:repl/cljs`                                   | Practicalli   |
+| Run tests / watch for changes                      | `clojure -X:test/run` / `clojure -X:test/watch`          | Practicalli   |
+| Run the project  (clojure.main)                    | `clojure -M -m domain.main-namespace`                    | Built-in      |
+| Check library dependencies for newer versions      | `clojure -T:search/outdated`                             | Practicalli   |
+| Download dependencies                              | `clojure -P`  (followed by optional aliases)             | Built-in      |
+| Generate image of project dependency graph         | `clojure -T:project/graph-deps`                          | Practicalli   |
+| Deploy library locally (~/.m2/repository)          | `clojure -X:deps mvn-install :jar '"project.jar"'`       | Built-in      |
+| Find library names (Clojars & Maven Central)       | `clojure -M:search/libraries qualified-library-names`    | Practicalli   |
+| Find available versions of a library               | `clojure -X:deps find-versions :lib domain/library-name` | Built-in      |
+| Resolve git coord tags to shas and update deps.edn | `clojure -X:deps git-resolve-tags git-coord-tag`         | Built-in      |
 
 * `-M` for `:main-opts` configuration
 * `-X` for `:exec-opts` configuration
-* `-T` for `:exec-opts`, ignoring project dependencies and only root of project as class path
+* `-T` for `:exec-opts`, ignoring project dependencies
 
 > [Clojure CLI - Which execution options to use](https://practical.li/clojure/clojure-cli/execution-options/)
-
-The project also contains
-
-* GitHub workflow that runs MegaLinter and Code Quality checks (clj-kondo and cljstyle via the setup-clojure action)
-* cljstyle configuration that follows the Clojure Style Guide
-* Rebel Readline example configuration (supports the Rich Terminal UI used by Practicalli)
-* cspell configuration for linting markdown and other text
-* `deps-deprecated.edn` containing alias examples of tools not currently used by Practialli which may still be of interest to the wider community
 
 [Practicalli books](https://practical.li/#books) uses the Clojure CLI Config extensively to support a [REPL Reloaded workflow](https://practical.li/clojure/clojure-cli/repl-reloaded/) for Clojure projects.
 
 [Practicalli Clojure book discusses Clojure CLI and its use](https://practical.li/clojure/clojure-cli/repl/), along with video walk-through of the key features.
 
-[Practicalli Clojure CLI logo](https://github.com/practicalli/graphic-design/blob/live/logos/practicalli-clojure-cli-logo.png?raw=true)
+![Practicalli Clojure CLI logo](https://github.com/practicalli/graphic-design/blob/live/logos/practicalli-clojure-cli-logo.png?raw=true)
+
+
+## Project contents
+
+* `deps.edn` user configuration containing alias definitions
+* GitHub workflow that runs MegaLinter and Code Quality checks (clj-kondo and cljstyle via the setup-clojure action)
+* cljstyle configuration that follows the Clojure Style Guide, using the [.cljstyle configuration file](https://github.com/practicalli/clojure-cli-config/blob/main/.cljstyle)
+* Rebel Readline example configuration (supports the Rich Terminal UI used by Practicalli)
+* cspell configuration for linting markdown and other text
+* `deps-deprecated.edn` containing alias examples of tools not currently used by Practialli which may still be of interest to the wider community
 
 
 [![License CC By SA 4.0](https://img.shields.io/badge/license-CC%20BY--SA%204.0%20-blueviolet)](http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1)
@@ -51,11 +67,6 @@ The project also contains
   <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
   Creative Commons Attribution 4.0 ShareAlike License
 </div>
-
-
-## Format Clojure
-
-[cljstyle](https://github.com/greglook/cljstyle) is a format tool for Clojure files that supports the Clojure Style Guide, using the [.cljstyle configuration file](https://github.com/practicalli/clojure-cli-config/blob/main/.cljstyle)
 
 
 ## Contents
@@ -81,7 +92,7 @@ The project also contains
 * [Library Hosting Services](#library-hosting-services) - maven mirrors, local repositories
 
 
-## Install Practicalli Clojure CLI Config
+## Install
 
 [Clojure CLI](https://clojure.org/guides/install_clojure) version **1.11.1.xxxx** or later is recommended. Check the version of Clojure CLI currently installed via:
 
@@ -133,7 +144,7 @@ clojure -T:search/outdated > outdated.org
 
 ## Using Practicalli Clojure CLI Config
 
-Any directory containing a `deps.edn` file is considered a Clojure project. A `deps.edn` file can contain an empty hash-map, `{}` or hash-map with configuration, usually `:paths` and `:dependencies` and perhaps some `:aliases`.
+A directory containing a `deps.edn` file is considered a Clojure project. A `deps.edn` file can contain an empty hash-map, `{}` or hash-map with configuration, usually `:paths` and `:dependencies` and perhaps some `:aliases`.
 
 The project `deps.edn` file is merged with the user wide configuration, e.g `$HOME/.clojure/deps.edn`, with the project `deps.edn` keys taking precedence if there is duplication, otherwise they are merged.
 
@@ -144,12 +155,16 @@ Configuration passed via the command line when running `clojure` or the `clj` wr
 See the rest of this readme for examples of how to use each alias this configuration contains.
 
 
-## Common development tasks
+Common arguments are included in alias definitions via `main-opts` and `:exec-args` to provide a default behaviour and simplify the use aliases.
 
-How to run common tasks for Clojure development.
+Aliases are defined to be used with all execution options `-A`, `-M`, `-P`, `-T` or `-X` where possible.
 
-* Built-in: tasks provided by Clojure CLI
-* Practicalli: aliases provided by Practicalli Clojure CLI Config
+* `-M` for `:main-opts` configuration
+* `-X` for `:exec-opts` configuration
+* `-T` for `:exec-opts`, ignoring project dependencies
+
+> [Clojure CLI - Which execution options to use](https://practical.li/clojure/clojure-cli/execution-options/)
+
 
 | Task                                               | Command                                                  | Configuration |
 |----------------------------------------------------|----------------------------------------------------------|---------------|
@@ -388,9 +403,9 @@ clojure -M:search/libraries --format:merge http-kit
 
 Include Java source on the  classpath to [look up Java Class and method definitions, eg. `cider-find-var` in Emacs](https://practical.li/spacemacs/navigating-code/java-definitions/)
 
-Requires: Java sources installed locally (e.g. `"/usr/lib/jvm/openjdk-17/lib/src.zip"`)
+Requires: Java sources installed locally (e.g. `"/usr/lib/jvm/openjdk-21/lib/src.zip"`)
 
-* `:src/java17`
+* `:src/java21`
 * `:src/clojure`
 
 Use the aliases with either `-A`, `-M` or `-X` execution options on the Clojure command line.
