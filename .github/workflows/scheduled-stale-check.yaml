@@ -1,0 +1,42 @@
+# ----------------------------------------
+# Scheduled stale issue & pull request check
+#
+# Adds 'stale' label after a set piece of time,
+# then closes stale issues & pull requests a short period after
+#
+# Using "Close Stale Issues" action
+# https://github.com/marketplace/actions/close-stale-issues
+# ----------------------------------------
+
+name: "Scheduled stale check"
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 1 1 * *" # at 01:00 on first day of month
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🚀 Job automatically triggered by ${{ github.event_name }}"
+      - run: echo "🐧 Job running on ${{ runner.os }} server"
+      - run: echo "🐙 Using ${{ github.ref }} branch from ${{ github.repository }} repository"
+
+      - uses: actions/stale@v9
+        with:
+          stale-issue-message: "After 30 days with no activity, the issue was automatically marked stale. Remove stale label or add a comment to prevent the issue being closed in 5 days."
+          stale-pr-message: "After 45 days with no activity, the Pull Request was automatically marked stale. Remove stale label or comment to prevent the PR being closed in 10 days."
+          close-issue-message: "This issue was closed because it has been stalled for 5 days with no activity."
+          close-pr-message: "This PR was closed because it has been stalled for 10 days with no activity."
+          days-before-issue-stale: 30
+          days-before-pr-stale: 45
+          days-before-issue-close: 5
+          days-before-pr-close: 10
+          start-date: "2025-04-05T00:00:00Z" # only affect issues/PRs from date created (ISO 8601 or RFC 2822 format)
+          any-of-labels: "future,keep" # labels to keep
+          exempt-issue-assignees: "practicalli-johnny"
+          exempt-pr-assignees: "practicalli-johnny"
+
+      # Summary
+      - run: echo "🎨 Issues & Pull Request checked with actions/stale"
+      - run: echo "🍏 Job status is ${{ job.status }}."

@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Added
+- dev: ci scheduled stale issue & pr check (monthly)
 
 * 2025-04-02
 ** Added
