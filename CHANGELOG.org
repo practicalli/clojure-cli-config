@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+
+* 2025-05-02
 ** Added
 - dev: ci scheduled stale issue & pr check (monthly)
 - dev: update clj-kondo 2025.04.07 quality-checks workflow
