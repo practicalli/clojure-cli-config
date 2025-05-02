@@ -5,6 +5,17 @@
 - dev: ci scheduled stale issue & pr check (monthly)
 - dev: update clj-kondo 2025.04.07 quality-checks workflow
 
+** Updated
+   - aliases: update library versions using `make outdated`
+   | :name                                | :current | :latest |
+   | ------------------------------------ |--------- | ------- |
+   | cider/cider-nrepl                    | 0.53.2   | 0.55.7  |
+   | com.github.flow-storm/flow-storm-dbg | 4.3.0    | 4.4.0   |
+   | djblue/portal                        | 0.58.5   | 0.59.0  |
+   | io.github.clj-holmes/clj-watson      | v6.0.0   | v6.0.1  |
+   | io.github.seancorfield/deps-new      | v0.8.0   | v0.8.1  |
+   | ring/ring-mock                       | 0.4.0    | 0.6.1   |
+
 * 2025-04-02
 ** Added
    - readme: list aliases with `clojure -X:deps aliases`
