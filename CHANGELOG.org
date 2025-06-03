@@ -2,7 +2,7 @@
 
 * Unreleased
 
-
+* 2025-06-03
 ** Updated
    - aliases: update library versions using `make outdated`
    | :name                                | :current                                 | :latest                                  |
