@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Updated
+- dev: cljstyle & clj-kondo updates in quality-checks
 
 * 2025-06-03
 ** Updated
