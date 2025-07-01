@@ -1,8 +1,17 @@
 #+TITLE: Changelog
 
 * Unreleased
+
+* 2025-07-01
 ** Updated
-- dev: cljstyle & clj-kondo updates in quality-checks
+   - dev: cljstyle & clj-kondo updates in quality-checks
+   - aliases: update library versions using `make outdated`
+   | :name                                | :current | :latest  |
+   |--------------------------------------|----------|----------|
+   | cider/cider-nrepl                    | 0.56.0   | 0.57.0   |
+   | com.github.flow-storm/flow-storm-dbg | 4.4.4    | 4.4.6    |
+   | com.github.seancorfield/next.jdbc    | 1.3.1002 | 1.3.1048 |
+   | io.github.seancorfield/deps-new      | v0.8.1   | v0.9.0   |
 
 * 2025-06-03
 ** Updated
