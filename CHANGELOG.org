@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Added
+   - aliases: `update/dependency-versions` automatically updates everything to new versions
 
 * 2025-07-01
 ** Updated

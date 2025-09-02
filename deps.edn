@@ -310,6 +310,23 @@
                :force   false
                :no-changes true}}
 
+  ;; Check for latest versions of dependencies & GitHub actions
+  ;; automatically update all versions
+  :update/dependency-versions
+  {:replace-paths ["."]
+   :replace-deps  {com.github.liquidz/antq {:mvn/version "2.11.1276"}
+                   org.slf4j/slf4j-nop     {:mvn/version "2.0.17"}}
+   :exec-fn antq.tool/outdated
+   :exec-args {:directory ["."] ; default
+               :exclude ["org.clojure/tools.deps.alpha"
+                         "org.clojure/clojurescript"]
+               ;; :focus ["com.github.liquidz/antq"]
+               :skip ["boot" "leiningen"]
+               :reporter "table" ; json edn format
+               :verbose false
+               :upgrade true
+               :force   true}}
+
   ;; Carve - search through code for unused vars and remove them
   ;; clojure -M:search/unused-vars --opts '{:paths ["src" "test"]}'
   :search/unused-vars
