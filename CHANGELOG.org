@@ -3,6 +3,7 @@
 * Unreleased
 ** Added
    - aliases: `update/dependency-versions` automatically updates everything to new versions
+   - dev: `dependencies-update` & `dependencies-outdated` make tasks
 
 * 2025-07-01
 ** Updated
