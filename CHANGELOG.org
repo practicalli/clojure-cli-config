@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+
+* 2025-09-03
 ** Added
    - aliases: `update/dependency-versions` automatically updates everything to new versions
    - dev: `dependencies-update` & `dependencies-outdated` make tasks
