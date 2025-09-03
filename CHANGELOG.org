@@ -5,6 +5,17 @@
    - aliases: `update/dependency-versions` automatically updates everything to new versions
    - dev: `dependencies-update` & `dependencies-outdated` make tasks
 
+   - dev: update GitHub actions versions for all workflows
+   | :file                                             | :name                                | :current   | :latest    |
+   |---------------------------------------------------|--------------------------------------|------------|------------|
+   | .github/workflows/changelog-check.yaml            | actions/checkout                     | v4         | v5         |
+   | .github/workflows/lint-review.yaml                | actions/checkout                     | v4         | v5         |
+   |                                                   | nnichols/clojure-lint-action         | v4         | v6         |
+   | .github/workflows/megalinter.yaml                 | actions/checkout                     | v4         | v5         |
+   | .github/workflows/quality-checks.yaml             | actions/checkout                     | v4         | v5         |
+   |                                                   | clj-kondo/clj-kondo                  | 2025.06.05 | 2025.07.28 |
+   | .github/workflows/scheduled-version-check.yaml    | actions/checkout                     | v4         | v5         |
+
 * 2025-07-01
 ** Updated
    - dev: cljstyle & clj-kondo updates in quality-checks
