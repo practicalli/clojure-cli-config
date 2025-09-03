@@ -5,7 +5,9 @@
    - aliases: `update/dependency-versions` automatically updates everything to new versions
    - dev: `dependencies-update` & `dependencies-outdated` make tasks
 
+** Updated
    - dev: update GitHub actions versions for all workflows
+
    | :file                                             | :name                                | :current   | :latest    |
    |---------------------------------------------------|--------------------------------------|------------|------------|
    | .github/workflows/changelog-check.yaml            | actions/checkout                     | v4         | v5         |
@@ -17,6 +19,7 @@
    | .github/workflows/scheduled-version-check.yaml    | actions/checkout                     | v4         | v5         |
 
 
+   - aliases: practicalli project template release 2025-09-04
    - aliases: update library versions using `make dependencies-update`
 
    | :name                                | :current   | :latest    |
