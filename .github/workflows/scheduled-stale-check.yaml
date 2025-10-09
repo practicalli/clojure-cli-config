@@ -22,7 +22,7 @@ jobs:
       - run: echo "🐧 Job running on ${{ runner.os }} server"
       - run: echo "🐙 Using ${{ github.ref }} branch from ${{ github.repository }} repository"
 
-      - uses: actions/stale@v9
+      - uses: actions/stale@v10
         with:
           stale-issue-message: "After 30 days with no activity, the issue was automatically marked stale. Remove stale label or add a comment to prevent the issue being closed in 5 days."
           stale-pr-message: "After 45 days with no activity, the Pull Request was automatically marked stale. Remove stale label or comment to prevent the PR being closed in 10 days."

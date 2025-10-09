@@ -47,7 +47,7 @@ jobs:
 
       # MegaLinter Configuration
       - name: MegaLinter Run
-        uses: oxsecurity/megalinter/flavors/java@v8
+        uses: oxsecurity/megalinter/flavors/java@v9
         id: ml
         env:
 

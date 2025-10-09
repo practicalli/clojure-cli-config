@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Updated
+   - dev: update github actions to latest versions
 
 * 2025-09-03
 ** Added
