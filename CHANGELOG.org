@@ -3,6 +3,18 @@
 * Unreleased
 ** Updated
    - dev: update github actions to latest versions
+   - aliases: update library versions using `make dependencies-update`
+
+   | :name                                | :current                                 | :latest                                  |
+   |--------------------------------------|------------------------------------------|------------------------------------------|
+   | clojurians-zulip/feeds               | d7e9deaec0b492998e20dee7735e0ad31d83e246 | 39c07aefe1903685d9d43492cda4ad2eb34cf51c |
+   | com.github.flow-storm/clojure        | 1.12.2                                   | 1.12.3-1                                 |
+   | com.github.flow-storm/flow-storm-dbg | 4.5.3                                    | 4.5.7                                    |
+   | com.github.seancorfield/next.jdbc    | 1.3.1048                                 | 1.3.1070                                 |
+   | com.h2database/h2                    | 2.3.232                                  | 2.4.240                                  |
+   | integrant/repl                       | 0.4.0                                    | 0.5.0                                    |
+   | lambdaisland/kaocha-cljs             | 1.5.154                                  | 1.8.163                                  |
+
 
 * 2025-09-03
 ** Added

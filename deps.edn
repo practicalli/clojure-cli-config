@@ -78,7 +78,7 @@
   {:extra-paths ["dev" "test"]
    :extra-deps  {djblue/portal             {:mvn/version "0.61.0"}   ; portal data inspector
                  org.clojure/clojurescript {:mvn/version "1.10.844"}
-                 lambdaisland/kaocha-cljs  {:mvn/version "1.5.154"}
+                 lambdaisland/kaocha-cljs  {:mvn/version "1.8.163"}
                  org.clojure/test.check    {:mvn/version "1.1.1"}}}
 
   ;; DEPRECATED
@@ -97,7 +97,7 @@
 
   ;; Component REPL libraries
   :lib/integrant-repl
-  {:extra-deps {integrant/repl {:mvn/version "0.4.0"}}}
+  {:extra-deps {integrant/repl {:mvn/version "0.5.0"}}}
 
   :lib/component-repl
   {:extra-deps {com.stuartsierra/component.repl {:mvn/version "1.0.0"}}}
@@ -493,13 +493,13 @@
   ;; Databases and drivers uses only during development
 
   :lib/next.jdbc
-  {:extra-deps {com.github.seancorfield/next.jdbc {:mvn/version "1.3.1048"}}}
+  {:extra-deps {com.github.seancorfield/next.jdbc {:mvn/version "1.3.1070"}}}
 
   ;; H2 embedded database
   :database/h2
   {:extra-deps
-   {com.h2database/h2                 {:mvn/version "2.3.232"}
-    com.github.seancorfield/next.jdbc {:mvn/version "1.3.1048"}}}
+   {com.h2database/h2                 {:mvn/version "2.4.240"}
+    com.github.seancorfield/next.jdbc {:mvn/version "1.3.1070"}}}
   ;; ---------------------------------------------------
 
   ;; ---------------------------------------------------
@@ -544,15 +544,15 @@
   ;; Flowstorm, a tracing debugger
   ;; https://github.com/jpmonettas/flow-storm-debugger
   :lib/flowstorm
-  {:extra-deps {com.github.flow-storm/flow-storm-dbg {:mvn/version "4.5.3"}}}
+  {:extra-deps {com.github.flow-storm/flow-storm-dbg {:mvn/version "4.5.7"}}}
 
   ;; Suggested FlowStorm approach.
   ;; Use patched Clojure compiler which instruments all evaluations
   ;; https://flow-storm.github.io/flow-storm-debugger/user_guide.html#_clojurestorm
   :lib/clojurestorm
   {:classpath-overrides {org.clojure/clojure nil}
-   :extra-deps {com.github.flow-storm/clojure {:mvn/version "1.12.2"}
-                com.github.flow-storm/flow-storm-dbg {:mvn/version "4.5.3"}}
+   :extra-deps {com.github.flow-storm/clojure {:mvn/version "1.12.3-1"}
+                com.github.flow-storm/flow-storm-dbg {:mvn/version "4.5.7"}}
    ;; Optionally add jvm-opt to manage instrumentation:
    ;; -Dclojure.storm.instrumentOnlyPrefixes=YOUR_INSTRUMENTATION_STRING"
    :jvm-opts ["-Dclojure.storm.instrumentEnable=true"]}
@@ -641,7 +641,7 @@
   :test/cljs
   {:extra-paths ["test"]
    :extra-deps  {lambdaisland/kaocha      {:mvn/version "1.91.1392"}
-                 lambdaisland/kaocha-cljs {:mvn/version "1.5.154"}}
+                 lambdaisland/kaocha-cljs {:mvn/version "1.8.163"}}
    :main-opts   ["--main" "kaocha.runner" "unit-cljs"]}
 
   ;; https://github.com/lambdaisland/kaocha-cucumbe
@@ -759,7 +759,7 @@
   {:replace-paths []
    :replace-deps  {clojurians-zulip/feeds
                    {:git/url "https://gitlab.com/clojurians-zulip/feeds.git"
-                    :sha     "d7e9deaec0b492998e20dee7735e0ad31d83e246"}}
+                    :sha     "39c07aefe1903685d9d43492cda4ad2eb34cf51c"}}
    :main-opts     ["--main" "inclined.main"
                    "--ns" "clojurians-zulip.events" "--"]}
   ;; ---------------------------------------------------
