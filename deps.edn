@@ -109,24 +109,24 @@
 
   ;; Basic REPL UI with nREPL server for Clojure Editor support
   :repl/basic
-  {:extra-deps {nrepl/nrepl       {:mvn/version "1.4.0"}
-                cider/cider-nrepl {:mvn/version "0.57.0"}}
+  {:extra-deps {nrepl/nrepl       {:mvn/version "1.5.0"}
+                cider/cider-nrepl {:mvn/version "0.58.0"}}
    :main-opts  ["--main" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware]"
                 "--interactive"]}
 
   ;; Headless REPL with nREPL server for Clojure Editor support
   :repl/headless
-  {:extra-deps {nrepl/nrepl       {:mvn/version "1.4.0"}
-                cider/cider-nrepl {:mvn/version "0.57.0"}}
+  {:extra-deps {nrepl/nrepl       {:mvn/version "1.5.0"}
+                cider/cider-nrepl {:mvn/version "0.58.0"}}
    :main-opts  ["--main" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware]"]}
 
   ;; Basic REPL UI, nREPL server and Portal data inspector
   :repl/inspect
   {:extra-deps
-   {nrepl/nrepl       {:mvn/version "1.4.0"}
-    cider/cider-nrepl {:mvn/version "0.57.0"}
+   {nrepl/nrepl       {:mvn/version "1.5.0"}
+    cider/cider-nrepl {:mvn/version "0.58.0"}
     djblue/portal     {:mvn/version "0.61.0"}}
    :main-opts ["--main" "nrepl.cmdline"
                "--middleware"
@@ -138,8 +138,8 @@
   ;; clojure -M:repl/clerk
   :repl/clerk
   {:extra-deps {io.github.nextjournal/clerk   {:mvn/version "0.18.1150"}
-                nrepl/nrepl                   {:mvn/version "1.4.0"}
-                cider/cider-nrepl             {:mvn/version "0.57.0"}
+                nrepl/nrepl                   {:mvn/version "1.5.0"}
+                cider/cider-nrepl             {:mvn/version "0.58.0"}
                 refactor-nrepl/refactor-nrepl {:mvn/version "3.11.0"}}
    :main-opts  ["--eval" "(require '[nextjournal.clerk])(nextjournal.clerk/show! 'nextjournal.clerk.tap)(nextjournal.clerk/serve! {:browse? true})"
                 "-m" "nrepl.cmdline"
@@ -157,8 +157,8 @@
 
   ;; clojure -M:repl/rebel
   :repl/rebel
-  {:extra-deps {nrepl/nrepl                {:mvn/version "1.4.0"}
-                cider/cider-nrepl          {:mvn/version "0.57.0"}
+  {:extra-deps {nrepl/nrepl                {:mvn/version "1.5.0"}
+                cider/cider-nrepl          {:mvn/version "0.58.0"}
                 com.bhauman/rebel-readline {:mvn/version "0.1.5"}}
    :main-opts  ["--eval" "(apply require clojure.main/repl-requires)"
                 "--main" "nrepl.cmdline"
@@ -173,8 +173,8 @@
   ;; clojure -M:repl/reloaded
   :repl/reloaded
   {:extra-paths ["dev" "test"]
-   :extra-deps {nrepl/nrepl                  {:mvn/version "1.4.0"}
-                cider/cider-nrepl            {:mvn/version "0.57.0"}
+   :extra-deps {nrepl/nrepl                  {:mvn/version "1.5.0"}
+                cider/cider-nrepl            {:mvn/version "0.58.0"}
                 com.bhauman/rebel-readline   {:mvn/version "0.1.5"}
                 djblue/portal                {:mvn/version "0.61.0"}   ; portal data inspector
                 clj-commons/clj-yaml         {:mvn/version "1.0.29"}   ; portal yaml support (optional)
@@ -204,7 +204,7 @@
   ;; clojure -M:repl/remote --host hostname --port 12345
   ;; replace --host and --port values with that of remote nREPL server
   :repl/remote
-  {:extra-deps {nrepl/nrepl {:mvn/version "1.4.0"}}
+  {:extra-deps {nrepl/nrepl {:mvn/version "1.5.0"}}
    :main-opts ["--main" "nrepl.cmdline" "--connect"]}
 
   ;; ---------------------------------------------------
@@ -544,7 +544,7 @@
   ;; Flowstorm, a tracing debugger
   ;; https://github.com/jpmonettas/flow-storm-debugger
   :lib/flowstorm
-  {:extra-deps {com.github.flow-storm/flow-storm-dbg {:mvn/version "4.5.7"}}}
+  {:extra-deps {com.github.flow-storm/flow-storm-dbg {:mvn/version "4.5.8"}}}
 
   ;; Suggested FlowStorm approach.
   ;; Use patched Clojure compiler which instruments all evaluations
@@ -552,7 +552,7 @@
   :lib/clojurestorm
   {:classpath-overrides {org.clojure/clojure nil}
    :extra-deps {com.github.flow-storm/clojure {:mvn/version "1.12.3-1"}
-                com.github.flow-storm/flow-storm-dbg {:mvn/version "4.5.7"}}
+                com.github.flow-storm/flow-storm-dbg {:mvn/version "4.5.8"}}
    ;; Optionally add jvm-opt to manage instrumentation:
    ;; -Dclojure.storm.instrumentOnlyPrefixes=YOUR_INSTRUMENTATION_STRING"
    :jvm-opts ["-Dclojure.storm.instrumentEnable=true"]}
