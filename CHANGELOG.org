@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+
+* 2025-10-16
 ** Updated
    - dev: update github actions to latest versions
    - aliases: update library versions using `make dependencies-update`
