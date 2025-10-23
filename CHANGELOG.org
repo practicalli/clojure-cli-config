@@ -1,6 +1,15 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Updated
+   - aliases: update library versions using `make dependencies-update`
+
+   | :name       | :current | :latest |
+   |-------------|----------|---------|
+   | nrepl/nrepl | 1.5.0    | 1.5.1   |
+
+   Available changes:
+   - https://github.com/nrepl/nrepl/blob/v1.5.1/CHANGELOG.md
 
 * 2025-10-16
 ** Updated

@@ -109,7 +109,7 @@
 
   ;; Basic REPL UI with nREPL server for Clojure Editor support
   :repl/basic
-  {:extra-deps {nrepl/nrepl       {:mvn/version "1.5.0"}
+  {:extra-deps {nrepl/nrepl       {:mvn/version "1.5.1"}
                 cider/cider-nrepl {:mvn/version "0.58.0"}}
    :main-opts  ["--main" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware]"
@@ -117,7 +117,7 @@
 
   ;; Headless REPL with nREPL server for Clojure Editor support
   :repl/headless
-  {:extra-deps {nrepl/nrepl       {:mvn/version "1.5.0"}
+  {:extra-deps {nrepl/nrepl       {:mvn/version "1.5.1"}
                 cider/cider-nrepl {:mvn/version "0.58.0"}}
    :main-opts  ["--main" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware]"]}
@@ -125,7 +125,7 @@
   ;; Basic REPL UI, nREPL server and Portal data inspector
   :repl/inspect
   {:extra-deps
-   {nrepl/nrepl       {:mvn/version "1.5.0"}
+   {nrepl/nrepl       {:mvn/version "1.5.1"}
     cider/cider-nrepl {:mvn/version "0.58.0"}
     djblue/portal     {:mvn/version "0.61.0"}}
    :main-opts ["--main" "nrepl.cmdline"
@@ -138,7 +138,7 @@
   ;; clojure -M:repl/clerk
   :repl/clerk
   {:extra-deps {io.github.nextjournal/clerk   {:mvn/version "0.18.1150"}
-                nrepl/nrepl                   {:mvn/version "1.5.0"}
+                nrepl/nrepl                   {:mvn/version "1.5.1"}
                 cider/cider-nrepl             {:mvn/version "0.58.0"}
                 refactor-nrepl/refactor-nrepl {:mvn/version "3.11.0"}}
    :main-opts  ["--eval" "(require '[nextjournal.clerk])(nextjournal.clerk/show! 'nextjournal.clerk.tap)(nextjournal.clerk/serve! {:browse? true})"
@@ -157,7 +157,7 @@
 
   ;; clojure -M:repl/rebel
   :repl/rebel
-  {:extra-deps {nrepl/nrepl                {:mvn/version "1.5.0"}
+  {:extra-deps {nrepl/nrepl                {:mvn/version "1.5.1"}
                 cider/cider-nrepl          {:mvn/version "0.58.0"}
                 com.bhauman/rebel-readline {:mvn/version "0.1.5"}}
    :main-opts  ["--eval" "(apply require clojure.main/repl-requires)"
@@ -173,7 +173,7 @@
   ;; clojure -M:repl/reloaded
   :repl/reloaded
   {:extra-paths ["dev" "test"]
-   :extra-deps {nrepl/nrepl                  {:mvn/version "1.5.0"}
+   :extra-deps {nrepl/nrepl                  {:mvn/version "1.5.1"}
                 cider/cider-nrepl            {:mvn/version "0.58.0"}
                 com.bhauman/rebel-readline   {:mvn/version "0.1.5"}
                 djblue/portal                {:mvn/version "0.61.0"}   ; portal data inspector
@@ -204,7 +204,7 @@
   ;; clojure -M:repl/remote --host hostname --port 12345
   ;; replace --host and --port values with that of remote nREPL server
   :repl/remote
-  {:extra-deps {nrepl/nrepl {:mvn/version "1.5.0"}}
+  {:extra-deps {nrepl/nrepl {:mvn/version "1.5.1"}}
    :main-opts ["--main" "nrepl.cmdline" "--connect"]}
 
   ;; ---------------------------------------------------
