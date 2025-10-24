@@ -479,13 +479,13 @@
 
   ;; ----------
   ;; cljfmt
-  ;; clojure -M:format/cljfmt check | fix
+  ;; clojure -M:format/cljfmt
   :format/cljfmt
-  {:extra-deps {cljfmt/cljfmt {:mvn/version "0.9.2"}}
+  {:extra-deps {dev.weavejester/cljfmt {:mvn/version "0.15.2"}}
    :main-opts ["--main" "cljfmt.main" "check"]}
 
   :format/cljfmt!
-  {:extra-deps {cljfmt/cljfmt {:mvn/version "0.9.2"}}
+  {:extra-deps {dev.weavejester/cljfmt {:mvn/version "0.15.2"}}
    :main-opts ["--main" "cljfmt.main" "fix"]}
   ;; ---------------------------------------------------
 
