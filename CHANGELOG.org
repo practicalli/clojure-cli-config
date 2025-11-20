@@ -2,13 +2,18 @@
 
 * Unreleased
 ** Updated
-
    - alias: update name and version for cljfmt tool
    - aliases: update library versions using `make dependencies-update`
 
-   | :name       | :current | :latest |
-   |-------------|----------|---------|
-   | nrepl/nrepl | 1.5.0    | 1.5.1   |
+   | :name                                   | :current   | :latest    |
+   |-----------------------------------------|------------|------------|
+   | com.github.flow-storm/clojure           | 1.12.3-1   | 1.12.3-4   |
+   | com.github.flow-storm/flow-storm-dbg    | 4.5.8      | 4.5.9      |
+   | dev.weavejester/cljfmt                  | 0.15.2     | 0.15.5     |
+   | djblue/portal                           | 0.61.0     | 0.62.0     |
+   | io.github.nextjournal/clerk             | 0.18.1150  | 0.18.1158  |
+   | io.github.practicalli/project-templates | 2025-09-04 | 2025-11-09 |
+   | nrepl/nrepl                             | 1.5.0      | 1.5.1      |
 
    - dev: updated GitHub action versions in all workflows
 
