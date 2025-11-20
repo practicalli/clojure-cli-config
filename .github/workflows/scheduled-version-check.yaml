@@ -32,7 +32,7 @@ jobs:
       - run: echo "🐙 Using ${{ github.ref }} branch from ${{ github.repository }} repository"
 
       - name: Checkout Code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
           sparse-checkout: |

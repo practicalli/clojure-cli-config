@@ -10,8 +10,17 @@
    |-------------|----------|---------|
    | nrepl/nrepl | 1.5.0    | 1.5.1   |
 
-   Available changes:
-   - https://github.com/nrepl/nrepl/blob/v1.5.1/CHANGELOG.md
+   - dev: updated GitHub action versions in all workflows
+
+   | :file                                          | :name                                | :current   | :latest    |
+   |------------------------------------------------|--------------------------------------|------------|------------|
+   | .github/workflows/changelog-check.yaml         | actions/checkout                     | v5         | v6         |
+   | .github/workflows/lint-review.yaml             | actions/checkout                     | v5         | v6         |
+   | .github/workflows/megalinter.yaml              | actions/checkout                     | v5         | v6         |
+   |                                                | actions/upload-artifact              | v4         | v5         |
+   | .github/workflows/quality-checks.yaml          | actions/checkout                     | v5         | v6         |
+   |                                                | clj-kondo/clj-kondo                  | 2025.09.22 | 2025.10.23 |
+   | .github/workflows/scheduled-version-check.yaml | actions/checkout                     | v5         | v6         |
 
 * 2025-10-16
 ** Updated
