@@ -1,6 +1,4 @@
 {
-  "comment": "Renovate updates for Clojure library dependencies and GitHub actions",
-  "author": "Practicalli Johnny",
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [ "config:recommended" ],
   "packageRules": [
@@ -19,7 +17,6 @@
       "semanticCommitScope": "actions"
     }
   ],
-  "clojure": { "enabled": true },
   "schedule": [ "at any time" ],
   "timezone": "UTC",
   "prConcurrentLimit": 10,
