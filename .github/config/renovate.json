@@ -1,0 +1,30 @@
+{
+  "comment": "Renovate updates for Clojure library dependencies and GitHub actions",
+  "author": "Practicalli Johnny",
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [ "config:recommended" ],
+  "packageRules": [
+    {
+      "description": "Clojure dependency updates Pull Request",
+      "matchManagers": ["deps-edn"],
+      "groupName": "Clojure dependencies",
+      "semanticCommitType": "chore",
+      "semanticCommitScope": "deps"
+    },
+    {
+      "description": "GitHub Action updates Pull Request",
+      "matchManagers": ["github-actions"],
+      "groupName": "GitHub Actions",
+      "semanticCommitType": "ci",
+      "semanticCommitScope": "actions"
+    }
+  ],
+  "clojure": { "enabled": true },
+  "schedule": [ "at any time" ],
+  "timezone": "UTC",
+  "prConcurrentLimit": 10,
+  "prHourlyLimit": 0,
+  "automerge": false,
+  "platformAutomerge": false,
+  "rebaseWhen": "behind-base-branch"
+}

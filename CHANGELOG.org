@@ -1,6 +1,9 @@
 #+TITLE: Changelog
 
 * Unreleased
+** Added
+   - dev: ci workflow to create pr's for new library and action versions
+
 ** Updated
    - alias: update name and version for cljfmt tool
    - aliases: update library versions using `make dependencies-update`
