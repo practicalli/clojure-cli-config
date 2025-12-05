@@ -88,7 +88,7 @@
   :lib/hotload
   {:extra-deps {org.clojure/tools.deps.alpha
                 {:git/url "https://github.com/clojure/tools.deps.alpha"
-                 :git/sha "e4fb92eef724fa39e29b39cc2b1a850567d490dd"}}}
+                 :git/sha "5b8909bdb072d66c9f643bae50cd2878a0f694c2"}}}
 
   ;; Highlight important aspects of error stack trace using ANSI formatting
   ;; https://github.com/AvisoNovate/pretty
