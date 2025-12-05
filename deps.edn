@@ -70,7 +70,7 @@
                  org.slf4j/slf4j-nop          {:mvn/version "2.0.17"}
                  com.brunobonacci/mulog       {:mvn/version "0.9.0"}
                  lambdaisland/kaocha          {:mvn/version "1.91.1392"}
-                 org.clojure/test.check       {:mvn/version "1.1.1"}
+                 org.clojure/test.check       {:mvn/version "1.1.2"}
                  criterium/criterium          {:mvn/version "0.4.6"}}}
 
   ;; ClojureScript tools during REPl startup
@@ -79,7 +79,7 @@
    :extra-deps  {djblue/portal             {:mvn/version "0.62.0"}   ; portal data inspector
                  org.clojure/clojurescript {:mvn/version "1.10.844"}
                  lambdaisland/kaocha-cljs  {:mvn/version "1.8.163"}
-                 org.clojure/test.check    {:mvn/version "1.1.1"}}}
+                 org.clojure/test.check    {:mvn/version "1.1.2"}}}
 
   ;; DEPRECATED
   ;; - only useful for Clojure 1.11.x, not required for Clojure 1.12 onward
@@ -183,7 +183,7 @@
                 org.slf4j/slf4j-nop          {:mvn/version "2.0.17"}
                 com.brunobonacci/mulog       {:mvn/version "0.9.0"}
                 lambdaisland/kaocha          {:mvn/version "1.91.1392"}
-                org.clojure/test.check       {:mvn/version "1.1.1"}
+                org.clojure/test.check       {:mvn/version "1.1.2"}
                 ring/ring-mock               {:mvn/version "0.6.2"}
                 criterium/criterium          {:mvn/version "0.4.6"}}
    :main-opts  ["--eval" "(apply require clojure.main/repl-requires)"
@@ -566,7 +566,7 @@
   ;; Clojure spec test.check (clojure spec included in Clojure 1.9 onwards)
   :lib/spec-test
   {:extra-deps
-   {org.clojure/test.check {:mvn/version "1.1.1"}}}
+   {org.clojure/test.check {:mvn/version "1.1.2"}}}
 
   ;; Clojure spec 2 - under active development
   ;; https://github.com/clojure/spec-alpha2
@@ -584,7 +584,7 @@
   ;; Include the test directory on the class path
   :test/env
   {:extra-paths ["test"]
-   :extra-deps  {org.clojure/test.check {:mvn/version "1.1.1"}}}
+   :extra-deps  {org.clojure/test.check {:mvn/version "1.1.2"}}}
 
   :lib/ring-mock
   {:extra-deps {ring/ring-mock {:mvn/version "0.6.2"}}}
