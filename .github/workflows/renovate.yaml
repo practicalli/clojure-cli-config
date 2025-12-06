@@ -29,7 +29,7 @@ jobs:
           configurationFile: .github/config/renovate.json
           token: ${{ secrets.RENOVATE_TOKEN }}
         env:
-          LOG_LEVEL: info
+          LOG_LEVEL: debug  # default: info
 
       # Summary and status
       - run: echo "🎨 Renovate version update check completed"
