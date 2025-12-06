@@ -16,11 +16,11 @@ jobs:
 
       - name: Checkout repository
         uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-          sparse-checkout: |
-            .github
-            deps.edn
+        # with:
+        #   fetch-depth: 0
+        #   sparse-checkout: |
+        #     .github
+        #     deps.edn
       - run: echo "🐙 ${{ github.repository }} repository was cloned to the runner."
 
       - name: Run Renovate
