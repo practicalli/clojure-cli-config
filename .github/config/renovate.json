@@ -17,6 +17,7 @@
       "semanticCommitScope": "actions"
     }
   ],
+  "clojure": { "enabled": true },
   "schedule": [ "at any time" ],
   "timezone": "UTC",
   "prConcurrentLimit": 10,
