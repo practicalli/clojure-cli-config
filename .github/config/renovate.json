@@ -7,7 +7,12 @@
       "matchManagers": ["deps-edn"],
       "groupName": "Clojure dependencies",
       "semanticCommitType": "chore",
-      "semanticCommitScope": "deps"
+      "semanticCommitScope": "deps",
+      "registryUrls": [
+        "https://repo.clojars.org",
+        "https://repo1.maven.org",
+        "https://raw.githubusercontent.com"
+      ]
     },
     {
       "description": "GitHub Action updates Pull Request",
