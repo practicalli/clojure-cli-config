@@ -77,7 +77,7 @@
   :dev/reloaded-cljs
   {:extra-paths ["dev" "test"]
    :extra-deps  {djblue/portal             {:mvn/version "0.62.0"}   ; portal data inspector
-                 org.clojure/clojurescript {:mvn/version "1.10.844"}
+                 org.clojure/clojurescript {:mvn/version "1.12.134"}
                  lambdaisland/kaocha-cljs  {:mvn/version "1.8.163"}
                  org.clojure/test.check    {:mvn/version "1.1.2"}}}
 
@@ -524,12 +524,12 @@
 
   :inspect/portal-web
   {:extra-deps {djblue/portal             {:mvn/version "0.62.0"}
-                org.clojure/clojurescript {:mvn/version "1.11.60"}}
+                org.clojure/clojurescript {:mvn/version "1.12.134"}}
    :main-opts  ["--main" "cljs.main"]}
 
   :inspect/portal-node
   {:extra-deps {djblue/portal             {:mvn/version "0.62.0"}
-                org.clojure/clojurescript {:mvn/version "1.11.60"}}
+                org.clojure/clojurescript {:mvn/version "1.12.134"}}
    :main-opts  ["--main" "cljs.main" "-re" "node"]}
 
   ;; Morse - https://github.com/nubank/morse
