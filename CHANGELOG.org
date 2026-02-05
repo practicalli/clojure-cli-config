@@ -1,6 +1,8 @@
 #+TITLE: Changelog
 
 * Unreleased
+
+* 2026-02-05
 ** Added
    - dev: ci workflow to create pr's for new library and action versions
    - dev: update github actions to latest versions
@@ -28,8 +30,6 @@
    | org.clojure/tools.namespace             | 1.5.0                                    | 1.5.1                                    |
    | org.clojure/tools.trace                 | 0.8.0                                    | 0.9.0                                    |
 
-
-
    - dev: updated GitHub action versions in all workflows
 
    | :file                                          | :name                                | :current   | :latest    |
@@ -39,8 +39,11 @@
    | .github/workflows/megalinter.yaml              | actions/checkout                     | v5         | v6         |
    |                                                | actions/upload-artifact              | v4         | v5         |
    | .github/workflows/quality-checks.yaml          | actions/checkout                     | v5         | v6         |
-   |                                                | clj-kondo/clj-kondo                  | 2025.09.22 | 2025.10.23 |
+   |                                                | DeLaGuardo/setup-clojure             | 13.4       | 13.5.2     |
+   |                                                | clj-kondo/clj-kondo                  | 2025.09.22 | 2026.01.19 |
    | .github/workflows/scheduled-version-check.yaml | actions/checkout                     | v5         | v6         |
+   | .github/workflows/renovate.yaml                | renovatebot/github-action            | v44.0.5    | v46.0.1    |
+
 
 * 2025-10-16
 ** Updated
