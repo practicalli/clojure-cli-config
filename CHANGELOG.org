@@ -3,6 +3,7 @@
 * Unreleased
 ** Added
    - dev: ci workflow to create pr's for new library and action versions
+   - dev: update github actions to latest versions
 
 ** Updated
    - alias: update name and version for cljfmt tool
