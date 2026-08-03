@@ -2,9 +2,10 @@
 
 * Unreleased
 
+* 2026-08-03
 ** Updated
    - ci(workflows): monthly update to latest action versions
-   - maint(aliases): update library versions using `make dependencies-update`
+   - chore(aliases): update library versions using `make dependencies-update`
 
    | :name                                  | :current   | :latest    |
    |----------------------------------------|------------|------------|
