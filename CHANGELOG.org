@@ -4,6 +4,20 @@
 
 ** Updated
    - ci(workflows): monthly update to latest action versions
+   - maint(aliases): update library versions using `make dependencies-update`
+
+   | :name                                  | :current   | :latest    |
+   |----------------------------------------|------------|------------|
+   | cider/cider-nrepl                      | 0.59.0     | 0.62.2     |
+   | com.bhauman/rebel-readline             | 0.1.7      | 0.1.11     |
+   | com.clojure-goes-fast/clj-memory-meter | 0.4.0      | 0.5.0      |
+   | com.github.flow-storm/clojure          | 1.12.5     | 1.12.5-1   |
+   | com.github.flow-storm/flow-storm-dbg   | 4.5.9      | 4.7.0      |
+   | com.github.seancorfield/next.jdbc      | 1.3.1108   | 1.3.1118   |
+   | dev.weavejester/cljfmt                 | 0.16.4     | 0.16.5     |
+   | djblue/portal                          | 0.65.0     | 0.67.1     |
+   | io.github.seancorfield/deps-new        | v0.12.2    | v0.13.0    |
+   | refactor-nrepl/refactor-nrepl          | 3.13.0     | 3.14.0     |
 
 * 2026-06-02
 ** Updated
