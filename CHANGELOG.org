@@ -2,6 +2,9 @@
 
 * Unreleased
 
+** Updated
+   - ci(workflows): monthly update to latest action versions
+
 * 2026-06-02
 ** Updated
    - dev: update github actions to latest versions `make dependencies-update`

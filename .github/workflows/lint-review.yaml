@@ -17,13 +17,13 @@ jobs:
 
       # Git Checkout
       - name: Checkout Code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           token: "${{ secrets.PAT || secrets.GITHUB_TOKEN }}"
       - run: echo "🐙 ${{ github.repository }} repository was cloned to the runner."
 
       - name: clj-kondo
-        uses: nnichols/clojure-lint-action@v7
+        uses: nnichols/clojure-lint-action@v11
         with:
           pattern: "*.clj"
           clj_kondo_config: ".clj-kondo/config-ci.edn"
