@@ -22,7 +22,7 @@ jobs:
         uses: DeLaGuardo/setup-clojure@13.6.1
         with:
           cljstyle: 0.17.642    # Cljstyle
-          clj-kondo: 2026.08.03 # Clj-kondo
+          clj-kondo: 2026.08.04 # Clj-kondo
 
       - name: "Lint Clojure"
         run: clj-kondo --lint deps.edn --config '{:output {:pattern "::{{level}} file={{filename}},line={{row}},col={{col}}::{{message}}"}}'

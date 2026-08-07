@@ -2,6 +2,15 @@
 
 * Unreleased
 
+** Updated
+
+   - chore(aliases): update library versions using `make dependencies-update`
+
+   | :file                                 | :name               | :current   | :latest    |
+   |---------------------------------------|---------------------|------------|------------|
+   | .github/workflows/quality-checks.yaml | clj-kondo/clj-kondo | 2026.08.03 | 2026.08.04 |
+
+
 * 2026-08-03
 ** Updated
    - ci(workflows): monthly update to latest action versions
