@@ -767,4 +767,4 @@ FreeDesktop.org `XDG_CACHE_HOME` is the recommended location for an alternative 
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=practicalli/clojure-cli-config&type=Date)](https://star-history.com/#practicalli/clojure-cli-config&Date)
+[![Star History Chart](https://star-history.dera.page/svg?repos=practicalli/clojure-cli-config&type=Date)](https://star-history.dera.page/#practicalli/clojure-cli-config&Date)
