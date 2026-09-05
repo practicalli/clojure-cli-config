@@ -44,18 +44,16 @@ Copyright &copy; 2026 Practicalli
 # can be defined using TOML syntax.
 #
 # Read more: https://zensical.org/docs/setup/navigation/
-# nav = [
-#   { "Introduction" = "index.md" },
-#
-#   { "Section" = [
-#     "section/index.md",
-#     { "page" = "section/page.md" },
-#   ]},
-#
-#   # { "Markdown in 5min" = "markdown.md" },
-#   { "Zensical Tips" = "zensical-tips.md" },
-# ]
-
+nav = [
+  { "Introduction" = "index.md" },
+  { "REPL" = "repl.md"},
+  { "Clojure Projects" = "clojure-projects.md"},
+  { "Testing" = "testing.md"},
+  { "Data Inspectors" = "data-inspectors.md"},
+  { "Debug" = "debug.md"},
+  { "Services" = "services.md"},
+  { "Library Repositories" = "library-repositories.md"},
+]
 
 # With the "extra_css" option you can add your own CSS styling to customize
 # your Zensical project according to your needs. You can add any number of

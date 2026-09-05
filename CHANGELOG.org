@@ -4,6 +4,7 @@
 
 ** Updated
 
+   - docs(aliases): ✏️ add from readme and reorganise into sections
    - build(docs): 🔧 create basic zensical docs config
    - ci(github): 🔧 update megalinter workflow and configs to latest Practicalli setup
    - ci(github): 🔧 use practicalli custom megalinter flavor for clojure
