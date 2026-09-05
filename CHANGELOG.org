@@ -12,6 +12,12 @@
    |---------------------------------------|---------------------|------------|------------|
    | .github/workflows/quality-checks.yaml | clj-kondo/clj-kondo | 2026.08.03 | 2026.08.04 |
 
+   - chore(dependency): 🔧 monthly library dependency update
+
+   | com.github.flow-storm/flow-storm-dbg | 4.7.0    | 4.8.1   |
+   | com.h2database/h2                    | 2.4.240  | 2.5.250 |
+   | djblue/portal                        | 0.67.1   | 0.67.2  |
+   | org.slf4j/slf4j-nop                  | 2.0.18   | 2.0.19  |
 
 * 2026-08-03
 ** Updated
