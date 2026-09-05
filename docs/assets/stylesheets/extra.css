@@ -1,0 +1,7 @@
+[data-md-color-scheme="default"] {
+  --md-default-bg-color: hsla(258, 48%, 92%, 0.98);
+  --md-code-bg-color: hsla(258, 80%, 88%, 0.64);
+  --md-code-hl-color: hsla(258, 88%, 80%, 0.92);
+  --md-admonition-bg-color: hsla(258, 80%, 92%, 0.92);
+  --md-typeset-kbd-color: hsla(258, 100%, 92%, 0.98);
+}

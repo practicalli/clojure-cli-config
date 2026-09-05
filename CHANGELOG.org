@@ -4,6 +4,7 @@
 
 ** Updated
 
+   - build(docs): 🔧 create basic zensical docs config
    - ci(github): 🔧 update megalinter workflow and configs to latest Practicalli setup
    - ci(github): 🔧 use practicalli custom megalinter flavor for clojure
    - ci(github): 🔧 use current major version of renovate action
