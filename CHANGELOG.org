@@ -4,6 +4,7 @@
 
 ** Updated
 
+   - ci(github): 🔧 update megalinter workflow and configs to latest Practicalli setup
    - ci(github): 🔧 use practicalli custom megalinter flavor for clojure
    - ci(github): 🔧 use current major version of renovate action
    - chore(aliases): update library versions using `make dependencies-update`

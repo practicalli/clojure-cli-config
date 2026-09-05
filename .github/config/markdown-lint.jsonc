@@ -78,7 +78,7 @@
     // Number of characters
     "line_length": 420,
     // Number of characters for headings
-    "heading_line_length": 80,
+    "heading_line_length": 90,
     // Number of characters for code blocks
     "code_block_line_length": 420,
     // Include code blocks
@@ -92,7 +92,7 @@
     // Strict length checking
     "strict": false,
     // Stern length checking
-    "stern": false
+    "stern": true
   },
 
   // MD014/commands-show-output - Dollar signs used before commands without showing output
@@ -179,7 +179,7 @@
   // MD033/no-inline-html - Inline HTML
   "MD033": {
     // Allowed elements
-    "allowed_elements": ["a", "div", "iframe", "img"i, "p"]
+    "allowed_elements": ["a", "div", "iframe", "img", "p"]
   },
 
   // MD034/no-bare-urls - Bare URL used
@@ -242,19 +242,13 @@
   "MD045": true,
 
   // MD046/code-block-style - Code block style
-  "MD046": {
-    // Block style
-    "style": "consistent"
-  },
+  "MD046": false,
 
   // MD047/single-trailing-newline - Files should end with a single newline character
   "MD047": true,
 
   // MD048/code-fence-style - Code fence style
-  "MD048": {
-    // Code fence style
-    "style": "consistent"
-  },
+  "MD048": false,
 
   // MD049/emphasis-style - Emphasis style should be consistent
   "MD049": {

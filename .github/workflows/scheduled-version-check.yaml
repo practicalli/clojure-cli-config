@@ -31,7 +31,7 @@ jobs:
       - run: echo "🐧 Job running on ${{ runner.os }} server"
       - run: echo "🐙 Using ${{ github.ref }} branch from ${{ github.repository }} repository"
 
-      - name: Checkout Code
+      - name: "Checkout code"
         uses: actions/checkout@v7
         with:
           fetch-depth: 0

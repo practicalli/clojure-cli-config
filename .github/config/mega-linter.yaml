@@ -1,0 +1,47 @@
+---
+# Configuration file for MegaLinter: Zensical custom flavor
+#
+# General configuration:
+# https://megalinter.io/latest/config-file/
+#
+# Specific Linters:
+# https://megalinter.io/latest/supported-linters/
+
+# ----------------------------------------
+# Linters in Zensical custom Flavor
+
+# - MARKDOWN_MARKDOWN_TABLE_FORMATTER
+# - MARKDOWN_RUMDL
+# - REPOSITORY_BETTERLEAKS
+# - SPELL_LYCHEE
+# - YAML_V8R
+
+
+PARALLEL: true  # Run linters in parallel
+
+EXCLUDED_DIRECTORIES: ".github/|CHANGELOG.md|README.md|overrides/|docs/assets/"
+
+# Ignore all errors and return without error status, e.g. for CI
+# DISABLE_ERRORS: true
+
+# Linter specific configuration
+
+MARKDOWN_DEFAULT_STYLE: "rumdl"
+MARKDOWN_MARKDOWN_TABLE_FORMATTER_DISABLE_ERRORS: true # Errors are only warnings
+MARKDOWN_RUMDL_CONFIG_FILE: ".github/config/markdown-rumdl.toml"
+MARKDOWN_RUMDL_DISABLE_ERRORS: true
+
+REPOSITORY_BETTERLEAKS_DISABLE_ERRORS: true # Errors are only warnings
+
+SPELL_LYCHEE_CONFIG_FILE: ".github/config/lychee.toml"
+SPELL_LYCHEE_FILTER_REGEX_EXCLUDE: ".github/config/"
+SPELL_LYCHEE_DISABLE_ERRORS: true # Errors are only warnings
+
+YAML_V8R_DISABLE_ERRORS: true # Errors are only warnings
+
+# ----------------------------------------
+# Reporting
+
+# Show Linter timings in summary table at end of run
+SHOW_ELAPSED_TIME: true
+# ----------------------------------------

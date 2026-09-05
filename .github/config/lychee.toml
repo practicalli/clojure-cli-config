@@ -1,21 +1,64 @@
 # ----------------------------------------
 # Base URL or website root directory to check relative URLs.
 base = "https://github.com/practicalli/clojure-cli-config/"
-
-# Only test links with the given schemes (e.g. https).
-# Omit to check links with any other scheme.
-# At the moment, we support http, https, file, and mailto.
-scheme = ["https"]
-
 # ----------------------------------------
-# Exclusions
+
+# -- Request -----------------------------
+# https://www.whatismybrowser.com/guides/the-latest-user-agent/firefox
+# user_agent = ["curl/8.4.0"]
+user_agent = "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0"
+
+# "Accept: */*"
+header = { "accept" = "text/html", "accept" = "application/json" }
+
+# Only test links with the given schemes (e.g. http, https, file, and mailto.
+scheme = ["https"]
+# ----------------------
+
+# Website timeout from connect to response finished.
+timeout = 10
+
+ File to read and write cookies
+# cookie_jar = "cookie-jar"
+
+# Number of threads to utilize.
+# Defaults to number of cores available to the system if omitted.
+# threads = 2
+
+# Maximum number of allowed redirects.
+max_redirects = 1
+
+# Maximum number of allowed retries before a link is declared dead.
+max_retries = 1
+
+# Maximum number of concurrent link checks.
+max_concurrency = 3
+
+# Maximum simultaneous requests to the same host
+host_concurrency = 3
+# ----------------------------------------
+
+# -- Cache -------------------------------
+
+# Skip link check on multiple runs.
+cache = true
+
+# Discard all cached requests older than this duration.
+max_cache_age = "7d"
+# ----------------------------------------
+
+# -- Exclusions --------------------------
 
 # Exclude URLs and mail addresses from checking (supports regex).
-exclude = ['^https://localhost',
-           '^https://127.0.0.0']
+exclude = ['^https://(www\.)?linkedin\.com',
+           '^https://www\.parkrun\.org\.uk',
+           '^https://github\.com\/search*',
+           '^https://packages\.debian\.org',
+           '^https://practicalli\.grafana\.net',
+           '^https://web\.archive\.org/web/']
 
 # Exclude these filesystem paths from getting checked.
-exclude_path = ["mkdocs.yml", "overrides", "includes", ".github", ".git"]
+exclude_path = ["mkdocs.yml", "assets", "overrides", "includes", ".github", ".git", "zensical.toml"]
 
 # Exclude all private IPs from checking.
 # Equivalent to setting `exclude_private`, `exclude_link_local`, and
@@ -24,4 +67,9 @@ exclude_all_private = true
 
 # Check mail addresses
 include_mail = false
+# ----------------------------------------
+
+# ----------------------------------------
+# Search and suggest link replacements for all broken links
+suggest = true
 # ----------------------------------------

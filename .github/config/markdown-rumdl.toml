@@ -1,0 +1,65 @@
+# https://rumdl.dev/
+# Rules: https://rumdl.dev/rules/#list-rules
+
+[global]  # Globally applied options
+# Disable specific rules
+disable = ["MD013", "MD033"]
+
+# Add opt-in rules on top of defaults (additive)
+extend-enable = ["MD060", "MD063"]
+
+# Exclude files and directories
+exclude = [
+    ".github",
+    "docs/assets/**",
+    "overrides",
+    "site",
+    "*.tmp.md"
+]
+
+# Include only specific files
+include = [
+    "README.md",
+    "docs/**/*.md"
+]
+
+# Files matching .gitignore patterns
+respect-gitignore = true
+
+# Set global line length (used by MD013 and other line-length rules)
+line-length = 240
+
+# Set markdown flavor (standard, gfm, mkdocs, mdx, pandoc, quarto, obsidian, kramdown, azure_devops)
+flavor = "mkdocs"
+# rules affected: MD024, MD031, MD033, MD038, MD040, MD042, MD046, MD049, MD050, MD052, MD056
+
+# Disable specific rules for specific files
+[per-file-ignores]
+"README.md" = ["MD033"]  # Allow inline HTML in README
+# "docs/api/**/*.md" = ["MD013", "MD041"]  # Generated API docs
+
+
+# ------------------------------------------
+# Markdown Rules
+
+[MD009]
+strict = true    # Remove all trailing spaces, even line breaks (default: false)
+
+[MD010]
+spaces-per-tab = 4    # Number of spaces to replace each tab with (default: 4)
+code-blocks = true   # Skip tabs inside code blocks (default: false)
+
+[MD012]
+maximum = 2  # Maximum number of consecutive blank lines allowed (default: 1)
+
+[MD013]  # Keep lines short for better readability
+line-length = 240  # Maximum characters per line (default: 80, disable: 0)
+heading-line-length = 60  # Optional per-context limit for headings; falls back to line-length when unset
+code-block-line-length = 120  # Optional per-context limit for code blocks; falls back to line-length when unset
+
+[MD022]
+lines-above = 1  # Blank lines required above headings (default: 1)
+lines-below = 1  # Blank lines required below headings (default: 1)
+
+[MD064]
+allow-sentence-double-space = true  # support typographical convention of 2 spaces after punctuation
