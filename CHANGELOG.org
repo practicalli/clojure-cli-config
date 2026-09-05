@@ -4,6 +4,7 @@
 
 ** Updated
 
+   - ci(github): 🔧 use current major version of renovate action
    - chore(aliases): update library versions using `make dependencies-update`
 
    | :file                                 | :name               | :current   | :latest    |
