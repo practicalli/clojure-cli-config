@@ -4,6 +4,7 @@
 
 ** Updated
 
+   - ci(github): 🔧 update git ignore and attributes config
    - docs(aliases): ✏️ add from readme and reorganise into sections
    - build(docs): 🔧 create basic zensical docs config
    - ci(github): 🔧 update megalinter workflow and configs to latest Practicalli setup

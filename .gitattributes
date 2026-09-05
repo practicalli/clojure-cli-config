@@ -2,6 +2,11 @@
 
 # EDN, Markdown & Make detection
 *.edn linguist-detectable=true
+
+# Check contents of docs/ directory
+docs/** linguist-detectable
+
+# Markdown & Make detection
 *.md linguist-detectable=true
 make linguist-detectable=true
 
@@ -9,3 +14,4 @@ make linguist-detectable=true
 *.css linguist-detectable=false
 *.js linguist-detectable=false
 *.html linguist-detectable=false
+*.toml linguist-detectable=false
