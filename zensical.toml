@@ -311,8 +311,8 @@ toggle.icon = "lucide/sun"
 toggle.name = "Switch to Mocha"
 
 [project.theme.icon]
-logo = "lucide/bike"
-repo = "lucide/bike"
+logo = "simple/clojure"
+repo = "simple/clojure"
 
 # ----------------------------------------------------------------------------
 # In the "font" subsection you can configure the fonts used. By default, fonts

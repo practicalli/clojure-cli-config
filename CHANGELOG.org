@@ -4,6 +4,7 @@
 
 ** Added
    - build(make): 🔧 add docs to phony to stop check on directory
+   - build(zensical): 💄 clojure icon for site and repo in theme
 
 * 2026-09-06
 ** Updated
