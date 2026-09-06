@@ -46,13 +46,13 @@ Copyright &copy; 2026 Practicalli
 # Read more: https://zensical.org/docs/setup/navigation/
 nav = [
   { "Introduction" = "index.md" },
-  { "REPL" = "repl.md"},
-  { "Clojure Projects" = "clojure-projects.md"},
-  { "Testing" = "testing.md"},
-  { "Data Inspectors" = "data-inspectors.md"},
-  { "Debug" = "debug.md"},
-  { "Services" = "services.md"},
-  { "Library Repositories" = "library-repositories.md"},
+  { "REPL" = "repl.md" },
+  { "Clojure Projects" = "clojure-projects.md" },
+  { "Testing" = "testing.md" },
+  { "Data Inspectors" = "data-inspectors.md" },
+  { "Debug" = "debug.md" },
+  { "Services" = "services.md" },
+  { "Library Repositories" = "library-repositories.md" },
 ]
 
 # With the "extra_css" option you can add your own CSS styling to customize
