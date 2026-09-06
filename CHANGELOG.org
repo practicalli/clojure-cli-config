@@ -6,6 +6,7 @@
    - build(make): 🔧 add docs to phony to stop check on directory
    - build(zensical): 💄 clojure icon for site and repo in theme
    - build(zensical): 💄 add icon to each page
+   - build(zensical): 💄 disable navigation tabs to show pages in left nav
 
 * 2026-09-06
 ** Updated
