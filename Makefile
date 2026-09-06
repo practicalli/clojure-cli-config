@@ -23,7 +23,7 @@
 # -- Makefile task config ------------------------ #
 # .PHONY: ensures target used rather than matching file name
 # https://makefiletutorial.com/#phony
-.PHONY: all clean  deps dist lint pre-commit-check repl test test-ci test-watch
+.PHONY: all clean docs deps dist lint pre-commit-check repl test test-ci test-watch
 # ------------------------------------------------ #
 
 # -- Makefile Variables -------------------------- #
