@@ -1,3 +1,7 @@
+---
+icon: lucide/search
+---
+
 # Data Inspectors
 
 REPL driven data inspectors and `tap>` sources for visualising data.

@@ -1,3 +1,7 @@
+---
+icon: lucide/terminal
+---
+
 # REPL terminal UI
 
 Run an interactive REPL on the command line with the basic built-in REPL UI or [Rebel](https://practical.li/clojure/clojure-cli/repl/) for a feature rich REPL experience.

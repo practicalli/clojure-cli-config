@@ -1,3 +1,7 @@
+---
+icon: lucide/landmark
+---
+
 # Library Repositories
 
 Clojure libraries are packaged as Java Archive (JAR) files and distributed by Maven style repositories. A Clojure project configuration defines library dependencies that are satisfied by downloading jar files from the collective repository sources.

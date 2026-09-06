@@ -1,3 +1,7 @@
+---
+icon: simple/clojure
+---
+
 # Clojure CLI Config
 
 [Practicalli Clojure CLI Config](https://github.com/practicalli/clojure-cli-config/) provides a wide range of community tools that extend the features of the Clojure CLI, for use across all Clojure deps.edn projects.

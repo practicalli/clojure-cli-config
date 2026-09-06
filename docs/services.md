@@ -1,3 +1,7 @@
+---
+icon: lucide/server
+---
+
 # Services
 
 Web servers and other standalone services run with Clojure CLI

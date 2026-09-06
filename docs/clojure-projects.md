@@ -1,3 +1,7 @@
+---
+icon: lucide/toolbox
+---
+
 # Clojure Projects
 
 Create Clojure CLI configured projects, either built-in or [practicalli/project-templates](https://github.com/practicalli/project-templates) to provide [REPL Reloaded tools](https://practical.li/clojure/clojure-cli/repl-reloaded/) and production-level CI workflows.

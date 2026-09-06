@@ -1,3 +1,7 @@
+---
+icon: lucide/test-tube-diagonal
+---
+
 # Testing
 
 [Unit tests](#unit-tests) can be run via the current REPL session and/or an external [test runner](#test-runners).

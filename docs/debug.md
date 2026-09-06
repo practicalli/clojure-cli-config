@@ -1,3 +1,7 @@
+---
+icon: lucide/bug
+---
+
 # Debug Tools
 
 Emacs CIDER has a built in debug tool that requires no dependencies (other than Cider itself).
