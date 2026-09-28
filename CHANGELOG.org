@@ -10,6 +10,17 @@
 
 ** Updated
    - ci(github): 🔧 update DeLaGuardo/setup-clojure to 13.7.0
+   - chore(aliases): ⬆️ update library versions using `make dependencies-update`
+
+   | :name                           | :current | :latest |
+   |---------------------------------|----------|---------|
+   | clj-commons/clj-yaml            | 1.0.29   | 1.0.30  |
+   | com.h2database/h2               | 2.5.250  | 2.5.252 |
+   | dev.weavejester/cljfmt          | 0.16.5   | 0.16.6  |
+   | io.github.seancorfield/deps-new | v0.13.0  | v0.14.1 |
+   | org.clojure/tools.trace         | 0.9.0    | 0.9.1   |
+   | org.slf4j/slf4j-nop             | 2.0.19   | 2.0.20  |
+
 
 * 2026-09-06
 ** Updated
