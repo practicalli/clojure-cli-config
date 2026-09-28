@@ -8,6 +8,9 @@
    - build(zensical): 💄 add icon to each page
    - build(zensical): 💄 disable navigation tabs to show pages in left nav
 
+** Updated
+   - ci(github): 🔧 update DeLaGuardo/setup-clojure to 13.7.0
+
 * 2026-09-06
 ** Updated
 

@@ -19,7 +19,7 @@ jobs:
       - run: echo "🐙 ${{ github.repository }} repository was cloned to the runner."
 
       - name: "Prepare Clojure tools"
-        uses: DeLaGuardo/setup-clojure@13.6.1
+        uses: DeLaGuardo/setup-clojure@13.7.0
         with:
           cljstyle: 0.17.642    # Cljstyle
           clj-kondo: 2026.08.04 # Clj-kondo
