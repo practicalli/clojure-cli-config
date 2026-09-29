@@ -122,6 +122,37 @@
    :main-opts  ["--main" "nrepl.cmdline"
                 "--middleware" "[cider.nrepl/cider-middleware]"]}
 
+  ;; Clojure-CLI REPL
+  ;; https://github.com/clojure/clojure-cli.repl is a new project to provide
+  ;; a rich command line REPL support, using Java Jline.
+  ;;
+  ;; Features:
+  ;; - multi-line editing
+  ;; - bracket highlighting
+  ;; - structural editing
+  ;; - inline eval
+  ;; - doc lookup for Clojure and Java
+  ;; - a data inspector
+  ;; - configurable prompts
+  ;; - custom keybindings
+  ;; - Vim or Emacs editing modes
+  ;;
+  ;; Aliases added:
+  ;;
+  ;; - `:repl/cli` start nREPL server and rich REPL client
+  ;; - `:repl/serve` start nREPL server only
+  ;; - `:repl/attach` start a client and attach to an existing nREPL server
+  ;;
+  ;; The nREPL server creates an `.nrepl.port` file containing the local port the nREPL server is listening too
+
+  :repl/cli   {:extra-deps {io.github.clojure/clojure-cli.repl-server {:mvn/version "0.1.0"}}
+               :main-opts ["-m" "clojure-cli.repl.server" "repl"]}
+  :repl/serve  {:extra-deps {io.github.clojure/clojure-cli.repl-server {:mvn/version "0.1.0"}}
+                :main-opts ["-m" "clojure-cli.repl.server"]}
+  :repl/attach {:replace-paths []
+                :replace-deps {io.github.clojure/clojure-cli.repl-client {:mvn/version "0.1.0"}}
+                :main-opts ["-m" "clojure-cli.repl.client"]}
+
   ;; Basic REPL UI, nREPL server and Portal data inspector
   :repl/inspect
   {:extra-deps
