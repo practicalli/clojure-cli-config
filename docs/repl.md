@@ -22,6 +22,31 @@ nREPL server is started for all Clojure repl aliases along with the cider-nrepl 
 
 > Use `:env/dev`  with the `:repl/rebel` aliases to include `dev/` in classpath and [configure REPL startup actions using `dev/user.clj`](https://practical.li/clojure/clojure-cli/repl-startup/)
 
+### Clojure CLI REPL
+
+[Clojure-CLI REPL](https://github.com/clojure/clojure-cli.repl){target=_blank} is a new project to provide a rich command line REPL support, using Java Jline.
+
+Features:
+
+- multi-line editing
+- bracket highlighting
+- structural editing
+- inline eval
+- doc lookup for Clojure and Java
+- a data inspector
+- configurable prompts
+- custom keybindings
+- Vim or Emacs editing mode
+
+Aliases added:
+
+- `:repl/cli` start nREPL server and rich REPL client
+- `:repl/serve` start nREPL server only
+- `:repl/attach` start a client and attach to an existing nREPL serve
+
+The nREPL server creates an `.nrepl.port` file containing the local port the nREPL server is listening too
+
+
 ## Hotload Libraries
 
 `clojure -M:repl/reloaded` provides common tools to [enhance the REPL workflow](https://practical.li/clojure/clojure-cli/repl-reloaded/) (hotload libraries, refresh code changes, inspect data, advanced test runner, log & trace)
