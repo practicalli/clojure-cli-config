@@ -24,27 +24,15 @@ nREPL server is started for all Clojure repl aliases along with the cider-nrepl 
 
 ### Clojure CLI REPL
 
-[Clojure-CLI REPL](https://github.com/clojure/clojure-cli.repl){target=_blank} is a new project to provide a rich command line REPL support, using Java Jline.
-
-Features:
-
-- multi-line editing
-- bracket highlighting
-- structural editing
-- inline eval
-- doc lookup for Clojure and Java
-- a data inspector
-- configurable prompts
-- custom keybindings
-- Vim or Emacs editing mode
-
-Aliases added:
+[Clojure-CLI REPL](https://github.com/clojure/clojure-cli.repl){target=_blank} was release in October 2026 to provide a rich command line REPL support, with a simple data inspector.
 
 - `:repl/cli` start nREPL server and rich REPL client
 - `:repl/serve` start nREPL server only
 - `:repl/attach` start a client and attach to an existing nREPL serve
 
 The nREPL server creates an `.nrepl.port` file containing the local port the nREPL server is listening too
+
+> NOTE: a configuration is required to create key mappings for many of the features (see Clojure CLI REPL examples).
 
 
 ## Hotload Libraries
